@@ -56,6 +56,33 @@ export const cdiSignals = [
   ["Onboarding milestone slipped", "Activation risk"],
 ];
 
+export const faqs = [
+  {
+    q: "What is ARR defense?",
+    a: "ARR defense is the process of identifying and acting on customer signals that threaten recurring revenue before they become churn, contraction, or failed renewals. In the SaaS reset, CFOs and CEOs are scrutinizing every software investment more aggressively. If a platform cannot prove adoption, value, and business impact, it becomes vulnerable to consolidation, replacement, or a build-versus-buy decision. ARR defense helps B2B SaaS companies see where customer value is strong, where it is breaking down, and where revenue is at risk.",
+  },
+  {
+    q: "What is post-sale revenue intelligence?",
+    a: "Post-sale revenue intelligence is the practice of connecting customer data after the sale to understand revenue risk, product value, and expansion opportunity. It brings together support tickets, onboarding progress, product friction, customer health, account engagement, and renewal signals so leaders can see which customers are adopting, stalling, growing, ghosting, or silently churning. This matters because the post-sale experience is where software value is either proven or questioned.",
+  },
+  {
+    q: "How do support tickets reveal churn risk?",
+    a: "Support tickets reveal churn risk because they show where customers are struggling to receive value from the product. Repeated issues, unresolved friction, stalled workflows, low adoption questions, frustrated language, feature gaps, and high ticket volume from strategic accounts can all signal that a customer is losing confidence. In today's market, those signals matter because frustrated customers are not just renewal risks. They may also start asking whether the workflow should be replaced, consolidated, automated, or built internally.",
+  },
+  {
+    q: "How is RevTel.AI different from a help desk?",
+    a: "A traditional help desk is built to manage and close tickets. RevTel.AI is built to connect support activity to revenue intelligence. It combines omnichannel support workflows with account-level context, product areas, onboarding signals, customer distress scoring, and ARR risk visibility. The result is a system that helps B2B SaaS leaders understand not just what happened in support, but what it means for retention, expansion, and defensible customer value.",
+  },
+  {
+    q: "Who uses RevTel.AI?",
+    a: "RevTel.AI is designed for B2B SaaS companies that need to protect and grow recurring revenue after the sale. It is used by support, customer success, product, revenue, and executive teams who need a shared view of customer risk, product friction, adoption health, and renewal readiness. The primary executive audience is CEOs, CFOs, CROs, and post-sale leaders responsible for ARR, NRR, retention, and customer value in a market where every vendor must prove why they deserve to stay in the stack.",
+  },
+  {
+    q: "What signals does the Customer Distress Index analyze?",
+    a: "The Customer Distress Index analyzes account-level signals that may indicate churn risk, declining adoption, or weakening customer value. These signals can include ticket volume, unresolved issues, repeated product friction, onboarding delays, customer engagement changes, response patterns, sentiment trends, renewal proximity, adoption gaps, escalation history, and signs that an account is ghosting or disengaging. The goal is to surface risk early enough for teams to intervene before ARR is at stake and before the customer starts questioning whether the software is still worth buying.",
+  },
+];
+
 export const accountIntelligenceCards = [
   ["building", "Account context", "Customer, contact, ARR, ownership, and engagement in one view."],
   ["layers", "Product context", "Tickets mapped to products, features, modules, and friction areas."],
