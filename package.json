@@ -8,12 +8,7 @@
     "build": "astro build",
     "preview": "astro preview"
   },
-  "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
-  },
   "devDependencies": {
-    "@astrojs/react": "^4.0.0",
     "astro": "^5.0.0",
     "autoprefixer": "^10.4.20",
     "netlify-cli": "^26.0.0",
