@@ -1,0 +1,280 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Icon from "../components/Icon.jsx";
+import Pill from "../components/Pill.jsx";
+import DashboardPanel from "../components/DashboardPanel.jsx";
+import DownloadModal from "../components/DownloadModal.jsx";
+import {
+  motions,
+  problemCards,
+  cdiSignals,
+  accountIntelligenceCards,
+} from "../data/content.js";
+
+const btn = "inline-flex items-center justify-center rounded-2xl px-6 py-3 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2";
+const btnPrimary = `${btn} bg-slate-950 text-white hover:bg-slate-800`;
+const btnOutline = `${btn} border border-slate-300 bg-white text-slate-700 hover:bg-slate-50`;
+const btnWhite = `${btn} bg-white text-slate-950 hover:bg-blue-50`;
+---
+
+<Layout>
+  <!-- React island: only the modal ships JS -->
+  <DownloadModal client:load />
+
+  <header class="sticky top-0 z-40 border-b border-slate-200/70 bg-white/85 backdrop-blur-xl">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
+      <div class="flex items-center gap-3">
+        <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-950 text-white">
+          <Icon name="barChart" className="h-5 w-5" />
+        </div>
+        <div>
+          <p class="text-lg font-semibold tracking-tight">RevTel.AI</p>
+          <p class="hidden text-xs font-medium uppercase tracking-[0.18em] text-slate-400 sm:block">Revenue Intelligence</p>
+        </div>
+      </div>
+
+      <nav class="hidden items-center gap-8 text-sm font-medium text-slate-600 md:flex">
+        <a href="#why" class="hover:text-slate-950">Why now</a>
+        <a href="#cdi" class="hover:text-slate-950">CDI</a>
+        <a href="#motions" class="hover:text-slate-950">ARR motions</a>
+      </nav>
+
+      <button data-open-modal type="button" class={`${btnPrimary} rounded-full px-5 py-2.5`}>
+        Download Report
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="relative overflow-hidden bg-[linear-gradient(135deg,#ffffff_0%,#f4f7fb_52%,#eef6ff_100%)]">
+      <div class="absolute right-[-12%] top-[-18%] h-[520px] w-[520px] rounded-full bg-blue-100/70 blur-3xl"></div>
+      <div class="absolute bottom-[-20%] left-[-10%] h-[420px] w-[420px] rounded-full bg-teal-100/60 blur-3xl"></div>
+      <div class="absolute right-[12%] top-[18%] h-32 w-32 rounded-full border border-blue-200/70 bg-white/30"></div>
+      <div class="absolute bottom-[16%] right-[38%] h-20 w-20 rounded-full border border-teal-200/70 bg-white/20"></div>
+
+      <div class="relative mx-auto grid max-w-7xl items-center gap-12 px-5 py-20 lg:grid-cols-[0.95fr_1.05fr] lg:px-8 lg:py-28">
+        <div>
+          <Pill tone="default">Revenue intelligence for B2B SaaS</Pill>
+          <h1 class="mt-7 max-w-4xl text-6xl font-semibold tracking-[-0.06em] text-slate-950 sm:text-7xl lg:text-8xl">
+            Your help desk is hiding revenue risk.
+          </h1>
+          <p class="mt-7 max-w-2xl text-xl leading-8 text-slate-600">
+            RevTel.AI is an omnichannel support system with native revenue intelligence, built from 15 years of B2B SaaS customer operations experience dating back to early IBM Watson-era churn prediction. It helps leaders see stalled adoption, product friction, silent churn, and expansion risk hiding inside everyday support interactions.
+          </p>
+          <div class="mt-8 max-w-2xl rounded-[1.5rem] border border-slate-200 bg-white/70 p-2 shadow-sm backdrop-blur">
+            <div class="divide-y divide-slate-200 sm:grid sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+              <div class="p-4">
+                <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">System</p>
+                <p class="mt-2 text-sm font-medium text-slate-800">Omnichannel B2B support</p>
+              </div>
+              <div class="p-4">
+                <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">Intelligence</p>
+                <p class="mt-2 text-sm font-medium text-slate-800">Native account-level risk</p>
+              </div>
+              <div class="p-4">
+                <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">AI lineage</p>
+                <p class="mt-2 text-sm font-medium text-slate-800">15 years of signal history</p>
+              </div>
+            </div>
+          </div>
+          <div class="mt-9 flex flex-col gap-4 sm:flex-row">
+            <button data-open-modal type="button" class={`${btnPrimary} px-7 py-4 text-base`}>
+              Download the ARR Defense Report <Icon name="arrowRight" className="ml-2 h-4 w-4" />
+            </button>
+            <a href="#why" class={`${btnOutline} px-7 py-4 text-base`}>
+              See the revenue risk framework
+            </a>
+          </div>
+        </div>
+
+        <DashboardPanel />
+      </div>
+    </section>
+
+    <!-- Why now -->
+    <section id="why" class="mx-auto max-w-7xl px-5 py-20 lg:px-8">
+      <div class="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.22em] text-blue-700">Why this matters now</p>
+          <h2 class="mt-5 text-5xl font-semibold tracking-[-0.045em] text-slate-950 lg:text-6xl">
+            Is your support team losing you revenue?
+          </h2>
+          <p class="mt-5 text-lg leading-8 text-slate-600">
+            The hard truth: horizontal help desks were never designed to protect ARR. Here's what that costs you.
+          </p>
+        </div>
+
+        <div class="rounded-[2rem] border border-slate-200 bg-white p-3 shadow-xl shadow-slate-900/5">
+          {problemCards.map(([title, copy], index) => (
+            <div class={`grid gap-4 rounded-3xl p-6 sm:grid-cols-[180px_1fr] ${index % 2 === 0 ? "bg-slate-50" : "bg-white"}`}>
+              <div class="flex items-center gap-3">
+                <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-50 text-blue-700">
+                  <Icon name="check" className="h-4 w-4" />
+                </div>
+                <p class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Signal 0{index + 1}</p>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold tracking-tight text-slate-950">{title}</h3>
+                <p class="mt-2 text-sm leading-6 text-slate-600">{copy}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CDI -->
+    <section id="cdi" class="bg-slate-950 px-5 py-20 text-white lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-[0.22em] text-blue-300">Customer Distress Index</p>
+            <h2 class="mt-5 text-5xl font-semibold tracking-[-0.045em] lg:text-6xl">
+              Built to predict churn, not report it.
+            </h2>
+            <p class="mt-6 text-lg leading-8 text-slate-300">
+              RevTel.AI identifies account-level churn risk from support, onboarding, product friction, engagement, and renewal signals before the risk shows up in CRM or at renewal.
+            </p>
+            <div class="mt-8 grid gap-3 sm:grid-cols-2">
+              <div class="rounded-3xl border border-white/10 bg-white/5 p-5">
+                <p class="text-3xl font-semibold">5</p>
+                <p class="mt-1 text-sm text-slate-400">Signal categories connected</p>
+              </div>
+              <div class="rounded-3xl border border-white/10 bg-white/5 p-5">
+                <p class="text-3xl font-semibold">1</p>
+                <p class="mt-1 text-sm text-slate-400">Account-level risk view</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="rounded-[2rem] border border-white/10 bg-white/[0.06] p-6 shadow-2xl">
+            <div class="mb-6 flex items-center justify-between">
+              <div>
+                <p class="text-sm font-medium text-slate-400">Account</p>
+                <p class="text-xl font-semibold">Acme Enterprise</p>
+              </div>
+              <Pill tone="risk">CDI 74</Pill>
+            </div>
+            <div class="rounded-3xl bg-white p-6 text-slate-950">
+              <div class="flex items-end justify-between gap-6">
+                <div>
+                  <p class="text-sm font-medium text-slate-500">Risk profile</p>
+                  <p class="mt-2 text-6xl font-semibold tracking-tight">High</p>
+                </div>
+                <div class="rounded-2xl bg-amber-50 p-4 text-amber-700">
+                  <Icon name="alert" className="h-8 w-8" />
+                </div>
+              </div>
+              <div class="mt-8 space-y-3">
+                {cdiSignals.map(([title, label]) => (
+                  <div class="rounded-2xl border border-slate-100 bg-slate-50 p-4">
+                    <p class="font-medium text-slate-900">{title}</p>
+                    <p class="mt-1 text-xs uppercase tracking-[0.16em] text-slate-400">{label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARR Defense -->
+    <section class="mx-auto max-w-5xl px-5 py-20 text-center lg:px-8">
+      <p class="text-sm font-semibold uppercase tracking-[0.22em] text-blue-700">ARR Defense System</p>
+      <h2 class="mt-5 text-5xl font-semibold tracking-[-0.05em] text-slate-950 lg:text-7xl">
+        Stop asking if your support is fast. Start asking if it's protecting ARR.
+      </h2>
+      <p class="mx-auto mt-7 max-w-3xl text-xl leading-8 text-slate-600">
+        We show you where customer value is being created, where it's breaking down, and what to do before ARR is at risk. That's not support software. That's an ARR defense system.
+      </p>
+      <button data-open-modal type="button" class={`${btnPrimary} mt-9 px-8 py-4 text-base`}>
+        Download the ARR Defense Report <Icon name="download" className="ml-2 h-4 w-4" />
+      </button>
+    </section>
+
+    <!-- ARR Motions -->
+    <section id="motions" class="mx-auto max-w-7xl px-5 py-20 lg:px-8">
+      <div class="mb-10 max-w-3xl">
+        <p class="text-sm font-semibold uppercase tracking-[0.22em] text-blue-700">Four ARR motions</p>
+        <h2 class="mt-5 text-5xl font-semibold tracking-[-0.045em] text-slate-950 lg:text-6xl">
+          Revenue protection across the full post-sale lifecycle.
+        </h2>
+      </div>
+      <div class="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-xl shadow-slate-900/5">
+        {motions.map((motion) => (
+          <div class="grid gap-6 border-b border-slate-100 p-7 last:border-b-0 md:grid-cols-[160px_1fr_1.5fr] md:items-center">
+            <div class="flex items-center gap-4">
+              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-blue-700">
+                <Icon name={motion.icon} className="h-5 w-5" />
+              </div>
+              <span class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">{motion.label}</span>
+            </div>
+            <div>
+              <h3 class="text-2xl font-semibold tracking-tight text-slate-950">{motion.title}</h3>
+              <p class="mt-1 text-xs font-semibold uppercase tracking-[0.18em] text-teal-700">{motion.subtitle}</p>
+            </div>
+            <p class="text-sm leading-6 text-slate-600">{motion.copy}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Account intelligence -->
+    <section class="mx-auto max-w-7xl px-5 py-20 lg:px-8">
+      <div class="grid items-center gap-12 rounded-[2rem] bg-white p-8 shadow-xl shadow-slate-900/5 lg:grid-cols-[0.95fr_1.05fr] lg:p-12">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.22em] text-blue-700">Account intelligence</p>
+          <h2 class="mt-5 text-5xl font-semibold tracking-[-0.045em] text-slate-950 lg:text-6xl">
+            Not a generic help desk with AI on top.
+          </h2>
+          <p class="mt-6 text-lg leading-8 text-slate-600">
+            At its core, RevTel.AI is a full B2B support platform: email, portal, ticketing, routing, AI triage, customer records, product areas, playbooks, and reporting. The difference is that revenue intelligence is native to the system, not bolted on after the support data is created.
+          </p>
+        </div>
+        <div class="grid gap-4 sm:grid-cols-2">
+          {accountIntelligenceCards.map(([icon, title, copy]) => (
+            <div class="rounded-3xl border border-slate-100 bg-slate-50 p-5">
+              <Icon name={icon} className="mb-5 h-6 w-6 text-blue-700" />
+              <h3 class="font-semibold text-slate-950">{title}</h3>
+              <p class="mt-2 text-sm leading-6 text-slate-600">{copy}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="px-5 pb-20 pt-10 lg:px-8">
+      <div class="mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] bg-slate-950 px-8 py-16 text-center text-white shadow-2xl shadow-slate-900/20 lg:px-20">
+        <p class="text-sm font-semibold uppercase tracking-[0.22em] text-blue-300">Executive guide</p>
+        <h2 class="mx-auto mt-5 max-w-4xl text-5xl font-semibold tracking-[-0.05em] lg:text-7xl">
+          Find the revenue risk your help desk cannot explain.
+        </h2>
+        <p class="mx-auto mt-7 max-w-2xl text-lg leading-8 text-slate-300">
+          Download the ARR Defense Report and see how B2B SaaS leaders can turn support signals into revenue intelligence.
+        </p>
+        <button data-open-modal type="button" class={`${btnWhite} mt-9 px-8 py-4 text-base`}>
+          Download the ARR Defense Report <Icon name="arrowRight" className="ml-2 h-4 w-4" />
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-200 bg-white">
+    <div class="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-8 text-sm text-slate-500 md:flex-row md:items-center md:justify-between lg:px-8">
+      <p class="font-semibold text-slate-950">RevTel.AI</p>
+      <p>Revenue intelligence for B2B SaaS after the sale.</p>
+      <p>Activation. Adoption. Growth. Renewal.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll("[data-open-modal]").forEach((el) => {
+      el.addEventListener("click", () => {
+        window.dispatchEvent(new CustomEvent("open-modal"));
+      });
+    });
+  </script>
+</Layout>
