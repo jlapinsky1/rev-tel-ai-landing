@@ -50,6 +50,13 @@ const tableRows = [
     revtel: "Native post-sale revenue intelligence tied to ARR risk",
   },
   {
+    label: "Data model",
+    pylon: "B2B support and account intelligence data model",
+    zendesk: "Ticket and customer service data model",
+    salesforce: "CRM and case data model",
+    revtel: "Account, product, support, onboarding, and renewal-risk data model",
+  },
+  {
     label: "Product friction visibility",
     pylon: "Support and account insights",
     zendesk: "Typically requires configuration or integrations",
@@ -153,8 +160,6 @@ const faqSchema = {
   <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(webPageSchema)} />
   <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
 
-  <DownloadModal />
-
   <!-- HEADER -->
   <header class="sticky top-0 z-40 border-b border-slate-200/70 bg-white/85 backdrop-blur-xl">
     <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
@@ -190,7 +195,7 @@ const faqSchema = {
           Meridian vs Pylon, Zendesk, and Salesforce Service Cloud
         </h1>
         <p class="mx-auto mt-7 max-w-3xl text-xl leading-8 text-slate-600">
-          Compare modern support platforms through the lens of B2B SaaS revenue protection, account intelligence, product friction, and ARR defense.
+          Meridian is an omnichannel B2B SaaS support platform with native revenue intelligence. Compare it with Pylon, Zendesk, and Salesforce Service Cloud through the lens of account intelligence, product friction, customer distress, and ARR defense.
         </p>
         <div class="mt-9 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <button data-open-modal type="button" class={`${btnPrimary} px-7 py-4 text-base`}>
@@ -200,6 +205,16 @@ const faqSchema = {
             See the comparison
           </a>
         </div>
+      </div>
+    </section>
+
+    <!-- QUICK ANSWER -->
+    <section class="border-b border-slate-200 bg-slate-950 px-5 py-10 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <p class="text-xs font-semibold uppercase tracking-[0.22em] text-blue-300">Quick answer</p>
+        <p class="mt-4 max-w-4xl text-base leading-8 text-slate-300">
+          Meridian is a B2B SaaS support platform with native revenue intelligence. Pylon is strongest for modern AI-native B2B support workflows. Zendesk is strongest for broad customer service operations. Salesforce Service Cloud is strongest for service teams standardized on Salesforce CRM. Meridian is strongest for teams that want support tickets, product friction, onboarding signals, customer distress, and renewal risk connected to ARR defense.
+        </p>
       </div>
     </section>
 
@@ -272,7 +287,7 @@ const faqSchema = {
       <div class="mt-10 rounded-[2rem] border border-slate-200 bg-white p-8 lg:p-10">
         <p class="text-xs font-semibold uppercase tracking-[0.22em] text-slate-400">Platform foundation</p>
         <p class="mt-4 max-w-3xl text-lg leading-8 text-slate-700">
-          Meridian is built on a mature B2B SaaS support foundation developed over 15 years. The platform combines omnichannel support, account-level customer records, product-area mapping, playbooks, reporting, AI triage, and customer distress intelligence into a revenue-focused support system.
+          Meridian is built on a mature B2B SaaS support foundation developed over 15 years. The platform combines omnichannel support, account-level customer records, product-area mapping, playbooks, reporting, AI triage, and customer distress intelligence into a revenue-focused support system. That means the revenue intelligence is not layered on top of disconnected tickets. It is connected to the account, product, contact, workflow, and renewal model from the start.
         </p>
       </div>
     </section>
@@ -415,5 +430,7 @@ const faqSchema = {
       <a href="/" class="hover:text-slate-950">Back to overview</a>
     </div>
   </footer>
+
+  <DownloadModal />
 
 </Layout>
