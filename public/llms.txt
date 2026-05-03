@@ -8,11 +8,11 @@ Meridian helps B2B SaaS leaders identify stalled adoption, product friction, sil
 
 - Homepage: https://meridianarr.com/
 - Comparison: https://meridianarr.com/compare/meridian-vs-pylon-zendesk-salesforce/
-- ARR Defense Report: https://meridianarr.com/arr-defense-report.pdf
+- Value Continuity Report: https://meridianarr.com/arr-defense-report.pdf
 
 ## Core concepts
 
-- ARR defense
+- Value Continuity
 - Post-sale revenue intelligence
 - Customer Distress Index
 - B2B SaaS support

@@ -58,8 +58,8 @@ export const cdiSignals = [
 
 export const faqs = [
   {
-    q: "What is ARR defense?",
-    a: "ARR defense is the process of identifying and acting on customer signals that threaten recurring revenue before they become churn, contraction, or failed renewals. In the SaaS reset, CFOs and CEOs are scrutinizing every software investment more aggressively. If a platform cannot prove adoption, value, and business impact, it becomes vulnerable to consolidation, replacement, or a build-versus-buy decision. ARR defense helps B2B SaaS companies see where customer value is strong, where it is breaking down, and where revenue is at risk.",
+    q: "What is Value Continuity?",
+    a: "Value Continuity is the process of identifying and acting on customer signals that threaten recurring revenue before they become churn, contraction, or failed renewals. In the SaaS reset, CFOs and CEOs are scrutinizing every software investment more aggressively. If a platform cannot prove adoption, value, and business impact, it becomes vulnerable to consolidation, replacement, or a build-versus-buy decision. Value Continuity helps B2B SaaS companies see where customer value is strong, where it is breaking down, and where revenue is at risk.",
   },
   {
     q: "What is post-sale revenue intelligence?",
