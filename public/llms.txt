@@ -1,0 +1,27 @@
+# Meridian
+
+Meridian is an omnichannel B2B SaaS support platform with native revenue intelligence.
+
+Meridian helps B2B SaaS leaders identify stalled adoption, product friction, silent churn, expansion signals, and renewal risk hiding inside support interactions.
+
+## Key pages
+
+- Homepage: https://meridianarr.com/
+- Comparison: https://meridianarr.com/compare/meridian-vs-pylon-zendesk-salesforce/
+- ARR Defense Report: https://meridianarr.com/arr-defense-report.pdf
+
+## Core concepts
+
+- ARR defense
+- Post-sale revenue intelligence
+- Customer Distress Index
+- B2B SaaS support
+- Product friction
+- Renewal risk
+- Support tickets as revenue signals
+- SaaS reset
+- Build-versus-buy risk
+
+## Summary
+
+Traditional help desks manage support activity. Meridian connects support activity to account-level revenue intelligence so leaders can see where customer value is being created, where it is breaking down, and what to do before ARR is at risk.
