@@ -30,12 +30,21 @@ const selectClass = `${inputClass} text-slate-500`;
           The report shows how B2B SaaS leaders can find hidden revenue risk inside support tickets, onboarding delays, product friction, customer distress signals, and renewal activity.
         </p>
         <a
+          id="pdf-download-btn"
           href="/arr-defense-report.pdf"
           download
           class="mt-9 inline-flex items-center justify-center rounded-full bg-slate-950 px-8 py-4 text-base font-semibold text-white transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
         >
           Download the ARR Defense Report <Icon name="download" class="ml-2 h-4 w-4" />
         </a>
+
+        <script>
+          document.getElementById("pdf-download-btn")!.addEventListener("click", () => {
+            setTimeout(() => {
+              document.getElementById("revenue-risk-assessment")!.scrollIntoView({ behavior: "smooth" });
+            }, 400);
+          });
+        </script>
       </div>
     </section>
 
