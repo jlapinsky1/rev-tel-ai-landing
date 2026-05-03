@@ -37,7 +37,7 @@ export const riskSignals = [
 ];
 
 export const accounts = [
-  { name: "Northgate AI", status: "Silent churn", tone: "risk", arr: "$420K" },
+  { name: "Meridan", status: "Silent churn", tone: "risk", arr: "$420K" },
   { name: "Meridian Cloud", status: "Ghosting", tone: "warn", arr: "$310K" },
   { name: "Brightfield SaaS", status: "Healthy", tone: "good", arr: "$260K" },
   { name: "Stackwell", status: "Expansion", tone: "good", arr: "$180K" },

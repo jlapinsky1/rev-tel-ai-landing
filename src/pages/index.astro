@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Icon from "../components/Icon.astro";
 import Pill from "../components/Pill.astro";
 import DashboardPanel from "../components/DashboardPanel.astro";
+import DownloadModal from "../components/DownloadModal.astro";
 import {
   motions,
   problemCards,
@@ -27,54 +28,7 @@ const btnWhite  = `${btn} bg-white text-slate-950 hover:bg-blue-50`;
       "acceptedAnswer": { "@type": "Answer", "text": faq.a },
     })),
   })} />
-  <!-- ============================================================
-       MODAL — plain HTML, no JS framework, Netlify Form
-  ============================================================ -->
-  <div
-    id="download-modal"
-    class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/60 p-4 backdrop-blur-sm"
-    aria-modal="true"
-    role="dialog"
-  >
-    <div class="w-full max-w-xl rounded-3xl border border-slate-200 bg-white p-6 shadow-2xl">
-      <div class="mb-6 flex items-start justify-between gap-6">
-        <div>
-          <Pill tone="dark">ARR Defense Report</Pill>
-          <h3 class="mt-4 text-2xl font-semibold tracking-tight text-slate-950">Download the revenue risk brief</h3>
-          <p class="mt-2 text-sm leading-6 text-slate-600">
-            A CFO and CEO guide to finding hidden churn, adoption gaps, and product friction inside post-sale customer signals.
-          </p>
-        </div>
-        <button id="modal-close" aria-label="Close" type="button" class="rounded-full px-3 py-1 text-slate-400 hover:bg-slate-100 hover:text-slate-700">×</button>
-      </div>
-
-      <form id="modal-form" name="arr-defense-report" method="POST" data-netlify="true" class="space-y-0">
-        <input type="hidden" name="form-name" value="arr-defense-report" />
-        <div class="grid gap-4 sm:grid-cols-2">
-          <input name="full-name" required class="rounded-2xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-blue-500" placeholder="Full name" />
-          <input name="email" type="email" required class="rounded-2xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-blue-500" placeholder="Work email" />
-          <input name="company" class="rounded-2xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-blue-500" placeholder="Company" />
-          <select name="role" class="rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-500 outline-none focus:border-blue-500">
-            <option value="" disabled selected>Role</option>
-            <option>CFO</option>
-            <option>CEO or Founder</option>
-            <option>CRO or Revenue Leader</option>
-            <option>Customer Success Leader</option>
-          </select>
-        </div>
-        <button type="submit" class={`${btnPrimary} mt-5 w-full py-4`}>
-          Download the ARR Defense Report <Icon name="download" class="ml-2 h-4 w-4" />
-        </button>
-      </form>
-
-      <div id="modal-success" class="hidden py-8 text-center">
-        <p class="text-lg font-semibold text-slate-950">You're all set.</p>
-        <p class="mt-2 text-sm text-slate-600">Check your inbox — the ARR Defense Report is on its way.</p>
-      </div>
-
-      <p class="mt-3 text-center text-xs text-slate-400">No spam. Just the framework and practical revenue risk checklist.</p>
-    </div>
-  </div>
+  <DownloadModal />
 
   <!-- ============================================================
        HEADER
@@ -95,6 +49,7 @@ const btnWhite  = `${btn} bg-white text-slate-950 hover:bg-blue-50`;
         <a href="#why" class="hover:text-slate-950">Why now</a>
         <a href="#cdi" class="hover:text-slate-950">CDI</a>
         <a href="#motions" class="hover:text-slate-950">ARR motions</a>
+        <a href="/compare/revtel-ai-vs-pylon-zendesk-salesforce" class="hover:text-slate-950">Compare</a>
       </nav>
 
       <button data-open-modal type="button" class={`${btnPrimary} rounded-full px-5 py-2.5`}>
@@ -360,25 +315,4 @@ const btnWhite  = `${btn} bg-white text-slate-950 hover:bg-blue-50`;
     </div>
   </footer>
 
-  <script>
-    const modal   = document.getElementById("download-modal")!;
-    const form    = document.getElementById("modal-form")!;
-    const success = document.getElementById("modal-success")!;
-
-    const open  = () => modal.classList.replace("hidden", "flex");
-    const close = () => modal.classList.replace("flex",   "hidden");
-
-    document.querySelectorAll("[data-open-modal]").forEach(el =>
-      el.addEventListener("click", open)
-    );
-    document.getElementById("modal-close")!.addEventListener("click", close);
-    modal.addEventListener("click", (e) => { if (e.target === modal) close(); });
-
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      await fetch("/", { method: "POST", body: new FormData(form as HTMLFormElement) });
-      form.classList.add("hidden");
-      success.classList.remove("hidden");
-    });
-  </script>
 </Layout>

@@ -1,0 +1,419 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Icon from "../../components/Icon.astro";
+import Pill from "../../components/Pill.astro";
+import DownloadModal from "../../components/DownloadModal.astro";
+
+const pageTitle = "RevTel.AI vs Pylon, Zendesk, and Salesforce | B2B SaaS Revenue Intelligence";
+const pageDescription = "Compare RevTel.AI with Pylon, Zendesk, and Salesforce Service Cloud for B2B SaaS support, account intelligence, customer distress signals, product friction, and ARR defense.";
+const canonical = "https://rev-tel-ai.netlify.app/compare/revtel-ai-vs-pylon-zendesk-salesforce";
+
+const btn = "inline-flex items-center justify-center rounded-2xl px-6 py-3 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2";
+const btnPrimary = `${btn} bg-slate-950 text-white hover:bg-slate-800`;
+const btnOutline = `${btn} border border-slate-300 bg-white text-slate-700 hover:bg-slate-50`;
+const btnWhite   = `${btn} bg-white text-slate-950 hover:bg-blue-50`;
+
+const tableRows = [
+  {
+    label: "Primary center of gravity",
+    pylon: "AI-native B2B support",
+    zendesk: "Horizontal customer service",
+    salesforce: "CRM-native service management",
+    revtel: "B2B SaaS support plus ARR defense",
+  },
+  {
+    label: "Best fit",
+    pylon: "Modern B2B teams scaling support across channels",
+    zendesk: "Broad customer service teams needing automation and self-service",
+    salesforce: "Companies standardized on Salesforce CRM",
+    revtel: "B2B SaaS companies protecting ARR after the sale",
+  },
+  {
+    label: "Core workflow",
+    pylon: "Ticketing, chat, knowledge, AI support, account intelligence",
+    zendesk: "Omnichannel service, AI agents, self-service, agent productivity",
+    salesforce: "Cases, service workflows, knowledge, AI service inside CRM",
+    revtel: "Omnichannel support, account intelligence, product friction, CDI, playbooks, renewal risk",
+  },
+  {
+    label: "Executive question answered",
+    pylon: "How do we scale B2B support with AI?",
+    zendesk: "How do we improve service efficiency and customer experience?",
+    salesforce: "How do we manage service inside CRM?",
+    revtel: "Which customers are adopting, stalling, expanding, ghosting, or silently churning?",
+  },
+  {
+    label: "Revenue intelligence",
+    pylon: "Account insights and customer intelligence",
+    zendesk: "Service analytics and customer experience insights",
+    salesforce: "CRM-connected service data",
+    revtel: "Native post-sale revenue intelligence tied to ARR risk",
+  },
+  {
+    label: "Product friction visibility",
+    pylon: "Support and account insights",
+    zendesk: "Typically requires configuration or integrations",
+    salesforce: "Depends on CRM and service data model",
+    revtel: "Native product and product-area signal mapping",
+  },
+  {
+    label: "Churn risk lens",
+    pylon: "Account health and insights",
+    zendesk: "Support trends, sentiment, and service analytics",
+    salesforce: "CRM and service forecasting context",
+    revtel: "Customer Distress Index and ARR defense workflows",
+  },
+  {
+    label: "Why it matters in the SaaS reset",
+    pylon: "Helps modern teams scale AI support",
+    zendesk: "Helps reduce service cost and improve support efficiency",
+    salesforce: "Helps align service with CRM",
+    revtel: "Helps prove customer value before build-vs-buy risk emerges",
+  },
+];
+
+const whenToChoose = [
+  {
+    platform: "Pylon",
+    body: "Pylon may be a fit for B2B companies that want a modern AI-native support platform across channels like chat, email, Slack, knowledge base, and AI assistance. It is especially relevant for teams focused on support speed, collaboration, account visibility, and modern customer communication workflows.",
+    highlight: false,
+  },
+  {
+    platform: "Zendesk",
+    body: "Zendesk may be a fit for companies that need a broad, horizontal customer service platform with AI agents, self-service, automation, agent tools, and mature support operations across many types of businesses.",
+    highlight: false,
+  },
+  {
+    platform: "Salesforce Service Cloud",
+    body: "Salesforce Service Cloud may be a fit for companies that are already standardized on Salesforce and want service cases, knowledge, workflows, AI service experiences, and customer records connected inside the CRM ecosystem.",
+    highlight: false,
+  },
+  {
+    platform: "RevTel.AI",
+    body: "RevTel.AI may be a fit for B2B SaaS companies that need support operations and revenue intelligence in the same system. It is designed for teams that want to connect tickets, accounts, product areas, onboarding signals, customer distress, and renewal risk so executives can see whether customers are proving value, losing confidence, or creating expansion opportunity.",
+    highlight: true,
+  },
+];
+
+const faqs = [
+  {
+    q: "How is RevTel.AI different from Pylon?",
+    a: "RevTel.AI and Pylon both focus on B2B support, but they emphasize different buyer problems. Pylon is positioned as an AI-native B2B support platform for ticketing, chat, knowledge base, AI support, and account intelligence. RevTel.AI is positioned around omnichannel B2B support with native post-sale revenue intelligence, connecting support tickets, product friction, onboarding signals, customer distress, and renewal risk to help SaaS leaders defend ARR.",
+  },
+  {
+    q: "How is RevTel.AI different from Zendesk?",
+    a: "Zendesk is a broad customer service platform built for many industries and support use cases. RevTel.AI is built specifically around the B2B SaaS post-sale lifecycle, where support data needs to reveal customer adoption, product friction, account health, expansion opportunity, and ARR risk.",
+  },
+  {
+    q: "How is RevTel.AI different from Salesforce Service Cloud?",
+    a: "Salesforce Service Cloud is a CRM-native service platform for managing cases, service workflows, knowledge, and AI-powered service experiences inside Salesforce. RevTel.AI is designed for B2B SaaS companies that want a support system where revenue intelligence is native to the support and account model, including product-area friction, customer distress signals, onboarding workflows, and renewal risk.",
+  },
+  {
+    q: "What is the best Pylon alternative for B2B SaaS revenue intelligence?",
+    a: "For B2B SaaS companies focused primarily on ARR defense, post-sale revenue intelligence, customer distress signals, and product friction visibility, RevTel.AI is a purpose-built alternative to consider. Teams should compare whether they need AI-native support workflows alone or a support system that connects customer interactions directly to revenue risk.",
+  },
+  {
+    q: "What is the best Zendesk alternative for B2B SaaS companies?",
+    a: "For B2B SaaS companies that need account-level support, product-area signal tracking, customer distress intelligence, onboarding playbooks, and ARR risk visibility, RevTel.AI is a focused alternative to horizontal customer service platforms like Zendesk.",
+  },
+  {
+    q: "What is the best Salesforce Service Cloud alternative for post-sale revenue teams?",
+    a: "For teams that want post-sale revenue intelligence outside a broad CRM service architecture, RevTel.AI is designed to connect support workflows, customer accounts, product friction, onboarding signals, and renewal risk in a B2B SaaS-specific system.",
+  },
+  {
+    q: "What is the difference between AI-native support and ARR defense?",
+    a: "AI-native support focuses on improving support operations through automation, routing, summarization, and faster resolution. ARR defense focuses on what support activity means for recurring revenue. It helps B2B SaaS leaders understand whether customers are adopting the product, experiencing friction, disengaging, or questioning whether the software still delivers enough value to justify renewal.",
+  },
+  {
+    q: "Why does this comparison matter for CFOs and CEOs?",
+    a: "This comparison matters because the SaaS reset has made software value more visible and more scrutinized. CFOs and CEOs need to know whether customer-facing systems are simply managing support activity or helping prove customer value, protect renewals, identify expansion opportunities, and reduce build-versus-buy risk.",
+  },
+];
+
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": pageTitle,
+  "description": pageDescription,
+  "url": canonical,
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a },
+  })),
+};
+---
+
+<Layout title={pageTitle} description={pageDescription} canonical={canonical}>
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(webPageSchema)} />
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+
+  <DownloadModal />
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-40 border-b border-slate-200/70 bg-white/85 backdrop-blur-xl">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
+      <a href="/" class="flex items-center gap-3">
+        <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-950 text-white">
+          <Icon name="barChart" class="h-5 w-5" />
+        </div>
+        <div>
+          <p class="text-lg font-semibold tracking-tight">RevTel.AI</p>
+          <p class="hidden text-xs font-medium uppercase tracking-[0.18em] text-slate-400 sm:block">Revenue Intelligence</p>
+        </div>
+      </a>
+
+      <nav class="hidden items-center gap-8 text-sm font-medium text-slate-600 md:flex">
+        <a href="/" class="hover:text-slate-950">Overview</a>
+        <a href="#comparison" class="hover:text-slate-950">Comparison</a>
+        <a href="#faq" class="hover:text-slate-950">FAQ</a>
+      </nav>
+
+      <button data-open-modal type="button" class={`${btnPrimary} rounded-full px-5 py-2.5`}>
+        Download Report
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="border-b border-slate-100 bg-gradient-to-b from-white to-slate-50 px-5 py-20 lg:px-8 lg:py-28">
+      <div class="mx-auto max-w-5xl text-center">
+        <Pill tone="default">Platform comparison</Pill>
+        <h1 class="mt-7 text-5xl font-semibold tracking-[-0.05em] text-slate-950 lg:text-7xl">
+          RevTel.AI vs Pylon, Zendesk, and Salesforce Service Cloud
+        </h1>
+        <p class="mx-auto mt-7 max-w-3xl text-xl leading-8 text-slate-600">
+          Compare modern support platforms through the lens of B2B SaaS revenue protection, account intelligence, product friction, and ARR defense.
+        </p>
+        <div class="mt-9 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+          <button data-open-modal type="button" class={`${btnPrimary} px-7 py-4 text-base`}>
+            Download the ARR Defense Report <Icon name="arrowRight" class="ml-2 h-4 w-4" />
+          </button>
+          <a href="#comparison" class={`${btnOutline} px-7 py-4 text-base`}>
+            See the comparison
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CENTERS OF GRAVITY -->
+    <section class="mx-auto max-w-7xl px-5 py-20 lg:px-8">
+      <div class="mb-12 max-w-3xl">
+        <p class="text-sm font-semibold uppercase tracking-[0.22em] text-blue-700">Different platforms, different centers of gravity</p>
+        <h2 class="mt-5 text-4xl font-semibold tracking-[-0.04em] text-slate-950 lg:text-5xl">
+          Each platform is built around a different buyer problem.
+        </h2>
+      </div>
+
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="rounded-3xl border border-slate-100 bg-slate-50 p-6">
+          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Pylon</p>
+          <p class="mt-3 text-base font-semibold text-slate-950">AI-native B2B support platform</p>
+          <p class="mt-3 text-sm leading-7 text-slate-600">
+            Centered on modern support workflows, customer channels, knowledge, AI assistants, and account intelligence.
+          </p>
+        </div>
+
+        <div class="rounded-3xl border border-slate-100 bg-slate-50 p-6">
+          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Zendesk</p>
+          <p class="mt-3 text-base font-semibold text-slate-950">Horizontal customer service platform</p>
+          <p class="mt-3 text-sm leading-7 text-slate-600">
+            Centered on scalable support operations, AI agents, self-service, and agent productivity.
+          </p>
+        </div>
+
+        <div class="rounded-3xl border border-slate-100 bg-slate-50 p-6">
+          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Salesforce Service Cloud</p>
+          <p class="mt-3 text-base font-semibold text-slate-950">CRM-native service platform</p>
+          <p class="mt-3 text-sm leading-7 text-slate-600">
+            Centered on cases, service workflows, customer records, knowledge, and AI-powered service experiences inside the Salesforce ecosystem.
+          </p>
+        </div>
+
+        <div class="rounded-3xl border border-blue-100 bg-blue-50 p-6">
+          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600">RevTel.AI</p>
+          <p class="mt-3 text-base font-semibold text-slate-950">B2B SaaS support plus ARR defense</p>
+          <p class="mt-3 text-sm leading-7 text-slate-600">
+            Built for B2B SaaS companies that need omnichannel support and native post-sale revenue intelligence in one system. Connects support tickets, accounts, product areas, onboarding, customer distress signals, and renewal risk.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-10 rounded-[2rem] border border-slate-200 bg-white p-8 lg:p-10">
+        <p class="text-xs font-semibold uppercase tracking-[0.22em] text-slate-400">Platform foundation</p>
+        <p class="mt-4 max-w-3xl text-lg leading-8 text-slate-700">
+          RevTel.AI is built on a mature B2B SaaS support foundation developed over 15 years. The platform combines omnichannel support, account-level customer records, product-area mapping, playbooks, reporting, AI triage, and customer distress intelligence into a revenue-focused support system.
+        </p>
+      </div>
+    </section>
+
+    <!-- COMPARISON TABLE -->
+    <section id="comparison" class="mx-auto max-w-7xl px-5 py-20 lg:px-8">
+      <div class="mb-10 max-w-3xl">
+        <p class="text-sm font-semibold uppercase tracking-[0.22em] text-blue-700">Feature comparison</p>
+        <h2 class="mt-5 text-4xl font-semibold tracking-[-0.04em] text-slate-950 lg:text-5xl">
+          How the platforms compare across key buyer questions.
+        </h2>
+      </div>
+
+      <div class="overflow-x-auto rounded-[2rem] border border-slate-200 shadow-xl shadow-slate-900/5">
+        <table class="w-full min-w-[860px] border-collapse bg-white">
+          <thead>
+            <tr class="border-b-2 border-slate-100">
+              <th class="w-[200px] p-6 text-left text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">Buyer question</th>
+              <th class="p-6 text-left text-sm font-semibold text-slate-700">Pylon</th>
+              <th class="p-6 text-left text-sm font-semibold text-slate-700">Zendesk</th>
+              <th class="p-6 text-left text-sm font-semibold text-slate-700">Salesforce Service Cloud</th>
+              <th class="bg-blue-50/70 p-6 text-left text-sm font-semibold text-blue-900">RevTel.AI</th>
+            </tr>
+          </thead>
+          <tbody>
+            {tableRows.map((row, i) => (
+              <tr class={`border-b border-slate-100 last:border-b-0 ${i % 2 === 0 ? "bg-white" : "bg-slate-50/40"}`}>
+                <td class="p-6 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">{row.label}</td>
+                <td class="p-6 text-sm leading-6 text-slate-600">{row.pylon}</td>
+                <td class="p-6 text-sm leading-6 text-slate-600">{row.zendesk}</td>
+                <td class="p-6 text-sm leading-6 text-slate-600">{row.salesforce}</td>
+                <td class={`p-6 text-sm font-medium leading-6 text-slate-800 ${i % 2 === 0 ? "bg-blue-50/50" : "bg-blue-50/70"}`}>{row.revtel}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- WHEN TO CHOOSE -->
+    <section class="border-t border-slate-100 bg-slate-50 px-5 py-20 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="mb-12 max-w-3xl">
+          <p class="text-sm font-semibold uppercase tracking-[0.22em] text-blue-700">Buyer guidance</p>
+          <h2 class="mt-5 text-4xl font-semibold tracking-[-0.04em] text-slate-950 lg:text-5xl">
+            When to choose each platform.
+          </h2>
+        </div>
+
+        <div class="grid gap-6 sm:grid-cols-2">
+          {whenToChoose.map((item) => (
+            <div class={`rounded-3xl border p-7 ${item.highlight ? "border-blue-200 bg-white shadow-lg shadow-blue-900/5" : "border-slate-200 bg-white"}`}>
+              <p class={`text-xs font-semibold uppercase tracking-[0.18em] ${item.highlight ? "text-blue-600" : "text-slate-400"}`}>{item.platform}</p>
+              <p class="mt-4 text-sm leading-7 text-slate-600">{item.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- AI-NATIVE SUPPORT VS ARR DEFENSE -->
+    <section class="mx-auto max-w-7xl px-5 py-20 lg:px-8">
+      <div class="grid gap-12 lg:grid-cols-2">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.22em] text-blue-700">Category distinction</p>
+          <h2 class="mt-5 text-4xl font-semibold tracking-[-0.04em] text-slate-950 lg:text-5xl">
+            AI-native support vs ARR defense.
+          </h2>
+        </div>
+        <div class="flex flex-col justify-center space-y-6 text-base leading-8 text-slate-600">
+          <p>
+            AI-native support helps teams automate, route, summarize, and resolve customer issues more efficiently. ARR defense focuses on what those customer issues mean for revenue.
+          </p>
+          <p>
+            In B2B SaaS, support interactions can reveal whether customers are adopting the product, struggling with product friction, disengaging from workflows, or questioning whether the software is still worth buying.
+          </p>
+          <p>
+            RevTel.AI is designed around this second question: not just how support gets handled, but what support signals reveal about customer value and ARR risk.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY THIS MATTERS IN THE SAAS RESET -->
+    <section class="bg-slate-950 px-5 py-20 text-white lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="grid gap-12 lg:grid-cols-2">
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-[0.22em] text-blue-300">Why this matters now</p>
+            <h2 class="mt-5 text-4xl font-semibold tracking-[-0.04em] lg:text-5xl">
+              The SaaS reset has changed what support software needs to do.
+            </h2>
+          </div>
+          <div class="flex flex-col justify-center space-y-6 text-base leading-8 text-slate-300">
+            <p>
+              The SaaS reset has changed the standard for every software vendor. CFOs are scrutinizing spend, AI is accelerating build-versus-buy decisions, and customers are asking whether each platform delivers defensible business value.
+            </p>
+            <p>
+              That makes post-sale customer signals more important than ever. Support tickets, onboarding delays, repeated product friction, declining engagement, and unresolved customer distress can all indicate that an account is losing confidence before renewal risk appears in CRM.
+            </p>
+            <p>
+              For B2B SaaS leaders, the question is no longer whether support is fast. The question is whether support is protecting ARR.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT REVTEL.AI -->
+    <section class="border-b border-slate-200 bg-slate-50 px-5 py-14 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <p class="text-xs font-semibold uppercase tracking-[0.22em] text-slate-400">About RevTel.AI</p>
+        <p class="mt-4 max-w-3xl text-lg leading-8 text-slate-700">
+          RevTel.AI is an omnichannel B2B SaaS support platform with native revenue intelligence. It connects support tickets, customer accounts, product areas, onboarding workflows, AI triage, customer distress signals, and renewal risk into one system for post-sale revenue teams.
+        </p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="mx-auto max-w-7xl px-5 py-20 lg:px-8">
+      <div class="mb-12 max-w-3xl">
+        <p class="text-sm font-semibold uppercase tracking-[0.22em] text-blue-700">Frequently asked questions</p>
+        <h2 class="mt-5 text-4xl font-semibold tracking-[-0.04em] text-slate-950 lg:text-5xl">
+          Questions about this comparison.
+        </h2>
+      </div>
+
+      <div class="divide-y divide-slate-100 rounded-[2rem] border border-slate-200 bg-white shadow-xl shadow-slate-900/5">
+        {faqs.map((faq, i) => (
+          <div class="grid gap-4 p-8 md:grid-cols-[2fr_3fr] md:gap-12">
+            <div>
+              <span class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">0{i + 1}</span>
+              <h3 class="mt-3 text-lg font-semibold leading-snug tracking-tight text-slate-950">{faq.q}</h3>
+            </div>
+            <p class="text-base leading-8 text-slate-600">{faq.a}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="px-5 pb-20 pt-4 lg:px-8">
+      <div class="mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] bg-slate-950 px-8 py-16 text-center text-white shadow-2xl shadow-slate-900/20 lg:px-20">
+        <p class="text-sm font-semibold uppercase tracking-[0.22em] text-blue-300">Executive guide</p>
+        <h2 class="mx-auto mt-5 max-w-3xl text-4xl font-semibold tracking-[-0.05em] lg:text-6xl">
+          Find the revenue risk your help desk cannot explain.
+        </h2>
+        <p class="mx-auto mt-7 max-w-2xl text-lg leading-8 text-slate-300">
+          Download the ARR Defense Report and see how B2B SaaS leaders can turn support signals into revenue intelligence.
+        </p>
+        <button data-open-modal type="button" class={`${btnWhite} mt-9 px-8 py-4 text-base`}>
+          Download the ARR Defense Report <Icon name="arrowRight" class="ml-2 h-4 w-4" />
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-slate-200 bg-white">
+    <div class="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-8 text-sm text-slate-500 md:flex-row md:items-center md:justify-between lg:px-8">
+      <a href="/" class="font-semibold text-slate-950 hover:text-slate-700">RevTel.AI</a>
+      <p>Revenue intelligence for B2B SaaS after the sale.</p>
+      <a href="/" class="hover:text-slate-950">Back to overview</a>
+    </div>
+  </footer>
+
+</Layout>

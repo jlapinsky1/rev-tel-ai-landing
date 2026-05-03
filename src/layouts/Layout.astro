@@ -1,5 +1,17 @@
 ---
 import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+}
+
+const {
+  title = "RevTel.AI — Revenue Intelligence for B2B SaaS",
+  description = "RevTel.AI is an omnichannel support system with native revenue intelligence. See stalled adoption, product friction, silent churn, and expansion risk hiding inside everyday support interactions.",
+  canonical,
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -7,11 +19,9 @@ import "../styles/global.css";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RevTel.AI — Revenue Intelligence for B2B SaaS</title>
-    <meta
-      name="description"
-      content="RevTel.AI is an omnichannel support system with native revenue intelligence. See stalled adoption, product friction, silent churn, and expansion risk hiding inside everyday support interactions."
-    />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {canonical && <link rel="canonical" href={canonical} />}
     <slot name="head" />
   </head>
   <body>
