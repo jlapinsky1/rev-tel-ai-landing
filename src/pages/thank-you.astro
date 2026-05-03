@@ -1,0 +1,135 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import Icon from "../components/Icon.astro";
+import Pill from "../components/Pill.astro";
+import DownloadModal from "../components/DownloadModal.astro";
+
+const pageTitle = "Your ARR Defense Report is Ready | Meridian";
+const pageDescription = "Download the ARR Defense Report and see how B2B SaaS leaders can find hidden revenue risk inside support tickets, onboarding delays, product friction, customer distress signals, and renewal activity.";
+const canonical = "https://rev-tel-ai.netlify.app/thank-you/";
+
+const inputClass = "w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-blue-500";
+const selectClass = `${inputClass} text-slate-500`;
+---
+
+<Layout title={pageTitle} description={pageDescription} canonical={canonical}>
+
+  <Nav />
+
+  <main>
+
+    <!-- REPORT READY -->
+    <section class="border-b border-slate-100 bg-gradient-to-b from-white to-slate-50 px-5 py-20 lg:px-8 lg:py-28">
+      <div class="mx-auto max-w-3xl text-center">
+        <Pill tone="dark">ARR Defense Report</Pill>
+        <h1 class="mt-7 text-5xl font-semibold tracking-[-0.05em] text-slate-950 lg:text-6xl">
+          Your ARR Defense Report is ready.
+        </h1>
+        <p class="mx-auto mt-7 max-w-2xl text-xl leading-8 text-slate-600">
+          The report shows how B2B SaaS leaders can find hidden revenue risk inside support tickets, onboarding delays, product friction, customer distress signals, and renewal activity.
+        </p>
+        <a
+          href="/arr-defense-report.pdf"
+          download
+          class="mt-9 inline-flex items-center justify-center rounded-full bg-slate-950 px-8 py-4 text-base font-semibold text-white transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+        >
+          Download the ARR Defense Report <Icon name="download" class="ml-2 h-4 w-4" />
+        </a>
+      </div>
+    </section>
+
+    <!-- REVENUE RISK ASSESSMENT -->
+    <section class="px-5 py-20 lg:px-8">
+      <div class="mx-auto max-w-2xl">
+        <p class="text-sm font-semibold uppercase tracking-[0.22em] text-blue-700">Revenue risk assessment</p>
+        <h2 class="mt-5 text-4xl font-semibold tracking-[-0.04em] text-slate-950 lg:text-5xl">
+          Want to see what this would reveal in your own customer base?
+        </h2>
+        <p class="mt-6 text-lg leading-8 text-slate-600">
+          Meridian helps B2B SaaS teams identify stalled adoption, product friction, silent churn, and expansion risk hiding inside support interactions.
+        </p>
+
+        <form
+          name="revenue-risk-assessment"
+          method="POST"
+          data-netlify="true"
+          action="/thank-you/"
+          class="mt-10"
+        >
+          <input type="hidden" name="form-name" value="revenue-risk-assessment" />
+          <input type="hidden" name="intent" value="request-revenue-risk-assessment" />
+
+          <div class="grid gap-4 sm:grid-cols-2">
+            <input
+              name="full-name"
+              required
+              class={inputClass}
+              placeholder="Full name"
+            />
+            <input
+              name="email"
+              type="email"
+              required
+              class={inputClass}
+              placeholder="Work email"
+            />
+            <input
+              name="company"
+              class={inputClass}
+              placeholder="Company"
+            />
+            <select name="role" class={selectClass}>
+              <option value="" disabled selected>Role</option>
+              <option>CFO</option>
+              <option>CEO or Founder</option>
+              <option>CRO or Revenue Leader</option>
+              <option>Customer Success Leader</option>
+              <option>VP of Support</option>
+              <option>Other</option>
+            </select>
+            <select name="arr-range" class={selectClass}>
+              <option value="" disabled selected>ARR range</option>
+              <option>Under $1M</option>
+              <option>$1M – $5M</option>
+              <option>$5M – $20M</option>
+              <option>$20M – $50M</option>
+              <option>$50M+</option>
+            </select>
+            <input
+              name="current-support-platform"
+              class={inputClass}
+              placeholder="Current support platform"
+            />
+          </div>
+
+          <textarea
+            name="what-are-you-trying-to-understand"
+            rows="4"
+            class={`${inputClass} mt-4 resize-none`}
+            placeholder="What are you trying to understand?"
+          ></textarea>
+
+          <button
+            type="submit"
+            class="mt-5 inline-flex w-full items-center justify-center rounded-2xl bg-slate-950 px-6 py-4 text-sm font-semibold text-white transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+          >
+            Request a Revenue Risk Assessment <Icon name="arrowRight" class="ml-2 h-4 w-4" />
+          </button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-slate-200 bg-white">
+    <div class="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-8 text-sm text-slate-500 md:flex-row md:items-center md:justify-between lg:px-8">
+      <a href="/" class="font-semibold text-slate-950 hover:text-slate-700">Meridian</a>
+      <p>Revenue intelligence for B2B SaaS after the sale.</p>
+      <a href="/" class="hover:text-slate-950">Back to overview</a>
+    </div>
+  </footer>
+
+  <DownloadModal />
+
+</Layout>
