@@ -56,4 +56,6 @@ import Icon from "./Icon.astro";
   );
   document.getElementById("modal-close")!.addEventListener("click", close);
   modal.addEventListener("click", (e) => { if (e.target === modal) close(); });
+
+  if (window.location.hash === "#download") open();
 </script>
