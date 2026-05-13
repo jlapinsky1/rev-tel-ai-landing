@@ -407,13 +407,14 @@ const canonical = "https://meridianarr.com/customer-defensibility-score/";
             <p class="mt-3 text-base leading-7 text-slate-600">
               Share an anonymized sample of support tickets and Meridian can generate a limited Value Decay Signal Review showing where support activity may indicate activation risk, adoption friction, expansion signals, or renewal defensibility gaps.
             </p>
-            <a
-              href="/#download"
+            <button
+              id="open-signal-modal"
+              type="button"
               class="mt-6 inline-flex items-center justify-center rounded-full bg-slate-950 px-8 py-4 text-base font-semibold text-white transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
             >
               Request a Signal Review
               <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
-            </a>
+            </button>
           </div>
         </div>
       </section>
@@ -421,6 +422,86 @@ const canonical = "https://meridianarr.com/customer-defensibility-score/";
     </div>
 
   </main>
+
+  <!-- Hidden Netlify form for Signal Review -->
+  <form name="signal-review-request" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input name="bot-field" />
+    <input name="email" />
+    <input name="full-name" />
+    <input name="company" />
+    <input name="score" />
+    <input name="profile" />
+    <input name="focus" />
+  </form>
+
+  <!-- Signal Review Modal -->
+  <div
+    id="signal-modal"
+    class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/60 p-4 backdrop-blur-sm"
+    aria-modal="true"
+    aria-hidden="true"
+    role="dialog"
+  >
+    <div class="w-full max-w-lg rounded-3xl border border-slate-200 bg-white p-8 shadow-2xl">
+
+      <!-- Form state -->
+      <div id="signal-modal-form-state">
+        <div class="mb-6 flex items-start justify-between gap-4">
+          <div>
+            <span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-blue-700">Signal Review</span>
+            <h3 class="mt-3 text-xl font-semibold tracking-tight text-slate-950">Request a Value Decay Signal Review</h3>
+            <p class="mt-2 text-sm leading-6 text-slate-600">
+              Share an anonymized sample of support tickets and Meridian will generate a limited Signal Review showing where support activity may indicate activation risk, adoption friction, expansion signals, or renewal defensibility gaps.
+            </p>
+          </div>
+          <button id="signal-modal-close" type="button" aria-label="Close" class="flex-shrink-0 rounded-full px-3 py-1 text-slate-400 hover:bg-slate-100 hover:text-slate-700">×</button>
+        </div>
+
+        <form id="signal-review-form" novalidate class="flex flex-col gap-3">
+          <div class="grid gap-3 sm:grid-cols-2">
+            <input id="sr-name"    type="text"  placeholder="Your name"    class="sr-input" />
+            <input id="sr-email"   type="email" placeholder="Work email *" class="sr-input" required />
+            <input id="sr-company" type="text"  placeholder="Company *"    class="sr-input sm:col-span-2" required />
+          </div>
+          <textarea
+            id="sr-focus"
+            rows="3"
+            placeholder="Anything specific you'd like us to focus on? (optional)"
+            class="sr-input resize-none"
+          ></textarea>
+          <p id="sr-error" class="hidden text-sm text-red-600">Please enter a valid work email and company name.</p>
+          <button
+            id="sr-submit"
+            type="submit"
+            class="mt-1 inline-flex w-full items-center justify-center rounded-full bg-slate-950 px-6 py-4 text-sm font-semibold text-white transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+          >
+            Request My Review
+            <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
+          </button>
+        </form>
+        <p class="mt-3 text-center text-xs text-slate-400">No spam. We'll follow up within one business day.</p>
+      </div>
+
+      <!-- Confirmation state (hidden until submitted) -->
+      <div id="signal-modal-confirm-state" class="hidden py-4 text-center">
+        <div class="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-teal-50">
+          <svg class="h-7 w-7 text-teal-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+        </div>
+        <h3 class="text-xl font-semibold tracking-tight text-slate-950">Request received.</h3>
+        <p class="mx-auto mt-3 max-w-sm text-sm leading-6 text-slate-600">
+          The Meridian team will reach out within one business day to kick off your Value Decay Signal Review.
+        </p>
+        <button
+          id="signal-modal-done"
+          type="button"
+          class="mt-6 inline-flex items-center justify-center rounded-full border border-slate-200 px-6 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
+        >
+          Close
+        </button>
+      </div>
+
+    </div>
+  </div>
 
   <footer class="border-t border-slate-200 bg-white">
     <div class="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-8 text-sm text-slate-500 md:flex-row md:items-center md:justify-between lg:px-8">
@@ -511,6 +592,17 @@ const canonical = "https://meridianarr.com/customer-defensibility-score/";
   .nav-next-btn:disabled { opacity: 0.4; cursor: not-allowed; }
   .screen { animation: fadeIn 0.2s ease; }
   @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+  .sr-input {
+    width: 100%;
+    border-radius: 1rem;
+    border: 1px solid #e2e8f0;
+    background: white;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .sr-input:focus { border-color: #3b82f6; box-shadow: 0 0 0 1px #3b82f6; }
 </style>
 
 <script>
@@ -834,6 +926,71 @@ const canonical = "https://meridianarr.com/customer-defensibility-score/";
   document.getElementById('back-3')?.addEventListener('click', () => goTo(2));
   document.getElementById('back-4')?.addEventListener('click', () => goTo(3));
   document.getElementById('back-5')?.addEventListener('click', () => goTo(4));
+
+  // ─── Signal Review Modal ────────────────────────────────────────────────────
+
+  const signalModal = document.getElementById('signal-modal')!;
+  const openSignalModal  = () => { signalModal.classList.replace('hidden', 'flex'); signalModal.removeAttribute('aria-hidden'); };
+  const closeSignalModal = () => { signalModal.classList.replace('flex', 'hidden'); signalModal.setAttribute('aria-hidden', 'true'); };
+
+  document.getElementById('open-signal-modal')?.addEventListener('click', () => {
+    // Pre-fill from quiz email capture
+    const nameEl    = document.getElementById('sr-name')    as HTMLInputElement;
+    const emailEl   = document.getElementById('sr-email')   as HTMLInputElement;
+    const companyEl = document.getElementById('sr-company') as HTMLInputElement;
+    if (!nameEl.value)    nameEl.value    = (document.getElementById('input-name')    as HTMLInputElement)?.value ?? '';
+    if (!emailEl.value)   emailEl.value   = (document.getElementById('input-email')   as HTMLInputElement)?.value ?? '';
+    if (!companyEl.value) companyEl.value = (document.getElementById('input-company') as HTMLInputElement)?.value ?? '';
+    openSignalModal();
+  });
+
+  document.getElementById('signal-modal-close')!.addEventListener('click', closeSignalModal);
+  document.getElementById('signal-modal-done')!.addEventListener('click', closeSignalModal);
+  signalModal.addEventListener('click', (e) => { if (e.target === signalModal) closeSignalModal(); });
+
+  document.getElementById('signal-review-form')!.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email   = (document.getElementById('sr-email')   as HTMLInputElement).value.trim();
+    const company = (document.getElementById('sr-company') as HTMLInputElement).value.trim();
+    const name    = (document.getElementById('sr-name')    as HTMLInputElement).value.trim();
+    const focus   = (document.getElementById('sr-focus')   as HTMLTextAreaElement).value.trim();
+    const errEl   = document.getElementById('sr-error')!;
+
+    if (!email || !company || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      errEl.classList.remove('hidden');
+      return;
+    }
+    errEl.classList.add('hidden');
+
+    const btn = document.getElementById('sr-submit') as HTMLButtonElement;
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+
+    const score      = calcScore();
+    const profileKey = getDominantProfile(calcProfiles());
+    const band       = BANDS.find(b => score >= b.min)!;
+
+    const data: Record<string, string> = {
+      'form-name': 'signal-review-request',
+      email, company,
+      'full-name': name,
+      score: String(score),
+      'profile': PROFILES[profileKey]?.name ?? profileKey,
+      'score-band': band.label,
+      focus,
+    };
+
+    try {
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: Object.entries(data).map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`).join('&'),
+      });
+    } catch (_) { /* fail silently */ }
+
+    document.getElementById('signal-modal-form-state')!.classList.add('hidden');
+    document.getElementById('signal-modal-confirm-state')!.classList.remove('hidden');
+  });
 
   // Email form
   document.getElementById('email-form')!.addEventListener('submit', async (e) => {
