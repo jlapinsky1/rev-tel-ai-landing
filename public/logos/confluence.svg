@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Confluence">
+  <defs>
+    <linearGradient id="conf-a" x1="96%" y1="12%" x2="36%" y2="62%">
+      <stop offset="0%" stop-color="#0052CC"/>
+      <stop offset="100%" stop-color="#2684FF"/>
+    </linearGradient>
+    <linearGradient id="conf-b" x1="4%" y1="88%" x2="64%" y2="38%">
+      <stop offset="0%" stop-color="#0052CC"/>
+      <stop offset="100%" stop-color="#2684FF"/>
+    </linearGradient>
+  </defs>
+  <path d="M10.8 194.2c-3 4.9-.5 11.3 4.9 13.1l54.2 17.8a9.6 9.6 0 0011.5-5.1c7.9-15.6 18.9-30.7 55.6-30.7 28.2 0 50.3 9.8 63.1 21.3a9.6 9.6 0 0012.5.2l42.2-35.2a9.6 9.6 0 00.8-14c-22-22.4-64.8-47.1-118.6-47.1-64.8 0-107.2 34.4-126.2 79.7z" fill="url(#conf-a)"/>
+  <path d="M245.2 61.8c3-4.9.5-11.3-4.9-13.1L186.1 31a9.6 9.6 0 00-11.5 5.1c-7.9 15.6-18.9 30.7-55.6 30.7-28.2 0-50.3-9.8-63.1-21.3a9.6 9.6 0 00-12.5-.2L1.2 80.5a9.6 9.6 0 00-.8 14c22 22.4 64.8 47.1 118.6 47.1 64.8 0 107.2-34.4 126.2-79.8z" fill="url(#conf-b)"/>
+</svg>

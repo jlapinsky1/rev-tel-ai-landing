@@ -97,11 +97,16 @@ const liveCategories = integrationCategories.map(cat => ({
 
                 <div>
                   {cat.liveConnectors.length > 0 ? (
-                    <div class="flex flex-wrap gap-3">
+                    <div class="flex flex-wrap gap-4">
                       {cat.liveConnectors.map(c => (
-                        <div class="rounded-2xl border border-slate-200 bg-slate-50 px-5 py-3">
-                          <p class="text-sm font-semibold text-slate-950">{c.name}</p>
-                          <p class="mt-0.5 text-xs text-slate-400 uppercase tracking-[0.14em]">Connected</p>
+                        <div class="flex flex-col items-center gap-3 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm" style="width:140px">
+                          <img
+                            src={`/logos/${c.slug === "confluence-cloud" || c.slug === "confluence-data-center" ? "confluence" : c.slug}.svg`}
+                            alt={c.name}
+                            class="h-12 w-full object-contain"
+                            loading="lazy"
+                          />
+                          <p class="text-center text-xs font-medium leading-tight text-slate-600">{c.name}</p>
                         </div>
                       ))}
                     </div>
