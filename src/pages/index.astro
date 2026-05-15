@@ -10,6 +10,7 @@ import {
   problemCards,
   cdiSignals,
   accountIntelligenceCards,
+  integrationCategories,
   faqs,
 } from "../data/content.js";
 
@@ -118,6 +119,55 @@ const btnWhite  = `${btn} bg-white text-slate-950 hover:bg-blue-50`;
               <p class="mt-2 text-sm leading-6 text-slate-600">{copy}</p>
             </div>
           ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Connector network -->
+    <section id="integrations-overview" class="border-y border-slate-200 bg-slate-50 px-5 py-20 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="grid gap-14 lg:grid-cols-[1fr_1.1fr] lg:items-start">
+
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-[0.22em] text-blue-700">Connected Customer Data Network</p>
+            <h2 class="mt-5 text-5xl font-semibold tracking-[-0.045em] text-slate-950 lg:text-6xl">
+              Meridian connects the systems where customer value actually lives.
+            </h2>
+            <p class="mt-6 text-lg leading-8 text-slate-600">
+              MeridianARR connects support, CRM, product usage, collaboration, engineering, data, analytics, and AI-native systems so teams can see where customer value is being created, where it is breaking down, and what actions protect ARR. Instead of stitching together a custom Claude, Grok, or MCP connector stack, Meridian turns connected post-sale signals into customer defensibility, revenue risk visibility, and expansion insight.
+            </p>
+            <div class="mt-8 rounded-2xl border border-blue-100 bg-white px-6 py-5 shadow-sm">
+              <p class="text-sm font-semibold text-slate-950">The advantage is not having connectors.</p>
+              <p class="mt-1 text-sm leading-6 text-slate-600">The advantage is knowing what those connected signals mean for retention, expansion, and ARR defensibility.</p>
+            </div>
+            <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+              <a href="https://meridianarr.com/customer-defensibility-score/" class={`${btnPrimary} px-6 py-3 text-sm`}>
+                Take the Customer Defensibility Score <Icon name="arrowRight" class="ml-2 h-4 w-4" />
+              </a>
+              <a href="/integrations/" class={`${btnOutline} px-6 py-3 text-sm`}>
+                See supported integrations
+              </a>
+            </div>
+          </div>
+
+          <div class="grid gap-4 sm:grid-cols-2">
+            {integrationCategories.filter(cat => cat.connectors.some(c => c.status === "live")).map(cat => (
+              <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <div class="mb-3 flex items-center gap-2">
+                  <div class="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-700">
+                    <Icon name={cat.icon} class="h-4 w-4" />
+                  </div>
+                  <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">{cat.name}</p>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                  {cat.connectors.filter(c => c.status === "live").map(c => (
+                    <span class="inline-block rounded-lg border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">{c.name}</span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
         </div>
       </div>
     </section>

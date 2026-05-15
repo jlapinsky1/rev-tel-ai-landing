@@ -83,6 +83,98 @@ export const faqs = [
   },
 ];
 
+// Integration categories
+// status: "live"    = confirmed from product screenshots — safe to publish
+// status: "confirm" = in data structure but NOT rendered publicly until confirmed
+export const integrationCategories = [
+  {
+    name: "CRM and revenue systems",
+    icon: "building",
+    description: "Connect account, opportunity, renewal, owner, ARR, lifecycle stage, and expansion context from CRM and revenue systems.",
+    connectors: [
+      { name: "Salesforce",  slug: "salesforce", status: "live"    },
+      { name: "HubSpot",     slug: "hubspot",    status: "confirm" },
+    ],
+  },
+  {
+    name: "Support and customer operations",
+    icon: "activity",
+    description: "Connect tickets, conversations, support history, sentiment, resolution patterns, escalations, and customer friction signals.",
+    connectors: [
+      { name: "Zendesk",   slug: "zendesk",   status: "confirm" },
+      { name: "Intercom",  slug: "intercom",  status: "confirm" },
+      { name: "Freshdesk", slug: "freshdesk", status: "confirm" },
+    ],
+  },
+  {
+    name: "Knowledge and self-service",
+    icon: "layers",
+    description: "Connect knowledge base content, article engagement, self-service deflection signals, and documentation gap detection.",
+    connectors: [
+      { name: "Confluence Cloud",       slug: "confluence-cloud",       status: "live"    },
+      { name: "Confluence Data Center", slug: "confluence-data-center", status: "live"    },
+      { name: "Knowledge Owl",          slug: "knowledge-owl",          status: "live"    },
+      { name: "MindTouch",              slug: "mindtouch",              status: "live"    },
+      { name: "SharePoint",             slug: "sharepoint",             status: "live"    },
+    ],
+  },
+  {
+    name: "Collaboration and communication",
+    icon: "check",
+    description: "Connect customer conversations, internal collaboration, escalation paths, handoffs, and follow-up workflows.",
+    connectors: [
+      { name: "Slack",            slug: "slack",            status: "live"    },
+      { name: "Microsoft Teams",  slug: "microsoft-teams",  status: "confirm" },
+      { name: "Gmail",            slug: "gmail",            status: "confirm" },
+      { name: "Outlook",          slug: "outlook",          status: "confirm" },
+    ],
+  },
+  {
+    name: "Engineering and issue tracking",
+    icon: "refresh",
+    description: "Connect bugs, product requests, engineering escalations, roadmap dependencies, issue resolution history, and delivery signals.",
+    connectors: [
+      { name: "Jira",         slug: "jira",          status: "live"    },
+      { name: "Azure DevOps", slug: "azure-devops",  status: "confirm" },
+      { name: "GitHub",       slug: "github",        status: "confirm" },
+      { name: "Linear",       slug: "linear",        status: "confirm" },
+    ],
+  },
+  {
+    name: "Product usage and adoption",
+    icon: "trendingUp",
+    description: "Connect activation, usage breadth, feature engagement, adoption depth, event history, and product friction signals.",
+    connectors: [
+      { name: "Pendo",     slug: "pendo",     status: "confirm" },
+      { name: "Segment",   slug: "segment",   status: "confirm" },
+      { name: "Amplitude", slug: "amplitude", status: "confirm" },
+      { name: "Mixpanel",  slug: "mixpanel",  status: "confirm" },
+    ],
+  },
+  {
+    name: "Data warehouse and analytics",
+    icon: "barChart",
+    description: "Connect structured customer data, event history, account metrics, operational reporting, and revenue intelligence sources.",
+    connectors: [
+      { name: "Snowflake", slug: "snowflake", status: "confirm" },
+      { name: "BigQuery",  slug: "bigquery",  status: "confirm" },
+      { name: "Redshift",  slug: "redshift",  status: "confirm" },
+      { name: "Power BI",  slug: "power-bi",  status: "confirm" },
+    ],
+  },
+  {
+    name: "AI-native connectors",
+    icon: "shield",
+    description: "Connect AI workflows, account context, agent actions, customer intelligence, and defensibility scoring into the systems teams already use.",
+    connectors: [
+      { name: "OpenAI",                    slug: "openai",                    status: "confirm" },
+      { name: "Anthropic Claude",          slug: "anthropic-claude",          status: "confirm" },
+      { name: "MCP-compatible workflows",  slug: "mcp-compatible-workflows",  status: "confirm" },
+      { name: "Custom API",                slug: "custom-api",                status: "confirm" },
+    ],
+  },
+];
+
 export const accountIntelligenceCards = [
   ["building", "Account context", "Customer, contact, ARR, ownership, and engagement in one view."],
   ["layers", "Product context", "Tickets mapped to products, features, modules, and friction areas."],
