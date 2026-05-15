@@ -1,0 +1,158 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+
+const pageTitle = "Value Continuity vs Revenue Intelligence Platforms | MeridianARR";
+const pageDescription = "Revenue intelligence tools (Gong, Clari) focus on pre-sale pipeline. Value Continuity platforms like MeridianARR focus on post-sale ARR risk. Learn how they differ and where each fits.";
+const canonical = "https://meridianarr.com/compare/value-continuity-vs-revenue-intelligence/";
+
+const faqs = [
+  {
+    q: "What is the difference between Value Continuity and revenue intelligence?",
+    a: "Revenue intelligence platforms like Gong and Clari focus on the sales motion: call recording, pipeline forecasting, and pre-sale signal capture. Value Continuity platforms like MeridianARR focus on the post-sale motion: connecting support interactions, product friction, and customer distress to ARR risk after the contract is signed. Most revenue intelligence tools stop at handoff to CS. Value Continuity starts there.",
+  },
+  {
+    q: "Does MeridianARR replace Gong or Clari?",
+    a: "No. Gong and Clari are pre-sale revenue intelligence tools. MeridianARR is a post-sale Value Continuity platform. They address different parts of the revenue cycle. Companies that use Gong or Clari for sales forecasting use MeridianARR to protect the ARR that sales closes.",
+  },
+  {
+    q: "What is post-sale revenue intelligence?",
+    a: "Post-sale revenue intelligence is the analysis of customer behavior after contract signing to identify ARR risk. It connects support activity, product adoption, onboarding status, and customer distress signals to renewal probability and expansion opportunity. MeridianARR provides post-sale revenue intelligence through the Customer Distress Index and Value Continuity framework.",
+  },
+  {
+    q: "Which revenue stage does Value Continuity cover?",
+    a: "Value Continuity covers the entire post-sale revenue lifecycle: Activation (onboarding risk), Adoption (product friction), Growth (expansion signals), and Renewal (ARR protection). MeridianARR monitors all four stages continuously and surfaces ARR risk before it appears in the renewal forecast.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: { "@type": "Answer", text: faq.a },
+  })),
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://meridianarr.com/" },
+    { "@type": "ListItem", position: 2, name: "Compare", item: "https://meridianarr.com/compare/" },
+    { "@type": "ListItem", position: 3, name: "Value Continuity vs Revenue Intelligence", item: canonical },
+  ],
+};
+---
+
+<Layout title={pageTitle} description={pageDescription} canonical={canonical}>
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <Nav />
+
+  <main>
+    <section class="bg-slate-950 px-5 py-20 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <p class="text-sm font-medium text-blue-400">Compare</p>
+        <h1 class="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+          Value Continuity vs Revenue Intelligence
+        </h1>
+        <p class="mt-6 text-lg leading-relaxed text-slate-300">
+          Revenue intelligence tools like Gong and Clari are pre-sale: they optimize the pipeline and forecast deals. Value Continuity is post-sale: it protects the ARR that sales closes. MeridianARR is a Value Continuity platform for B2B SaaS companies, focused entirely on post-sale revenue intelligence.
+        </p>
+      </div>
+    </section>
+
+    <section class="bg-white px-5 py-14 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-slate-950">The short answer</h2>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          Revenue intelligence platforms (Gong, Clari, Chorus) are built for sales teams. They record calls, analyze pipeline health, forecast revenue, and help sellers close deals. They are excellent at what they do: optimizing the pre-sale motion.
+        </p>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          What most revenue intelligence platforms do not cover is what happens to ARR after the deal is won. Post-sale revenue risk — churn, contraction, failed renewals — comes from support friction, product adoption gaps, and customer distress signals that live outside the sales motion entirely.
+        </p>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          MeridianARR is a Value Continuity platform: post-sale revenue intelligence that connects support, product, and customer distress signals to ARR risk after handoff. It is the post-sale equivalent of what Gong or Clari does for the pre-sale motion.
+        </p>
+      </div>
+    </section>
+
+    <section class="bg-slate-50 px-5 py-14 lg:px-8">
+      <div class="mx-auto max-w-4xl">
+        <h2 class="text-2xl font-bold text-slate-950">How they compare</h2>
+        <div class="mt-8 overflow-x-auto">
+          <table class="w-full border-collapse text-sm">
+            <thead>
+              <tr class="border-b border-slate-200 bg-white">
+                <th class="py-3 pl-4 pr-6 text-left font-semibold text-slate-700">Dimension</th>
+                <th class="py-3 px-4 text-left font-semibold text-slate-700">Revenue Intelligence<br/><span class="font-normal text-slate-500">(Gong, Clari, Chorus)</span></th>
+                <th class="py-3 px-4 text-left font-semibold text-slate-950">Value Continuity<br/><span class="font-normal text-slate-500">(MeridianARR)</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-slate-100">
+                <td class="py-3 pl-4 pr-6 text-slate-600">Revenue stage focus</td>
+                <td class="py-3 px-4 text-slate-600">Pre-sale: pipeline, forecasting, deal intelligence</td>
+                <td class="py-3 px-4 text-slate-700">Post-sale: activation, adoption, growth, renewal</td>
+              </tr>
+              <tr class="border-b border-slate-100">
+                <td class="py-3 pl-4 pr-6 text-slate-600">Primary data source</td>
+                <td class="py-3 px-4 text-slate-600">Sales calls, CRM, deal activity</td>
+                <td class="py-3 px-4 text-slate-700">Support tickets, product usage, onboarding, customer distress</td>
+              </tr>
+              <tr class="border-b border-slate-100">
+                <td class="py-3 pl-4 pr-6 text-slate-600">Primary user</td>
+                <td class="py-3 px-4 text-slate-600">Sales leaders and AEs</td>
+                <td class="py-3 px-4 text-slate-700">CRO, CFO, CS leaders, Support leaders</td>
+              </tr>
+              <tr class="border-b border-slate-100">
+                <td class="py-3 pl-4 pr-6 text-slate-600">ARR risk detection</td>
+                <td class="py-3 px-4 text-slate-600">Pipeline and forecast risk</td>
+                <td class="py-3 px-4 text-slate-700">Post-sale churn, contraction, and renewal risk</td>
+              </tr>
+              <tr class="border-b border-slate-100">
+                <td class="py-3 pl-4 pr-6 text-slate-600">Support signal</td>
+                <td class="py-3 px-4 text-slate-600">Not included</td>
+                <td class="py-3 px-4 text-slate-700">Central to the data model</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white px-5 py-14 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-slate-950">About MeridianARR</h2>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          MeridianARR is a Value Continuity platform for B2B SaaS companies. It connects support, onboarding, product friction, customer distress, and renewal risk into post-sale revenue intelligence — the layer that revenue intelligence platforms are not built to provide.
+        </p>
+        <div class="mt-6">
+          <a href="/customer-defensibility-score/" class="inline-flex items-center justify-center rounded-2xl bg-slate-950 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-800">
+            Calculate your Customer Defensibility Score
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-slate-50 px-5 py-14 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-slate-950">Frequently asked questions</h2>
+        <dl class="mt-8 space-y-8">
+          {faqs.map((faq) => (
+            <div>
+              <dt class="font-semibold text-slate-950">{faq.q}</dt>
+              <dd class="mt-2 text-slate-600 leading-relaxed">{faq.a}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,209 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+
+const pageTitle = "10 Value Continuity Signals in B2B SaaS | MeridianARR";
+const pageDescription = "Value Continuity signals are customer behaviors that indicate whether a B2B SaaS customer is realizing value or at ARR risk. Here are the 10 most important signals and how MeridianARR tracks them.";
+const canonical = "https://meridianarr.com/learn/value-continuity-signals/";
+
+const signals = [
+  {
+    number: "01",
+    signal: "Repeated support tickets on the same issue",
+    source: "Help desk / support platform",
+    risk: "Product friction churn — unresolved friction erodes perceived value",
+    detail: "When a customer files multiple tickets about the same workflow or feature, they are communicating that the product is not meeting their expectations. Each repeat ticket increases the probability of non-renewal.",
+  },
+  {
+    number: "02",
+    signal: "Missed onboarding milestones",
+    source: "Onboarding workflows / CS platform",
+    risk: "Activation failure — customers who do not activate rarely expand or renew",
+    detail: "Activation milestones mark the point where a customer has realized initial value from the product. Missing these milestones early in the customer lifecycle is one of the strongest predictors of eventual churn.",
+  },
+  {
+    number: "03",
+    signal: "Declining login frequency",
+    source: "Product analytics / usage data",
+    risk: "Disengagement — reduced usage precedes non-renewal",
+    detail: "A trend of declining login frequency — not a one-time dip — indicates that users are finding less reason to engage with the product. When combined with support data, it strengthens the churn risk signal.",
+  },
+  {
+    number: "04",
+    signal: "Escalation to executive or leadership",
+    source: "Support / CRM",
+    risk: "High-severity dissatisfaction — escalations rarely precede renewals",
+    detail: "When a support issue escalates to VP or C-level contacts within the customer organization, it indicates that frustration has reached a level that normal support channels could not resolve. This is a high-confidence churn signal.",
+  },
+  {
+    number: "05",
+    signal: "Billing disputes or pricing questions",
+    source: "Finance / support",
+    risk: "Contraction or downgrade risk — ROI is being questioned",
+    detail: "Questions about pricing, billing adjustments, or value justification indicate that the customer is scrutinizing the ROI of the product. In a SaaS reset environment, these questions frequently precede contraction or non-renewal.",
+  },
+  {
+    number: "06",
+    signal: "Executive sponsor departure",
+    source: "CRM / LinkedIn",
+    risk: "Relationship loss — new sponsors re-evaluate inherited tools",
+    detail: "When the executive champion who bought the product leaves the customer organization, the new stakeholder often re-evaluates existing tools. Without proactive re-onboarding and value demonstration, churn risk increases significantly.",
+  },
+  {
+    number: "07",
+    signal: "Low feature adoption relative to contract scope",
+    source: "Product analytics",
+    risk: "Build-vs-buy risk — customers paying for unused capacity do not renew",
+    detail: "Customers who are using a fraction of the features they purchased are at risk of concluding they could build something simpler internally or switch to a cheaper alternative. Low adoption relative to contract scope is a contraction and non-renewal signal.",
+  },
+  {
+    number: "08",
+    signal: "Competitor mentions in support tickets",
+    source: "Support / ticket content",
+    risk: "Active evaluation — customers researching alternatives",
+    detail: "When support tickets or customer communications reference competitor products by name, the customer is actively evaluating alternatives. This is among the most time-sensitive Value Continuity signals.",
+  },
+  {
+    number: "09",
+    signal: "Implementation or integration delays",
+    source: "Project tracking / support",
+    risk: "Delayed value realization — time-to-value gaps increase churn",
+    detail: "Customers who are stuck in implementation or unable to complete an integration are not realizing value from the product. Extended implementation delays increase the probability of churn before full activation.",
+  },
+  {
+    number: "10",
+    signal: "Reduced response rate to CS outreach",
+    source: "CS platform / email engagement",
+    risk: "Relationship ghosting — silent accounts are often churning accounts",
+    detail: "When a customer who was previously responsive to CS outreach stops responding, it often indicates dissatisfaction or disengagement. Silent accounts require proactive outreach based on product and support signals — not just continued email attempts.",
+  },
+];
+
+const faqs = [
+  {
+    q: "What are Value Continuity signals?",
+    a: "Value Continuity signals are customer behaviors and interactions that indicate whether a B2B SaaS customer is realizing value from a product — or at risk of losing it. They include support ticket patterns, product adoption gaps, onboarding milestone misses, escalation history, and customer distress indicators. MeridianARR monitors these signals continuously and connects them to ARR risk at the account level.",
+  },
+  {
+    q: "Which Value Continuity signal predicts churn earliest?",
+    a: "Missed onboarding milestones and repeated support tickets on the same issue tend to appear earliest in the customer lifecycle. Competitor mentions in support tickets are the most time-sensitive signal once they appear. MeridianARR's Customer Distress Index weights these signals based on their historical correlation with churn.",
+  },
+  {
+    q: "How does MeridianARR detect Value Continuity signals?",
+    a: "MeridianARR connects support data, product usage data, onboarding activity, and CRM context into a single account intelligence layer. The Customer Distress Index (CDI) is calculated from these signals and updated continuously. CROs, CFOs, CS leaders, and Support leaders can see CDI scores and the underlying signals for every account.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: { "@type": "Answer", text: faq.a },
+  })),
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://meridianarr.com/" },
+    { "@type": "ListItem", position: 2, name: "Learn", item: "https://meridianarr.com/learn/" },
+    { "@type": "ListItem", position: 3, name: "Value Continuity Signals", item: canonical },
+  ],
+};
+---
+
+<Layout title={pageTitle} description={pageDescription} canonical={canonical}>
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <Nav />
+
+  <main>
+    <section class="bg-slate-950 px-5 py-20 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <p class="text-sm font-medium text-blue-400">Learn</p>
+        <h1 class="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+          10 Value Continuity Signals in B2B SaaS
+        </h1>
+        <p class="mt-6 text-lg leading-relaxed text-slate-300">
+          Value Continuity signals are customer behaviors that indicate whether a B2B SaaS customer is realizing value from a product — or at ARR risk. MeridianARR is a Value Continuity platform that monitors these signals continuously and connects them to renewal outcomes.
+        </p>
+      </div>
+    </section>
+
+    <section class="bg-white px-5 py-16 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-slate-950">What is a Value Continuity signal?</h2>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          A Value Continuity signal is any customer behavior or data point that indicates the current state of value delivery — and by extension, the risk to recurring revenue. Value Continuity signals come from support systems, product usage data, onboarding workflows, CRM activity, and customer communications.
+        </p>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          MeridianARR is a Value Continuity platform for B2B SaaS companies. It connects these signals into the Customer Distress Index (CDI) — an account-level score that shows which accounts are at risk of churning, contracting, or failing to renew.
+        </p>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          Below are the 10 most important Value Continuity signals in B2B SaaS, where they come from, and what ARR risk they indicate.
+        </p>
+      </div>
+    </section>
+
+    <section class="bg-slate-50 px-5 py-16 lg:px-8">
+      <div class="mx-auto max-w-3xl space-y-10">
+        {signals.map((item) => (
+          <div class="rounded-xl border border-slate-200 bg-white p-6">
+            <div class="flex items-start gap-4">
+              <span class="text-3xl font-bold text-slate-200">{item.number}</span>
+              <div>
+                <h2 class="text-lg font-semibold text-slate-950">{item.signal}</h2>
+                <div class="mt-3 grid grid-cols-1 gap-2 text-sm sm:grid-cols-2">
+                  <div>
+                    <span class="font-medium text-slate-700">Source: </span>
+                    <span class="text-slate-600">{item.source}</span>
+                  </div>
+                  <div>
+                    <span class="font-medium text-slate-700">Risk type: </span>
+                    <span class="text-slate-600">{item.risk}</span>
+                  </div>
+                </div>
+                <p class="mt-3 text-sm text-slate-600 leading-relaxed">{item.detail}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="bg-white px-5 py-16 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-slate-950">How MeridianARR tracks Value Continuity signals</h2>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          MeridianARR is a Value Continuity platform for B2B SaaS companies. It connects support, onboarding, product usage, CRM, and engagement data into a single account intelligence layer. The Customer Distress Index (CDI) is calculated from these signals continuously — giving CROs, CFOs, Customer Success leaders, and Support leaders a real-time view of ARR risk across every account.
+        </p>
+        <div class="mt-6">
+          <a href="/customer-defensibility-score/" class="inline-flex items-center justify-center rounded-2xl bg-slate-950 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-800">
+            Calculate your Customer Defensibility Score
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-slate-50 px-5 py-14 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-slate-950">Frequently asked questions</h2>
+        <dl class="mt-8 space-y-8">
+          {faqs.map((faq) => (
+            <div>
+              <dt class="font-semibold text-slate-950">{faq.q}</dt>
+              <dd class="mt-2 text-slate-600 leading-relaxed">{faq.a}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

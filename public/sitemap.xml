@@ -1,9 +1,116 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Core pages -->
   <url>
     <loc>https://meridianarr.com/</loc>
+    <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://meridianarr.com/compare/meridian-vs-pylon-zendesk-salesforce/</loc>
+    <loc>https://meridianarr.com/integrations/</loc>
+    <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://meridianarr.com/customer-defensibility-score/</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Canonical definition page -->
+  <url>
+    <loc>https://meridianarr.com/what-is-value-continuity/</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Category comparison pages -->
+  <url>
+    <loc>https://meridianarr.com/compare/value-continuity-vs-customer-success/</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://meridianarr.com/compare/value-continuity-vs-help-desk/</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://meridianarr.com/compare/value-continuity-vs-product-analytics/</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://meridianarr.com/compare/value-continuity-vs-revenue-intelligence/</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://meridianarr.com/compare/value-continuity-vs-customer-health-scoring/</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Vendor comparison pages -->
+  <url>
+    <loc>https://meridianarr.com/compare/meridian-vs-pylon-zendesk-salesforce/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://meridianarr.com/compare/meridian-vs-gainsight/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://meridianarr.com/compare/meridian-vs-churnzero/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://meridianarr.com/compare/meridian-vs-zendesk/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://meridianarr.com/compare/meridian-vs-pylon/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://meridianarr.com/compare/meridian-vs-pendo/</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Learn / evidence pages -->
+  <url>
+    <loc>https://meridianarr.com/learn/value-continuity-signals/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://meridianarr.com/learn/support-tickets-predict-renewal-risk/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://meridianarr.com/learn/customer-distress-arr-risk/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://meridianarr.com/learn/value-continuity-framework/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://meridianarr.com/learn/saas-renewal-risk-signal-map/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://meridianarr.com/learn/why-customer-health-scores-miss-support-risk/</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Persona pages -->
+  <url>
+    <loc>https://meridianarr.com/for/cro/</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://meridianarr.com/for/cfo/</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://meridianarr.com/for/customer-success-leaders/</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://meridianarr.com/for/support-leaders/</loc>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>

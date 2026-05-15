@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
 
 const pageTitle = "Customer Defensibility Score | Meridian";
 const pageDescription = "Find out how defensible your B2B SaaS customers really are. Take the 3-minute Customer Defensibility Score assessment to identify where value may be decaying across support, adoption, and renewal.";
@@ -503,13 +504,7 @@ const canonical = "https://meridianarr.com/customer-defensibility-score/";
     </div>
   </div>
 
-  <footer class="border-t border-slate-200 bg-white">
-    <div class="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-8 text-sm text-slate-500 md:flex-row md:items-center md:justify-between lg:px-8">
-      <a href="/" class="font-semibold text-slate-950 hover:text-slate-700">Meridian</a>
-      <p>Revenue intelligence for B2B SaaS after the sale.</p>
-      <a href="/" class="hover:text-slate-950">Back to overview</a>
-    </div>
-  </footer>
+  <Footer />
 
 </Layout>
 

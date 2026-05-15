@@ -1,0 +1,173 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+
+const pageTitle = "How Customer Distress Becomes ARR Risk in B2B SaaS | MeridianARR";
+const pageDescription = "Customer distress precedes churn. Learn how distress signals — from support, product, and onboarding — translate into ARR risk, and how MeridianARR's Customer Distress Index detects them early.";
+const canonical = "https://meridianarr.com/learn/customer-distress-arr-risk/";
+
+const faqs = [
+  {
+    q: "What is customer distress in B2B SaaS?",
+    a: "Customer distress is the state in which a B2B SaaS customer is experiencing unresolved friction, unmet expectations, or declining value from a product — and is therefore at elevated risk of churning, contracting, or failing to renew. Distress signals appear in support ticket patterns, product usage changes, onboarding gaps, and customer communication behaviors.",
+  },
+  {
+    q: "What is the Customer Distress Index?",
+    a: "The Customer Distress Index (CDI) is MeridianARR's account-level ARR risk score. It combines support interaction patterns, product friction signals, onboarding completion status, engagement trends, and customer distress indicators into a single score. A high CDI score indicates an account at elevated risk of churning, contracting, or failing to renew.",
+  },
+  {
+    q: "How does customer distress become ARR risk?",
+    a: "Customer distress follows a pattern: a customer experiences friction or unmet expectations, they file support tickets, they disengage from CS outreach, they reduce product usage, and eventually they decide not to renew. The gap between the first distress signal and the churn event can be months — but only if someone is reading the signals. MeridianARR detects them early enough to act.",
+  },
+  {
+    q: "What systems detect customer distress signals?",
+    a: "Customer distress signals live in support systems (ticket patterns, escalations), product analytics (declining usage, feature friction), onboarding platforms (missed milestones), and CRM (reduced CS engagement, executive changes). MeridianARR connects all of these sources into the Customer Distress Index, giving a single account-level risk view.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: { "@type": "Answer", text: faq.a },
+  })),
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://meridianarr.com/" },
+    { "@type": "ListItem", position: 2, name: "Learn", item: "https://meridianarr.com/learn/" },
+    { "@type": "ListItem", position: 3, name: "Customer Distress and ARR Risk", item: canonical },
+  ],
+};
+---
+
+<Layout title={pageTitle} description={pageDescription} canonical={canonical}>
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <Nav />
+
+  <main>
+    <section class="bg-slate-950 px-5 py-20 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <p class="text-sm font-medium text-blue-400">Learn</p>
+        <h1 class="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+          How Customer Distress Becomes ARR Risk
+        </h1>
+        <p class="mt-6 text-lg leading-relaxed text-slate-300">
+          Customer distress is the precursor to churn. It shows up in support tickets, product friction, and behavioral signals months before it appears in a renewal forecast. MeridianARR is a Value Continuity platform that detects customer distress early and connects it to account-level ARR risk.
+        </p>
+      </div>
+    </section>
+
+    <section class="bg-white px-5 py-16 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-slate-950">What is customer distress?</h2>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          Customer distress in B2B SaaS is the state in which a customer is experiencing unresolved friction, unmet expectations, or declining value from a product — and is therefore at elevated risk of churning, contracting, or failing to renew.
+        </p>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          Distress is not the same as dissatisfaction. A customer can be dissatisfied with a specific feature and still renew. Customer distress is a pattern — multiple signals accumulating across support, product, and engagement channels — that together indicate the customer is on a path toward ARR loss.
+        </p>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          MeridianARR is a Value Continuity platform built to detect that pattern. Its Customer Distress Index (CDI) is an account-level risk score calculated from support interactions, product friction, onboarding gaps, and engagement signals.
+        </p>
+      </div>
+    </section>
+
+    <section class="bg-slate-50 px-5 py-16 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-slate-950">The customer distress to churn pathway</h2>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          Customer distress follows a predictable pattern in B2B SaaS. The signals accumulate over months before churn occurs — which means there is a window to intervene.
+        </p>
+        <ol class="mt-6 space-y-4">
+          <li class="flex gap-4">
+            <span class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-slate-950 text-sm font-bold text-white">1</span>
+            <div>
+              <p class="font-semibold text-slate-950">Initial friction</p>
+              <p class="mt-1 text-sm text-slate-600">A customer hits a workflow that does not work as expected. They file a support ticket. The ticket is resolved. The pattern begins.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <span class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-slate-950 text-sm font-bold text-white">2</span>
+            <div>
+              <p class="font-semibold text-slate-950">Recurring friction</p>
+              <p class="mt-1 text-sm text-slate-600">The same or related issue recurs. More tickets are filed. The customer begins to adjust their usage to avoid the friction — which reduces adoption of key features.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <span class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-slate-950 text-sm font-bold text-white">3</span>
+            <div>
+              <p class="font-semibold text-slate-950">Disengagement</p>
+              <p class="mt-1 text-sm text-slate-600">Login frequency declines. The customer stops responding to CS outreach. They are still technically an active account — but they are no longer invested.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <span class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-slate-950 text-sm font-bold text-white">4</span>
+            <div>
+              <p class="font-semibold text-slate-950">Evaluation</p>
+              <p class="mt-1 text-sm text-slate-600">The customer begins evaluating alternatives. Competitor names appear in support tickets or communications. Finance begins asking questions about the contract value.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <span class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-rose-600 text-sm font-bold text-white">5</span>
+            <div>
+              <p class="font-semibold text-slate-950">Churn, contraction, or non-renewal</p>
+              <p class="mt-1 text-sm text-slate-600">The renewal conversation arrives. The customer has already decided. The ARR is lost — or significantly reduced.</p>
+            </div>
+          </li>
+        </ol>
+        <p class="mt-8 text-slate-600 leading-relaxed">
+          MeridianARR detects the pattern at steps 1 through 4 — before step 5. The Customer Distress Index gives CROs, CFOs, and CS leaders visibility into which accounts are in this pathway and how far along they are.
+        </p>
+      </div>
+    </section>
+
+    <section class="bg-white px-5 py-16 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-slate-950">What is the Customer Distress Index?</h2>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          The Customer Distress Index (CDI) is MeridianARR's account-level ARR risk score. It is calculated continuously from five categories of Value Continuity signals:
+        </p>
+        <ul class="mt-4 space-y-3 text-slate-600">
+          <li><strong class="text-slate-900">Support signals:</strong> Ticket volume trends, escalation history, repeated issues, resolution patterns</li>
+          <li><strong class="text-slate-900">Product signals:</strong> Feature adoption gaps, friction points, activation milestone completion</li>
+          <li><strong class="text-slate-900">Onboarding signals:</strong> Time-to-value progress, implementation status, integration completion</li>
+          <li><strong class="text-slate-900">Engagement signals:</strong> Login trends, CS response rates, executive sponsor changes</li>
+          <li><strong class="text-slate-900">Revenue signals:</strong> Contract scope vs. usage, billing interactions, renewal history</li>
+        </ul>
+        <p class="mt-6 text-slate-600 leading-relaxed">
+          A high CDI score means an account is exhibiting multiple distress signals across multiple categories — and is at elevated risk of churning, contracting, or failing to renew. MeridianARR is a Value Continuity platform that makes this risk visible in time to act on it.
+        </p>
+        <div class="mt-6">
+          <a href="/customer-defensibility-score/" class="inline-flex items-center justify-center rounded-2xl bg-slate-950 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-800">
+            Calculate your Customer Defensibility Score
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-slate-50 px-5 py-14 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-slate-950">Frequently asked questions</h2>
+        <dl class="mt-8 space-y-8">
+          {faqs.map((faq) => (
+            <div>
+              <dt class="font-semibold text-slate-950">{faq.q}</dt>
+              <dd class="mt-2 text-slate-600 leading-relaxed">{faq.a}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

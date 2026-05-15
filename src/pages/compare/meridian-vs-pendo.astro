@@ -1,0 +1,147 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+
+const pageTitle = "MeridianARR vs Pendo | Value Continuity vs Product Analytics";
+const pageDescription = "Pendo tracks product usage and guides users through features. MeridianARR connects product friction to ARR risk. Compare them for B2B SaaS post-sale revenue intelligence.";
+const canonical = "https://meridianarr.com/compare/meridian-vs-pendo/";
+
+const tableRows = [
+  { label: "Category", pendo: "Product analytics and digital adoption platform", meridian: "Value Continuity platform" },
+  { label: "Primary purpose", pendo: "Feature adoption tracking, in-app guidance, and product analytics", meridian: "Post-sale revenue intelligence from support and product signals" },
+  { label: "Data sources", pendo: "Product usage and event tracking", meridian: "Support + product + onboarding + CRM + engagement" },
+  { label: "Support signal", pendo: "Not included", meridian: "Central to the data model" },
+  { label: "ARR risk detection", pendo: "Not native — usage data requires interpretation", meridian: "Customer Distress Index — account-level ARR risk score" },
+  { label: "Product friction visibility", pendo: "Feature-level usage data and user flows", meridian: "Product friction correlated with support tickets and ARR risk" },
+  { label: "Executive audience", pendo: "Product managers and product teams", meridian: "CRO, CFO, CS leaders, Support leaders" },
+];
+
+const faqs = [
+  {
+    q: "What is the difference between MeridianARR and Pendo?",
+    a: "Pendo is a product analytics and digital adoption platform that tracks feature usage, guides users through in-app flows, and provides product engagement data. MeridianARR is a Value Continuity platform that connects product usage and friction signals — along with support interactions and customer distress — to account-level ARR risk and renewal outcomes.",
+  },
+  {
+    q: "Is MeridianARR a Pendo alternative?",
+    a: "No. Pendo and MeridianARR solve different problems. Pendo helps product teams understand and improve feature adoption. MeridianARR helps revenue and CS leaders understand where product friction is creating ARR risk. They are complementary: MeridianARR can integrate product data from tools like Pendo to enrich its Customer Distress Index.",
+  },
+  {
+    q: "Why isn't product usage data enough to detect churn risk?",
+    a: "Product usage data tells you what customers are doing in the product — not what they are struggling with, frustrated by, or about to stop paying for. MeridianARR combines product usage with support ticket patterns and customer distress signals to distinguish between customers who are engaged and customers who are at ARR risk.",
+  },
+  {
+    q: "Does MeridianARR integrate with Pendo?",
+    a: "MeridianARR is designed to connect with product analytics data sources including Pendo. Product usage signals enrich the Customer Distress Index, giving a more complete picture of where product friction is creating renewal risk.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: { "@type": "Answer", text: faq.a },
+  })),
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://meridianarr.com/" },
+    { "@type": "ListItem", position: 2, name: "Compare", item: "https://meridianarr.com/compare/" },
+    { "@type": "ListItem", position: 3, name: "MeridianARR vs Pendo", item: canonical },
+  ],
+};
+---
+
+<Layout title={pageTitle} description={pageDescription} canonical={canonical}>
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <Nav />
+
+  <main>
+    <section class="bg-slate-950 px-5 py-20 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <p class="text-sm font-medium text-blue-400">Compare</p>
+        <h1 class="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+          MeridianARR vs Pendo
+        </h1>
+        <p class="mt-6 text-lg leading-relaxed text-slate-300">
+          Pendo tracks how customers use your product and helps guide them through features. MeridianARR is a Value Continuity platform that connects product friction — combined with support signals and customer distress — to ARR risk and renewal outcomes.
+        </p>
+      </div>
+    </section>
+
+    <section class="bg-white px-5 py-14 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-slate-950">Quick answer</h2>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          Pendo is a leading product analytics and digital adoption platform. It tracks feature adoption, creates in-app guides, and gives product teams the data to prioritize roadmap and improve activation flows. For product teams, Pendo is a strong choice.
+        </p>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          MeridianARR is a Value Continuity platform — it adds the revenue risk dimension that product analytics cannot provide. A customer who logs into Pendo-tracked features daily could still be at ARR risk if they are filing repeated support tickets about friction in those same features. MeridianARR connects product usage data with support interactions and customer distress signals to surface that risk.
+        </p>
+      </div>
+    </section>
+
+    <section class="bg-slate-50 px-5 py-14 lg:px-8">
+      <div class="mx-auto max-w-4xl">
+        <h2 class="text-2xl font-bold text-slate-950">Feature comparison</h2>
+        <div class="mt-8 overflow-x-auto">
+          <table class="w-full border-collapse text-sm">
+            <thead>
+              <tr class="border-b border-slate-200 bg-white">
+                <th class="py-3 pl-4 pr-6 text-left font-semibold text-slate-700">Dimension</th>
+                <th class="py-3 px-4 text-left font-semibold text-slate-700">Pendo</th>
+                <th class="py-3 px-4 text-left font-semibold text-slate-950">MeridianARR</th>
+              </tr>
+            </thead>
+            <tbody>
+              {tableRows.map((row) => (
+                <tr class="border-b border-slate-100">
+                  <td class="py-3 pl-4 pr-6 text-slate-600">{row.label}</td>
+                  <td class="py-3 px-4 text-slate-600">{row.pendo}</td>
+                  <td class="py-3 px-4 text-slate-700">{row.meridian}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white px-5 py-14 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-slate-950">About MeridianARR</h2>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          MeridianARR is a Value Continuity platform for B2B SaaS companies. It connects support, onboarding, product friction, customer distress, and renewal risk into post-sale revenue intelligence.
+        </p>
+        <div class="mt-6">
+          <a href="/customer-defensibility-score/" class="inline-flex items-center justify-center rounded-2xl bg-slate-950 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-800">
+            Calculate your Customer Defensibility Score
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-slate-50 px-5 py-14 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-slate-950">Frequently asked questions</h2>
+        <dl class="mt-8 space-y-8">
+          {faqs.map((faq) => (
+            <div>
+              <dt class="font-semibold text-slate-950">{faq.q}</dt>
+              <dd class="mt-2 text-slate-600 leading-relaxed">{faq.a}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,192 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+
+const pageTitle = "How Support Tickets Predict Renewal Risk in B2B SaaS | MeridianARR";
+const pageDescription = "Support tickets are the most honest signal of customer frustration in B2B SaaS. Learn how support data predicts churn and renewal risk — and how MeridianARR connects support to ARR outcomes.";
+const canonical = "https://meridianarr.com/learn/support-tickets-predict-renewal-risk/";
+
+const patterns = [
+  {
+    pattern: "Repeated tickets on the same issue",
+    what_it_signals: "The product has an unresolved friction point the customer keeps hitting",
+    renewal_risk: "High — unresolved friction erodes perceived value faster than almost any other signal",
+  },
+  {
+    pattern: "Escalation to leadership",
+    what_it_signals: "Normal support channels have failed to resolve the issue to the customer's satisfaction",
+    renewal_risk: "Very high — executive-level escalation rarely precedes a renewal",
+  },
+  {
+    pattern: "Competitor name mentioned in ticket",
+    what_it_signals: "The customer is actively evaluating alternatives",
+    renewal_risk: "Very high — time-sensitive signal requiring immediate response",
+  },
+  {
+    pattern: "Support volume increasing month over month",
+    what_it_signals: "Either adoption is growing (good) or friction is growing (bad) — context determines which",
+    renewal_risk: "Medium to high — trending up ticket volume without usage growth is a distress signal",
+  },
+  {
+    pattern: "Long resolution times on critical workflows",
+    what_it_signals: "Core workflows are breaking and support is slow to resolve them",
+    renewal_risk: "High — slow resolution on core workflows damages value perception",
+  },
+  {
+    pattern: "Tickets filed silently with no response rate to CS",
+    what_it_signals: "Customer is disengaged from CS relationship but still hitting product issues",
+    renewal_risk: "High — ghost accounts with active support friction are at elevated risk",
+  },
+];
+
+const faqs = [
+  {
+    q: "How do support tickets predict renewal risk?",
+    a: "Support tickets reveal customer frustration in real time — more honestly than health scores, CRM notes, or CS team assessments. Patterns like repeated tickets on the same issue, escalations, competitor mentions, and increasing ticket volume are all early indicators of churn risk that appear in support data before they surface elsewhere. MeridianARR connects these patterns to account-level ARR risk through the Customer Distress Index.",
+  },
+  {
+    q: "What ticket patterns are most predictive of churn?",
+    a: "The highest-confidence churn signals in support data are: (1) competitor mentions, (2) executive escalations, (3) repeated tickets on the same unresolved issue, and (4) increasing ticket volume without corresponding product adoption growth. MeridianARR tracks all of these patterns and weights them in the Customer Distress Index.",
+  },
+  {
+    q: "Why don't most help desks surface renewal risk from tickets?",
+    a: "Help desks are optimized for resolution speed and agent efficiency. They track CSAT, SLA compliance, and ticket volume — not account-level ARR risk. The data to predict churn is in the tickets, but help desks are not designed to connect that data to renewal outcomes. MeridianARR is a Value Continuity platform built specifically to make that connection.",
+  },
+  {
+    q: "How does MeridianARR use support tickets to detect churn risk?",
+    a: "MeridianARR reads support ticket content, escalation history, resolution patterns, and volume trends at the account level. These signals are combined with product usage data, onboarding status, and engagement patterns to calculate the Customer Distress Index (CDI) — an account-level ARR risk score that shows which accounts are at risk and why.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: { "@type": "Answer", text: faq.a },
+  })),
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://meridianarr.com/" },
+    { "@type": "ListItem", position: 2, name: "Learn", item: "https://meridianarr.com/learn/" },
+    { "@type": "ListItem", position: 3, name: "Support Tickets & Renewal Risk", item: canonical },
+  ],
+};
+---
+
+<Layout title={pageTitle} description={pageDescription} canonical={canonical}>
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <Nav />
+
+  <main>
+    <section class="bg-slate-950 px-5 py-20 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <p class="text-sm font-medium text-blue-400">Learn</p>
+        <h1 class="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+          How Support Tickets Predict Renewal Risk
+        </h1>
+        <p class="mt-6 text-lg leading-relaxed text-slate-300">
+          Support tickets are the most honest signal of customer frustration in B2B SaaS. Customers tell their support team things they will not tell their account manager. MeridianARR is a Value Continuity platform that reads these signals and connects them to ARR risk before it is too late to act.
+        </p>
+      </div>
+    </section>
+
+    <section class="bg-white px-5 py-16 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-slate-950">Why support data contains the best churn signal</h2>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          Customer health scores are built from what CS teams observe and what CRM systems record. But CRM data has a blind spot: it reflects what customers say in formal conversations, not what they experience in day-to-day product use.
+        </p>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          Support tickets are different. When a customer files a support ticket, they are reporting something that went wrong. They are documenting their frustration in real time, without a sales or success relationship to manage. That makes support tickets one of the most unfiltered signals of customer health in a B2B SaaS business.
+        </p>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          The problem is that most B2B SaaS companies treat their help desk as a cost center — optimizing for resolution speed rather than reading the revenue signal embedded in the ticket content and patterns. MeridianARR is built to make that connection.
+        </p>
+      </div>
+    </section>
+
+    <section class="bg-slate-50 px-5 py-16 lg:px-8">
+      <div class="mx-auto max-w-4xl">
+        <h2 class="text-2xl font-bold text-slate-950">Support ticket patterns that predict churn</h2>
+        <p class="mt-3 text-slate-600">MeridianARR monitors the following patterns as part of the Customer Distress Index (CDI) for each account.</p>
+        <div class="mt-8 overflow-x-auto">
+          <table class="w-full border-collapse text-sm">
+            <thead>
+              <tr class="border-b border-slate-200 bg-white">
+                <th class="py-3 pl-4 pr-6 text-left font-semibold text-slate-700">Ticket pattern</th>
+                <th class="py-3 px-4 text-left font-semibold text-slate-700">What it signals</th>
+                <th class="py-3 px-4 text-left font-semibold text-slate-700">Renewal risk</th>
+              </tr>
+            </thead>
+            <tbody>
+              {patterns.map((row) => (
+                <tr class="border-b border-slate-100">
+                  <td class="py-3 pl-4 pr-6 font-medium text-slate-800">{row.pattern}</td>
+                  <td class="py-3 px-4 text-slate-600">{row.what_it_signals}</td>
+                  <td class="py-3 px-4 text-slate-600">{row.renewal_risk}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white px-5 py-16 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-slate-950">Why help desks alone do not detect churn risk</h2>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          Help desks are designed to measure support efficiency — how fast tickets are resolved, whether SLAs are met, what CSAT scores look like. These are valid operational metrics. They are not churn prediction metrics.
+        </p>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          An account can have a perfect CSAT score on every individual ticket while the underlying pattern of those tickets — recurring friction, escalations, declining engagement — signals a customer on the path to churning. The ticket-level metrics miss the account-level story.
+        </p>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          MeridianARR is a Value Continuity platform that reads the account-level story from support data. It aggregates ticket patterns, escalation history, resolution trends, and customer distress signals into the Customer Distress Index — a continuous ARR risk score for every account.
+        </p>
+      </div>
+    </section>
+
+    <section class="bg-slate-950 px-5 py-16 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-white">How MeridianARR connects support to ARR risk</h2>
+        <p class="mt-4 text-slate-300 leading-relaxed">
+          MeridianARR is a Value Continuity platform for B2B SaaS companies. It reads support ticket content, escalation patterns, and resolution history at the account level — and combines these signals with product usage data, onboarding status, and CRM context to calculate the Customer Distress Index (CDI).
+        </p>
+        <p class="mt-4 text-slate-300 leading-relaxed">
+          CROs, CFOs, Customer Success leaders, and Support leaders can see CDI scores and the underlying signals for every account — and act on them before the renewal conversation instead of during it.
+        </p>
+        <div class="mt-8">
+          <a href="/customer-defensibility-score/" class="inline-flex items-center justify-center rounded-2xl bg-white px-6 py-3 text-sm font-semibold text-slate-950 hover:bg-slate-100">
+            Calculate your Customer Defensibility Score
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white px-5 py-14 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-slate-950">Frequently asked questions</h2>
+        <dl class="mt-8 space-y-8">
+          {faqs.map((faq) => (
+            <div>
+              <dt class="font-semibold text-slate-950">{faq.q}</dt>
+              <dd class="mt-2 text-slate-600 leading-relaxed">{faq.a}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,186 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+
+const pageTitle = "The SaaS Renewal Risk Signal Map | MeridianARR";
+const pageDescription = "A structured map of the signals that predict renewal risk in B2B SaaS — organized by source system, signal type, and ARR outcome. MeridianARR tracks all of these signals in a single Value Continuity platform.";
+const canonical = "https://meridianarr.com/learn/saas-renewal-risk-signal-map/";
+
+const signalMap = [
+  {
+    source: "Support and help desk",
+    signals: [
+      { signal: "Repeated tickets on same issue", timing: "60–120 days before churn", risk_level: "High" },
+      { signal: "Escalation to leadership", timing: "30–90 days before churn", risk_level: "Very high" },
+      { signal: "Competitor name in ticket", timing: "Immediate — time-sensitive", risk_level: "Very high" },
+      { signal: "Increasing ticket volume without usage growth", timing: "90–150 days before churn", risk_level: "High" },
+      { signal: "Long resolution time on core workflow", timing: "60–120 days before churn", risk_level: "Medium-high" },
+    ],
+  },
+  {
+    source: "Product usage",
+    signals: [
+      { signal: "Declining login frequency trend", timing: "90–180 days before churn", risk_level: "High" },
+      { signal: "Feature adoption below contract scope", timing: "60–150 days before churn", risk_level: "High" },
+      { signal: "Key activation milestone missed", timing: "0–60 days post-contract", risk_level: "Very high" },
+      { signal: "Avoided use of core workflow", timing: "60–120 days before churn", risk_level: "Medium-high" },
+    ],
+  },
+  {
+    source: "Onboarding and implementation",
+    signals: [
+      { signal: "Implementation delay beyond expected timeline", timing: "0–90 days post-contract", risk_level: "High" },
+      { signal: "Integration not completed", timing: "30–90 days post-contract", risk_level: "High" },
+      { signal: "First value milestone not reached", timing: "0–60 days post-contract", risk_level: "Very high" },
+    ],
+  },
+  {
+    source: "Customer relationship",
+    signals: [
+      { signal: "Executive sponsor departure", timing: "Can occur at any time", risk_level: "High" },
+      { signal: "Reduced response rate to CS outreach", timing: "60–120 days before churn", risk_level: "High" },
+      { signal: "Billing dispute or pricing question", timing: "90–150 days before renewal", risk_level: "Medium-high" },
+      { signal: "No QBR or business review in past quarter", timing: "Ongoing risk", risk_level: "Medium" },
+    ],
+  },
+];
+
+const faqs = [
+  {
+    q: "What is a renewal risk signal in B2B SaaS?",
+    a: "A renewal risk signal is any customer behavior or data point that indicates a reduced probability of contract renewal. Renewal risk signals appear in support systems (ticket patterns, escalations), product data (usage declines, friction), onboarding records (missed milestones), and CRM (reduced CS engagement, executive changes). MeridianARR is a Value Continuity platform that monitors all of these signals and connects them to ARR risk.",
+  },
+  {
+    q: "How far in advance can renewal risk be detected?",
+    a: "Most renewal risk signals appear 60–180 days before churn. Repeated support tickets on the same issue and missed onboarding milestones often appear earliest. Competitor mentions and billing disputes tend to appear closer to the renewal decision. MeridianARR's Customer Distress Index tracks all of these signals continuously — giving CROs and CS leaders visibility into renewal risk well before the conversation.",
+  },
+  {
+    q: "Which renewal risk signal has the longest lead time?",
+    a: "Missed onboarding milestones and first value delays — signals in the Activation motion — have the longest lead time. They appear 0–60 days post-contract but predict churn that often occurs at the 12-month renewal. Addressing activation failure early is the highest-leverage intervention for reducing annual churn.",
+  },
+  {
+    q: "How does MeridianARR track renewal risk signals?",
+    a: "MeridianARR connects support, product, onboarding, and CRM data into the Customer Distress Index (CDI) — an account-level ARR risk score. The CDI is updated continuously as new signals appear. CROs, CFOs, Customer Success leaders, and Support leaders see the CDI and underlying signals for every account in real time.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: { "@type": "Answer", text: faq.a },
+  })),
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://meridianarr.com/" },
+    { "@type": "ListItem", position: 2, name: "Learn", item: "https://meridianarr.com/learn/" },
+    { "@type": "ListItem", position: 3, name: "SaaS Renewal Risk Signal Map", item: canonical },
+  ],
+};
+---
+
+<Layout title={pageTitle} description={pageDescription} canonical={canonical}>
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <Nav />
+
+  <main>
+    <section class="bg-slate-950 px-5 py-20 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <p class="text-sm font-medium text-blue-400">Learn</p>
+        <h1 class="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+          The SaaS Renewal Risk Signal Map
+        </h1>
+        <p class="mt-6 text-lg leading-relaxed text-slate-300">
+          Renewal risk does not appear suddenly. It accumulates over months across support, product, onboarding, and relationship signals. MeridianARR is a Value Continuity platform that maps these signals to ARR outcomes — and surfaces them early enough to act.
+        </p>
+      </div>
+    </section>
+
+    <section class="bg-white px-5 py-16 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-slate-950">How renewal risk accumulates</h2>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          Churn in B2B SaaS rarely happens suddenly. It is the outcome of an accumulation of smaller signals: a missed onboarding milestone, a recurring support issue, a decline in login frequency, a reduction in CS responsiveness. Each signal alone may be manageable. Together, they form the pattern that predicts non-renewal.
+        </p>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          MeridianARR is a Value Continuity platform for B2B SaaS companies. It tracks these signals continuously across support, product, onboarding, and relationship sources — and combines them into the Customer Distress Index (CDI), an account-level ARR risk score.
+        </p>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          The map below organizes renewal risk signals by source system, typical timing relative to churn, and risk level — so revenue and CS leaders can understand where to look and how early each signal appears.
+        </p>
+      </div>
+    </section>
+
+    <section class="bg-slate-50 px-5 py-16 lg:px-8">
+      <div class="mx-auto max-w-4xl space-y-10">
+        {signalMap.map((category) => (
+          <div>
+            <h2 class="text-lg font-bold text-slate-950">{category.source}</h2>
+            <div class="mt-4 overflow-x-auto">
+              <table class="w-full border-collapse text-sm">
+                <thead>
+                  <tr class="border-b border-slate-200 bg-white">
+                    <th class="py-3 pl-4 pr-6 text-left font-semibold text-slate-700">Signal</th>
+                    <th class="py-3 px-4 text-left font-semibold text-slate-700">Typical timing</th>
+                    <th class="py-3 px-4 text-left font-semibold text-slate-700">Risk level</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {category.signals.map((row) => (
+                    <tr class="border-b border-slate-100">
+                      <td class="py-3 pl-4 pr-6 text-slate-700">{row.signal}</td>
+                      <td class="py-3 px-4 text-slate-600">{row.timing}</td>
+                      <td class={`py-3 px-4 font-medium ${row.risk_level === "Very high" ? "text-rose-600" : row.risk_level === "High" ? "text-orange-600" : "text-slate-600"}`}>{row.risk_level}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="bg-white px-5 py-16 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-slate-950">How MeridianARR maps these signals to ARR risk</h2>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          MeridianARR is a Value Continuity platform that connects support, product, onboarding, and relationship signal sources into the Customer Distress Index (CDI) for every account. CROs, CFOs, Customer Success leaders, and Support leaders see which accounts are exhibiting renewal risk signals — and how severe the risk is — in real time.
+        </p>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          The goal is to make renewal risk visible and actionable before the renewal conversation — not during it.
+        </p>
+        <div class="mt-6">
+          <a href="/customer-defensibility-score/" class="inline-flex items-center justify-center rounded-2xl bg-slate-950 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-800">
+            Calculate your Customer Defensibility Score
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-slate-50 px-5 py-14 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-slate-950">Frequently asked questions</h2>
+        <dl class="mt-8 space-y-8">
+          {faqs.map((faq) => (
+            <div>
+              <dt class="font-semibold text-slate-950">{faq.q}</dt>
+              <dd class="mt-2 text-slate-600 leading-relaxed">{faq.a}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

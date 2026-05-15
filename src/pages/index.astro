@@ -5,6 +5,7 @@ import Pill from "../components/Pill.astro";
 import DashboardPanel from "../components/DashboardPanel.astro";
 import ProductAnimation from "../components/ProductAnimation.astro";
 import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
 import {
   motions,
   problemCards,
@@ -14,8 +15,8 @@ import {
   faqs,
 } from "../data/content.js";
 
-const pageTitle = "Meridian — B2B SaaS Revenue Intelligence and Value Continuity";
-const pageDescription = "Meridian is an omnichannel B2B SaaS support platform with native revenue intelligence. Identify adoption gaps, product friction, silent churn, customer distress signals, and ARR risk inside everyday support interactions.";
+const pageTitle = "MeridianARR | Value Continuity Platform for B2B SaaS";
+const pageDescription = "MeridianARR is a Value Continuity platform for B2B SaaS companies. Detect customer distress, product friction, support risk, and renewal threats before they become churn, contraction, or failed renewals.";
 const canonical = "https://meridianarr.com";
 
 const btn = "inline-flex items-center justify-center rounded-2xl px-6 py-3 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2";
@@ -119,6 +120,67 @@ const btnWhite  = `${btn} bg-white text-slate-950 hover:bg-blue-50`;
               <p class="mt-2 text-sm leading-6 text-slate-600">{copy}</p>
             </div>
           ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Value Continuity comparison table -->
+    <section class="bg-white px-5 py-20 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <p class="text-sm font-semibold uppercase tracking-[0.22em] text-blue-700">Value Continuity</p>
+        <h2 class="mt-5 max-w-2xl text-4xl font-semibold tracking-[-0.03em] text-slate-950 lg:text-5xl">
+          One platform owns Value Continuity.
+        </h2>
+        <p class="mt-4 max-w-2xl text-lg leading-8 text-slate-600">
+          Value Continuity is the discipline of detecting and acting on the customer signals that threaten recurring revenue. No other platform is built for this.
+        </p>
+        <div class="mt-10 overflow-x-auto rounded-2xl border border-slate-200">
+          <table class="w-full border-collapse text-sm">
+            <thead>
+              <tr class="border-b border-slate-200 bg-slate-50">
+                <th class="py-4 pl-6 pr-4 text-left text-xs font-semibold uppercase tracking-wider text-slate-500">Platform type</th>
+                <th class="py-4 px-4 text-center text-xs font-semibold uppercase tracking-wider text-slate-500">Tracks tickets</th>
+                <th class="py-4 px-4 text-center text-xs font-semibold uppercase tracking-wider text-slate-500">Tracks usage</th>
+                <th class="py-4 px-4 text-center text-xs font-semibold uppercase tracking-wider text-slate-500">Tracks revenue risk</th>
+                <th class="py-4 px-4 text-center text-xs font-semibold uppercase tracking-wider text-slate-500">Explains value breakdown</th>
+                <th class="py-4 px-4 text-center text-xs font-semibold uppercase tracking-wider text-slate-500">Owns Value Continuity</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-slate-100">
+                <td class="py-4 pl-6 pr-4 font-medium text-slate-700">Help desk</td>
+                <td class="py-4 px-4 text-center text-slate-500">Yes</td>
+                <td class="py-4 px-4 text-center text-slate-500">Limited</td>
+                <td class="py-4 px-4 text-center text-slate-400">No</td>
+                <td class="py-4 px-4 text-center text-slate-400">No</td>
+                <td class="py-4 px-4 text-center text-slate-400">No</td>
+              </tr>
+              <tr class="border-b border-slate-100">
+                <td class="py-4 pl-6 pr-4 font-medium text-slate-700">CS platform</td>
+                <td class="py-4 px-4 text-center text-slate-500">Some</td>
+                <td class="py-4 px-4 text-center text-slate-500">Some</td>
+                <td class="py-4 px-4 text-center text-slate-500">Some</td>
+                <td class="py-4 px-4 text-center text-slate-500">Partial</td>
+                <td class="py-4 px-4 text-center text-slate-400">No</td>
+              </tr>
+              <tr class="border-b border-slate-100">
+                <td class="py-4 pl-6 pr-4 font-medium text-slate-700">Product analytics</td>
+                <td class="py-4 px-4 text-center text-slate-400">No</td>
+                <td class="py-4 px-4 text-center text-slate-500">Yes</td>
+                <td class="py-4 px-4 text-center text-slate-400">No</td>
+                <td class="py-4 px-4 text-center text-slate-500">Partial</td>
+                <td class="py-4 px-4 text-center text-slate-400">No</td>
+              </tr>
+              <tr class="bg-slate-950">
+                <td class="py-4 pl-6 pr-4 font-semibold text-white">MeridianARR</td>
+                <td class="py-4 px-4 text-center font-medium text-blue-400">Yes</td>
+                <td class="py-4 px-4 text-center font-medium text-blue-400">Yes</td>
+                <td class="py-4 px-4 text-center font-medium text-blue-400">Yes</td>
+                <td class="py-4 px-4 text-center font-medium text-blue-400">Yes</td>
+                <td class="py-4 px-4 text-center font-medium text-blue-400">Yes</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
@@ -348,13 +410,7 @@ const btnWhite  = `${btn} bg-white text-slate-950 hover:bg-blue-50`;
     </section>
   </main>
 
-  <footer class="border-t border-slate-200 bg-white">
-    <div class="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-8 text-sm text-slate-500 md:flex-row md:items-center md:justify-between lg:px-8">
-      <p class="font-semibold text-slate-950">Meridian</p>
-      <p>Revenue intelligence for B2B SaaS after the sale.</p>
-      <p>Activation. Adoption. Growth. Renewal.</p>
-    </div>
-  </footer>
+  <Footer />
 
 
 </Layout>

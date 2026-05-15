@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
 import Icon from "../components/Icon.astro";
 import { integrationCategories } from "../data/content.js";
 
@@ -148,12 +149,6 @@ const liveCategories = integrationCategories.map(cat => ({
 
   </main>
 
-  <footer class="border-t border-slate-200 bg-white">
-    <div class="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-8 text-sm text-slate-500 md:flex-row md:items-center md:justify-between lg:px-8">
-      <p class="font-semibold text-slate-950">Meridian</p>
-      <p>Revenue intelligence for B2B SaaS after the sale.</p>
-      <p>Activation. Adoption. Growth. Renewal.</p>
-    </div>
-  </footer>
+  <Footer />
 
 </Layout>

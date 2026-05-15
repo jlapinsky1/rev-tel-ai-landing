@@ -1,0 +1,177 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+
+const pageTitle = "The Value Continuity Framework for B2B SaaS | MeridianARR";
+const pageDescription = "The Value Continuity Framework is the operational model MeridianARR uses to connect post-sale customer signals to ARR risk across four motions: Activation, Adoption, Growth, and Renewal.";
+const canonical = "https://meridianarr.com/learn/value-continuity-framework/";
+
+const motions = [
+  {
+    number: "01",
+    name: "Activation",
+    subtitle: "Onboarding risk",
+    description: "Activation is the period between contract signature and first value realization. It is the highest-risk phase of the customer lifecycle in B2B SaaS. Customers who do not activate — who fail to reach key onboarding milestones, complete integrations, or experience the product's core value — rarely expand or renew.",
+    signals: ["Missed onboarding milestones", "Implementation delays", "Integration failures", "Low initial feature adoption"],
+    question: "Has this customer reached the activation milestone we know predicts long-term retention?",
+  },
+  {
+    number: "02",
+    name: "Adoption",
+    subtitle: "Product friction",
+    description: "Adoption covers the period after activation where customers are building habits around the product. Adoption gaps — features used below contract scope, workflows that generate repeat support tickets, users avoiding certain functions — are the primary source of product friction churn in B2B SaaS.",
+    signals: ["Repeated support tickets on same feature", "Feature adoption below contract scope", "User avoidance of core workflows", "Declining login frequency"],
+    question: "Are customers using the product in the way that we know leads to expansion and renewal?",
+  },
+  {
+    number: "03",
+    name: "Growth",
+    subtitle: "Expansion signals",
+    description: "Growth monitors the signals that indicate a customer is ready for expansion — or at risk of not expanding due to unresolved friction. Expansion signals include increased user count, new use case adoption, and positive engagement with CS teams. Counter-signals include stalled usage and unresolved product friction.",
+    signals: ["New user seat requests", "New use case adoption", "Positive CS engagement", "Cross-departmental usage growth"],
+    question: "Which accounts have the signals that indicate readiness for expansion — and which have friction blocking it?",
+  },
+  {
+    number: "04",
+    name: "Renewal",
+    subtitle: "ARR protection",
+    description: "Renewal is the outcome that all previous phases determine. Accounts with strong Activation, healthy Adoption, and positive Growth signals renew and expand. Accounts with distress signals in any of the previous phases arrive at renewal conversations with less leverage. Value Continuity makes the renewal outcome predictable — and improvable — before the conversation.",
+    signals: ["Customer Distress Index score", "Cumulative support friction", "Adoption vs. contract scope", "Executive sponsor stability"],
+    question: "What does everything we know about this account predict about the renewal outcome — and what can we still do about it?",
+  },
+];
+
+const faqs = [
+  {
+    q: "What is the Value Continuity Framework?",
+    a: "The Value Continuity Framework is MeridianARR's model for monitoring post-sale ARR risk across four motions: Activation (onboarding risk), Adoption (product friction), Growth (expansion signals), and Renewal (ARR protection). Each motion has specific signals that predict customer health and revenue outcomes. MeridianARR is a Value Continuity platform that tracks all four motions continuously.",
+  },
+  {
+    q: "How is Value Continuity different from the customer success lifecycle?",
+    a: "The customer success lifecycle is CS-team-centric: onboarding, adoption, expansion, renewal — managed by CSMs. The Value Continuity Framework is signal-centric: it tracks the behaviors and data points in support, product, onboarding, and engagement systems that predict each lifecycle outcome. Value Continuity provides the intelligence layer beneath the CS lifecycle.",
+  },
+  {
+    q: "What is MeridianARR's role in the Value Continuity Framework?",
+    a: "MeridianARR is the Value Continuity platform that operationalizes the framework. It connects the signal sources for each motion — support, product usage, onboarding data, and CRM — into the Customer Distress Index and account intelligence layer. CROs, CFOs, CS leaders, and Support leaders use MeridianARR to monitor Value Continuity across the full post-sale lifecycle.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: { "@type": "Answer", text: faq.a },
+  })),
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://meridianarr.com/" },
+    { "@type": "ListItem", position: 2, name: "Learn", item: "https://meridianarr.com/learn/" },
+    { "@type": "ListItem", position: 3, name: "The Value Continuity Framework", item: canonical },
+  ],
+};
+---
+
+<Layout title={pageTitle} description={pageDescription} canonical={canonical}>
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <Nav />
+
+  <main>
+    <section class="bg-slate-950 px-5 py-20 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <p class="text-sm font-medium text-blue-400">Learn</p>
+        <h1 class="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+          The Value Continuity Framework
+        </h1>
+        <p class="mt-6 text-lg leading-relaxed text-slate-300">
+          The Value Continuity Framework is MeridianARR's model for monitoring post-sale ARR risk across the full customer lifecycle — through four motions: Activation, Adoption, Growth, and Renewal. Each motion has specific signals. Each signal predicts a revenue outcome.
+        </p>
+      </div>
+    </section>
+
+    <section class="bg-white px-5 py-16 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-slate-950">What is the Value Continuity Framework?</h2>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          Value Continuity is the discipline of detecting, explaining, and acting on customer signals that threaten recurring revenue before they become churn, contraction, or failed renewals. MeridianARR is a Value Continuity platform for B2B SaaS companies.
+        </p>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          The Value Continuity Framework organizes post-sale revenue risk into four motions, each representing a distinct phase of the customer lifecycle with distinct signal sources and revenue implications. Unlike the customer success lifecycle — which is organized around CS team activities — the Value Continuity Framework is organized around the signals that predict each outcome.
+        </p>
+      </div>
+    </section>
+
+    <section class="bg-slate-50 px-5 py-16 lg:px-8">
+      <div class="mx-auto max-w-3xl space-y-12">
+        {motions.map((motion) => (
+          <div class="rounded-xl border border-slate-200 bg-white p-8">
+            <div class="flex items-center gap-3">
+              <span class="text-4xl font-bold text-slate-200">{motion.number}</span>
+              <div>
+                <h2 class="text-xl font-bold text-slate-950">{motion.name}</h2>
+                <p class="text-sm text-slate-500">{motion.subtitle}</p>
+              </div>
+            </div>
+            <p class="mt-4 text-slate-600 leading-relaxed">{motion.description}</p>
+            <div class="mt-5">
+              <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Key signals</p>
+              <ul class="mt-2 space-y-1">
+                {motion.signals.map((signal) => (
+                  <li class="flex items-center gap-2 text-sm text-slate-600">
+                    <span class="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-slate-400"></span>
+                    {signal}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div class="mt-5 rounded-lg bg-slate-50 px-4 py-3">
+              <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Executive question</p>
+              <p class="mt-1 text-sm italic text-slate-700">"{motion.question}"</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="bg-white px-5 py-16 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-slate-950">How MeridianARR operationalizes the framework</h2>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          MeridianARR is a Value Continuity platform for B2B SaaS companies. It connects the signal sources for all four motions — support systems, product analytics, onboarding data, and CRM — into a single account intelligence layer.
+        </p>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          The Customer Distress Index (CDI) is the output: an account-level ARR risk score that reflects the cumulative weight of Value Continuity signals across all four motions. CROs, CFOs, Customer Success leaders, and Support leaders use MeridianARR to monitor Value Continuity across every account — and act on risk before it becomes a churn event.
+        </p>
+        <div class="mt-6">
+          <a href="/customer-defensibility-score/" class="inline-flex items-center justify-center rounded-2xl bg-slate-950 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-800">
+            Calculate your Customer Defensibility Score
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-slate-50 px-5 py-14 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-slate-950">Frequently asked questions</h2>
+        <dl class="mt-8 space-y-8">
+          {faqs.map((faq) => (
+            <div>
+              <dt class="font-semibold text-slate-950">{faq.q}</dt>
+              <dd class="mt-2 text-slate-600 leading-relaxed">{faq.a}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

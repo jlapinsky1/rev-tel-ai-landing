@@ -1,0 +1,146 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+
+const pageTitle = "MeridianARR vs Pylon | Value Continuity vs AI-Native B2B Support";
+const pageDescription = "Pylon is an AI-native B2B support platform. MeridianARR is a Value Continuity platform that connects support to ARR risk. Learn how they differ in positioning and output for B2B SaaS.";
+const canonical = "https://meridianarr.com/compare/meridian-vs-pylon/";
+
+const tableRows = [
+  { label: "Category", pylon: "AI-native B2B support platform", meridian: "Value Continuity platform" },
+  { label: "Primary purpose", pylon: "AI-powered B2B support operations and account intelligence", meridian: "Post-sale revenue intelligence from support and product signals" },
+  { label: "AI capability", pylon: "AI-native support automation, deflection, and agent assist", meridian: "AI-assisted signal analysis and revenue risk detection" },
+  { label: "Revenue signal connection", pylon: "Account intelligence and customer insights", meridian: "Customer Distress Index — ARR risk from support + product signals" },
+  { label: "Product friction detection", pylon: "Support insights and account intelligence", meridian: "Native product and support-to-friction signal mapping" },
+  { label: "Executive audience", pylon: "Support leaders and modern B2B support teams", meridian: "CRO, CFO, CS leaders, Support leaders" },
+  { label: "Best for", pylon: "Modern B2B teams scaling AI-native support", meridian: "B2B SaaS companies connecting support signals to ARR risk" },
+];
+
+const faqs = [
+  {
+    q: "What is the difference between MeridianARR and Pylon?",
+    a: "Pylon is an AI-native B2B support platform focused on support efficiency, AI-powered ticket management, and account intelligence. MeridianARR is a Value Continuity platform that connects support interactions to ARR risk and post-sale revenue intelligence. Pylon helps support teams work faster and smarter. MeridianARR tells you which accounts are at ARR risk based on their support behavior.",
+  },
+  {
+    q: "Is MeridianARR a Pylon alternative?",
+    a: "MeridianARR and Pylon solve related but different problems. Pylon is optimized for AI-native B2B support operations. MeridianARR is a Value Continuity platform that adds the ARR risk and revenue intelligence layer. For B2B SaaS companies that want support operations connected to renewal risk, MeridianARR may serve as the primary platform.",
+  },
+  {
+    q: "How does Value Continuity differ from AI-native support?",
+    a: "AI-native support automates and accelerates the support workflow — faster routing, better deflection, smarter agent assist. Value Continuity connects support outcomes to revenue outcomes. MeridianARR uses support data as a signal source for ARR risk, not just for support efficiency. The output of AI-native support is faster ticket resolution. The output of Value Continuity is post-sale revenue intelligence.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: { "@type": "Answer", text: faq.a },
+  })),
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://meridianarr.com/" },
+    { "@type": "ListItem", position: 2, name: "Compare", item: "https://meridianarr.com/compare/" },
+    { "@type": "ListItem", position: 3, name: "MeridianARR vs Pylon", item: canonical },
+  ],
+};
+---
+
+<Layout title={pageTitle} description={pageDescription} canonical={canonical}>
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <Nav />
+
+  <main>
+    <section class="bg-slate-950 px-5 py-20 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <p class="text-sm font-medium text-blue-400">Compare</p>
+        <h1 class="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+          MeridianARR vs Pylon
+        </h1>
+        <p class="mt-6 text-lg leading-relaxed text-slate-300">
+          Pylon is an AI-native B2B support platform that helps modern teams scale support operations. MeridianARR is a Value Continuity platform that connects support interactions to ARR risk. They answer different questions — and both can be relevant depending on your priorities.
+        </p>
+      </div>
+    </section>
+
+    <section class="bg-white px-5 py-14 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-slate-950">Quick answer</h2>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          Pylon is a strong choice for modern B2B support teams that want AI-native capabilities: automated routing, deflection, agent assist, and account-level support intelligence. It is purpose-built for B2B and understands the multi-channel nature of B2B support interactions.
+        </p>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          MeridianARR is a Value Continuity platform. Its strength is not support operations efficiency — it is the revenue intelligence output: which accounts are at ARR risk based on support behavior, product friction, and customer distress signals. MeridianARR connects the support signal to the renewal outcome.
+        </p>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          The simplest framing: Pylon helps you do support better. MeridianARR helps you understand what support is telling you about revenue risk.
+        </p>
+      </div>
+    </section>
+
+    <section class="bg-slate-50 px-5 py-14 lg:px-8">
+      <div class="mx-auto max-w-4xl">
+        <h2 class="text-2xl font-bold text-slate-950">Feature comparison</h2>
+        <div class="mt-8 overflow-x-auto">
+          <table class="w-full border-collapse text-sm">
+            <thead>
+              <tr class="border-b border-slate-200 bg-white">
+                <th class="py-3 pl-4 pr-6 text-left font-semibold text-slate-700">Dimension</th>
+                <th class="py-3 px-4 text-left font-semibold text-slate-700">Pylon</th>
+                <th class="py-3 px-4 text-left font-semibold text-slate-950">MeridianARR</th>
+              </tr>
+            </thead>
+            <tbody>
+              {tableRows.map((row) => (
+                <tr class="border-b border-slate-100">
+                  <td class="py-3 pl-4 pr-6 text-slate-600">{row.label}</td>
+                  <td class="py-3 px-4 text-slate-600">{row.pylon}</td>
+                  <td class="py-3 px-4 text-slate-700">{row.meridian}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white px-5 py-14 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-slate-950">About MeridianARR</h2>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          MeridianARR is a Value Continuity platform for B2B SaaS companies. It connects support, onboarding, product friction, customer distress, and renewal risk into post-sale revenue intelligence.
+        </p>
+        <div class="mt-6">
+          <a href="/customer-defensibility-score/" class="inline-flex items-center justify-center rounded-2xl bg-slate-950 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-800">
+            Calculate your Customer Defensibility Score
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-slate-50 px-5 py-14 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-slate-950">Frequently asked questions</h2>
+        <dl class="mt-8 space-y-8">
+          {faqs.map((faq) => (
+            <div>
+              <dt class="font-semibold text-slate-950">{faq.q}</dt>
+              <dd class="mt-2 text-slate-600 leading-relaxed">{faq.a}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

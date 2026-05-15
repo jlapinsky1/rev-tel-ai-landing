@@ -1,0 +1,168 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+
+const pageTitle = "Value Continuity vs Customer Health Scoring | MeridianARR";
+const pageDescription = "Customer health scores often miss churn risk because they don't include support signals. Learn how Value Continuity platforms like MeridianARR detect ARR risk that health scores miss.";
+const canonical = "https://meridianarr.com/compare/value-continuity-vs-customer-health-scoring/";
+
+const faqs = [
+  {
+    q: "Why do customer health scores miss churn risk?",
+    a: "Customer health scores are typically built from CRM data, CS team activity, and product login frequency. They rarely include support ticket content, escalation patterns, or product friction signals. MeridianARR's Customer Distress Index is built specifically from these signals — which is why it often detects churn risk before health scores decline.",
+  },
+  {
+    q: "What is the Customer Distress Index?",
+    a: "The Customer Distress Index (CDI) is MeridianARR's account-level ARR risk score. It combines support interaction patterns, product friction signals, onboarding completion status, engagement trends, and customer distress indicators into a single score that shows which accounts are at risk of churning, contracting, or failing to renew.",
+  },
+  {
+    q: "How is the Customer Distress Index different from a health score?",
+    a: "Traditional health scores are built from CRM and CS data. The Customer Distress Index is built from support and product friction signals — the interactions customers have with your product and support team that reveal frustration before it surfaces in a CRM. CDI detects churn risk earlier because it reads the signals that health scores ignore.",
+  },
+  {
+    q: "What signals does Value Continuity use that health scores miss?",
+    a: "Value Continuity signals include: unresolved or recurring support tickets, product friction patterns, features that generate disproportionate support volume, onboarding milestone gaps, escalation history, response rate to CS outreach, and behavioral signals in support interactions. These signals are the early warning system that health scores typically do not capture.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: { "@type": "Answer", text: faq.a },
+  })),
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://meridianarr.com/" },
+    { "@type": "ListItem", position: 2, name: "Compare", item: "https://meridianarr.com/compare/" },
+    { "@type": "ListItem", position: 3, name: "Value Continuity vs Customer Health Scoring", item: canonical },
+  ],
+};
+---
+
+<Layout title={pageTitle} description={pageDescription} canonical={canonical}>
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <Nav />
+
+  <main>
+    <section class="bg-slate-950 px-5 py-20 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <p class="text-sm font-medium text-blue-400">Compare</p>
+        <h1 class="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+          Value Continuity vs Customer Health Scoring
+        </h1>
+        <p class="mt-6 text-lg leading-relaxed text-slate-300">
+          Customer health scores are built from CRM and CS team activity. They miss churn risk hiding in support tickets and product friction. Value Continuity platforms like MeridianARR detect ARR risk from the signals health scores ignore.
+        </p>
+      </div>
+    </section>
+
+    <section class="bg-white px-5 py-14 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-slate-950">Why health scores miss churn risk</h2>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          Most CS platforms calculate health scores from three sources: CRM activity (is the account engaged with the sales team?), product login frequency (is anyone using the product?), and CS team activity (has a CSM touched this account recently?). These signals tell you whether the account relationship is active — not whether the customer is realizing value.
+        </p>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          The result: an account can maintain a green health score while filing seven support tickets about the same broken workflow, missing three key activation milestones, and actively evaluating alternatives. The health score is green. The account is leaving.
+        </p>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          Value Continuity addresses this by reading the signals health scores ignore: support interactions, product friction patterns, and customer distress indicators from the help desk. MeridianARR's Customer Distress Index is built from these signals and detects churn risk earlier than traditional health scoring.
+        </p>
+      </div>
+    </section>
+
+    <section class="bg-slate-50 px-5 py-14 lg:px-8">
+      <div class="mx-auto max-w-4xl">
+        <h2 class="text-2xl font-bold text-slate-950">Signals compared</h2>
+        <div class="mt-8 overflow-x-auto">
+          <table class="w-full border-collapse text-sm">
+            <thead>
+              <tr class="border-b border-slate-200 bg-white">
+                <th class="py-3 pl-4 pr-6 text-left font-semibold text-slate-700">Signal</th>
+                <th class="py-3 px-4 text-center font-semibold text-slate-700">CS Health Score</th>
+                <th class="py-3 px-4 text-center font-semibold text-slate-950">MeridianARR CDI</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-slate-100">
+                <td class="py-3 pl-4 pr-6 text-slate-600">Product login frequency</td>
+                <td class="py-3 px-4 text-center text-slate-600">Yes</td>
+                <td class="py-3 px-4 text-center text-slate-700">Yes</td>
+              </tr>
+              <tr class="border-b border-slate-100">
+                <td class="py-3 pl-4 pr-6 text-slate-600">CS team activity</td>
+                <td class="py-3 px-4 text-center text-slate-600">Yes</td>
+                <td class="py-3 px-4 text-center text-slate-700">Yes</td>
+              </tr>
+              <tr class="border-b border-slate-100">
+                <td class="py-3 pl-4 pr-6 text-slate-600">Support ticket patterns</td>
+                <td class="py-3 px-4 text-center text-slate-600">Rarely</td>
+                <td class="py-3 px-4 text-center font-medium text-slate-950">Yes — central signal</td>
+              </tr>
+              <tr class="border-b border-slate-100">
+                <td class="py-3 pl-4 pr-6 text-slate-600">Product friction signals</td>
+                <td class="py-3 px-4 text-center text-slate-600">No</td>
+                <td class="py-3 px-4 text-center font-medium text-slate-950">Yes</td>
+              </tr>
+              <tr class="border-b border-slate-100">
+                <td class="py-3 pl-4 pr-6 text-slate-600">Onboarding completion</td>
+                <td class="py-3 px-4 text-center text-slate-600">Sometimes</td>
+                <td class="py-3 px-4 text-center font-medium text-slate-950">Yes</td>
+              </tr>
+              <tr class="border-b border-slate-100">
+                <td class="py-3 pl-4 pr-6 text-slate-600">Customer distress from support</td>
+                <td class="py-3 px-4 text-center text-slate-600">No</td>
+                <td class="py-3 px-4 text-center font-medium text-slate-950">Yes — CDI score</td>
+              </tr>
+              <tr class="border-b border-slate-100">
+                <td class="py-3 pl-4 pr-6 text-slate-600">Escalation history</td>
+                <td class="py-3 px-4 text-center text-slate-600">Sometimes</td>
+                <td class="py-3 px-4 text-center font-medium text-slate-950">Yes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white px-5 py-14 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-slate-950">About MeridianARR</h2>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          MeridianARR is a Value Continuity platform for B2B SaaS companies. It connects support, onboarding, product friction, customer distress, and renewal risk into post-sale revenue intelligence — and surfaces the ARR risk that customer health scores miss.
+        </p>
+        <div class="mt-6">
+          <a href="/customer-defensibility-score/" class="inline-flex items-center justify-center rounded-2xl bg-slate-950 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-800">
+            Calculate your Customer Defensibility Score
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-slate-50 px-5 py-14 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-slate-950">Frequently asked questions</h2>
+        <dl class="mt-8 space-y-8">
+          {faqs.map((faq) => (
+            <div>
+              <dt class="font-semibold text-slate-950">{faq.q}</dt>
+              <dd class="mt-2 text-slate-600 leading-relaxed">{faq.a}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
