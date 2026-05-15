@@ -101,9 +101,10 @@ export const integrationCategories = [
     icon: "activity",
     description: "Connect tickets, conversations, support history, sentiment, resolution patterns, escalations, and customer friction signals.",
     connectors: [
-      { name: "Zendesk",   slug: "zendesk",   status: "confirm" },
-      { name: "Intercom",  slug: "intercom",  status: "confirm" },
-      { name: "Freshdesk", slug: "freshdesk", status: "confirm" },
+      { name: "Jira",          slug: "jira",          status: "live" },
+      { name: "HubSpot",       slug: "hubspot",       status: "live" },
+      { name: "ServiceNow",    slug: "servicenow",    status: "live" },
+      { name: "Azure DevOps",  slug: "azure-devops",  status: "live" },
     ],
   },
   {

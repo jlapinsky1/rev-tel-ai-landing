@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="ServiceNow">
+  <defs>
+    <linearGradient id="sn-g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#62D84E"/>
+      <stop offset="100%" stop-color="#29A345"/>
+    </linearGradient>
+  </defs>
+  <circle cx="50" cy="50" r="46" fill="url(#sn-g)"/>
+  <!-- Stylized S / Now mark — two stacked rectangles forming a lightning bolt -->
+  <path d="M62 28H42a4 4 0 00-4 4v14h20a4 4 0 010 8H38v14a4 4 0 004 4h20a4 4 0 004-4V54H46a4 4 0 010-8h20V32a4 4 0 00-4-4z" fill="white"/>
+</svg>
