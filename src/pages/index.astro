@@ -4,7 +4,6 @@ import Icon from "../components/Icon.astro";
 import Pill from "../components/Pill.astro";
 import DashboardPanel from "../components/DashboardPanel.astro";
 import ProductAnimation from "../components/ProductAnimation.astro";
-import DownloadModal from "../components/DownloadModal.astro";
 import Nav from "../components/Nav.astro";
 import {
   motions,
@@ -292,9 +291,9 @@ const btnWhite  = `${btn} bg-white text-slate-950 hover:bg-blue-50`;
         <p class="mx-auto mt-7 max-w-2xl text-lg leading-8 text-slate-300">
           Download the Value Continuity Report and see how B2B SaaS leaders can turn support signals into revenue intelligence.
         </p>
-        <button data-open-modal type="button" class={`${btnWhite} mt-9 px-8 py-4 text-base`}>
-          Download the Value Continuity Report <Icon name="arrowRight" class="ml-2 h-4 w-4" />
-        </button>
+        <a href="https://meridianarr.com/customer-defensibility-score/" class={`${btnWhite} mt-9 px-8 py-4 text-base`}>
+          Calculate Your Defensibility Score <Icon name="arrowRight" class="ml-2 h-4 w-4" />
+        </a>
       </div>
     </section>
   </main>
@@ -307,6 +306,5 @@ const btnWhite  = `${btn} bg-white text-slate-950 hover:bg-blue-50`;
     </div>
   </footer>
 
-  <DownloadModal />
 
 </Layout>
