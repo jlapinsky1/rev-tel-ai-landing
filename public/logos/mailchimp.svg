@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Mailchimp">
+  <!-- Freddie the chimp head -->
+  <ellipse cx="50" cy="54" rx="32" ry="34" fill="#FFE01B"/>
+  <!-- Ears -->
+  <ellipse cx="18" cy="52" rx="8" ry="10" fill="#FFE01B"/>
+  <ellipse cx="82" cy="52" rx="8" ry="10" fill="#FFE01B"/>
+  <ellipse cx="18" cy="52" rx="5" ry="6" fill="#F5C900"/>
+  <ellipse cx="82" cy="52" rx="5" ry="6" fill="#F5C900"/>
+  <!-- Eyes -->
+  <circle cx="39" cy="46" r="5" fill="white"/>
+  <circle cx="61" cy="46" r="5" fill="white"/>
+  <circle cx="40" cy="46" r="2.5" fill="#1F1F1F"/>
+  <circle cx="62" cy="46" r="2.5" fill="#1F1F1F"/>
+  <!-- Nose -->
+  <ellipse cx="50" cy="57" rx="7" ry="5" fill="#F5A623"/>
+  <circle cx="47" cy="56" r="2" fill="#1F1F1F"/>
+  <circle cx="53" cy="56" r="2" fill="#1F1F1F"/>
+  <!-- Smile -->
+  <path d="M40 65 Q50 74 60 65" fill="none" stroke="#1F1F1F" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Hat -->
+  <ellipse cx="50" cy="24" rx="28" ry="6" fill="#1F1F1F"/>
+  <rect x="32" y="6" width="36" height="20" rx="4" fill="#1F1F1F"/>
+</svg>

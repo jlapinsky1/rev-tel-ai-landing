@@ -105,6 +105,7 @@ export const integrationCategories = [
       { name: "HubSpot",       slug: "hubspot",       status: "live" },
       { name: "ServiceNow",    slug: "servicenow",    status: "live" },
       { name: "Azure DevOps",  slug: "azure-devops",  status: "live" },
+      { name: "Zoho",          slug: "zoho",          status: "live" },
     ],
   },
   {
@@ -125,7 +126,8 @@ export const integrationCategories = [
     description: "Connect customer conversations, internal collaboration, escalation paths, handoffs, and follow-up workflows.",
     connectors: [
       { name: "Slack",            slug: "slack",            status: "live"    },
-      { name: "Microsoft Teams",  slug: "microsoft-teams",  status: "confirm" },
+      { name: "Microsoft Teams",  slug: "microsoft-teams",  status: "live"    },
+      { name: "Mailchimp",        slug: "mailchimp",        status: "live"    },
       { name: "Gmail",            slug: "gmail",            status: "confirm" },
       { name: "Outlook",          slug: "outlook",          status: "confirm" },
     ],
