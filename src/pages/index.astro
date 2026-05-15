@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Icon from "../components/Icon.astro";
 import Pill from "../components/Pill.astro";
 import DashboardPanel from "../components/DashboardPanel.astro";
+import ProductAnimation from "../components/ProductAnimation.astro";
 import DownloadModal from "../components/DownloadModal.astro";
 import Nav from "../components/Nav.astro";
 import {
@@ -80,6 +81,20 @@ const btnWhite  = `${btn} bg-white text-slate-950 hover:bg-blue-50`;
 
         <DashboardPanel />
       </div>
+    </section>
+
+    <!-- Product showcase -->
+    <section id="product" class="mx-auto max-w-7xl px-5 py-20 lg:px-8">
+      <div class="mb-10 text-center">
+        <p class="text-sm font-semibold uppercase tracking-[0.22em] text-blue-700">The platform</p>
+        <h2 class="mx-auto mt-5 max-w-3xl text-5xl font-semibold tracking-[-0.045em] text-slate-950 lg:text-6xl">
+          Every customer, every signal, one view.
+        </h2>
+        <p class="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-600">
+          Value Continuity scores, ARR intelligence, expansion opportunities, product adoption, and relationship history — unified on the account page.
+        </p>
+      </div>
+      <ProductAnimation />
     </section>
 
     <!-- Why now -->
@@ -170,6 +185,30 @@ const btnWhite  = `${btn} bg-white text-slate-950 hover:bg-blue-50`;
       </div>
     </section>
 
+    <!-- Account intelligence -->
+    <section class="mx-auto max-w-7xl px-5 py-20 lg:px-8">
+      <div class="grid items-center gap-12 rounded-[2rem] bg-white p-8 shadow-xl shadow-slate-900/5 lg:grid-cols-[0.95fr_1.05fr] lg:p-12">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.22em] text-blue-700">Account intelligence</p>
+          <h2 class="mt-5 text-5xl font-semibold tracking-[-0.045em] text-slate-950 lg:text-6xl">
+            Not a generic help desk with AI on top.
+          </h2>
+          <p class="mt-6 text-lg leading-8 text-slate-600">
+            At its core, Meridian is a full B2B support platform: email, portal, ticketing, routing, AI triage, customer records, product areas, playbooks, and reporting. The difference is that revenue intelligence is native to the system, not bolted on after the support data is created.
+          </p>
+        </div>
+        <div class="grid gap-4 sm:grid-cols-2">
+          {accountIntelligenceCards.map(([icon, title, copy]) => (
+            <div class="rounded-3xl border border-slate-100 bg-slate-50 p-5">
+              <Icon name={icon} class="mb-5 h-6 w-6 text-blue-700" />
+              <h3 class="font-semibold text-slate-950">{title}</h3>
+              <p class="mt-2 text-sm leading-6 text-slate-600">{copy}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
     <!-- Value Continuity -->
     <section class="mx-auto max-w-5xl px-5 py-20 text-center lg:px-8">
       <p class="text-sm font-semibold uppercase tracking-[0.22em] text-blue-700">Value Continuity System</p>
@@ -208,30 +247,6 @@ const btnWhite  = `${btn} bg-white text-slate-950 hover:bg-blue-50`;
             <p class="text-sm leading-6 text-slate-600">{motion.copy}</p>
           </div>
         ))}
-      </div>
-    </section>
-
-    <!-- Account intelligence -->
-    <section class="mx-auto max-w-7xl px-5 py-20 lg:px-8">
-      <div class="grid items-center gap-12 rounded-[2rem] bg-white p-8 shadow-xl shadow-slate-900/5 lg:grid-cols-[0.95fr_1.05fr] lg:p-12">
-        <div>
-          <p class="text-sm font-semibold uppercase tracking-[0.22em] text-blue-700">Account intelligence</p>
-          <h2 class="mt-5 text-5xl font-semibold tracking-[-0.045em] text-slate-950 lg:text-6xl">
-            Not a generic help desk with AI on top.
-          </h2>
-          <p class="mt-6 text-lg leading-8 text-slate-600">
-            At its core, Meridian is a full B2B support platform: email, portal, ticketing, routing, AI triage, customer records, product areas, playbooks, and reporting. The difference is that revenue intelligence is native to the system, not bolted on after the support data is created.
-          </p>
-        </div>
-        <div class="grid gap-4 sm:grid-cols-2">
-          {accountIntelligenceCards.map(([icon, title, copy]) => (
-            <div class="rounded-3xl border border-slate-100 bg-slate-50 p-5">
-              <Icon name={icon} class="mb-5 h-6 w-6 text-blue-700" />
-              <h3 class="font-semibold text-slate-950">{title}</h3>
-              <p class="mt-2 text-sm leading-6 text-slate-600">{copy}</p>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
 
