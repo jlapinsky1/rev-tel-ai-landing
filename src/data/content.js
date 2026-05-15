@@ -113,7 +113,7 @@ export const integrationCategories = [
     connectors: [
       { name: "Confluence Cloud",       slug: "confluence-cloud",       status: "live"    },
       { name: "Confluence Data Center", slug: "confluence-data-center", status: "live"    },
-      { name: "Knowledge Owl",          slug: "knowledge-owl",          status: "live"    },
+      { name: "Knowledge Owl",          slug: "knowledge-owl",          status: "confirm" },
       { name: "MindTouch",              slug: "mindtouch",              status: "live"    },
       { name: "SharePoint",             slug: "sharepoint",             status: "live"    },
     ],
