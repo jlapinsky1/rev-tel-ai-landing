@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Microsoft Dynamics">
+  <defs>
+    <linearGradient id="dyn-g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0078D4"/>
+      <stop offset="100%" stop-color="#005BA1"/>
+    </linearGradient>
+  </defs>
+  <!-- D shape -->
+  <path d="M20 15h28c20 0 34 14 34 35s-14 35-34 35H20V15z" fill="url(#dyn-g)"/>
+  <path d="M34 30h12c12 0 20 8 20 20s-8 20-20 20H34V30z" fill="white"/>
+</svg>

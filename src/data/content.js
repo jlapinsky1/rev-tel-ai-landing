@@ -92,8 +92,10 @@ export const integrationCategories = [
     icon: "building",
     description: "Connect account, opportunity, renewal, owner, ARR, lifecycle stage, and expansion context from CRM and revenue systems.",
     connectors: [
-      { name: "Salesforce",  slug: "salesforce", status: "live"    },
-      { name: "HubSpot",     slug: "hubspot",    status: "confirm" },
+      { name: "Salesforce",          slug: "salesforce", status: "live" },
+      { name: "HubSpot",             slug: "hubspot",    status: "live" },
+      { name: "Zoho",                slug: "zoho",       status: "live" },
+      { name: "Microsoft Dynamics",  slug: "dynamics",   status: "live" },
     ],
   },
   {
