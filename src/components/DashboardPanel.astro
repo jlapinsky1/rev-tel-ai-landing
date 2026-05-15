@@ -1,71 +1,243 @@
 ---
 import Icon from "./Icon.astro";
-import Pill from "./Pill.astro";
 import { riskSignals, accounts } from "../data/content.js";
+
+const badgeClass: Record<string, string> = {
+  "Silent churn": "badge-amber",
+  "Ghosting":     "badge-indigo",
+  "Healthy":      "badge-green",
+  "Expansion":    "badge-slate",
+};
+
+const barClass: Record<string, string> = {
+  risk:  "bar-amber",
+  warn:  "bar-blue",
+  muted: "bar-muted",
+};
 ---
 
-<div class="rounded-3xl border border-slate-200 bg-white shadow-sm overflow-hidden rounded-[2rem] shadow-2xl shadow-slate-900/10">
-  <div class="border-b border-slate-100 bg-slate-50/80 px-6 py-4">
-    <div class="flex items-center justify-between gap-4">
-      <div>
-        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Revenue Risk Monitor</p>
-        <p class="mt-1 text-sm text-slate-600">Account-level post-sale intelligence</p>
-      </div>
-      <Pill tone="risk"><Icon name="alert" class="mr-1 h-3 w-3" /> 3 risks detected</Pill>
+<div class="dash-root select-none">
+
+  <!-- Header -->
+  <div class="dash-header">
+    <div>
+      <p class="dash-eyebrow">Revenue Risk Monitor</p>
+      <p class="dash-subtitle">Account-level post-sale intelligence</p>
     </div>
+    <span class="risks-pill">
+      <span class="risks-dot"></span>
+      3 risks detected
+    </span>
   </div>
 
-  <div class="grid gap-0 md:grid-cols-[1.05fr_0.95fr]">
-    <div class="border-b border-slate-100 p-6 md:border-b-0 md:border-r">
-      <div class="mb-5 flex items-center justify-between">
-        <div>
-          <p class="text-sm font-medium text-slate-500">Customer Distress Index</p>
-          <div class="mt-2 flex items-end gap-3">
-            <span class="text-6xl font-semibold tracking-tight text-slate-950">74</span>
-            <span class="mb-2 rounded-full bg-amber-50 px-3 py-1 text-xs font-medium text-amber-800">Elevated</span>
-          </div>
-        </div>
-        <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 text-blue-700">
-          <Icon name="shield" class="h-7 w-7" />
-        </div>
-      </div>
+  <!-- Body -->
+  <div class="dash-body">
 
-      <div class="space-y-4">
+    <!-- Left: CDI + signals -->
+    <div class="dash-left">
+      <p class="cdi-label">Customer distress index</p>
+      <div class="cdi-row">
+        <span class="cdi-number">74</span>
+        <span class="elevated-badge">Elevated</span>
+      </div>
+      <div class="signal-list">
         {riskSignals.map((signal) => (
-          <div>
-            <div class="mb-2 flex items-center justify-between text-xs">
-              <span class="font-medium text-slate-600">{signal.name}</span>
-              <span class="text-slate-400">{signal.value}%</span>
+          <div class="signal-item">
+            <div class="signal-meta">
+              <span class="signal-name">{signal.name}</span>
+              <span class="signal-pct">{signal.value}%</span>
             </div>
-            <div class="h-2 overflow-hidden rounded-full bg-slate-100">
-              <div
-                class={`h-full rounded-full ${signal.tone === "risk" ? "bg-amber-500" : signal.tone === "warn" ? "bg-blue-500" : "bg-slate-300"}`}
-                style={`width:${signal.value}%`}
-              />
+            <div class="bar-track">
+              <div class={`bar-fill ${barClass[signal.tone] ?? "bar-muted"}`} style={`--w:${signal.value}%`}></div>
             </div>
           </div>
         ))}
       </div>
     </div>
 
-    <div class="p-6">
-      <div class="mb-4 flex items-center justify-between">
-        <p class="text-sm font-medium text-slate-700">Accounts to watch</p>
-        <Icon name="eye" class="h-4 w-4 text-slate-400" />
+    <!-- Divider -->
+    <div class="dash-divider"></div>
+
+    <!-- Right: Accounts -->
+    <div class="dash-right">
+      <div class="accounts-hd">
+        <p class="accounts-label">Accounts to watch</p>
+        <Icon name="eye" class="eye-icon" />
       </div>
-      <div class="space-y-3">
+      <div class="accounts-list">
         {accounts.map((account) => (
-          <div class="rounded-2xl border border-slate-100 bg-slate-50 p-4">
-            <div class="flex items-start justify-between gap-3">
-              <div>
-                <p class="font-medium text-slate-900">{account.name}</p>
-                <p class="mt-1 text-xs text-slate-500">ARR {account.arr}</p>
-              </div>
-              <Pill tone={account.tone}>{account.status}</Pill>
+          <div class="account-row">
+            <div>
+              <p class="account-name">{account.name}</p>
+              <p class="account-arr">ARR {account.arr}</p>
             </div>
+            <span class={`acct-badge ${badgeClass[account.status] ?? "badge-slate"}`}>{account.status}</span>
           </div>
         ))}
       </div>
     </div>
+
   </div>
 </div>
+
+<style>
+  /* ─── Root ─────────────────────────────────────────────────────── */
+  .dash-root {
+    background: #13151e;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
+    box-shadow: 0 32px 64px -16px rgba(0,0,0,0.5);
+  }
+
+  /* ─── Header ────────────────────────────────────────────────────── */
+  .dash-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 20px 22px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .dash-eyebrow {
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    color: #64748b;
+  }
+  .dash-subtitle {
+    margin-top: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #e2e8f0;
+  }
+  .risks-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(245,158,11,0.15);
+    border: 1px solid rgba(245,158,11,0.25);
+    border-radius: 99px;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #fbbf24;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .risks-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: #f59e0b;
+    animation: pulseDot 2s ease-in-out infinite;
+  }
+
+  /* ─── Body grid ─────────────────────────────────────────────────── */
+  .dash-body {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+  }
+  @media (max-width: 560px) {
+    .dash-body { grid-template-columns: 1fr; }
+    .dash-divider { display: none; }
+  }
+  .dash-divider { background: rgba(255,255,255,0.07); }
+
+  /* ─── Left pane ─────────────────────────────────────────────────── */
+  .dash-left { padding: 20px 22px; }
+  .cdi-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: #64748b;
+    margin-bottom: 8px;
+  }
+  .cdi-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .cdi-number {
+    font-size: 64px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1;
+    letter-spacing: -.04em;
+  }
+  .elevated-badge {
+    margin-bottom: 8px;
+    display: inline-block;
+    background: rgba(180,120,10,0.35);
+    color: #fbbf24;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 99px;
+  }
+
+  /* ─── Signal bars ────────────────────────────────────────────────── */
+  .signal-list { display: flex; flex-direction: column; gap: 12px; }
+  .signal-item {}
+  .signal-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+  }
+  .signal-name { font-size: 12px; font-weight: 500; color: #cbd5e1; }
+  .signal-pct  { font-size: 12px; color: #64748b; }
+  .bar-track {
+    height: 6px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 99px;
+    overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 99px;
+    width: var(--w);
+  }
+  .bar-amber { background: #f59e0b; }
+  .bar-blue  { background: #6366f1; }
+  .bar-muted { background: #475569; }
+
+  /* ─── Right pane ─────────────────────────────────────────────────── */
+  .dash-right { padding: 20px 22px; }
+  .accounts-hd {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+  }
+  .accounts-label { font-size: 13px; font-weight: 500; color: #94a3b8; }
+  .eye-icon { width: 16px; height: 16px; color: #475569; }
+  .accounts-list { display: flex; flex-direction: column; gap: 10px; }
+  .account-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .account-name { font-size: 14px; font-weight: 600; color: #f1f5f9; }
+  .account-arr  { font-size: 11px; color: #64748b; margin-top: 2px; }
+
+  /* ─── Account badges ─────────────────────────────────────────────── */
+  .acct-badge {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 99px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .badge-amber  { background: rgba(180,110,0,0.4);    color: #fbbf24; }
+  .badge-indigo { background: rgba(99,102,241,0.25);  color: #a5b4fc; }
+  .badge-green  { background: rgba(16,185,129,0.2);   color: #6ee7b7; }
+  .badge-slate  { background: rgba(99,102,241,0.2);   color: #93c5fd; }
+
+  /* ─── Animations ─────────────────────────────────────────────────── */
+  @keyframes pulseDot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: .5; transform: scale(.75); }
+  }
+</style>
