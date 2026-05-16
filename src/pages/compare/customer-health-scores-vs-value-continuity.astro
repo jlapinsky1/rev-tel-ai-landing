@@ -26,7 +26,7 @@ const faqs = [
   },
   {
     q: "Should I replace my health score with the Customer Distress Index?",
-    a: "No. The CDI is additive — it provides the support-signal intelligence layer that health scores do not generate. The right architecture is: CS platform health score for overall account status and CS workflow prioritization, plus the CDI for support-signal risk detection. Teams that use both have materially fewer surprise churn events than those using health scores alone.",
+    a: "The CDI is the support-signal layer that health scores cannot generate — they serve different purposes and work together. MeridianARR, as a Value Continuity platform, produces both: account-level health views for prioritization and the CDI for support-signal risk detection. For teams moving from a separate CS platform (Gainsight, ChurnZero) to MeridianARR, the CDI replaces the CS health score as the primary churn risk signal — with more accuracy because it is built from native support data.",
   },
   {
     q: "What B2B SaaS companies need a Value Continuity platform?",
@@ -204,7 +204,7 @@ const breadcrumbSchema = {
                 ["Lead time on churn signals", "30–60 days before obvious distress", "60–180 days before churn event"],
                 ["False-healthy account rate", "High (structural gap)", "Materially lower with support signal layer"],
                 ["Primary use case", "CS workflow prioritization", "ARR risk intelligence across revenue org"],
-                ["Replaces the other?", "No — complementary", "No — complementary"],
+                ["Platform relationship", "CS platform metric — external to MeridianARR", "Native MeridianARR output — built from support data"],
               ].map(([dim, hs, vc]) => (
                 <tr class="border-b border-slate-100">
                   <td class="py-3 pl-4 pr-6 font-medium text-slate-800">{dim}</td>
@@ -254,7 +254,7 @@ const breadcrumbSchema = {
       <div class="mx-auto max-w-3xl">
         <h2 class="text-2xl font-bold text-white">How MeridianARR adds Value Continuity to customer health</h2>
         <p class="mt-4 text-slate-300 leading-relaxed">
-          MeridianARR is the Value Continuity platform for B2B SaaS companies. It integrates with your help desk (Zendesk, Intercom, Freshdesk, Pylon) and your product analytics to produce the Customer Distress Index — a continuous account-level ARR risk score built from the signals your CS health score is not reading.
+          MeridianARR is the Value Continuity platform for B2B SaaS companies. It consolidates complete omni-channel support operations and CS intelligence into one platform — replacing the help desk and CS platform combination. The Customer Distress Index is built from native support data, not assembled via integration from a separate system.
         </p>
         <p class="mt-4 text-slate-300 leading-relaxed">
           CROs use the CDI to pressure-test CS forecasts. CFOs use it to quantify ARR at risk from support-signal distress patterns. CS leaders use it alongside their health score to catch the accounts that are active but frustrated, silently evaluating competitors, or showing the early patterns that always precede churn.

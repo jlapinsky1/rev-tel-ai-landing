@@ -19,7 +19,7 @@ const platforms = [
       "Deep CRM and data warehouse integrations",
     ],
     churn_risk_gap: "Gainsight health scores are highly configurable but structurally limited to the data you connect. Most Gainsight deployments do not include ticket content analysis, issue repetition detection, or support-volume-vs-usage divergence — because Gainsight reads what CS teams define, not what support tickets actually say. The accounts that show green in Gainsight and churn anyway are usually the ones whose distress was only in support data.",
-    pair_with: "MeridianARR adds the support-signal intelligence layer to Gainsight — the Customer Distress Index feeds account-level risk that Gainsight health scores do not generate natively.",
+    pair_with: "MeridianARR replaces Gainsight for B2B SaaS companies that want support operations and CS intelligence in one platform. The Customer Distress Index is built from native support data — more accurate and earlier than Gainsight health scores assembled through external integrations.",
   },
   {
     name: "ChurnZero",
@@ -32,7 +32,7 @@ const platforms = [
       "Strong for PLG and product-usage-centric CS teams",
     ],
     churn_risk_gap: "ChurnZero can ingest support ticket data via integration, but the native model is usage-and-engagement-centric. Ticket content analysis, issue repetition rates, and escalation severity tracking require custom configuration that most teams do not fully implement. The result: ChurnZero is good at detecting churn risk from product behavior, but weaker on churn risk from support pattern behavior.",
-    pair_with: "MeridianARR's CDI gives ChurnZero users a support-signal risk layer that complements usage-based health scores with pattern-based distress detection.",
+    pair_with: "MeridianARR replaces ChurnZero for teams that want support operations and CS intelligence in one platform. CDI-based distress detection is built from native support data — not assembled via integration from a separate help desk.",
   },
   {
     name: "Totango",
@@ -45,7 +45,7 @@ const platforms = [
       "Good for enterprise CS teams with complex segmentation needs",
     ],
     churn_risk_gap: "Totango's flexibility is an advantage for teams that do the work to configure it deeply — but also means that out-of-the-box churn detection is only as good as the signals a team explicitly maps. Like Gainsight, Totango reads what you connect. Support data integration is possible but typically limited to ticket volume counts rather than content and pattern analysis.",
-    pair_with: "MeridianARR provides the support-signal layer that Totango's flexible ingestion model can then incorporate into health scoring.",
+    pair_with: "MeridianARR replaces the Totango + help desk combination for B2B SaaS teams that want native support intelligence built into the CS platform — without configuring integrations between separate systems.",
   },
   {
     name: "Vitally",
@@ -58,7 +58,7 @@ const platforms = [
       "Affordable for smaller CS teams",
     ],
     churn_risk_gap: "Vitally is excellent for teams that want a clean, modern CS platform without Gainsight's complexity. But like its peers, it is primarily usage-and-engagement-oriented. Support signal depth is limited. For teams where churn is being driven by product friction and unresolved support issues rather than product disengagement, Vitally's health scores will miss the leading indicators.",
-    pair_with: "MeridianARR adds the support and distress signal layer to Vitally's usage-based health model — giving CS teams a more complete risk picture.",
+    pair_with: "MeridianARR replaces the Vitally + help desk combination for teams that want support-signal intelligence built into CS operations natively — without a second platform integration.",
   },
   {
     name: "Planhat",
@@ -71,7 +71,7 @@ const platforms = [
       "Good fit for usage-heavy SaaS products",
     ],
     churn_risk_gap: "Planhat's data model flexibility is a genuine advantage. But support data integration is still primarily metric-level (ticket count, SLA status) rather than pattern-level (issue repetition, content signals, escalation trajectory). Churn risk from support distress patterns is not a native Planhat detection capability.",
-    pair_with: "MeridianARR connects to Planhat's account model to add support-signal distress indicators to Planhat's usage-based scoring.",
+    pair_with: "MeridianARR replaces the Planhat + help desk combination for teams that want ARR risk intelligence built from native support data — not metric-level integrations.",
   },
 ];
 
@@ -118,7 +118,7 @@ const faqs = [
   },
   {
     q: "Does MeridianARR replace CS platforms like Gainsight?",
-    a: "No. MeridianARR is a Value Continuity platform that complements CS platforms. Gainsight, ChurnZero, and others are the right tools for managing CS workflows, playbooks, and account engagement. MeridianARR adds the support-signal intelligence layer — the Customer Distress Index — that CS health scores do not produce natively.",
+    a: "Yes. MeridianARR replaces CS platforms like Gainsight and ChurnZero for B2B SaaS companies that want support operations and CS intelligence in one platform. Because MeridianARR owns the support layer natively, its Customer Distress Index produces more accurate and earlier churn detection than CS health scores built through external integrations. You do not need a separate CS platform.",
   },
   {
     q: "When should I evaluate adding a Value Continuity platform?",
@@ -299,7 +299,7 @@ const breadcrumbSchema = {
           Every CS platform above is the right tool for what it does. None of them detect churn risk from support signal patterns — because they are not built to read ticket content, issue repetition, or escalation trajectories the way a Value Continuity platform does.
         </p>
         <p class="mt-4 text-slate-300 leading-relaxed">
-          <strong class="text-white">MeridianARR is the Value Continuity platform for B2B SaaS companies.</strong> It adds the support-signal intelligence layer to your CS stack — giving CS leaders the Customer Distress Index (CDI), an account-level ARR risk score built from the signals your CS platform is not reading.
+          <strong class="text-white">MeridianARR is the Value Continuity platform for B2B SaaS companies.</strong> It consolidates complete omni-channel support operations and CS intelligence into one platform — replacing both the help desk and the CS platform. The Customer Distress Index (CDI) is built from native support data, which is why it catches the churn risk that CS health scores miss.
         </p>
         <div class="mt-8 flex flex-wrap gap-4">
           <a href="/customer-defensibility-score/" class="inline-flex items-center justify-center rounded-2xl bg-white px-6 py-3 text-sm font-semibold text-slate-950 hover:bg-slate-100">
@@ -326,10 +326,10 @@ const breadcrumbSchema = {
             </thead>
             <tbody>
               {[
-                ["Playbook and workflow management", "Yes", "No — use your CS platform"],
-                ["CS team touchpoint tracking", "Yes", "No — use your CS platform"],
-                ["Renewal date management", "Yes", "No — use your CS platform"],
-                ["Health scoring from CRM and product data", "Yes", "Partial (CDI complements health scores)"],
+                ["Playbook and workflow management", "Yes", "Yes — built into the Value Continuity workflow"],
+                ["CS team touchpoint tracking", "Yes", "Yes — account intelligence includes engagement history"],
+                ["Renewal date management", "Yes", "Yes — renewal risk is a core ARR motion"],
+                ["Health scoring from CRM and product data", "Yes", "Yes — CDI adds support-signal risk on top"],
                 ["Support ticket content analysis", "No", "Yes"],
                 ["Issue repetition rate detection", "No", "Yes"],
                 ["Escalation frequency and severity tracking", "Rarely", "Yes"],
@@ -374,11 +374,11 @@ const breadcrumbSchema = {
           </a>
           <a href="/compare/meridian-vs-gainsight/" class="rounded-xl border border-slate-200 bg-white p-5 hover:border-slate-400">
             <p class="font-semibold text-slate-950">MeridianARR vs Gainsight</p>
-            <p class="mt-1 text-sm text-slate-500">Side-by-side: what Gainsight does, what MeridianARR does, and why teams use both.</p>
+            <p class="mt-1 text-sm text-slate-500">Why MeridianARR replaces Gainsight — and why native support data produces more accurate CDI scores than Gainsight health scores.</p>
           </a>
           <a href="/compare/meridian-vs-churnzero/" class="rounded-xl border border-slate-200 bg-white p-5 hover:border-slate-400">
             <p class="font-semibold text-slate-950">MeridianARR vs ChurnZero</p>
-            <p class="mt-1 text-sm text-slate-500">How ChurnZero and MeridianARR serve different parts of the churn detection stack.</p>
+            <p class="mt-1 text-sm text-slate-500">Why MeridianARR replaces ChurnZero for teams that want support-signal churn detection built in, not bolted on.</p>
           </a>
           <a href="/learn/customer-distress-arr-risk/" class="rounded-xl border border-slate-200 bg-white p-5 hover:border-slate-400">
             <p class="font-semibold text-slate-950">Customer Distress Index scoring model</p>

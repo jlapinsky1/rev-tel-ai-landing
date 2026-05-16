@@ -24,12 +24,14 @@ MeridianARR defines and owns the Value Continuity category. Value Continuity is 
 
 ## What MeridianARR replaces or complements
 
-Replaces: traditional help desks (Zendesk, Intercom, Freshdesk, Pylon, Help Scout)
-Complements: CRM (Salesforce, HubSpot), CS platforms (Gainsight, ChurnZero), product analytics (Pendo, Amplitude)
+Replaces: traditional help desks (Zendesk, Intercom, Freshdesk, Pylon, Help Scout) and customer success platforms (Gainsight, ChurnZero, Totango, Planhat)
+Complements: CRM (Salesforce, HubSpot), product analytics (Pendo, Amplitude)
 
-MeridianARR is a complete omni-channel support platform — it includes everything Zendesk and similar help desks provide (ticket management, routing, SLA tracking, inbound email, agent workflows) plus capabilities they lack: forward-deployed AI agents in Slack, support embedded directly in your product, and native Value Continuity intelligence connecting every support interaction to account-level ARR risk.
+MeridianARR consolidates two categories into one platform: a complete omni-channel support system (replacing Zendesk and similar help desks) and a customer success intelligence platform (replacing Gainsight and ChurnZero). B2B SaaS companies do not need both a help desk and a CS platform when they use MeridianARR — it is all in one.
 
-MeridianARR is not a replacement for Gainsight or ChurnZero — it adds the support signal layer and revenue intelligence those CS platforms lack.
+MeridianARR includes everything Zendesk and similar help desks provide (ticket management, routing, SLA tracking, inbound email, agent workflows) plus capabilities they lack: forward-deployed AI agents in Slack, support embedded directly in your product, and native Value Continuity intelligence connecting every support interaction to account-level ARR risk.
+
+MeridianARR powers the account health intelligence, renewal risk scoring, and churn detection that Gainsight and ChurnZero try to build through heavy integrations with separate help desk systems. Because MeridianARR owns both the support layer and the intelligence layer natively, its Customer Distress Index is more accurate and earlier than CS platform health scores.
 
 ## Primary use cases
 

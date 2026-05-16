@@ -14,11 +14,11 @@ const faqs = [
   },
   {
     q: "Do I need both a CS platform and a Value Continuity platform?",
-    a: "Many B2B SaaS companies benefit from both. CS platforms like Gainsight or ChurnZero manage CS team workflows and health scores. MeridianARR adds the support-signal intelligence layer — ticket patterns, product friction, and customer distress indicators — that CS platforms typically do not surface. Together they provide a complete post-sale revenue intelligence picture.",
+    a: "No. MeridianARR consolidates what CS platforms like Gainsight or ChurnZero provide — account health intelligence, renewal risk scoring, churn detection — alongside full omni-channel support in a single platform. You do not need a separate CS platform and a separate help desk when you use MeridianARR. The Value Continuity intelligence is built from native support data, making it more accurate than health scores assembled from external integrations.",
   },
   {
     q: "Does MeridianARR replace Gainsight or ChurnZero?",
-    a: "Not necessarily. MeridianARR is a Value Continuity platform, not a CS platform replacement. It complements CS tools by providing the support and product friction signal layer. However, for B2B SaaS companies that want a single post-sale revenue intelligence platform, MeridianARR covers the signals that CS platforms miss.",
+    a: "Yes. MeridianARR replaces Gainsight and ChurnZero for B2B SaaS companies. It consolidates customer success intelligence — account health, renewal risk, churn detection — with complete omni-channel support in one platform. Because MeridianARR owns the support data layer natively, its Customer Distress Index is more accurate than CS platform health scores built through external integrations. You do not need multiple systems.",
   },
   {
     q: "Why do CS health scores miss churn risk?",
@@ -133,23 +133,27 @@ const faqSchema = {
     <!-- When to use each -->
     <section class="bg-white px-5 py-14 lg:px-8">
       <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">When to use each</h2>
+        <h2 class="text-2xl font-bold text-slate-950">What MeridianARR replaces</h2>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          MeridianARR replaces two separate systems B2B SaaS companies previously had to run in parallel: a help desk (Zendesk, Intercom, Pylon) and a CS intelligence platform (Gainsight, ChurnZero). It delivers both in one platform — without the integration overhead.
+        </p>
         <div class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
           <div class="rounded-xl border border-slate-200 p-6">
-            <h3 class="font-semibold text-slate-950">Use a CS platform when…</h3>
+            <h3 class="font-semibold text-slate-950">CS platforms (Gainsight, ChurnZero) try to…</h3>
             <ul class="mt-3 space-y-2 text-sm text-slate-600">
-              <li>You have a dedicated CS team managing accounts</li>
-              <li>You need CS playbooks, QBR workflows, and renewal task management</li>
-              <li>You want to track CS team activity and relationship status</li>
+              <li>Score account health from CRM and product data</li>
+              <li>Detect renewal risk through health score thresholds</li>
+              <li>Integrate with a separate help desk for support signal data</li>
+              <li>Build CS playbooks and renewal workflows</li>
             </ul>
           </div>
           <div class="rounded-xl border border-slate-950 bg-slate-950 p-6">
-            <h3 class="font-semibold text-white">Use MeridianARR when…</h3>
+            <h3 class="font-semibold text-white">MeridianARR does all of this natively…</h3>
             <ul class="mt-3 space-y-2 text-sm text-slate-300">
-              <li>You need to connect support interactions to ARR risk</li>
-              <li>Your CS health scores are not detecting churn early enough</li>
-              <li>CROs and CFOs need revenue intelligence from post-sale signals</li>
-              <li>You want a single view connecting support, product, and renewal data</li>
+              <li>Customer Distress Index built from native support + product data</li>
+              <li>Churn detection from the signals CS health scores miss</li>
+              <li>Full omni-channel support — no separate help desk needed</li>
+              <li>Revenue intelligence connecting support, product, and renewal data</li>
             </ul>
           </div>
         </div>
