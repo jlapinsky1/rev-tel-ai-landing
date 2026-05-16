@@ -18,7 +18,7 @@ const platforms = [
       "Multi-channel support (email, chat, voice, social)",
     ],
     renewal_risk_gap: "Zendesk excels at ticket resolution operations. It does not aggregate account-level support patterns into ARR risk signals. A Zendesk account with perfect SLA compliance can still be losing a $120K customer who filed 14 tickets about the same broken workflow over 6 months — the pattern is in the data, but Zendesk is not designed to surface it as a renewal signal.",
-    pair_with: "MeridianARR reads Zendesk ticket patterns at the account level and surfaces them as Customer Distress Index scores.",
+    pair_with: "MeridianARR replaces Zendesk for B2B SaaS teams. It includes all of Zendesk's core support capabilities — ticket routing, SLA management, multi-channel inbound — plus native Value Continuity intelligence and CDI scoring built in. You do not need a separate help desk.",
   },
   {
     name: "Intercom",
@@ -30,7 +30,7 @@ const platforms = [
       "AI-assisted resolution (Fin)",
     ],
     renewal_risk_gap: "Intercom is conversation-centric. It is excellent at individual customer interactions but does not aggregate conversation patterns into account-level distress signals. The account that sends 12 frustrated messages across 8 conversations over 3 months may look like normal support volume in Intercom reporting.",
-    pair_with: "MeridianARR connects Intercom conversation patterns to account-level ARR risk through the Customer Distress Index.",
+    pair_with: "MeridianARR replaces Intercom for B2B SaaS teams. It includes full omni-channel support — AI agents in Slack, embedded in-product support, inbound email handling, and proactive messaging — plus built-in ARR risk detection that Intercom does not provide.",
   },
   {
     name: "Freshdesk",
@@ -42,7 +42,7 @@ const platforms = [
       "Freshworks ecosystem integration (CRM, phone)",
     ],
     renewal_risk_gap: "Freshdesk provides strong ticket operations metrics but follows the same paradigm as Zendesk: optimized for resolution speed and agent efficiency, not account-level revenue signal detection. Renewal risk patterns are present in Freshdesk data — they are just not surfaced.",
-    pair_with: "MeridianARR connects to Freshdesk to read account-level ticket patterns and escalation history as ARR risk inputs.",
+    pair_with: "MeridianARR replaces Freshdesk for B2B SaaS teams. All core help desk capabilities plus the Value Continuity intelligence layer that translates support patterns into ARR risk signals — something Freshdesk is not designed to produce.",
   },
   {
     name: "Pylon",
@@ -54,7 +54,7 @@ const platforms = [
       "Better visibility into which accounts are generating the most support activity",
     ],
     renewal_risk_gap: "Pylon has more account-level awareness than traditional help desks by design — it is built for B2B. But it still does not connect account support patterns to ARR risk scores, escalation-to-renewal correlation, or the compounding signal model needed for churn prediction.",
-    pair_with: "MeridianARR adds the ARR risk intelligence layer to Pylon's B2B account support data.",
+    pair_with: "MeridianARR replaces Pylon for B2B SaaS teams. It includes native Slack-based support with forward-deployed AI agents — everything Pylon offers for B2B account support — plus the Customer Distress Index that connects those interactions to ARR risk.",
   },
   {
     name: "Help Scout",
@@ -66,7 +66,7 @@ const platforms = [
       "Customer-first tone built into the product design",
     ],
     renewal_risk_gap: "Help Scout is intentionally simple. That simplicity comes at the cost of advanced reporting, account-level aggregation, and any form of renewal risk signal detection. It is the right choice for some teams — but the support data it generates will be invisible to ARR planning without an additional intelligence layer.",
-    pair_with: "MeridianARR extends Help Scout data with account-level signal analysis and CDI scoring.",
+    pair_with: "MeridianARR replaces Help Scout for B2B SaaS teams. It provides a complete omni-channel support platform — including the simplicity Help Scout teams value — with the revenue intelligence layer Help Scout is not designed to provide.",
   },
 ];
 
@@ -122,7 +122,7 @@ const faqs = [
   },
   {
     q: "Should I replace my help desk with MeridianARR?",
-    a: "No. MeridianARR is not a help desk — it is a Value Continuity platform that adds the ARR risk intelligence layer to your existing help desk. You continue using your help desk for ticket management, SLA tracking, and agent workflows. MeridianARR reads the support data your help desk generates and connects it to renewal outcomes.",
+    a: "Yes — MeridianARR is a complete omni-channel support platform for B2B SaaS companies. It includes everything a traditional help desk provides: ticket management and routing, SLA tracking, agent workflows, inbound email handling, and multi-channel support. It also includes forward-deployed AI agents in Slack and support embedded directly in your product. The difference from Zendesk or Freshdesk is that MeridianARR adds native Value Continuity intelligence on top of all of that — connecting support operations to account-level ARR risk through the Customer Distress Index. You do not need a separate help desk.",
   },
 ];
 
@@ -201,7 +201,7 @@ const breadcrumbSchema = {
           Renewal awareness requires a different question: <em>what is this account's cumulative support experience telling us about their ARR risk?</em> That question requires account-level aggregation, pattern detection across tickets, and connection to revenue data — capabilities that are structurally absent from most help desk platforms.
         </p>
         <p class="mt-4 text-slate-600 leading-relaxed">
-          No help desk on this list is fully renewal-aware on its own. Some are closer than others. All of them generate the data needed to detect renewal risk — but connecting that data to ARR outcomes requires an additional intelligence layer.
+          No traditional help desk on this list is renewal-aware. They are all built for ticket resolution. MeridianARR is the alternative: a complete omni-channel support platform — with forward-deployed AI agents in Slack, embedded in-product support, inbound email routing, and everything else the platforms below offer — with Value Continuity intelligence built in from the start.
         </p>
       </div>
     </section>
@@ -322,16 +322,18 @@ const breadcrumbSchema = {
             <thead>
               <tr class="border-b border-slate-200 bg-slate-50">
                 <th class="py-3 pl-4 pr-6 text-left font-semibold text-slate-700">Capability</th>
-                <th class="py-3 px-4 text-center font-semibold text-slate-700">SaaS Help Desk</th>
-                <th class="py-3 px-4 text-center font-semibold text-slate-950">MeridianARR (Value Continuity)</th>
+                <th class="py-3 px-4 text-center font-semibold text-slate-700">Traditional Help Desk<br/><span class="font-normal text-slate-500">(Zendesk, Intercom, etc.)</span></th>
+                <th class="py-3 px-4 text-center font-semibold text-slate-950">MeridianARR<br/><span class="font-normal text-slate-500">(Help desk + Value Continuity)</span></th>
               </tr>
             </thead>
             <tbody>
               {[
-                ["Ticket management and routing", "Yes", "No — use your help desk"],
-                ["SLA tracking and compliance", "Yes", "No — use your help desk"],
-                ["Agent performance metrics", "Yes", "No — use your help desk"],
-                ["Multi-channel support (email, chat, voice)", "Yes", "No — use your help desk"],
+                ["Ticket management and routing", "Yes", "Yes"],
+                ["SLA tracking and compliance", "Yes", "Yes"],
+                ["Agent performance metrics", "Yes", "Yes"],
+                ["Multi-channel support (email, chat, voice)", "Yes", "Yes"],
+                ["Forward-deployed AI agents in Slack", "No", "Yes — native capability"],
+                ["Support embedded in your product", "Limited", "Yes — native capability"],
                 ["Account-level ticket pattern analysis", "Limited", "Yes"],
                 ["Issue repetition detection", "No", "Yes"],
                 ["Escalation frequency by account", "Rarely", "Yes"],
@@ -349,7 +351,6 @@ const breadcrumbSchema = {
             </tbody>
           </table>
         </div>
-        <p class="mt-4 text-sm text-slate-500">MeridianARR is designed to complement your help desk, not replace it. The two systems serve different purposes.</p>
       </div>
     </section>
 
