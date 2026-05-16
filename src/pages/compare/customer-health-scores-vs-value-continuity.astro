@@ -22,7 +22,7 @@ const faqs = [
  },
  {
  q: "Can customer health scores detect churn from support signals?",
- a: "Most CS platforms allow health score inputs to include support ticket counts. But ticket counts are not support signal analysis. Issue repetition rate, escalation frequency and severity, support volume vs. usage divergence, and competitor mentions in ticket content are not standard health score inputs, they require a different analytical layer. MeridianARR's CDI provides exactly this layer.",
+ a: "Most CS platforms allow health score inputs to include support ticket counts. But ticket counts are not support signal analysis. Issue repetition rate, escalation frequency and severity, support volume vs. usage divergence, and competitor mentions in ticket content are not standard health score inputs. They require a platform built to read support data natively at the account level. MeridianARR's CDI is that system.",
  },
  {
  q: "Should I replace my health score with the Customer Distress Index?",
@@ -208,7 +208,7 @@ const breadcrumbSchema = {
  ["Escalation pattern tracking", "Rarely", "Yes, by account, severity, and recency"],
  ["Competitor mention detection", "No", "Yes"],
  ["Lead time on churn signals", "30–60 days before obvious distress", "60–180 days before churn event"],
- ["False-healthy account rate", "High (structural gap)", "Materially lower with support signal layer"],
+ ["False-healthy account rate", "High (structural gap)", "Materially lower with native support intelligence"],
  ["Primary use case", "CS workflow prioritization", "ARR risk intelligence across revenue org"],
  ["Platform relationship", "CS platform metric, external to MeridianARR", "Native MeridianARR output, built from support data"],
  ].map(([dim, hs, vc]) => (
@@ -258,7 +258,7 @@ const breadcrumbSchema = {
 
  <section class="bg-slate-950 px-5 py-16 lg:px-8">
  <div class="mx-auto max-w-3xl">
- <h2 class="text-2xl font-bold text-white">How MeridianARR adds Value Continuity to customer health</h2>
+ <h2 class="text-2xl font-bold text-white">How MeridianARR replaces CS health scoring</h2>
  <p class="mt-4 text-slate-300 leading-relaxed">
  MeridianARR is the Value Continuity platform for B2B SaaS companies. It consolidates complete omni-channel support operations and CS intelligence into one platform, replacing the help desk and CS platform combination. The Customer Distress Index is built from native support data, not assembled via integration from a separate system.
  </p>

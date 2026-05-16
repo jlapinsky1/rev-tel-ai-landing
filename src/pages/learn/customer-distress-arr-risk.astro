@@ -92,7 +92,7 @@ const faqs = [
  },
  {
  q: "How is the CDI different from CS health scores?",
- a: "CS health scores are typically built from CRM engagement data, product login frequency, and CS team assessments. The CDI adds the support-signal layer, ticket patterns, escalation history, issue repetition, content signals like competitor mentions, which is structurally missing from most CS health score calculations. The CDI does not replace health scores; it adds the intelligence layer health scores cannot produce.",
+ a: "CS health scores are typically built from CRM engagement data, product login frequency, and CS team assessments. The CDI is built from support-signal data instead: ticket patterns, escalation history, issue repetition, and content signals like competitor mentions that CS health score models are not designed to read. Because MeridianARR owns the support data natively, the CDI detects churn risk earlier and more accurately than CS health scores. For B2B SaaS teams using MeridianARR, the CDI replaces the CS health score as the primary account risk signal.",
  },
  {
  q: "Which accounts should be prioritized based on CDI?",
@@ -278,7 +278,7 @@ const breadcrumbSchema = {
  </div>
  </div>
  <p class="mt-6 text-slate-600 leading-relaxed">
- The CDI adds a signal layer to what CS teams already track, it does not replace the CS platform. It is specifically designed to surface the distress signals that live in support and product data, which are structurally absent from most CS health score models.
+ MeridianARR replaces the CS platform for B2B SaaS teams that need native support intelligence. The CDI is the account risk signal, built from the distress signals that live in support and product data, which CS health score models are not designed to read.
  </p>
  </div>
  </section>
