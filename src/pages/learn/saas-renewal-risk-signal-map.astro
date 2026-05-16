@@ -3,45 +3,166 @@ import Layout from "../../layouts/Layout.astro";
 import Nav from "../../components/Nav.astro";
 import Footer from "../../components/Footer.astro";
 
-const pageTitle = "The SaaS Renewal Risk Signal Map | MeridianARR";
-const pageDescription = "A structured map of the signals that predict renewal risk in B2B SaaS — organized by source system, signal type, and ARR outcome. MeridianARR tracks all of these signals in a single Value Continuity platform.";
+const pageTitle = "SaaS Renewal Risk Signal Map: Lead Times and Intervention Windows | MeridianARR";
+const pageDescription = "A reference map of 18 B2B SaaS renewal risk signals, organized by lead time from earliest early warning to last-chance indicators — with intervention windows and source systems for each.";
 const canonical = "https://meridianarr.com/learn/saas-renewal-risk-signal-map/";
 
-const signalMap = [
+// Signals organized by lead time tier, earliest first
+const tiers = [
   {
-    source: "Support and help desk",
+    id: "earliest",
+    label: "Tier 1: Earliest early warning",
+    lead_time: "120–180+ days before churn",
+    color_bg: "bg-blue-50",
+    color_border: "border-blue-200",
+    color_label: "text-blue-700",
+    color_dot: "bg-blue-500",
+    intervention_window: "Full intervention time available. At this lead time, the right response is monitoring escalation and addressing the underlying cause — not emergency triage.",
     signals: [
-      { signal: "Repeated tickets on same issue", timing: "60–120 days before churn", risk_level: "High" },
-      { signal: "Escalation to leadership", timing: "30–90 days before churn", risk_level: "Very high" },
-      { signal: "Competitor name in ticket", timing: "Immediate — time-sensitive", risk_level: "Very high" },
-      { signal: "Increasing ticket volume without usage growth", timing: "90–150 days before churn", risk_level: "High" },
-      { signal: "Long resolution time on core workflow", timing: "60–120 days before churn", risk_level: "Medium-high" },
+      {
+        signal: "Missed first onboarding milestone",
+        source: "Onboarding / implementation data",
+        notes: "Customers who miss the activation milestone in the first 30–60 days have significantly higher annual churn rates. The signal appears early but predicts a renewal event that is 10–12 months away.",
+        cdi_weight: "High — activation failure is a primary CDI input",
+      },
+      {
+        signal: "Integration not completed at Day 30",
+        source: "Onboarding / product data",
+        notes: "Incomplete integrations at Day 30 indicate that the customer has not fully embedded the product into their workflow. Embedded products have far lower churn rates than standalone ones.",
+        cdi_weight: "High",
+      },
+      {
+        signal: "First value milestone not reached",
+        source: "Product analytics / onboarding",
+        notes: "The first value milestone is product-specific — the moment a customer achieves the outcome they bought the product for. Missing it at 30–60 days is one of the strongest annual churn predictors.",
+        cdi_weight: "Very high",
+      },
+      {
+        signal: "Ticket volume increasing without usage growth",
+        source: "Help desk + product analytics",
+        notes: "Rising ticket volume alongside flat or declining usage indicates growing product friction, not healthy expansion. The divergence is the signal — neither metric alone is sufficient.",
+        cdi_weight: "High — divergence pattern specifically tracked",
+      },
     ],
   },
   {
-    source: "Product usage",
+    id: "early",
+    label: "Tier 2: Early warning",
+    lead_time: "60–120 days before churn",
+    color_bg: "bg-amber-50",
+    color_border: "border-amber-200",
+    color_label: "text-amber-700",
+    color_dot: "bg-amber-400",
+    intervention_window: "Meaningful intervention still possible. This is the primary window for CS-led intervention: targeted check-ins, product friction remediation, and executive relationship building. Accounts caught and addressed in this window show the highest recovery rates.",
     signals: [
-      { signal: "Declining login frequency trend", timing: "90–180 days before churn", risk_level: "High" },
-      { signal: "Feature adoption below contract scope", timing: "60–150 days before churn", risk_level: "High" },
-      { signal: "Key activation milestone missed", timing: "0–60 days post-contract", risk_level: "Very high" },
-      { signal: "Avoided use of core workflow", timing: "60–120 days before churn", risk_level: "Medium-high" },
+      {
+        signal: "Repeated tickets on the same issue (3+ in 60 days)",
+        source: "Help desk",
+        notes: "A single ticket indicates a problem. Three or more tickets on the same unresolved issue indicates the product has a friction point the customer is repeatedly hitting. The customer is adapting their workflow around a broken feature.",
+        cdi_weight: "High — issue repetition is a primary CDI signal",
+      },
+      {
+        signal: "Declining login frequency trend (2+ consecutive weeks)",
+        source: "Product analytics",
+        notes: "Gradual login decline is more predictive than a sudden drop. A sudden drop may indicate a one-time cause (vacation, company event). A steady 2-week decline indicates disengagement.",
+        cdi_weight: "High",
+      },
+      {
+        signal: "Feature adoption below contract scope",
+        source: "Product analytics",
+        notes: "An account using 30% of the features in their contract has a weaker ROI case at renewal time. Low adoption relative to contract scope is a build-vs-buy risk indicator — the customer may conclude they are paying for capability they do not use.",
+        cdi_weight: "Medium-high",
+      },
+      {
+        signal: "Key workflow avoided in product",
+        source: "Product analytics",
+        notes: "When product analytics show a core workflow is not being used by an account that should be using it, the most likely cause is that the workflow has a friction point the customer found and stopped engaging with. Confirm via support ticket history.",
+        cdi_weight: "Medium-high",
+      },
+      {
+        signal: "Reduced CS response rate (2+ missed touchpoints)",
+        source: "CRM / CS platform",
+        notes: "Two or more unanswered CS outreach attempts in 60 days indicates a relationship gap — either the contact has changed, the account is disengaged, or CS outreach is not reaching the right person.",
+        cdi_weight: "High when combined with other signals",
+      },
     ],
   },
   {
-    source: "Onboarding and implementation",
+    id: "mid",
+    label: "Tier 3: Mid-range warning",
+    lead_time: "30–90 days before churn",
+    color_bg: "bg-orange-50",
+    color_border: "border-orange-200",
+    color_label: "text-orange-700",
+    color_dot: "bg-orange-500",
+    intervention_window: "Compressed but viable. At 30–90 days, intervention requires CS leadership involvement (not just CSM-level). The account has likely been in distress longer than the signal timeline indicates — this is where compounding effects show up. Executive engagement and concrete remediation offers are needed.",
     signals: [
-      { signal: "Implementation delay beyond expected timeline", timing: "0–90 days post-contract", risk_level: "High" },
-      { signal: "Integration not completed", timing: "30–90 days post-contract", risk_level: "High" },
-      { signal: "First value milestone not reached", timing: "0–60 days post-contract", risk_level: "Very high" },
+      {
+        signal: "Escalation to customer leadership (VP or above)",
+        source: "Help desk + CRM",
+        notes: "A ticket or interaction reaching the customer's VP or C-suite level indicates that normal support channels have failed to resolve the issue to an acceptable degree. Executive-level escalation from the customer side rarely precedes a smooth renewal.",
+        cdi_weight: "Very high — escalation is a top-weighted CDI signal",
+      },
+      {
+        signal: "Billing dispute or pricing question",
+        source: "Finance / CRM",
+        notes: "A billing dispute or unsolicited pricing inquiry before renewal indicates the customer is scrutinizing cost-to-value ratio. This is a late-stage warning but still actionable — it is an opportunity to demonstrate value before the renewal conversation.",
+        cdi_weight: "Medium-high",
+      },
+      {
+        signal: "Executive sponsor departure",
+        source: "CRM / LinkedIn",
+        notes: "When the primary executive champion at the customer organization leaves, the account's renewal is at risk — not because the product failed, but because internal advocacy has been lost. The new stakeholder needs to be identified and qualified quickly.",
+        cdi_weight: "High — sponsor departure triggers account re-qualification",
+      },
+      {
+        signal: "No QBR or business review in prior quarter",
+        source: "CS platform / CRM",
+        notes: "Absence of a business review does not independently predict churn, but it is a relationship maintenance gap. An account that has not had a QBR in 90+ days has had no structured opportunity to renew their value perception of the product.",
+        cdi_weight: "Low alone; medium when combined with other signals",
+      },
     ],
   },
   {
-    source: "Customer relationship",
+    id: "urgent",
+    label: "Tier 4: Urgent / last-chance signals",
+    lead_time: "0–30 days — or anytime, requiring immediate response",
+    color_bg: "bg-rose-50",
+    color_border: "border-rose-200",
+    color_label: "text-rose-700",
+    color_dot: "bg-rose-600",
+    intervention_window: "Emergency protocol only. These signals require same-day response regardless of where the account sits in the renewal calendar. If combined with other signals, the account has likely been in the distress-to-churn pathway for months and the intervention window is critically short.",
     signals: [
-      { signal: "Executive sponsor departure", timing: "Can occur at any time", risk_level: "High" },
-      { signal: "Reduced response rate to CS outreach", timing: "60–120 days before churn", risk_level: "High" },
-      { signal: "Billing dispute or pricing question", timing: "90–150 days before renewal", risk_level: "Medium-high" },
-      { signal: "No QBR or business review in past quarter", timing: "Ongoing risk", risk_level: "Medium" },
+      {
+        signal: "Competitor name mentioned in support ticket",
+        source: "Help desk (ticket body text)",
+        notes: "An explicit competitor mention in support content indicates the customer is actively evaluating alternatives — or has already started. This signal does not have a standard lead time because it can appear at any stage. It always requires same-day CS and CRO response.",
+        cdi_weight: "Very high — highest-urgency individual signal",
+      },
+      {
+        signal: "Request to export all account data",
+        source: "Help desk / product",
+        notes: "A data export request, particularly a bulk or full-account export, is a departure preparation signal. It may have an innocent explanation (backup, compliance), but in combination with any other distress signal it is a strong indicator of imminent churn.",
+        cdi_weight: "Very high in combination",
+      },
+      {
+        signal: "Account contact references 'evaluating options' in any interaction",
+        source: "CRM / help desk / email",
+        notes: "An explicit statement from the customer that they are 'evaluating options', 'exploring alternatives', or 'reassessing tooling' is a direct declaration of renewal risk. This should trigger immediate CRO and CS leadership involvement.",
+        cdi_weight: "Very high",
+      },
+      {
+        signal: "All active users go inactive simultaneously",
+        source: "Product analytics",
+        notes: "When an account with multiple active users goes suddenly dark — all users stop logging in within a 1–2 week window — it indicates either a coordinated offboarding process or a company-side event (reorg, acquisition). Requires immediate investigation.",
+        cdi_weight: "Very high",
+      },
+      {
+        signal: "Cancellation or downgrade request filed",
+        source: "CRM / billing",
+        notes: "A formal request to cancel or downgrade is the last signal before ARR loss is realized. At this stage, the intervention window is measured in days. Recovery is possible but requires extraordinary response — not a standard CS check-in.",
+        cdi_weight: "Definitive churn signal",
+      },
     ],
   },
 ];
@@ -49,19 +170,23 @@ const signalMap = [
 const faqs = [
   {
     q: "What is a renewal risk signal in B2B SaaS?",
-    a: "A renewal risk signal is any customer behavior or data point that indicates a reduced probability of contract renewal. Renewal risk signals appear in support systems (ticket patterns, escalations), product data (usage declines, friction), onboarding records (missed milestones), and CRM (reduced CS engagement, executive changes). MeridianARR is a Value Continuity platform that monitors all of these signals and connects them to ARR risk.",
+    a: "A renewal risk signal is any customer behavior or data point that indicates a reduced probability of contract renewal. Signals appear in support systems (ticket patterns, escalations), product data (usage declines, friction), onboarding records (missed milestones), and CRM (reduced CS engagement, executive changes). MeridianARR is a Value Continuity platform that monitors all of these signals continuously and connects them to ARR risk through the Customer Distress Index.",
   },
   {
-    q: "How far in advance can renewal risk be detected?",
-    a: "Most renewal risk signals appear 60–180 days before churn. Repeated support tickets on the same issue and missed onboarding milestones often appear earliest. Competitor mentions and billing disputes tend to appear closer to the renewal decision. MeridianARR's Customer Distress Index tracks all of these signals continuously — giving CROs and CS leaders visibility into renewal risk well before the conversation.",
+    q: "Which renewal risk signals appear earliest?",
+    a: "Onboarding signals appear earliest — missed activation milestones, incomplete integrations, and first-value delays often appear in the first 30–60 days post-contract and predict churn at the 12-month renewal. Ticket volume divergence from usage growth and feature adoption gaps follow at 120–150 days before churn. Early detection in these tiers provides the longest intervention window.",
   },
   {
-    q: "Which renewal risk signal has the longest lead time?",
-    a: "Missed onboarding milestones and first value delays — signals in the Activation motion — have the longest lead time. They appear 0–60 days post-contract but predict churn that often occurs at the 12-month renewal. Addressing activation failure early is the highest-leverage intervention for reducing annual churn.",
+    q: "Which renewal risk signals are most urgent?",
+    a: "Competitor mentions in support tickets, data export requests, and explicit statements of evaluation are the most urgent signals regardless of when they appear. They require same-day CS and CRO response. Executive escalations and simultaneous user inactivity are similarly urgent. These signals indicate the customer may have already made a decision — intervention requires extraordinary response, not a standard check-in.",
   },
   {
-    q: "How does MeridianARR track renewal risk signals?",
-    a: "MeridianARR connects support, product, onboarding, and CRM data into the Customer Distress Index (CDI) — an account-level ARR risk score. The CDI is updated continuously as new signals appear. CROs, CFOs, Customer Success leaders, and Support leaders see the CDI and underlying signals for every account in real time.",
+    q: "Why should I care about signals 180 days before renewal?",
+    a: "Because intervention effectiveness is directly related to lead time. An account caught in Tier 1 (180+ days out) with a missed onboarding milestone can be remediated with targeted intervention. The same account caught in Tier 4 (30 days before renewal) with four compounding signals is far less recoverable. The purpose of the signal map is to extend the intervention window by detecting signals as early as possible.",
+  },
+  {
+    q: "How does MeridianARR use this signal map?",
+    a: "MeridianARR's Customer Distress Index (CDI) continuously monitors signals across all four tiers for every account. The CDI score reflects not just which signals are present, but their severity and how they compound. A Tier 1 signal alone produces a Watch-band CDI. A Tier 1 signal combined with Tier 2 and Tier 3 signals can produce an At-Risk or Critical CDI — triggering the corresponding intervention response.",
   },
 ];
 
@@ -72,6 +197,34 @@ const faqSchema = {
     "@type": "Question",
     name: faq.q,
     acceptedAnswer: { "@type": "Answer", text: faq.a },
+  })),
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  headline: pageTitle,
+  description: pageDescription,
+  url: canonical,
+  author: { "@type": "Organization", name: "MeridianARR", url: "https://meridianarr.com" },
+  publisher: { "@type": "Organization", name: "MeridianARR", url: "https://meridianarr.com" },
+  about: {
+    "@type": "Thing",
+    name: "SaaS renewal risk signals",
+    description: "Customer behaviors and data points that predict non-renewal in B2B SaaS, organized by lead time from earliest warning to last-chance indicators.",
+  },
+};
+
+const itemListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "SaaS renewal risk signal tiers by lead time",
+  numberOfItems: tiers.length,
+  itemListElement: tiers.map((t, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: t.label,
+    description: `${t.lead_time}. ${t.intervention_window}`,
   })),
 };
 
@@ -88,6 +241,8 @@ const breadcrumbSchema = {
 
 <Layout title={pageTitle} description={pageDescription} canonical={canonical}>
   <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(articleSchema)} />
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(itemListSchema)} />
   <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
 
   <Nav />
@@ -95,79 +250,86 @@ const breadcrumbSchema = {
   <main>
     <section class="bg-slate-950 px-5 py-20 lg:px-8">
       <div class="mx-auto max-w-3xl">
-        <p class="text-sm font-medium text-blue-400">Learn</p>
+        <p class="text-sm font-medium text-blue-400">Learn / Reference Map</p>
         <h1 class="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-          The SaaS Renewal Risk Signal Map
+          SaaS Renewal Risk Signal Map
         </h1>
         <p class="mt-6 text-lg leading-relaxed text-slate-300">
-          Renewal risk does not appear suddenly. It accumulates over months across support, product, onboarding, and relationship signals. MeridianARR is a Value Continuity platform that maps these signals to ARR outcomes — and surfaces them early enough to act.
+          18 B2B SaaS renewal risk signals organized by lead time — from earliest early warning (180+ days before churn) to urgent last-chance indicators (same-day response required). Each signal includes source system, interpretation notes, intervention window, and how it feeds into the Customer Distress Index.
         </p>
+        <div class="mt-6 rounded-xl border border-slate-700 bg-slate-900 px-4 py-3">
+          <p class="text-sm text-slate-400">
+            <span class="font-semibold text-slate-200">MeridianARR</span> is a Value Continuity platform for B2B SaaS companies that connects support, onboarding, product friction, customer distress, and renewal risk into post-sale revenue intelligence.
+          </p>
+        </div>
       </div>
     </section>
 
-    <section class="bg-white px-5 py-16 lg:px-8">
+    <section class="bg-white px-5 py-10 lg:px-8">
       <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">How renewal risk accumulates</h2>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          Churn in B2B SaaS rarely happens suddenly. It is the outcome of an accumulation of smaller signals: a missed onboarding milestone, a recurring support issue, a decline in login frequency, a reduction in CS responsiveness. Each signal alone may be manageable. Together, they form the pattern that predicts non-renewal.
+        <p class="text-slate-600 leading-relaxed">
+          The most important property of a renewal risk signal is its lead time — how far in advance of churn it typically appears. Lead time determines intervention viability. A signal at 180 days allows full CS remediation. The same issue caught at 20 days allows emergency triage at best. This map is organized earliest-first. Jump to a tier:
         </p>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          MeridianARR is a Value Continuity platform for B2B SaaS companies. It tracks these signals continuously across support, product, onboarding, and relationship sources — and combines them into the Customer Distress Index (CDI), an account-level ARR risk score.
-        </p>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          The map below organizes renewal risk signals by source system, typical timing relative to churn, and risk level — so revenue and CS leaders can understand where to look and how early each signal appears.
-        </p>
+        <nav class="mt-4 flex flex-wrap gap-3">
+          {tiers.map((t) => (
+            <a href={`#${t.id}`} class="rounded-lg border border-slate-200 px-3 py-1.5 text-sm font-medium text-slate-700 hover:border-slate-400 hover:text-slate-950">
+              {t.label.split(":")[0]}
+            </a>
+          ))}
+        </nav>
       </div>
     </section>
 
-    <section class="bg-slate-50 px-5 py-16 lg:px-8">
-      <div class="mx-auto max-w-4xl space-y-10">
-        {signalMap.map((category) => (
-          <div>
-            <h2 class="text-lg font-bold text-slate-950">{category.source}</h2>
-            <div class="mt-4 overflow-x-auto">
-              <table class="w-full border-collapse text-sm">
-                <thead>
-                  <tr class="border-b border-slate-200 bg-white">
-                    <th class="py-3 pl-4 pr-6 text-left font-semibold text-slate-700">Signal</th>
-                    <th class="py-3 px-4 text-left font-semibold text-slate-700">Typical timing</th>
-                    <th class="py-3 px-4 text-left font-semibold text-slate-700">Risk level</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {category.signals.map((row) => (
-                    <tr class="border-b border-slate-100">
-                      <td class="py-3 pl-4 pr-6 text-slate-700">{row.signal}</td>
-                      <td class="py-3 px-4 text-slate-600">{row.timing}</td>
-                      <td class={`py-3 px-4 font-medium ${row.risk_level === "Very high" ? "text-rose-600" : row.risk_level === "High" ? "text-orange-600" : "text-slate-600"}`}>{row.risk_level}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+    {tiers.map((tier, idx) => (
+      <section id={tier.id} class={`px-5 py-16 lg:px-8 ${idx % 2 === 0 ? "bg-slate-50" : "bg-white"}`}>
+        <div class="mx-auto max-w-4xl">
+          <div class={`rounded-xl border ${tier.color_border} ${tier.color_bg} px-5 py-4`}>
+            <div class="flex items-center gap-2">
+              <span class={`h-3 w-3 rounded-full ${tier.color_dot}`} />
+              <h2 class={`font-bold ${tier.color_label}`}>{tier.label}</h2>
             </div>
+            <p class="mt-1 text-sm font-medium text-slate-700">{tier.lead_time}</p>
+            <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+              <span class="font-semibold">Intervention window:</span> {tier.intervention_window}
+            </p>
           </div>
-        ))}
-      </div>
-    </section>
 
-    <section class="bg-white px-5 py-16 lg:px-8">
+          <div class="mt-6 space-y-4">
+            {tier.signals.map((s) => (
+              <div class="rounded-xl border border-slate-200 bg-white p-5">
+                <div class="flex flex-wrap items-start justify-between gap-2">
+                  <h3 class="font-semibold text-slate-950">{s.signal}</h3>
+                  <span class="shrink-0 rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-600">{s.source}</span>
+                </div>
+                <p class="mt-2 text-sm text-slate-600 leading-relaxed">{s.notes}</p>
+                <p class="mt-3 text-xs text-slate-500">
+                  <span class="font-semibold">CDI weight:</span> {s.cdi_weight}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    ))}
+
+    <section class="bg-slate-950 px-5 py-16 lg:px-8">
       <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">How MeridianARR maps these signals to ARR risk</h2>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          MeridianARR is a Value Continuity platform that connects support, product, onboarding, and relationship signal sources into the Customer Distress Index (CDI) for every account. CROs, CFOs, Customer Success leaders, and Support leaders see which accounts are exhibiting renewal risk signals — and how severe the risk is — in real time.
+        <h2 class="text-2xl font-bold text-white">Using this map with the Customer Distress Index</h2>
+        <p class="mt-4 text-slate-300 leading-relaxed">
+          The signal map above shows individual signals and their lead times. The Customer Distress Index (CDI) in MeridianARR is what happens when multiple signals from across the tiers appear on the same account simultaneously. A single Tier 1 signal might produce a CDI Watch score. A Tier 1 signal combined with Tier 2 and Tier 3 signals on the same account produces an At-Risk or Critical score — because signals compound, and the combination has far higher churn predictive power than any individual signal.
         </p>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          The goal is to make renewal risk visible and actionable before the renewal conversation — not during it.
+        <p class="mt-4 text-slate-300 leading-relaxed">
+          MeridianARR is a Value Continuity platform for B2B SaaS companies. It monitors all 18 signals in this map continuously for every account — and surfaces the accounts that need intervention before they reach the last-chance tier.
         </p>
-        <div class="mt-6">
-          <a href="/customer-defensibility-score/" class="inline-flex items-center justify-center rounded-2xl bg-slate-950 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-800">
+        <div class="mt-8">
+          <a href="/customer-defensibility-score/" class="inline-flex items-center justify-center rounded-2xl bg-white px-6 py-3 text-sm font-semibold text-slate-950 hover:bg-slate-100">
             Calculate your Customer Defensibility Score
           </a>
         </div>
       </div>
     </section>
 
-    <section class="bg-slate-50 px-5 py-14 lg:px-8">
+    <section class="bg-white px-5 py-14 lg:px-8">
       <div class="mx-auto max-w-3xl">
         <h2 class="text-2xl font-bold text-slate-950">Frequently asked questions</h2>
         <dl class="mt-8 space-y-8">
@@ -178,6 +340,22 @@ const breadcrumbSchema = {
             </div>
           ))}
         </dl>
+      </div>
+    </section>
+
+    <section class="bg-slate-50 px-5 py-12 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <p class="text-sm font-semibold text-slate-500">Continue reading</p>
+        <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <a href="/learn/customer-distress-arr-risk/" class="rounded-xl border border-slate-200 bg-white p-5 hover:border-slate-400">
+            <p class="font-semibold text-slate-950">Customer Distress Index</p>
+            <p class="mt-1 text-sm text-slate-500">How signals from this map combine into a CDI score — and what each score band means for intervention priority.</p>
+          </a>
+          <a href="/learn/value-continuity-framework/" class="rounded-xl border border-slate-200 bg-white p-5 hover:border-slate-400">
+            <p class="font-semibold text-slate-950">Value Continuity Framework</p>
+            <p class="mt-1 text-sm text-slate-500">The operational playbook for what to do when signals appear — from Detect through Protect.</p>
+          </a>
+        </div>
       </div>
     </section>
   </main>

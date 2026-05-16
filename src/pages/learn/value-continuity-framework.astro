@@ -3,57 +3,119 @@ import Layout from "../../layouts/Layout.astro";
 import Nav from "../../components/Nav.astro";
 import Footer from "../../components/Footer.astro";
 
-const pageTitle = "The Value Continuity Framework for B2B SaaS | MeridianARR";
-const pageDescription = "The Value Continuity Framework is the operational model MeridianARR uses to connect post-sale customer signals to ARR risk across four motions: Activation, Adoption, Growth, and Renewal.";
+const pageTitle = "The Value Continuity Framework: Operational Playbook | MeridianARR";
+const pageDescription = "The Value Continuity Framework is an operational model for post-sale ARR risk. This page maps each of the four motions — Detect, Explain, Act, Protect — to specific signals, owners, interventions, and success criteria.";
 const canonical = "https://meridianarr.com/learn/value-continuity-framework/";
 
 const motions = [
   {
     number: "01",
-    name: "Activation",
-    subtitle: "Onboarding risk",
-    description: "Activation is the period between contract signature and first value realization. It is the highest-risk phase of the customer lifecycle in B2B SaaS. Customers who do not activate — who fail to reach key onboarding milestones, complete integrations, or experience the product's core value — rarely expand or renew.",
-    signals: ["Missed onboarding milestones", "Implementation delays", "Integration failures", "Low initial feature adoption"],
-    question: "Has this customer reached the activation milestone we know predicts long-term retention?",
+    name: "Detect",
+    subtitle: "Surface distress signals before they compound",
+    description: "The first motion is signal detection — continuously reading support ticket patterns, product usage trends, onboarding progress, and engagement signals to identify distress before it compounds into churn risk. Detection is not a quarterly review; it is a continuous process run against live account data.",
+    owner: "Platform (MeridianARR CDI) + Support leadership monitoring",
+    trigger: "CDI score moves into Watch band (26+) on any account",
+    signals: [
+      "Ticket volume increasing month over month without corresponding usage growth",
+      "Repeated tickets on the same issue within a 60-day window",
+      "Executive escalation filed",
+      "Login frequency declining for 2+ consecutive weeks",
+      "Onboarding milestone missed beyond scheduled date",
+    ],
+    interventions: [
+      { action: "Flag account in CDI dashboard", owner: "Automated (MeridianARR)", timing: "Immediate on signal threshold" },
+      { action: "Alert assigned CSM of CDI band change", owner: "MeridianARR → CS platform", timing: "Real-time" },
+      { action: "Route competitor-mention signals to CRO", owner: "MeridianARR → CRO", timing: "Same-day" },
+    ],
+    success_criteria: "All Watch-band and above accounts flagged within 24 hours of threshold crossing. No critical-band accounts reaching renewal conversation without prior CDI alert.",
   },
   {
     number: "02",
-    name: "Adoption",
-    subtitle: "Product friction",
-    description: "Adoption covers the period after activation where customers are building habits around the product. Adoption gaps — features used below contract scope, workflows that generate repeat support tickets, users avoiding certain functions — are the primary source of product friction churn in B2B SaaS.",
-    signals: ["Repeated support tickets on same feature", "Feature adoption below contract scope", "User avoidance of core workflows", "Declining login frequency"],
-    question: "Are customers using the product in the way that we know leads to expansion and renewal?",
+    name: "Explain",
+    subtitle: "Translate signals into a shared account narrative",
+    description: "Detection produces a CDI score. Explanation turns that score into a story the entire revenue organization can act on. The Explain motion is where MeridianARR connects the underlying signals — specific ticket patterns, specific adoption gaps, specific escalation history — to the account narrative that CS, Support, CRO, and CFO all see the same way.",
+    owner: "CS leadership + Support leadership + MeridianARR account view",
+    trigger: "CDI score in Watch band (26+) or account approaching renewal within 180 days",
+    signals: [
+      "CDI score band and 30-day trend (improving, stable, deteriorating)",
+      "Top 3 contributing signals with source (help desk, product analytics, CRM)",
+      "Account ARR value and contract scope vs. usage delta",
+      "Escalation history summary (count, severity, recency)",
+      "Time in current CDI band (how long has this account been at risk?)",
+    ],
+    interventions: [
+      { action: "Generate account distress brief from CDI signals", owner: "MeridianARR account view", timing: "On-demand or weekly automated" },
+      { action: "Present CDI signals in CS team account review", owner: "CS leader", timing: "Weekly account review cadence" },
+      { action: "Share CDI risk summary with CFO for ARR forecasting", owner: "CRO or CS leader", timing: "Monthly or at board prep" },
+    ],
+    success_criteria: "Cross-functional alignment on which accounts are at risk and why — before the renewal conversation. CFO and CRO operating from the same signal data as CS and Support.",
   },
   {
     number: "03",
-    name: "Growth",
-    subtitle: "Expansion signals",
-    description: "Growth monitors the signals that indicate a customer is ready for expansion — or at risk of not expanding due to unresolved friction. Expansion signals include increased user count, new use case adoption, and positive engagement with CS teams. Counter-signals include stalled usage and unresolved product friction.",
-    signals: ["New user seat requests", "New use case adoption", "Positive CS engagement", "Cross-departmental usage growth"],
-    question: "Which accounts have the signals that indicate readiness for expansion — and which have friction blocking it?",
+    name: "Act",
+    subtitle: "Intervene with the right motion at the right CDI band",
+    description: "The Act motion is the intervention playbook — specific responses tied to specific CDI bands and specific signal types. Not every at-risk account needs the same response. A Watch-band account with a single escalation needs a targeted CS check-in. A Critical-band account with four compounding signals needs executive involvement and a concrete remediation offer.",
+    owner: "CS leadership (Watch, At-Risk); CRO + CS (Critical); Product (friction-driven risk)",
+    trigger: "CDI band determines intervention type; signal type determines intervention content",
+    signals: [
+      "CDI band and primary contributing signal (determines who owns response)",
+      "Signal type: product friction vs. engagement gap vs. escalation vs. competitor evaluation",
+      "Account ARR size (determines escalation threshold for executive involvement)",
+      "Days to renewal (determines urgency — same intervention, compressed timeline)",
+      "Prior intervention history (has this account been in At-Risk before? what worked?)",
+    ],
+    interventions: [
+      { action: "Watch band: Targeted CS check-in with specific agenda tied to triggering signal", owner: "Assigned CSM", timing: "Within 5 business days of band change" },
+      { action: "At-Risk band: CS leadership outreach + product friction report if applicable", owner: "CS leader + Product team", timing: "Within 48 hours of At-Risk threshold" },
+      { action: "Critical band: Executive escalation — CRO or CEO involvement, concrete remediation offer", owner: "CRO", timing: "Within 24 hours of Critical threshold" },
+      { action: "Competitor-mention signal (any band): CS + CRO briefed, competitive response initiated", owner: "CRO + CS", timing: "Same day as signal detection" },
+    ],
+    success_criteria: "Every At-Risk account has a documented intervention within 5 days of band threshold. Critical-band accounts have a named executive owner and a remediation plan with measurable milestones.",
   },
   {
     number: "04",
-    name: "Renewal",
-    subtitle: "ARR protection",
-    description: "Renewal is the outcome that all previous phases determine. Accounts with strong Activation, healthy Adoption, and positive Growth signals renew and expand. Accounts with distress signals in any of the previous phases arrive at renewal conversations with less leverage. Value Continuity makes the renewal outcome predictable — and improvable — before the conversation.",
-    signals: ["Customer Distress Index score", "Cumulative support friction", "Adoption vs. contract scope", "Executive sponsor stability"],
-    question: "What does everything we know about this account predict about the renewal outcome — and what can we still do about it?",
+    name: "Protect",
+    subtitle: "Turn the renewal from a conversation into a confirmation",
+    description: "The Protect motion begins 180 days before renewal — not 30 days. If Value Continuity signals have been detected, explained, and acted on across the prior motions, the renewal conversation is a confirmation, not a negotiation. Protect is the motion that measures whether the prior three motions worked.",
+    owner: "CS leadership + CRO + CFO (for ARR forecast alignment)",
+    trigger: "180-day pre-renewal window opens for every account",
+    signals: [
+      "CDI score at 180 days out vs. 90 days out vs. 30 days out (trajectory matters)",
+      "Intervention history: were Watch/At-Risk signals addressed and resolved?",
+      "Adoption vs. contract scope: is the customer using what they're paying for?",
+      "Executive sponsor stability: same buyer, or new decision-maker?",
+      "Usage trend in the 60 days before renewal conversation (leading indicator of outcome)",
+    ],
+    interventions: [
+      { action: "180-day mark: CDI review and renewal risk classification (low/medium/high)", owner: "CS leader", timing: "At 180-day mark" },
+      { action: "90-day mark: Renewal success plan — what needs to be true for a clean renewal?", owner: "CS leader + assigned CSM", timing: "At 90-day mark" },
+      { action: "60-day mark: Executive alignment if CDI is in At-Risk or Critical band", owner: "CRO", timing: "At 60-day mark if CDI ≥ 51" },
+      { action: "30-day mark: Final CDI review; escalate to board if material ARR at risk", owner: "CFO + CRO", timing: "At 30-day mark" },
+    ],
+    success_criteria: "Net revenue retention rate improves. Surprise churn (accounts that churned without prior CDI signal) approaches zero. Renewal forecast accuracy improves because signal-based risk replaced CS subjective assessment.",
   },
 ];
 
 const faqs = [
   {
     q: "What is the Value Continuity Framework?",
-    a: "The Value Continuity Framework is MeridianARR's model for monitoring post-sale ARR risk across four motions: Activation (onboarding risk), Adoption (product friction), Growth (expansion signals), and Renewal (ARR protection). Each motion has specific signals that predict customer health and revenue outcomes. MeridianARR is a Value Continuity platform that tracks all four motions continuously.",
+    a: "The Value Continuity Framework is MeridianARR's operational model for post-sale ARR risk management. It organizes intervention into four motions — Detect, Explain, Act, Protect — each with specific signal triggers, ownership assignments, intervention types, and success criteria. Unlike a lifecycle model organized around CS activities, the Value Continuity Framework is organized around signal data and intervention timing.",
   },
   {
-    q: "How is Value Continuity different from the customer success lifecycle?",
-    a: "The customer success lifecycle is CS-team-centric: onboarding, adoption, expansion, renewal — managed by CSMs. The Value Continuity Framework is signal-centric: it tracks the behaviors and data points in support, product, onboarding, and engagement systems that predict each lifecycle outcome. Value Continuity provides the intelligence layer beneath the CS lifecycle.",
+    q: "Who owns each motion in the Value Continuity Framework?",
+    a: "Detect is primarily platform-driven, with Support leadership monitoring CDI thresholds. Explain is owned jointly by CS and Support leadership, producing a shared account narrative. Act is tiered by CDI band: CSMs own Watch-band interventions, CS leadership owns At-Risk, and the CRO owns Critical. Protect is a cross-functional motion owned by CS, CRO, and CFO together in the renewal window.",
   },
   {
-    q: "What is MeridianARR's role in the Value Continuity Framework?",
-    a: "MeridianARR is the Value Continuity platform that operationalizes the framework. It connects the signal sources for each motion — support, product usage, onboarding data, and CRM — into the Customer Distress Index and account intelligence layer. CROs, CFOs, CS leaders, and Support leaders use MeridianARR to monitor Value Continuity across the full post-sale lifecycle.",
+    q: "How does the Value Continuity Framework differ from a standard CS lifecycle?",
+    a: "A standard CS lifecycle (Onboard → Adopt → Expand → Renew) is organized around what CS teams do. The Value Continuity Framework is organized around what the signals say. The same four lifecycle phases exist, but each phase has specific signal thresholds, intervention triggers, and ownership rules — making it an operational playbook rather than a stage description.",
+  },
+  {
+    q: "When should the Protect motion begin?",
+    a: "The Protect motion begins 180 days before renewal — not 30 or 60 days. Accounts with high CDI scores approaching renewal with only 30 days of intervention time have far lower recovery rates than accounts where distress signals were caught and addressed at the 180-day mark. Value Continuity is specifically designed to extend the intervention window.",
+  },
+  {
+    q: "What is the relationship between the Value Continuity Framework and the Customer Distress Index?",
+    a: "The Customer Distress Index (CDI) is the measurement instrument that powers all four motions. CDI scores trigger the Detect motion, are explained in the Explain motion, determine the intervention tier in the Act motion, and are the primary risk metric tracked in the Protect motion. The CDI does not exist independently of the framework — it is the signal layer the framework operates on.",
   },
 ];
 
@@ -64,6 +126,34 @@ const faqSchema = {
     "@type": "Question",
     name: faq.q,
     acceptedAnswer: { "@type": "Answer", text: faq.a },
+  })),
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  headline: pageTitle,
+  description: pageDescription,
+  url: canonical,
+  author: { "@type": "Organization", name: "MeridianARR", url: "https://meridianarr.com" },
+  publisher: { "@type": "Organization", name: "MeridianARR", url: "https://meridianarr.com" },
+  about: {
+    "@type": "Thing",
+    name: "Value Continuity",
+    description: "A software category for detecting, explaining, and acting on customer signals that threaten recurring revenue in B2B SaaS.",
+  },
+};
+
+const itemListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Value Continuity Framework motions",
+  numberOfItems: motions.length,
+  itemListElement: motions.map((m, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: `${m.name}: ${m.subtitle}`,
+    description: m.description,
   })),
 };
 
@@ -80,6 +170,8 @@ const breadcrumbSchema = {
 
 <Layout title={pageTitle} description={pageDescription} canonical={canonical}>
   <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(articleSchema)} />
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(itemListSchema)} />
   <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
 
   <Nav />
@@ -87,78 +179,122 @@ const breadcrumbSchema = {
   <main>
     <section class="bg-slate-950 px-5 py-20 lg:px-8">
       <div class="mx-auto max-w-3xl">
-        <p class="text-sm font-medium text-blue-400">Learn</p>
+        <p class="text-sm font-medium text-blue-400">Learn / Operational Playbook</p>
         <h1 class="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">
           The Value Continuity Framework
         </h1>
         <p class="mt-6 text-lg leading-relaxed text-slate-300">
-          The Value Continuity Framework is MeridianARR's model for monitoring post-sale ARR risk across the full customer lifecycle — through four motions: Activation, Adoption, Growth, and Renewal. Each motion has specific signals. Each signal predicts a revenue outcome.
+          Four motions. Specific owners. Clear intervention triggers. The Value Continuity Framework is not a description of how post-sale revenue protection works — it is a playbook for how to run it, organized around the signals that determine what happens next.
         </p>
+        <div class="mt-6 rounded-xl border border-slate-700 bg-slate-900 px-4 py-3">
+          <p class="text-sm text-slate-400">
+            <span class="font-semibold text-slate-200">MeridianARR</span> is a Value Continuity platform for B2B SaaS companies that connects support, onboarding, product friction, customer distress, and renewal risk into post-sale revenue intelligence.
+          </p>
+        </div>
       </div>
     </section>
 
-    <section class="bg-white px-5 py-16 lg:px-8">
+    <section class="bg-white px-5 py-12 lg:px-8">
       <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">What is the Value Continuity Framework?</h2>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          Value Continuity is the discipline of detecting, explaining, and acting on customer signals that threaten recurring revenue before they become churn, contraction, or failed renewals. MeridianARR is a Value Continuity platform for B2B SaaS companies.
+        <p class="text-slate-600 leading-relaxed">
+          Value Continuity is the discipline of detecting, explaining, and acting on customer signals that threaten recurring revenue before they become churn, contraction, or failed renewals. The framework below is how that discipline becomes an operational system. Each motion has a purpose, a trigger, signal inputs, intervention actions, and a success criterion. Skip to a motion:
         </p>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          The Value Continuity Framework organizes post-sale revenue risk into four motions, each representing a distinct phase of the customer lifecycle with distinct signal sources and revenue implications. Unlike the customer success lifecycle — which is organized around CS team activities — the Value Continuity Framework is organized around the signals that predict each outcome.
-        </p>
+        <nav class="mt-4 flex flex-wrap gap-3">
+          {motions.map((m) => (
+            <a href={`#motion-${m.number}`} class="rounded-lg border border-slate-200 px-3 py-1.5 text-sm font-medium text-slate-700 hover:border-slate-400 hover:text-slate-950">
+              {m.number} — {m.name}
+            </a>
+          ))}
+        </nav>
       </div>
     </section>
 
-    <section class="bg-slate-50 px-5 py-16 lg:px-8">
-      <div class="mx-auto max-w-3xl space-y-12">
-        {motions.map((motion) => (
-          <div class="rounded-xl border border-slate-200 bg-white p-8">
-            <div class="flex items-center gap-3">
-              <span class="text-4xl font-bold text-slate-200">{motion.number}</span>
-              <div>
-                <h2 class="text-xl font-bold text-slate-950">{motion.name}</h2>
-                <p class="text-sm text-slate-500">{motion.subtitle}</p>
-              </div>
-            </div>
-            <p class="mt-4 text-slate-600 leading-relaxed">{motion.description}</p>
-            <div class="mt-5">
-              <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Key signals</p>
-              <ul class="mt-2 space-y-1">
-                {motion.signals.map((signal) => (
-                  <li class="flex items-center gap-2 text-sm text-slate-600">
-                    <span class="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-slate-400"></span>
-                    {signal}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div class="mt-5 rounded-lg bg-slate-50 px-4 py-3">
-              <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Executive question</p>
-              <p class="mt-1 text-sm italic text-slate-700">"{motion.question}"</p>
+    {motions.map((motion, idx) => (
+      <section id={`motion-${motion.number}`} class={`px-5 py-16 lg:px-8 ${idx % 2 === 0 ? "bg-slate-50" : "bg-white"}`}>
+        <div class="mx-auto max-w-3xl">
+          <div class="flex items-baseline gap-3">
+            <span class="text-5xl font-bold text-slate-200">{motion.number}</span>
+            <div>
+              <h2 class="text-2xl font-bold text-slate-950">{motion.name}</h2>
+              <p class="text-slate-500">{motion.subtitle}</p>
             </div>
           </div>
-        ))}
-      </div>
-    </section>
 
-    <section class="bg-white px-5 py-16 lg:px-8">
+          <p class="mt-5 text-slate-600 leading-relaxed">{motion.description}</p>
+
+          <div class="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
+            <div class="rounded-lg border border-slate-200 bg-white p-4">
+              <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Primary owner</p>
+              <p class="mt-1 text-sm text-slate-700">{motion.owner}</p>
+            </div>
+            <div class="rounded-lg border border-slate-200 bg-white p-4">
+              <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Trigger</p>
+              <p class="mt-1 text-sm text-slate-700">{motion.trigger}</p>
+            </div>
+          </div>
+
+          <div class="mt-6">
+            <h3 class="text-sm font-semibold uppercase tracking-wide text-slate-500">Signal inputs</h3>
+            <ul class="mt-3 space-y-2">
+              {motion.signals.map((signal) => (
+                <li class="flex items-start gap-2 text-sm text-slate-600">
+                  <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-400" />
+                  {signal}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="mt-6">
+            <h3 class="text-sm font-semibold uppercase tracking-wide text-slate-500">Intervention actions</h3>
+            <div class="mt-3 overflow-x-auto">
+              <table class="w-full border-collapse text-sm">
+                <thead>
+                  <tr class="border-b border-slate-200">
+                    <th class="pb-2 pr-4 text-left text-xs font-semibold text-slate-400">Action</th>
+                    <th class="pb-2 pr-4 text-left text-xs font-semibold text-slate-400">Owner</th>
+                    <th class="pb-2 text-left text-xs font-semibold text-slate-400">Timing</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {motion.interventions.map((item) => (
+                    <tr class="border-b border-slate-100">
+                      <td class="py-2.5 pr-4 text-slate-700">{item.action}</td>
+                      <td class="py-2.5 pr-4 text-slate-500">{item.owner}</td>
+                      <td class="py-2.5 text-slate-500">{item.timing}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="mt-6 rounded-lg border border-slate-200 bg-white px-4 py-3">
+            <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Success criteria for this motion</p>
+            <p class="mt-1 text-sm text-slate-700 leading-relaxed">{motion.success_criteria}</p>
+          </div>
+        </div>
+      </section>
+    ))}
+
+    <section class="bg-slate-950 px-5 py-16 lg:px-8">
       <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">How MeridianARR operationalizes the framework</h2>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          MeridianARR is a Value Continuity platform for B2B SaaS companies. It connects the signal sources for all four motions — support systems, product analytics, onboarding data, and CRM — into a single account intelligence layer.
+        <h2 class="text-2xl font-bold text-white">How MeridianARR runs the framework</h2>
+        <p class="mt-4 text-slate-300 leading-relaxed">
+          MeridianARR is a Value Continuity platform for B2B SaaS companies. It automates the Detect motion by continuously reading support, product, onboarding, and engagement signals. It powers the Explain motion through CDI account views that give every revenue-adjacent leader the same signal picture. It enables the Act motion by routing signals to the right owner based on CDI band and signal type. And it makes the Protect motion proactive — starting 180 days before renewal, not 30.
         </p>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          The Customer Distress Index (CDI) is the output: an account-level ARR risk score that reflects the cumulative weight of Value Continuity signals across all four motions. CROs, CFOs, Customer Success leaders, and Support leaders use MeridianARR to monitor Value Continuity across every account — and act on risk before it becomes a churn event.
+        <p class="mt-4 text-slate-300 leading-relaxed">
+          The framework does not work without a platform running it. And the platform is not useful without a framework giving each signal a place in the operational model. MeridianARR and the Value Continuity Framework are designed together.
         </p>
-        <div class="mt-6">
-          <a href="/customer-defensibility-score/" class="inline-flex items-center justify-center rounded-2xl bg-slate-950 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-800">
+        <div class="mt-8">
+          <a href="/customer-defensibility-score/" class="inline-flex items-center justify-center rounded-2xl bg-white px-6 py-3 text-sm font-semibold text-slate-950 hover:bg-slate-100">
             Calculate your Customer Defensibility Score
           </a>
         </div>
       </div>
     </section>
 
-    <section class="bg-slate-50 px-5 py-14 lg:px-8">
+    <section class="bg-white px-5 py-14 lg:px-8">
       <div class="mx-auto max-w-3xl">
         <h2 class="text-2xl font-bold text-slate-950">Frequently asked questions</h2>
         <dl class="mt-8 space-y-8">
@@ -169,6 +305,22 @@ const breadcrumbSchema = {
             </div>
           ))}
         </dl>
+      </div>
+    </section>
+
+    <section class="bg-slate-50 px-5 py-12 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <p class="text-sm font-semibold text-slate-500">Continue reading</p>
+        <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <a href="/learn/customer-distress-arr-risk/" class="rounded-xl border border-slate-200 bg-white p-5 hover:border-slate-400">
+            <p class="font-semibold text-slate-950">Customer Distress Index</p>
+            <p class="mt-1 text-sm text-slate-500">The scoring model behind the Detect motion — four bands, compound signals, and intervention logic.</p>
+          </a>
+          <a href="/learn/saas-renewal-risk-signal-map/" class="rounded-xl border border-slate-200 bg-white p-5 hover:border-slate-400">
+            <p class="font-semibold text-slate-950">SaaS Renewal Risk Signal Map</p>
+            <p class="mt-1 text-sm text-slate-500">Full signal reference organized by lead time — from earliest early warning to last-chance indicators.</p>
+          </a>
+        </div>
       </div>
     </section>
   </main>

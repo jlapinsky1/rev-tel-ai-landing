@@ -3,26 +3,100 @@ import Layout from "../../layouts/Layout.astro";
 import Nav from "../../components/Nav.astro";
 import Footer from "../../components/Footer.astro";
 
-const pageTitle = "How Customer Distress Becomes ARR Risk in B2B SaaS | MeridianARR";
-const pageDescription = "Customer distress precedes churn. Learn how distress signals — from support, product, and onboarding — translate into ARR risk, and how MeridianARR's Customer Distress Index detects them early.";
+const pageTitle = "The Customer Distress Index: How MeridianARR Scores ARR Risk | MeridianARR";
+const pageDescription = "The Customer Distress Index (CDI) is MeridianARR's account-level ARR risk score. This page explains the four score bands, the compounding signal model, and how CDI translates into intervention priority.";
 const canonical = "https://meridianarr.com/learn/customer-distress-arr-risk/";
+
+const bands = [
+  {
+    range: "0–25",
+    label: "Healthy",
+    color_bg: "bg-emerald-50",
+    color_border: "border-emerald-200",
+    color_label: "text-emerald-700",
+    color_dot: "bg-emerald-500",
+    interpretation: "No material distress signals. The account is logging in, engaging with CS, resolving support tickets without escalation, and progressing through onboarding milestones on schedule.",
+    what_it_does_not_mean: "A CDI of 0–25 does not mean the account will definitely renew. It means no leading indicators of risk are currently visible. Maintain standard CS motion.",
+    intervention: "Standard renewal cadence. No intervention required. Monitor for signal emergence 90+ days before renewal.",
+  },
+  {
+    range: "26–50",
+    label: "Watch",
+    color_bg: "bg-amber-50",
+    color_border: "border-amber-200",
+    color_label: "text-amber-700",
+    color_dot: "bg-amber-400",
+    interpretation: "One or more distress signals are present but have not yet compounded. Common triggers: moderate ticket volume increase, a single escalation, an onboarding milestone slipping, or declining login frequency in a subset of users.",
+    what_it_does_not_mean: "A CDI of 26–50 does not mean churn is likely — it means the account needs a closer look. A single signal may resolve without intervention. But left unmonitored, watch-band accounts account for a disproportionate share of surprise churn.",
+    intervention: "CS check-in with specific agenda tied to the triggering signal. Do not run a generic QBR — address the specific friction. Increase monitoring frequency.",
+  },
+  {
+    range: "51–75",
+    label: "At-Risk",
+    color_bg: "bg-orange-50",
+    color_border: "border-orange-200",
+    color_label: "text-orange-700",
+    color_dot: "bg-orange-500",
+    interpretation: "Multiple distress signals are present and have begun compounding. Common combinations: recurring support tickets on the same issue + declining engagement, or an escalation + reduced feature adoption. The account is in the distress-to-churn pathway.",
+    what_it_does_not_mean: "A CDI of 51–75 does not mean the account will churn — it means the window to prevent churn is open but closing. At-risk accounts that receive targeted intervention in this band show materially higher retention rates than those flagged at renewal time.",
+    intervention: "Executive-level CS engagement. Direct outreach from CS leadership or CRO. Specific product or support resolution plan with committed timeline. Involve product team if friction is a product issue. Set CDI re-evaluation checkpoint in 30 days.",
+  },
+  {
+    range: "76–100",
+    label: "Critical",
+    color_bg: "bg-rose-50",
+    color_border: "border-rose-200",
+    color_label: "text-rose-700",
+    color_dot: "bg-rose-600",
+    interpretation: "Severe compound distress. Typical patterns: executive escalation + competitor mention + declining logins, or prolonged unresolved friction (8+ tickets on same issue) + CS disengagement + billing query. At this score, the customer has likely already begun evaluating alternatives.",
+    what_it_does_not_mean: "A CDI of 76–100 does not mean churn is certain — some critical-band accounts are recoverable, particularly if the distress has a discrete cause (a product bug, an implementation gap) that can be resolved with urgency. But recovery at this band requires more than a check-in call.",
+    intervention: "Emergency escalation protocol. CRO or CEO involvement if account size warrants. Concrete remediation offer — not a meeting, an action. Recovery plan with measurable milestones. Reassess ARR risk in financial forecast.",
+  },
+];
+
+const compoundingSignals = [
+  {
+    signals: ["Single escalation"],
+    cdi_impact: "Low (+8–12 points)",
+    reasoning: "One escalation resolved promptly has limited predictive weight. Context matters — executive or operational?",
+  },
+  {
+    signals: ["Single escalation", "Recurring tickets on same issue"],
+    cdi_impact: "Moderate (+22–28 points)",
+    reasoning: "Escalation driven by a pattern of unresolved issues signals systemic product friction, not a one-time incident.",
+  },
+  {
+    signals: ["Single escalation", "Recurring tickets on same issue", "Declining logins"],
+    cdi_impact: "High (+38–45 points)",
+    reasoning: "Product friction + executive dissatisfaction + disengagement is a three-signal compound pattern with strong churn predictive power.",
+  },
+  {
+    signals: ["Single escalation", "Recurring tickets on same issue", "Declining logins", "Competitor mention in ticket"],
+    cdi_impact: "Critical (+58–70 points)",
+    reasoning: "All prior signals plus active competitor evaluation. This four-signal compound puts virtually any account in the critical band regardless of starting state.",
+  },
+];
 
 const faqs = [
   {
-    q: "What is customer distress in B2B SaaS?",
-    a: "Customer distress is the state in which a B2B SaaS customer is experiencing unresolved friction, unmet expectations, or declining value from a product — and is therefore at elevated risk of churning, contracting, or failing to renew. Distress signals appear in support ticket patterns, product usage changes, onboarding gaps, and customer communication behaviors.",
-  },
-  {
     q: "What is the Customer Distress Index?",
-    a: "The Customer Distress Index (CDI) is MeridianARR's account-level ARR risk score. It combines support interaction patterns, product friction signals, onboarding completion status, engagement trends, and customer distress indicators into a single score. A high CDI score indicates an account at elevated risk of churning, contracting, or failing to renew.",
+    a: "The Customer Distress Index (CDI) is MeridianARR's account-level ARR risk score, calculated from support interaction patterns, product usage signals, onboarding status, engagement trends, and financial risk indicators. It ranges from 0 (no detected distress) to 100 (severe compound distress). CDI is designed to give CROs, CFOs, CS leaders, and Support leaders a shared, signal-based view of which accounts are at risk and why.",
   },
   {
-    q: "How does customer distress become ARR risk?",
-    a: "Customer distress follows a pattern: a customer experiences friction or unmet expectations, they file support tickets, they disengage from CS outreach, they reduce product usage, and eventually they decide not to renew. The gap between the first distress signal and the churn event can be months — but only if someone is reading the signals. MeridianARR detects them early enough to act.",
+    q: "What does a high CDI score mean?",
+    a: "A high CDI score means an account is exhibiting multiple distress signals across multiple signal categories — and is therefore at elevated risk of churning, contracting, or failing to renew. Scores above 50 indicate the account has entered the distress-to-churn pathway. Scores above 75 indicate severe compound distress requiring immediate intervention.",
   },
   {
-    q: "What systems detect customer distress signals?",
-    a: "Customer distress signals live in support systems (ticket patterns, escalations), product analytics (declining usage, feature friction), onboarding platforms (missed milestones), and CRM (reduced CS engagement, executive changes). MeridianARR connects all of these sources into the Customer Distress Index, giving a single account-level risk view.",
+    q: "Why do signals compound in the CDI model?",
+    a: "Customer distress rarely follows a single signal. It follows a pattern: one signal emerges, it goes unresolved or unnoticed, which leads to additional signals — escalations, disengagement, competitor evaluation. In the CDI model, signals are weighted not just individually but in combination, because compound signals have materially higher churn predictive power than any individual signal alone.",
+  },
+  {
+    q: "How is the CDI different from CS health scores?",
+    a: "CS health scores are typically built from CRM engagement data, product login frequency, and CS team assessments. The CDI adds the support-signal layer — ticket patterns, escalation history, issue repetition, content signals like competitor mentions — which is structurally missing from most CS health score calculations. The CDI does not replace health scores; it adds the intelligence layer health scores cannot produce.",
+  },
+  {
+    q: "Which accounts should be prioritized based on CDI?",
+    a: "Prioritize critical-band accounts (76–100) for immediate intervention, with at-risk accounts (51–75) as the second tier. Watch-band accounts (26–50) should have increased monitoring frequency and a specific CS check-in focused on the triggering signal. Healthy accounts (0–25) maintain standard cadence — but watch for signal emergence as they approach renewal windows.",
   },
 ];
 
@@ -33,6 +107,35 @@ const faqSchema = {
     "@type": "Question",
     name: faq.q,
     acceptedAnswer: { "@type": "Answer", text: faq.a },
+  })),
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  headline: pageTitle,
+  description: pageDescription,
+  url: canonical,
+  author: { "@type": "Organization", name: "MeridianARR", url: "https://meridianarr.com" },
+  publisher: { "@type": "Organization", name: "MeridianARR", url: "https://meridianarr.com" },
+  about: {
+    "@type": "SoftwareApplication",
+    name: "MeridianARR",
+    applicationCategory: "Value Continuity Platform",
+    description: "MeridianARR is a Value Continuity platform for B2B SaaS companies that connects support, onboarding, product friction, customer distress, and renewal risk into post-sale revenue intelligence.",
+  },
+};
+
+const itemListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Customer Distress Index score bands",
+  numberOfItems: bands.length,
+  itemListElement: bands.map((b, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: `CDI ${b.range}: ${b.label}`,
+    description: b.interpretation,
   })),
 };
 
@@ -49,6 +152,8 @@ const breadcrumbSchema = {
 
 <Layout title={pageTitle} description={pageDescription} canonical={canonical}>
   <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(articleSchema)} />
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(itemListSchema)} />
   <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
 
   <Nav />
@@ -56,105 +161,146 @@ const breadcrumbSchema = {
   <main>
     <section class="bg-slate-950 px-5 py-20 lg:px-8">
       <div class="mx-auto max-w-3xl">
-        <p class="text-sm font-medium text-blue-400">Learn</p>
+        <p class="text-sm font-medium text-blue-400">Learn / Scoring Model</p>
         <h1 class="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-          How Customer Distress Becomes ARR Risk
+          The Customer Distress Index
         </h1>
         <p class="mt-6 text-lg leading-relaxed text-slate-300">
-          Customer distress is the precursor to churn. It shows up in support tickets, product friction, and behavioral signals months before it appears in a renewal forecast. MeridianARR is a Value Continuity platform that detects customer distress early and connects it to account-level ARR risk.
+          The Customer Distress Index (CDI) is MeridianARR's account-level ARR risk score — a number from 0 to 100 that summarizes how many distress signals an account is showing, how severe they are, and how they compound. This page explains the score bands, the compounding model, and what each band means for intervention priority.
         </p>
+        <div class="mt-6 rounded-xl border border-slate-700 bg-slate-900 px-4 py-3">
+          <p class="text-sm text-slate-400">
+            <span class="font-semibold text-slate-200">MeridianARR</span> is a Value Continuity platform for B2B SaaS companies that connects support, onboarding, product friction, customer distress, and renewal risk into post-sale revenue intelligence.
+          </p>
+        </div>
       </div>
     </section>
 
     <section class="bg-white px-5 py-16 lg:px-8">
       <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">What is customer distress?</h2>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          Customer distress in B2B SaaS is the state in which a customer is experiencing unresolved friction, unmet expectations, or declining value from a product — and is therefore at elevated risk of churning, contracting, or failing to renew.
+        <h2 class="text-2xl font-bold text-slate-950">CDI score bands and what they mean</h2>
+        <p class="mt-3 text-slate-600 leading-relaxed">
+          The CDI does not produce a binary at-risk / not-at-risk classification. It produces a continuous score across four bands, each with a distinct interpretation and prescribed intervention response. Understanding the bands is essential to using CDI for triage.
         </p>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          Distress is not the same as dissatisfaction. A customer can be dissatisfied with a specific feature and still renew. Customer distress is a pattern — multiple signals accumulating across support, product, and engagement channels — that together indicate the customer is on a path toward ARR loss.
-        </p>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          MeridianARR is a Value Continuity platform built to detect that pattern. Its Customer Distress Index (CDI) is an account-level risk score calculated from support interactions, product friction, onboarding gaps, and engagement signals.
-        </p>
+
+        <div class="mt-8 space-y-4">
+          {bands.map((band) => (
+            <div class={`rounded-xl border ${band.color_border} ${band.color_bg} p-6`}>
+              <div class="flex items-center gap-3">
+                <span class={`inline-flex h-3 w-3 rounded-full ${band.color_dot}`} />
+                <span class={`text-xs font-bold uppercase tracking-widest ${band.color_label}`}>{band.label}</span>
+                <span class="ml-auto rounded-full bg-white px-3 py-0.5 text-sm font-semibold text-slate-800 shadow-sm">{band.range}</span>
+              </div>
+              <dl class="mt-4 space-y-3 text-sm">
+                <div>
+                  <dt class="font-semibold text-slate-900">What this score means</dt>
+                  <dd class="mt-1 text-slate-600 leading-relaxed">{band.interpretation}</dd>
+                </div>
+                <div>
+                  <dt class="font-semibold text-slate-900">What it does not mean</dt>
+                  <dd class="mt-1 text-slate-600 leading-relaxed">{band.what_it_does_not_mean}</dd>
+                </div>
+                <div>
+                  <dt class="font-semibold text-slate-900">Prescribed intervention</dt>
+                  <dd class="mt-1 text-slate-600 leading-relaxed">{band.intervention}</dd>
+                </div>
+              </dl>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
 
     <section class="bg-slate-50 px-5 py-16 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">The customer distress to churn pathway</h2>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          Customer distress follows a predictable pattern in B2B SaaS. The signals accumulate over months before churn occurs — which means there is a window to intervene.
+      <div class="mx-auto max-w-4xl">
+        <h2 class="text-2xl font-bold text-slate-950">How signals compound in the CDI model</h2>
+        <p class="mt-3 text-slate-600 leading-relaxed">
+          Individual distress signals carry limited predictive weight in isolation. Customer distress is a pattern — signals accumulate and reinforce each other. The CDI model weights signals in combination, not just individually. The table below shows how compounding works for a common signal sequence.
         </p>
-        <ol class="mt-6 space-y-4">
-          <li class="flex gap-4">
-            <span class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-slate-950 text-sm font-bold text-white">1</span>
-            <div>
-              <p class="font-semibold text-slate-950">Initial friction</p>
-              <p class="mt-1 text-sm text-slate-600">A customer hits a workflow that does not work as expected. They file a support ticket. The ticket is resolved. The pattern begins.</p>
-            </div>
-          </li>
-          <li class="flex gap-4">
-            <span class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-slate-950 text-sm font-bold text-white">2</span>
-            <div>
-              <p class="font-semibold text-slate-950">Recurring friction</p>
-              <p class="mt-1 text-sm text-slate-600">The same or related issue recurs. More tickets are filed. The customer begins to adjust their usage to avoid the friction — which reduces adoption of key features.</p>
-            </div>
-          </li>
-          <li class="flex gap-4">
-            <span class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-slate-950 text-sm font-bold text-white">3</span>
-            <div>
-              <p class="font-semibold text-slate-950">Disengagement</p>
-              <p class="mt-1 text-sm text-slate-600">Login frequency declines. The customer stops responding to CS outreach. They are still technically an active account — but they are no longer invested.</p>
-            </div>
-          </li>
-          <li class="flex gap-4">
-            <span class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-slate-950 text-sm font-bold text-white">4</span>
-            <div>
-              <p class="font-semibold text-slate-950">Evaluation</p>
-              <p class="mt-1 text-sm text-slate-600">The customer begins evaluating alternatives. Competitor names appear in support tickets or communications. Finance begins asking questions about the contract value.</p>
-            </div>
-          </li>
-          <li class="flex gap-4">
-            <span class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-rose-600 text-sm font-bold text-white">5</span>
-            <div>
-              <p class="font-semibold text-slate-950">Churn, contraction, or non-renewal</p>
-              <p class="mt-1 text-sm text-slate-600">The renewal conversation arrives. The customer has already decided. The ARR is lost — or significantly reduced.</p>
-            </div>
-          </li>
-        </ol>
-        <p class="mt-8 text-slate-600 leading-relaxed">
-          MeridianARR detects the pattern at steps 1 through 4 — before step 5. The Customer Distress Index gives CROs, CFOs, and CS leaders visibility into which accounts are in this pathway and how far along they are.
-        </p>
+        <div class="mt-8 overflow-x-auto">
+          <table class="w-full border-collapse text-sm">
+            <thead>
+              <tr class="border-b border-slate-200 bg-white">
+                <th class="py-3 pl-4 pr-6 text-left font-semibold text-slate-700">Signal combination present</th>
+                <th class="py-3 px-4 text-left font-semibold text-slate-700">CDI impact</th>
+                <th class="py-3 px-4 text-left font-semibold text-slate-700">Why it compounds</th>
+              </tr>
+            </thead>
+            <tbody>
+              {compoundingSignals.map((row) => (
+                <tr class="border-b border-slate-100">
+                  <td class="py-3 pl-4 pr-6 text-slate-800">
+                    <ul class="space-y-1">
+                      {row.signals.map((s) => (
+                        <li class="flex items-start gap-1.5">
+                          <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" />
+                          <span>{s}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </td>
+                  <td class="py-3 px-4 font-medium text-slate-800">{row.cdi_impact}</td>
+                  <td class="py-3 px-4 text-slate-600">{row.reasoning}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p class="mt-4 text-xs text-slate-500">CDI impact ranges are illustrative. Actual scores depend on signal severity, account context, and recency weighting.</p>
       </div>
     </section>
 
     <section class="bg-white px-5 py-16 lg:px-8">
       <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">What is the Customer Distress Index?</h2>
+        <h2 class="text-2xl font-bold text-slate-950">What the CDI reads — and what it does not</h2>
         <p class="mt-4 text-slate-600 leading-relaxed">
-          The Customer Distress Index (CDI) is MeridianARR's account-level ARR risk score. It is calculated continuously from five categories of Value Continuity signals:
+          The CDI is built from five categories of Value Continuity signals. It is important to understand both what it includes and its deliberate scope boundaries.
         </p>
-        <ul class="mt-4 space-y-3 text-slate-600">
-          <li><strong class="text-slate-900">Support signals:</strong> Ticket volume trends, escalation history, repeated issues, resolution patterns</li>
-          <li><strong class="text-slate-900">Product signals:</strong> Feature adoption gaps, friction points, activation milestone completion</li>
-          <li><strong class="text-slate-900">Onboarding signals:</strong> Time-to-value progress, implementation status, integration completion</li>
-          <li><strong class="text-slate-900">Engagement signals:</strong> Login trends, CS response rates, executive sponsor changes</li>
-          <li><strong class="text-slate-900">Revenue signals:</strong> Contract scope vs. usage, billing interactions, renewal history</li>
-        </ul>
+        <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div class="rounded-xl border border-slate-200 bg-slate-50 p-5">
+            <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">CDI reads</p>
+            <ul class="mt-3 space-y-2 text-sm text-slate-600">
+              <li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" />Support ticket volume, escalation history, repeated issues, content signals</li>
+              <li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" />Product adoption gaps, feature friction, activation milestone completion</li>
+              <li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" />Onboarding progress, implementation status, time-to-value trajectory</li>
+              <li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" />Login frequency trends, CS response rate, executive sponsor changes</li>
+              <li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" />Contract scope vs. usage, billing interaction patterns</li>
+            </ul>
+          </div>
+          <div class="rounded-xl border border-slate-200 bg-slate-50 p-5">
+            <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">CDI does not replace</p>
+            <ul class="mt-3 space-y-2 text-sm text-slate-600">
+              <li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" />CS judgment about relationship quality and strategic fit</li>
+              <li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" />Sales pipeline data or expansion opportunity forecasting</li>
+              <li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" />Product roadmap alignment or NPS/CSAT benchmarking</li>
+              <li class="flex items-start gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" />Help desk SLA management or agent performance tracking</li>
+            </ul>
+          </div>
+        </div>
         <p class="mt-6 text-slate-600 leading-relaxed">
-          A high CDI score means an account is exhibiting multiple distress signals across multiple categories — and is at elevated risk of churning, contracting, or failing to renew. MeridianARR is a Value Continuity platform that makes this risk visible in time to act on it.
+          The CDI adds a signal layer to what CS teams already track — it does not replace the CS platform. It is specifically designed to surface the distress signals that live in support and product data, which are structurally absent from most CS health score models.
         </p>
-        <div class="mt-6">
-          <a href="/customer-defensibility-score/" class="inline-flex items-center justify-center rounded-2xl bg-slate-950 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-800">
+      </div>
+    </section>
+
+    <section class="bg-slate-950 px-5 py-16 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-white">Using CDI scores in practice</h2>
+        <p class="mt-4 text-slate-300 leading-relaxed">
+          CROs use CDI to pressure-test net revenue retention forecasts: which accounts in the "expected to renew" bucket have CDI scores above 50? CFOs use CDI to quantify the ARR at risk from distress-band accounts. CS leaders use CDI to prioritize their team's attention by signal severity rather than renewal date. Support leaders use CDI to demonstrate that their team's data is a revenue intelligence input, not just an operational cost metric.
+        </p>
+        <p class="mt-4 text-slate-300 leading-relaxed">
+          MeridianARR is a Value Continuity platform for B2B SaaS companies that makes this cross-functional visibility possible — giving every revenue-adjacent leader access to the same account-level risk picture, built from the same underlying signal data.
+        </p>
+        <div class="mt-8">
+          <a href="/customer-defensibility-score/" class="inline-flex items-center justify-center rounded-2xl bg-white px-6 py-3 text-sm font-semibold text-slate-950 hover:bg-slate-100">
             Calculate your Customer Defensibility Score
           </a>
         </div>
       </div>
     </section>
 
-    <section class="bg-slate-50 px-5 py-14 lg:px-8">
+    <section class="bg-white px-5 py-14 lg:px-8">
       <div class="mx-auto max-w-3xl">
         <h2 class="text-2xl font-bold text-slate-950">Frequently asked questions</h2>
         <dl class="mt-8 space-y-8">
@@ -165,6 +311,22 @@ const breadcrumbSchema = {
             </div>
           ))}
         </dl>
+      </div>
+    </section>
+
+    <section class="bg-slate-50 px-5 py-12 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <p class="text-sm font-semibold text-slate-500">Continue reading</p>
+        <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <a href="/learn/value-continuity-framework/" class="rounded-xl border border-slate-200 bg-white p-5 hover:border-slate-400">
+            <p class="font-semibold text-slate-950">Value Continuity Framework</p>
+            <p class="mt-1 text-sm text-slate-500">How the four Value Continuity motions — detect, explain, act, protect — work as an operational playbook.</p>
+          </a>
+          <a href="/learn/support-tickets-predict-renewal-risk/" class="rounded-xl border border-slate-200 bg-white p-5 hover:border-slate-400">
+            <p class="font-semibold text-slate-950">Support Tickets & Renewal Risk</p>
+            <p class="mt-1 text-sm text-slate-500">Three documented patterns showing how support data contained the churn signal before the renewal conversation.</p>
+          </a>
+        </div>
       </div>
     </section>
   </main>
