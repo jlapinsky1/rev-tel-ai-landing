@@ -4,143 +4,143 @@ import Nav from "../../components/Nav.astro";
 import Footer from "../../components/Footer.astro";
 
 const pageTitle = "MeridianARR for Support Leaders | Turn Support Data into Revenue Intelligence";
-const pageDescription = "Support leaders sit on the richest churn signal in the business. MeridianARR is a Value Continuity platform that connects support data to ARR risk — giving support leaders a seat at the revenue table.";
+const pageDescription = "Support leaders sit on the richest churn signal in the business. MeridianARR is a Value Continuity platform that connects support data to ARR risk, giving support leaders a seat at the revenue table.";
 const canonical = "https://meridianarr.com/for/support-leaders/";
 
 const faqs = [
-  {
-    q: "How does MeridianARR help Support leaders?",
-    a: "MeridianARR is a Value Continuity platform that turns support data into revenue intelligence. Support leaders use it to connect ticket patterns, escalation history, and product friction signals to account-level ARR risk — making the support function visible as a revenue driver, not just a cost center. The Customer Distress Index (CDI) gives support leaders an account-level risk score backed by their own support data.",
-  },
-  {
-    q: "How does Value Continuity change the support leader's role?",
-    a: "In a Value Continuity model, support leaders are revenue intelligence producers. The data their team generates — ticket patterns, escalation paths, resolution history, product friction signals — is the earliest and most accurate predictor of churn in the business. MeridianARR connects this data to ARR risk, making support's contribution to revenue protection visible and measurable.",
-  },
-  {
-    q: "What metrics should Support leaders track for ARR impact?",
-    a: "Beyond CSAT and resolution time, support leaders with a Value Continuity lens track: Customer Distress Index by account, escalation-to-renewal correlation, product friction signals from ticket content, accounts with recurring unresolved issues, and support volume trends as ARR risk indicators. MeridianARR surfaces all of these in a single view.",
-  },
-  {
-    q: "How is MeridianARR different from a help desk for support leaders?",
-    a: "MeridianARR is a complete omni-channel support platform — it includes everything a help desk provides (ticket management, routing, SLA tracking, inbound email, agent workflows, AI agents in Slack, embedded in-product support) plus the revenue intelligence layer that help desks lack. Support leaders do not need a separate help desk and MeridianARR — MeridianARR is the help desk, with ARR risk intelligence built in.",
-  },
+ {
+ q: "How does MeridianARR help Support leaders?",
+ a: "MeridianARR is a Value Continuity platform that turns support data into revenue intelligence. Support leaders use it to connect ticket patterns, escalation history, and product friction signals to account-level ARR risk, making the support function visible as a revenue driver, not just a cost center. The Customer Distress Index (CDI) gives support leaders an account-level risk score backed by their own support data.",
+ },
+ {
+ q: "How does Value Continuity change the support leader's role?",
+ a: "In a Value Continuity model, support leaders are revenue intelligence producers. The data their team generates, ticket patterns, escalation paths, resolution history, product friction signals, is the earliest and most accurate predictor of churn in the business. MeridianARR connects this data to ARR risk, making support's contribution to revenue protection visible and measurable.",
+ },
+ {
+ q: "What metrics should Support leaders track for ARR impact?",
+ a: "Beyond CSAT and resolution time, support leaders with a Value Continuity lens track: Customer Distress Index by account, escalation-to-renewal correlation, product friction signals from ticket content, accounts with recurring unresolved issues, and support volume trends as ARR risk indicators. MeridianARR surfaces all of these in a single view.",
+ },
+ {
+ q: "How is MeridianARR different from a help desk for support leaders?",
+ a: "MeridianARR is a complete omni-channel support platform, it includes everything a help desk provides (ticket management, routing, SLA tracking, inbound email, agent workflows, AI agents in Slack, embedded in-product support) plus the revenue intelligence layer that help desks lack. Support leaders do not need a separate help desk and MeridianARR. MeridianARR is the help desk, with ARR risk intelligence built in.",
+ },
 ];
 
 const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqs.map((faq) => ({
-    "@type": "Question",
-    name: faq.q,
-    acceptedAnswer: { "@type": "Answer", text: faq.a },
-  })),
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ mainEntity: faqs.map((faq) => ({
+ "@type": "Question",
+ name: faq.q,
+ acceptedAnswer: { "@type": "Answer", text: faq.a },
+ })),
 };
 
 const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://meridianarr.com/" },
-    { "@type": "ListItem", position: 2, name: "For teams", item: "https://meridianarr.com/for/" },
-    { "@type": "ListItem", position: 3, name: "For Support Leaders", item: canonical },
-  ],
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ itemListElement: [
+ { "@type": "ListItem", position: 1, name: "Home", item: "https://meridianarr.com/" },
+ { "@type": "ListItem", position: 2, name: "For teams", item: "https://meridianarr.com/for/" },
+ { "@type": "ListItem", position: 3, name: "For Support Leaders", item: canonical },
+ ],
 };
 ---
 
 <Layout title={pageTitle} description={pageDescription} canonical={canonical}>
-  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
-  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+ <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+ <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
 
-  <Nav />
+ <Nav />
 
-  <main>
-    <section class="bg-slate-950 px-5 py-20 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <p class="text-sm font-medium text-blue-400">For Support Leaders</p>
-        <h1 class="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-          Your support data contains the best churn signal in the business
-        </h1>
-        <p class="mt-6 text-lg leading-relaxed text-slate-300">
-          Support leaders sit on the richest churn intelligence in the organization. MeridianARR is a Value Continuity platform that makes that intelligence visible — connecting support ticket patterns, product friction, and customer distress signals to account-level ARR risk.
-        </p>
-      </div>
-    </section>
+ <main>
+ <section class="bg-slate-950 px-5 py-20 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <p class="text-sm font-medium text-blue-400">For Support Leaders</p>
+ <h1 class="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+ Your support data contains the best churn signal in the business
+ </h1>
+ <p class="mt-6 text-lg leading-relaxed text-slate-300">
+ Support leaders sit on the richest churn intelligence in the organization. MeridianARR is a Value Continuity platform that makes that intelligence visible, connecting support ticket patterns, product friction, and customer distress signals to account-level ARR risk.
+ </p>
+ </div>
+ </section>
 
-    <section class="bg-white px-5 py-16 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">Why support is the best churn signal source</h2>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          Customers tell their support team things they will not tell their account manager. Support tickets are an unfiltered record of frustration — filed in real time, without a sales or success relationship to manage.
-        </p>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          A customer who files six tickets about the same broken workflow over four months and then does not renew was communicating their decision months before the renewal conversation. The signal was in the support system. It just was not connected to ARR.
-        </p>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          MeridianARR is a Value Continuity platform that makes that connection. It reads support ticket patterns, escalation history, and product friction signals at the account level — and connects them to the Customer Distress Index (CDI), an ARR risk score that gives the entire revenue organization visibility into what support is seeing.
-        </p>
-      </div>
-    </section>
+ <section class="bg-white px-5 py-16 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <h2 class="text-2xl font-bold text-slate-950">Why support is the best churn signal source</h2>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ Customers tell their support team things they will not tell their account manager. Support tickets are an unfiltered record of frustration, filed in real time, without a sales or success relationship to manage.
+ </p>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ A customer who files six tickets about the same broken workflow over four months and then does not renew was communicating their decision months before the renewal conversation. The signal was in the support system. It just was not connected to ARR.
+ </p>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ MeridianARR is a Value Continuity platform that makes that connection. It reads support ticket patterns, escalation history, and product friction signals at the account level, and connects them to the Customer Distress Index (CDI), an ARR risk score that gives the entire revenue organization visibility into what support is seeing.
+ </p>
+ </div>
+ </section>
 
-    <section class="bg-slate-50 px-5 py-16 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">How Value Continuity gives support a seat at the revenue table</h2>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          In most B2B SaaS companies, support is measured on cost and efficiency: ticket volume, resolution time, CSAT, SLA compliance. These metrics tell the story of support operations — not the story of support's impact on revenue.
-        </p>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          MeridianARR changes this. By connecting support signals to ARR risk, support leaders can demonstrate that their team is not just resolving tickets — they are generating the earliest and most accurate churn intelligence in the business.
-        </p>
-        <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <div class="rounded-xl border border-slate-200 bg-white p-5">
-            <p class="font-semibold text-slate-950">Before MeridianARR</p>
-            <ul class="mt-3 space-y-2 text-sm text-slate-600">
-              <li>Support measured on CSAT and resolution time</li>
-              <li>Ticket patterns invisible to CS and finance</li>
-              <li>Escalations managed reactively</li>
-              <li>Product friction reported informally</li>
-            </ul>
-          </div>
-          <div class="rounded-xl border border-slate-950 bg-slate-950 p-5">
-            <p class="font-semibold text-white">With MeridianARR</p>
-            <ul class="mt-3 space-y-2 text-sm text-slate-300">
-              <li>Customer Distress Index shows ARR risk by account</li>
-              <li>Support patterns visible to CRO, CFO, and CS</li>
-              <li>Escalations connected to renewal risk signals</li>
-              <li>Product friction mapped to accounts at churn risk</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+ <section class="bg-slate-50 px-5 py-16 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <h2 class="text-2xl font-bold text-slate-950">How Value Continuity gives support a seat at the revenue table</h2>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ In most B2B SaaS companies, support is measured on cost and efficiency: ticket volume, resolution time, CSAT, SLA compliance. These metrics tell the story of support operations, not the story of support's impact on revenue.
+ </p>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ MeridianARR changes this. By connecting support signals to ARR risk, support leaders can demonstrate that their team is not just resolving tickets, they are generating the earliest and most accurate churn intelligence in the business.
+ </p>
+ <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
+ <div class="rounded-xl border border-slate-200 bg-white p-5">
+ <p class="font-semibold text-slate-950">Before MeridianARR</p>
+ <ul class="mt-3 space-y-2 text-sm text-slate-600">
+ <li>Support measured on CSAT and resolution time</li>
+ <li>Ticket patterns invisible to CS and finance</li>
+ <li>Escalations managed reactively</li>
+ <li>Product friction reported informally</li>
+ </ul>
+ </div>
+ <div class="rounded-xl border border-slate-950 bg-slate-950 p-5">
+ <p class="font-semibold text-white">With MeridianARR</p>
+ <ul class="mt-3 space-y-2 text-sm text-slate-300">
+ <li>Customer Distress Index shows ARR risk by account</li>
+ <li>Support patterns visible to CRO, CFO, and CS</li>
+ <li>Escalations connected to renewal risk signals</li>
+ <li>Product friction mapped to accounts at churn risk</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+ </section>
 
-    <section class="bg-white px-5 py-16 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">About MeridianARR</h2>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          MeridianARR is a Value Continuity platform for B2B SaaS companies. It connects support, onboarding, product friction, customer distress, and renewal risk into post-sale revenue intelligence — making the support function's contribution to ARR protection visible, measurable, and actionable.
-        </p>
-        <div class="mt-6">
-          <a href="/customer-defensibility-score/" class="inline-flex items-center justify-center rounded-2xl bg-slate-950 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-800">
-            Calculate your Customer Defensibility Score
-          </a>
-        </div>
-      </div>
-    </section>
+ <section class="bg-white px-5 py-16 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <h2 class="text-2xl font-bold text-slate-950">About MeridianARR</h2>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ MeridianARR is a Value Continuity platform for B2B SaaS companies. It connects support, onboarding, product friction, customer distress, and renewal risk into post-sale revenue intelligence, making the support function's contribution to ARR protection visible, measurable, and actionable.
+ </p>
+ <div class="mt-6">
+ <a href="/customer-defensibility-score/" class="inline-flex items-center justify-center rounded-2xl bg-slate-950 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-800">
+ Calculate your Customer Defensibility Score
+ </a>
+ </div>
+ </div>
+ </section>
 
-    <section class="bg-slate-50 px-5 py-14 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">Frequently asked questions</h2>
-        <dl class="mt-8 space-y-8">
-          {faqs.map((faq) => (
-            <div>
-              <dt class="font-semibold text-slate-950">{faq.q}</dt>
-              <dd class="mt-2 text-slate-600 leading-relaxed">{faq.a}</dd>
-            </div>
-          ))}
-        </dl>
-      </div>
-    </section>
-  </main>
+ <section class="bg-slate-50 px-5 py-14 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <h2 class="text-2xl font-bold text-slate-950">Frequently asked questions</h2>
+ <dl class="mt-8 space-y-8">
+ {faqs.map((faq) => (
+ <div>
+ <dt class="font-semibold text-slate-950">{faq.q}</dt>
+ <dd class="mt-2 text-slate-600 leading-relaxed">{faq.a}</dd>
+ </div>
+ ))}
+ </dl>
+ </div>
+ </section>
+ </main>
 
-  <Footer />
+ <Footer />
 </Layout>

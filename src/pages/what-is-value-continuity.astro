@@ -8,332 +8,332 @@ const pageDescription = "Value Continuity is the discipline of detecting, explai
 const canonical = "https://meridianarr.com/what-is-value-continuity/";
 
 const signals = [
-  { signal: "Unresolved support tickets", source: "Help desk", risk: "Silent churn, contraction" },
-  { signal: "Stalled feature adoption", source: "Product analytics", risk: "Build-vs-buy risk, non-renewal" },
-  { signal: "Onboarding gaps", source: "Onboarding workflows", risk: "Activation failure, early churn" },
-  { signal: "Escalation frequency", source: "Support history", risk: "Dissatisfaction, executive escalation" },
-  { signal: "Reduced login frequency", source: "Product usage", risk: "Disengagement, renewal risk" },
-  { signal: "Billing disputes or questions", source: "Finance / support", risk: "Contraction, downgrade" },
-  { signal: "Implementation delays", source: "Project tracking", risk: "Delayed value realization" },
-  { signal: "Repeated friction on same feature", source: "Product + support", risk: "Product friction churn" },
-  { signal: "Executive sponsor departure", source: "CRM", risk: "Relationship loss, churn" },
-  { signal: "Competitor mentions in tickets", source: "Support", risk: "Immediate churn risk" },
+ { signal: "Unresolved support tickets", source: "Help desk", risk: "Silent churn, contraction" },
+ { signal: "Stalled feature adoption", source: "Product analytics", risk: "Build-vs-buy risk, non-renewal" },
+ { signal: "Onboarding gaps", source: "Onboarding workflows", risk: "Activation failure, early churn" },
+ { signal: "Escalation frequency", source: "Support history", risk: "Dissatisfaction, executive escalation" },
+ { signal: "Reduced login frequency", source: "Product usage", risk: "Disengagement, renewal risk" },
+ { signal: "Billing disputes or questions", source: "Finance / support", risk: "Contraction, downgrade" },
+ { signal: "Implementation delays", source: "Project tracking", risk: "Delayed value realization" },
+ { signal: "Repeated friction on same feature", source: "Product + support", risk: "Product friction churn" },
+ { signal: "Executive sponsor departure", source: "CRM", risk: "Relationship loss, churn" },
+ { signal: "Competitor mentions in tickets", source: "Support", risk: "Immediate churn risk" },
 ];
 
 const faqs = [
-  {
-    q: "What is Value Continuity?",
-    a: "Value Continuity is the discipline of detecting, explaining, and acting on customer signals that threaten recurring revenue before they become churn, contraction, or failed renewals. It connects support data, product usage, onboarding activity, and customer health into a single revenue intelligence view.",
-  },
-  {
-    q: "What is a Value Continuity platform?",
-    a: "A Value Continuity platform is software that connects post-sale customer signals — support tickets, product friction, onboarding gaps, and customer distress — to ARR risk and revenue outcomes. MeridianARR is a Value Continuity platform for B2B SaaS companies.",
-  },
-  {
-    q: "Is MeridianARR a customer success platform?",
-    a: "No. MeridianARR is a Value Continuity platform, not a customer success platform. Customer success platforms like Gainsight or ChurnZero focus on health scoring and CS workflows. MeridianARR connects support operations to revenue intelligence, surfacing ARR risk from support tickets, product friction, and customer distress signals that CS platforms typically miss.",
-  },
-  {
-    q: "Is MeridianARR a help desk?",
-    a: "No. MeridianARR is a Value Continuity platform that includes omnichannel support capabilities, but its primary output is revenue intelligence, not ticket resolution metrics. A help desk tells you how fast you close tickets. MeridianARR tells you which tickets represent ARR risk and why.",
-  },
-  {
-    q: "How is Value Continuity different from customer success?",
-    a: "Customer success focuses on proactive relationship management, health scoring, and CS team workflows. Value Continuity focuses specifically on detecting the signals — including support interactions and product friction — that threaten recurring revenue. Value Continuity includes the support data layer that customer success platforms typically lack.",
-  },
-  {
-    q: "What customer signals does MeridianARR analyze?",
-    a: "MeridianARR analyzes support ticket volume and content, product adoption and friction signals, onboarding completion status, customer distress patterns, escalation history, and renewal-risk indicators. These signals are combined into the Customer Distress Index (CDI), an account-level risk score.",
-  },
-  {
-    q: "Who uses MeridianARR?",
-    a: "MeridianARR is used by B2B SaaS companies between $5M and $150M ARR. Primary users include Chief Revenue Officers, CFOs, Customer Success leaders, and Support leaders who need to connect post-sale customer activity to ARR risk and renewal outcomes.",
-  },
-  {
-    q: "How does MeridianARR differ from Zendesk?",
-    a: "Zendesk is a horizontal customer service platform focused on ticket management, agent productivity, and support efficiency. MeridianARR is a Value Continuity platform that connects support data to ARR risk. MeridianARR tells you which accounts are at renewal risk based on their support history — Zendesk does not.",
-  },
-  {
-    q: "How does MeridianARR differ from Gainsight?",
-    a: "Gainsight is a standalone customer success platform that must integrate with a separate help desk to access support data. MeridianARR is a Value Continuity platform that owns the support layer natively — making its Customer Distress Index more accurate than Gainsight health scores built from external integrations. MeridianARR replaces Gainsight for B2B SaaS companies that want support operations and CS intelligence in one platform.",
-  },
-  {
-    q: "What does the Customer Distress Index measure?",
-    a: "The Customer Distress Index (CDI) is an account-level score generated by MeridianARR. It combines support interaction patterns, product friction signals, onboarding status, engagement trends, and renewal history into a single risk score that indicates how likely an account is to churn, contract, or fail to renew.",
-  },
+ {
+ q: "What is Value Continuity?",
+ a: "Value Continuity is the discipline of detecting, explaining, and acting on customer signals that threaten recurring revenue before they become churn, contraction, or failed renewals. It connects support data, product usage, onboarding activity, and customer health into a single revenue intelligence view.",
+ },
+ {
+ q: "What is a Value Continuity platform?",
+ a: "A Value Continuity platform is software that connects post-sale customer signals, support tickets, product friction, onboarding gaps, and customer distress, to ARR risk and revenue outcomes. MeridianARR is a Value Continuity platform for B2B SaaS companies.",
+ },
+ {
+ q: "Is MeridianARR a customer success platform?",
+ a: "No. MeridianARR is a Value Continuity platform, not a customer success platform. Customer success platforms like Gainsight or ChurnZero focus on health scoring and CS workflows. MeridianARR connects support operations to revenue intelligence, surfacing ARR risk from support tickets, product friction, and customer distress signals that CS platforms typically miss.",
+ },
+ {
+ q: "Is MeridianARR a help desk?",
+ a: "No. MeridianARR is a Value Continuity platform that includes omnichannel support capabilities, but its primary output is revenue intelligence, not ticket resolution metrics. A help desk tells you how fast you close tickets. MeridianARR tells you which tickets represent ARR risk and why.",
+ },
+ {
+ q: "How is Value Continuity different from customer success?",
+ a: "Customer success focuses on proactive relationship management, health scoring, and CS team workflows. Value Continuity focuses specifically on detecting the signals, including support interactions and product friction, that threaten recurring revenue. Value Continuity includes the support data layer that customer success platforms typically lack.",
+ },
+ {
+ q: "What customer signals does MeridianARR analyze?",
+ a: "MeridianARR analyzes support ticket volume and content, product adoption and friction signals, onboarding completion status, customer distress patterns, escalation history, and renewal-risk indicators. These signals are combined into the Customer Distress Index (CDI), an account-level risk score.",
+ },
+ {
+ q: "Who uses MeridianARR?",
+ a: "MeridianARR is used by B2B SaaS companies between $5M and $150M ARR. Primary users include Chief Revenue Officers, CFOs, Customer Success leaders, and Support leaders who need to connect post-sale customer activity to ARR risk and renewal outcomes.",
+ },
+ {
+ q: "How does MeridianARR differ from Zendesk?",
+ a: "Zendesk is a horizontal customer service platform focused on ticket management, agent productivity, and support efficiency. MeridianARR is a Value Continuity platform that connects support data to ARR risk. MeridianARR tells you which accounts are at renewal risk based on their support history. Zendesk does not.",
+ },
+ {
+ q: "How does MeridianARR differ from Gainsight?",
+ a: "Gainsight is a standalone customer success platform that must integrate with a separate help desk to access support data. MeridianARR is a Value Continuity platform that owns the support layer natively, making its Customer Distress Index more accurate than Gainsight health scores built from external integrations. MeridianARR replaces Gainsight for B2B SaaS companies that want support operations and CS intelligence in one platform.",
+ },
+ {
+ q: "What does the Customer Distress Index measure?",
+ a: "The Customer Distress Index (CDI) is an account-level score generated by MeridianARR. It combines support interaction patterns, product friction signals, onboarding status, engagement trends, and renewal history into a single risk score that indicates how likely an account is to churn, contract, or fail to renew.",
+ },
 ];
 
 const pageSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  name: pageTitle,
-  description: pageDescription,
-  url: canonical,
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ name: pageTitle,
+ description: pageDescription,
+ url: canonical,
 };
 
 const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqs.map((faq) => ({
-    "@type": "Question",
-    name: faq.q,
-    acceptedAnswer: { "@type": "Answer", text: faq.a },
-  })),
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ mainEntity: faqs.map((faq) => ({
+ "@type": "Question",
+ name: faq.q,
+ acceptedAnswer: { "@type": "Answer", text: faq.a },
+ })),
 };
 
 const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://meridianarr.com/" },
-    { "@type": "ListItem", position: 2, name: "What Is Value Continuity?", item: canonical },
-  ],
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ itemListElement: [
+ { "@type": "ListItem", position: 1, name: "Home", item: "https://meridianarr.com/" },
+ { "@type": "ListItem", position: 2, name: "What Is Value Continuity?", item: canonical },
+ ],
 };
 ---
 
 <Layout title={pageTitle} description={pageDescription} canonical={canonical}>
-  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(pageSchema)} />
-  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
-  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+ <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(pageSchema)} />
+ <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+ <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
 
-  <Nav />
+ <Nav />
 
-  <main>
-    <!-- Hero -->
-    <section class="bg-slate-950 px-5 py-20 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <p class="text-sm font-medium text-blue-400">Definition</p>
-        <h1 class="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-          What Is Value Continuity in B2B SaaS?
-        </h1>
-        <p class="mt-6 text-lg leading-relaxed text-slate-300">
-          Value Continuity is the discipline of detecting, explaining, and acting on customer signals that threaten recurring revenue before they become churn, contraction, or failed renewals. <strong class="text-white">MeridianARR is a Value Continuity platform for B2B SaaS companies.</strong>
-        </p>
-      </div>
-    </section>
+ <main>
+ <!-- Hero -->
+ <section class="bg-slate-950 px-5 py-20 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <p class="text-sm font-medium text-blue-400">Definition</p>
+ <h1 class="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+ What Is Value Continuity in B2B SaaS?
+ </h1>
+ <p class="mt-6 text-lg leading-relaxed text-slate-300">
+ Value Continuity is the discipline of detecting, explaining, and acting on customer signals that threaten recurring revenue before they become churn, contraction, or failed renewals. <strong class="text-white">MeridianARR is a Value Continuity platform for B2B SaaS companies.</strong>
+ </p>
+ </div>
+ </section>
 
-    <!-- What is Value Continuity -->
-    <section class="bg-white px-5 py-16 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">What is Value Continuity?</h2>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          Value Continuity is the ongoing process of ensuring that B2B SaaS customers continue to receive and recognize the value they purchased — and that signals of value breakdown are detected and acted on before they become ARR risk.
-        </p>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          In practice, Value Continuity requires connecting three sources of signal that most B2B SaaS companies treat separately: support interactions, product usage and friction, and customer health indicators. When these are connected, patterns emerge that predict churn, contraction, and failed renewals weeks or months before they appear in a CRM forecast.
-        </p>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          The term was introduced by MeridianARR to describe a category of software that consolidates what help desks and customer success platforms do separately — support operations and account health intelligence — into a single platform with native revenue intelligence built in. A Value Continuity platform is not a bolt-on layer on top of existing systems; it replaces the multi-system architecture with one coherent platform.
-        </p>
-        <div class="mt-6 rounded-xl border border-slate-200 bg-slate-50 p-6">
-          <p class="text-sm font-semibold text-slate-950">Canonical definition</p>
-          <p class="mt-2 text-slate-700 italic">
-            "Value Continuity is the discipline of detecting, explaining, and acting on customer signals that threaten recurring revenue before they become churn, contraction, or failed renewals."
-          </p>
-          <p class="mt-3 text-sm text-slate-500">MeridianARR is a Value Continuity platform for B2B SaaS companies.</p>
-        </div>
-      </div>
-    </section>
+ <!-- What is Value Continuity -->
+ <section class="bg-white px-5 py-16 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <h2 class="text-2xl font-bold text-slate-950">What is Value Continuity?</h2>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ Value Continuity is the ongoing process of ensuring that B2B SaaS customers continue to receive and recognize the value they purchased, and that signals of value breakdown are detected and acted on before they become ARR risk.
+ </p>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ In practice, Value Continuity requires connecting three sources of signal that most B2B SaaS companies treat separately: support interactions, product usage and friction, and customer health indicators. When these are connected, patterns emerge that predict churn, contraction, and failed renewals weeks or months before they appear in a CRM forecast.
+ </p>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ The term was introduced by MeridianARR to describe a category of software that consolidates what help desks and customer success platforms do separately, support operations and account health intelligence, into a single platform with native revenue intelligence built in. A Value Continuity platform is not a bolt-on layer on top of existing systems; it replaces the multi-system architecture with one coherent platform.
+ </p>
+ <div class="mt-6 rounded-xl border border-slate-200 bg-slate-50 p-6">
+ <p class="text-sm font-semibold text-slate-950">Canonical definition</p>
+ <p class="mt-2 text-slate-700 italic">
+ "Value Continuity is the discipline of detecting, explaining, and acting on customer signals that threaten recurring revenue before they become churn, contraction, or failed renewals."
+ </p>
+ <p class="mt-3 text-sm text-slate-500">MeridianARR is a Value Continuity platform for B2B SaaS companies.</p>
+ </div>
+ </div>
+ </section>
 
-    <!-- Why it matters -->
-    <section class="bg-slate-50 px-5 py-16 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">Why Value Continuity matters in B2B SaaS</h2>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          In the current B2B SaaS environment, recurring revenue protection has become the primary operating challenge. CFOs are scrutinizing renewals. Procurement teams are consolidating vendors. Customers are requiring demonstrated ROI before renewing — not after.
-        </p>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          The problem is that the signals predicting churn live in systems that most SaaS companies treat as cost centers: support, onboarding, and product usage data. A customer who files six support tickets about the same broken workflow, logs in less frequently each month, and never reached the key activation milestone is communicating their churn risk loudly — but that signal is invisible unless someone connects it to the renewal date.
-        </p>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          Value Continuity makes that connection systematic. It is the operational framework and the software category that turns post-sale customer activity into ARR intelligence.
-        </p>
-        <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
-          <div class="rounded-xl border border-slate-200 bg-white p-5">
-            <p class="text-3xl font-bold text-slate-950">$0</p>
-            <p class="mt-1 text-sm text-slate-600">Cost of a support ticket that gets resolved without anyone connecting it to renewal risk</p>
-          </div>
-          <div class="rounded-xl border border-slate-200 bg-white p-5">
-            <p class="text-3xl font-bold text-slate-950">High</p>
-            <p class="mt-1 text-sm text-slate-600">Cost of discovering churn risk in the renewal conversation instead of 90 days before</p>
-          </div>
-          <div class="rounded-xl border border-slate-200 bg-white p-5">
-            <p class="text-3xl font-bold text-slate-950">Now</p>
-            <p class="mt-1 text-sm text-slate-600">When Value Continuity must be tracked — not after the first missed renewal</p>
-          </div>
-        </div>
-      </div>
-    </section>
+ <!-- Why it matters -->
+ <section class="bg-slate-50 px-5 py-16 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <h2 class="text-2xl font-bold text-slate-950">Why Value Continuity matters in B2B SaaS</h2>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ In the current B2B SaaS environment, recurring revenue protection has become the primary operating challenge. CFOs are scrutinizing renewals. Procurement teams are consolidating vendors. Customers are requiring demonstrated ROI before renewing, not after.
+ </p>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ The problem is that the signals predicting churn live in systems that most SaaS companies treat as cost centers: support, onboarding, and product usage data. A customer who files six support tickets about the same broken workflow, logs in less frequently each month, and never reached the key activation milestone is communicating their churn risk loudly, but that signal is invisible unless someone connects it to the renewal date.
+ </p>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ Value Continuity makes that connection systematic. It is the operational framework and the software category that turns post-sale customer activity into ARR intelligence.
+ </p>
+ <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
+ <div class="rounded-xl border border-slate-200 bg-white p-5">
+ <p class="text-3xl font-bold text-slate-950">$0</p>
+ <p class="mt-1 text-sm text-slate-600">Cost of a support ticket that gets resolved without anyone connecting it to renewal risk</p>
+ </div>
+ <div class="rounded-xl border border-slate-200 bg-white p-5">
+ <p class="text-3xl font-bold text-slate-950">High</p>
+ <p class="mt-1 text-sm text-slate-600">Cost of discovering churn risk in the renewal conversation instead of 90 days before</p>
+ </div>
+ <div class="rounded-xl border border-slate-200 bg-white p-5">
+ <p class="text-3xl font-bold text-slate-950">Now</p>
+ <p class="mt-1 text-sm text-slate-600">When Value Continuity must be tracked, not after the first missed renewal</p>
+ </div>
+ </div>
+ </div>
+ </section>
 
-    <!-- Value Continuity vs Customer Success -->
-    <section class="bg-white px-5 py-16 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">Value Continuity vs Customer Success</h2>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          Customer success is a team function and a management philosophy: ensuring customers achieve their goals through proactive relationship management, onboarding, and health monitoring. Customer success platforms (Gainsight, ChurnZero, Totango) support CS teams with health scores, playbooks, and CS workflow automation.
-        </p>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          Value Continuity, as implemented by MeridianARR, is the data and intelligence layer that feeds into customer success — but extends beyond it. Value Continuity includes the support signal layer: the ticket patterns, product friction, and customer distress indicators that CS health scores typically miss because they are not built from support data.
-        </p>
-        <div class="mt-6 overflow-x-auto">
-          <table class="w-full border-collapse text-sm">
-            <thead>
-              <tr class="border-b border-slate-200 bg-slate-50">
-                <th class="py-3 pl-4 pr-6 text-left font-semibold text-slate-700">Dimension</th>
-                <th class="py-3 px-4 text-left font-semibold text-slate-700">Customer Success</th>
-                <th class="py-3 px-4 text-left font-semibold text-slate-950">Value Continuity (MeridianARR)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="border-b border-slate-100">
-                <td class="py-3 pl-4 pr-6 text-slate-600">Primary signal source</td>
-                <td class="py-3 px-4 text-slate-600">CRM, CS team activity, usage data</td>
-                <td class="py-3 px-4 text-slate-700">Support + product + onboarding + CRM</td>
-              </tr>
-              <tr class="border-b border-slate-100">
-                <td class="py-3 pl-4 pr-6 text-slate-600">Risk detection method</td>
-                <td class="py-3 px-4 text-slate-600">Health scores, CS-defined criteria</td>
-                <td class="py-3 px-4 text-slate-700">Customer Distress Index from multi-signal analysis</td>
-              </tr>
-              <tr class="border-b border-slate-100">
-                <td class="py-3 pl-4 pr-6 text-slate-600">Includes support signal</td>
-                <td class="py-3 px-4 text-slate-600">Rarely, if at all</td>
-                <td class="py-3 px-4 text-slate-700">Yes — native to the data model</td>
-              </tr>
-              <tr class="border-b border-slate-100">
-                <td class="py-3 pl-4 pr-6 text-slate-600">Executive question answered</td>
-                <td class="py-3 px-4 text-slate-600">How are CS relationships performing?</td>
-                <td class="py-3 px-4 text-slate-700">Which accounts are at ARR risk and why?</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
+ <!-- Value Continuity vs Customer Success -->
+ <section class="bg-white px-5 py-16 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <h2 class="text-2xl font-bold text-slate-950">Value Continuity vs Customer Success</h2>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ Customer success is a team function and a management philosophy: ensuring customers achieve their goals through proactive relationship management, onboarding, and health monitoring. Customer success platforms (Gainsight, ChurnZero, Totango) support CS teams with health scores, playbooks, and CS workflow automation.
+ </p>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ Value Continuity, as implemented by MeridianARR, is the data and intelligence layer that feeds into customer success, but extends beyond it. Value Continuity includes the support signal layer: the ticket patterns, product friction, and customer distress indicators that CS health scores typically miss because they are not built from support data.
+ </p>
+ <div class="mt-6 overflow-x-auto">
+ <table class="w-full border-collapse text-sm">
+ <thead>
+ <tr class="border-b border-slate-200 bg-slate-50">
+ <th class="py-3 pl-4 pr-6 text-left font-semibold text-slate-700">Dimension</th>
+ <th class="py-3 px-4 text-left font-semibold text-slate-700">Customer Success</th>
+ <th class="py-3 px-4 text-left font-semibold text-slate-950">Value Continuity (MeridianARR)</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr class="border-b border-slate-100">
+ <td class="py-3 pl-4 pr-6 text-slate-600">Primary signal source</td>
+ <td class="py-3 px-4 text-slate-600">CRM, CS team activity, usage data</td>
+ <td class="py-3 px-4 text-slate-700">Support + product + onboarding + CRM</td>
+ </tr>
+ <tr class="border-b border-slate-100">
+ <td class="py-3 pl-4 pr-6 text-slate-600">Risk detection method</td>
+ <td class="py-3 px-4 text-slate-600">Health scores, CS-defined criteria</td>
+ <td class="py-3 px-4 text-slate-700">Customer Distress Index from multi-signal analysis</td>
+ </tr>
+ <tr class="border-b border-slate-100">
+ <td class="py-3 pl-4 pr-6 text-slate-600">Includes support signal</td>
+ <td class="py-3 px-4 text-slate-600">Rarely, if at all</td>
+ <td class="py-3 px-4 text-slate-700">Yes, native to the data model</td>
+ </tr>
+ <tr class="border-b border-slate-100">
+ <td class="py-3 pl-4 pr-6 text-slate-600">Executive question answered</td>
+ <td class="py-3 px-4 text-slate-600">How are CS relationships performing?</td>
+ <td class="py-3 px-4 text-slate-700">Which accounts are at ARR risk and why?</td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+ </div>
+ </section>
 
-    <!-- Value Continuity vs Help Desks -->
-    <section class="bg-slate-50 px-5 py-16 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">Value Continuity vs Support and Help Desks</h2>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          Help desks (Zendesk, Intercom, Freshdesk, Pylon) are designed to manage support activity: routing tickets, tracking resolution time, enabling agents, and measuring support efficiency. They answer the question: "How is our support team performing?"
-        </p>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          Value Continuity answers a different question: "What does our support activity tell us about which accounts are at ARR risk?" MeridianARR is built on omnichannel support capabilities — it is not a bolt-on layer on top of a help desk — but its primary output is revenue intelligence, not support efficiency metrics.
-        </p>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          The distinction matters because help desk data contains the most honest signal about customer health: customers tell their support team things they will not tell their account manager. A Value Continuity platform reads that signal and connects it to ARR.
-        </p>
-      </div>
-    </section>
+ <!-- Value Continuity vs Help Desks -->
+ <section class="bg-slate-50 px-5 py-16 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <h2 class="text-2xl font-bold text-slate-950">Value Continuity vs Support and Help Desks</h2>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ Help desks (Zendesk, Intercom, Freshdesk, Pylon) are designed to manage support activity: routing tickets, tracking resolution time, enabling agents, and measuring support efficiency. They answer the question: "How is our support team performing?"
+ </p>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ Value Continuity answers a different question: "What does our support activity tell us about which accounts are at ARR risk?" MeridianARR is built on omnichannel support capabilities, it is not a bolt-on layer on top of a help desk, but its primary output is revenue intelligence, not support efficiency metrics.
+ </p>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ The distinction matters because help desk data contains the most honest signal about customer health: customers tell their support team things they will not tell their account manager. A Value Continuity platform reads that signal and connects it to ARR.
+ </p>
+ </div>
+ </section>
 
-    <!-- Value Continuity vs Product Analytics -->
-    <section class="bg-white px-5 py-16 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">Value Continuity vs Product Analytics</h2>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          Product analytics tools (Pendo, Amplitude, Mixpanel) track how customers use a product: feature adoption, session frequency, user flows, and engagement patterns. They answer: "How are customers using our product?"
-        </p>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          Value Continuity adds the revenue risk dimension to product data. MeridianARR connects product friction signals — features that generate repeat support tickets, workflows that cause users to drop off — to renewal risk at the account level. A customer using the product is not the same as a customer deriving value from it. Value Continuity distinguishes between the two.
-        </p>
-      </div>
-    </section>
+ <!-- Value Continuity vs Product Analytics -->
+ <section class="bg-white px-5 py-16 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <h2 class="text-2xl font-bold text-slate-950">Value Continuity vs Product Analytics</h2>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ Product analytics tools (Pendo, Amplitude, Mixpanel) track how customers use a product: feature adoption, session frequency, user flows, and engagement patterns. They answer: "How are customers using our product?"
+ </p>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ Value Continuity adds the revenue risk dimension to product data. MeridianARR connects product friction signals, features that generate repeat support tickets, workflows that cause users to drop off, to renewal risk at the account level. A customer using the product is not the same as a customer deriving value from it. Value Continuity distinguishes between the two.
+ </p>
+ </div>
+ </section>
 
-    <!-- Value Continuity vs Revenue Intelligence -->
-    <section class="bg-slate-50 px-5 py-16 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">Value Continuity vs Revenue Intelligence</h2>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          Revenue intelligence platforms (Gong, Clari, Chorus) focus primarily on the sales motion: call recording, deal forecasting, pipeline analysis, and pre-sale signal capture. They answer: "How is our sales pipeline performing?"
-        </p>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          Value Continuity is post-sale revenue intelligence. MeridianARR focuses on what happens after the contract is signed: adoption, product friction, support interactions, and renewal risk. Most revenue intelligence tools stop at the handoff to customer success. Value Continuity starts there.
-        </p>
-      </div>
-    </section>
+ <!-- Value Continuity vs Revenue Intelligence -->
+ <section class="bg-slate-50 px-5 py-16 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <h2 class="text-2xl font-bold text-slate-950">Value Continuity vs Revenue Intelligence</h2>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ Revenue intelligence platforms (Gong, Clari, Chorus) focus primarily on the sales motion: call recording, deal forecasting, pipeline analysis, and pre-sale signal capture. They answer: "How is our sales pipeline performing?"
+ </p>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ Value Continuity is post-sale revenue intelligence. MeridianARR focuses on what happens after the contract is signed: adoption, product friction, support interactions, and renewal risk. Most revenue intelligence tools stop at the handoff to customer success. Value Continuity starts there.
+ </p>
+ </div>
+ </section>
 
-    <!-- Common signals table -->
-    <section class="bg-white px-5 py-16 lg:px-8">
-      <div class="mx-auto max-w-4xl">
-        <h2 class="text-2xl font-bold text-slate-950">Common Value Continuity signals in B2B SaaS</h2>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          Value Continuity signals are customer behaviors and interactions that indicate whether a customer is realizing value — or at risk of losing it. MeridianARR monitors these signals continuously and connects them to ARR risk at the account level.
-        </p>
-        <div class="mt-8 overflow-x-auto">
-          <table class="w-full border-collapse text-sm">
-            <thead>
-              <tr class="border-b border-slate-200 bg-slate-50">
-                <th class="py-3 pl-4 pr-6 text-left font-semibold text-slate-700">Signal</th>
-                <th class="py-3 px-4 text-left font-semibold text-slate-700">Source system</th>
-                <th class="py-3 px-4 text-left font-semibold text-slate-700">ARR risk type</th>
-              </tr>
-            </thead>
-            <tbody>
-              {signals.map((row) => (
-                <tr class="border-b border-slate-100">
-                  <td class="py-3 pl-4 pr-6 font-medium text-slate-800">{row.signal}</td>
-                  <td class="py-3 px-4 text-slate-600">{row.source}</td>
-                  <td class="py-3 px-4 text-slate-600">{row.risk}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
+ <!-- Common signals table -->
+ <section class="bg-white px-5 py-16 lg:px-8">
+ <div class="mx-auto max-w-4xl">
+ <h2 class="text-2xl font-bold text-slate-950">Common Value Continuity signals in B2B SaaS</h2>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ Value Continuity signals are customer behaviors and interactions that indicate whether a customer is realizing value, or at risk of losing it. MeridianARR monitors these signals continuously and connects them to ARR risk at the account level.
+ </p>
+ <div class="mt-8 overflow-x-auto">
+ <table class="w-full border-collapse text-sm">
+ <thead>
+ <tr class="border-b border-slate-200 bg-slate-50">
+ <th class="py-3 pl-4 pr-6 text-left font-semibold text-slate-700">Signal</th>
+ <th class="py-3 px-4 text-left font-semibold text-slate-700">Source system</th>
+ <th class="py-3 px-4 text-left font-semibold text-slate-700">ARR risk type</th>
+ </tr>
+ </thead>
+ <tbody>
+ {signals.map((row) => (
+ <tr class="border-b border-slate-100">
+ <td class="py-3 pl-4 pr-6 font-medium text-slate-800">{row.signal}</td>
+ <td class="py-3 px-4 text-slate-600">{row.source}</td>
+ <td class="py-3 px-4 text-slate-600">{row.risk}</td>
+ </tr>
+ ))}
+ </tbody>
+ </table>
+ </div>
+ </div>
+ </section>
 
-    <!-- How MeridianARR supports Value Continuity -->
-    <section class="bg-slate-950 px-5 py-16 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-white">How MeridianARR supports Value Continuity</h2>
-        <p class="mt-4 text-slate-300 leading-relaxed">
-          MeridianARR is a Value Continuity platform for B2B SaaS companies. It connects omnichannel support, product usage signals, onboarding data, and customer distress indicators into a single post-sale revenue intelligence layer.
-        </p>
-        <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <div class="rounded-xl border border-slate-800 bg-slate-900 p-5">
-            <p class="font-semibold text-white">Customer Distress Index</p>
-            <p class="mt-2 text-sm text-slate-400">An account-level risk score that combines support patterns, product friction, onboarding status, and engagement trends into a single ARR risk indicator.</p>
-          </div>
-          <div class="rounded-xl border border-slate-800 bg-slate-900 p-5">
-            <p class="font-semibold text-white">Omnichannel support</p>
-            <p class="mt-2 text-sm text-slate-400">Support is the primary input layer for Value Continuity signals. MeridianARR captures ticket content, escalation patterns, and resolution history as revenue data.</p>
-          </div>
-          <div class="rounded-xl border border-slate-800 bg-slate-900 p-5">
-            <p class="font-semibold text-white">ARR motion coverage</p>
-            <p class="mt-2 text-sm text-slate-400">MeridianARR monitors all four post-sale ARR motions: Activation, Adoption, Growth, and Renewal — giving CROs and CFOs continuous visibility into post-sale revenue risk.</p>
-          </div>
-          <div class="rounded-xl border border-slate-800 bg-slate-900 p-5">
-            <p class="font-semibold text-white">Revenue intelligence</p>
-            <p class="mt-2 text-sm text-slate-400">The output of MeridianARR is not support metrics — it is revenue intelligence: which accounts are at risk, why, and what to do before the renewal conversation.</p>
-          </div>
-        </div>
-        <div class="mt-8">
-          <a
-            href="/customer-defensibility-score/"
-            class="inline-flex items-center justify-center rounded-2xl bg-white px-6 py-3 text-sm font-semibold text-slate-950 hover:bg-slate-100"
-          >
-            Calculate your Customer Defensibility Score
-          </a>
-        </div>
-      </div>
-    </section>
+ <!-- How MeridianARR supports Value Continuity -->
+ <section class="bg-slate-950 px-5 py-16 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <h2 class="text-2xl font-bold text-white">How MeridianARR supports Value Continuity</h2>
+ <p class="mt-4 text-slate-300 leading-relaxed">
+ MeridianARR is a Value Continuity platform for B2B SaaS companies. It connects omnichannel support, product usage signals, onboarding data, and customer distress indicators into a single post-sale revenue intelligence layer.
+ </p>
+ <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
+ <div class="rounded-xl border border-slate-800 bg-slate-900 p-5">
+ <p class="font-semibold text-white">Customer Distress Index</p>
+ <p class="mt-2 text-sm text-slate-400">An account-level risk score that combines support patterns, product friction, onboarding status, and engagement trends into a single ARR risk indicator.</p>
+ </div>
+ <div class="rounded-xl border border-slate-800 bg-slate-900 p-5">
+ <p class="font-semibold text-white">Omnichannel support</p>
+ <p class="mt-2 text-sm text-slate-400">Support is the primary input layer for Value Continuity signals. MeridianARR captures ticket content, escalation patterns, and resolution history as revenue data.</p>
+ </div>
+ <div class="rounded-xl border border-slate-800 bg-slate-900 p-5">
+ <p class="font-semibold text-white">ARR motion coverage</p>
+ <p class="mt-2 text-sm text-slate-400">MeridianARR monitors all four post-sale ARR motions: Activation, Adoption, Growth, and Renewal, giving CROs and CFOs continuous visibility into post-sale revenue risk.</p>
+ </div>
+ <div class="rounded-xl border border-slate-800 bg-slate-900 p-5">
+ <p class="font-semibold text-white">Revenue intelligence</p>
+ <p class="mt-2 text-sm text-slate-400">The output of MeridianARR is not support metrics, it is revenue intelligence: which accounts are at risk, why, and what to do before the renewal conversation.</p>
+ </div>
+ </div>
+ <div class="mt-8">
+ <a
+ href="/customer-defensibility-score/"
+ class="inline-flex items-center justify-center rounded-2xl bg-white px-6 py-3 text-sm font-semibold text-slate-950 hover:bg-slate-100"
+ >
+ Calculate your Customer Defensibility Score
+ </a>
+ </div>
+ </div>
+ </section>
 
-    <!-- FAQ -->
-    <section class="bg-white px-5 py-16 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">Frequently asked questions</h2>
-        <dl class="mt-8 space-y-8">
-          {faqs.map((faq) => (
-            <div>
-              <dt class="font-semibold text-slate-950">{faq.q}</dt>
-              <dd class="mt-2 text-slate-600 leading-relaxed">{faq.a}</dd>
-            </div>
-          ))}
-        </dl>
-      </div>
-    </section>
-  </main>
+ <!-- FAQ -->
+ <section class="bg-white px-5 py-16 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <h2 class="text-2xl font-bold text-slate-950">Frequently asked questions</h2>
+ <dl class="mt-8 space-y-8">
+ {faqs.map((faq) => (
+ <div>
+ <dt class="font-semibold text-slate-950">{faq.q}</dt>
+ <dd class="mt-2 text-slate-600 leading-relaxed">{faq.a}</dd>
+ </div>
+ ))}
+ </dl>
+ </div>
+ </section>
+ </main>
 
-  <Footer />
+ <Footer />
 </Layout>

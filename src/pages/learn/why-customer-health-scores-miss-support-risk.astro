@@ -4,330 +4,330 @@ import Nav from "../../components/Nav.astro";
 import Footer from "../../components/Footer.astro";
 
 const pageTitle = "Why Customer Health Scores Miss Support Risk: Three Failure Modes | MeridianARR";
-const pageDescription = "Customer health scores produce false-healthy account classifications — accounts that look green and churn anyway. This page names three structural failure modes and explains what data they are missing.";
+const pageDescription = "Customer health scores produce false-healthy account classifications, accounts that look green and churn anyway. This page names three structural failure modes and explains what data they are missing.";
 const canonical = "https://meridianarr.com/learn/why-customer-health-scores-miss-support-risk/";
 
 const failureModes = [
-  {
-    id: "active-but-frustrated",
-    name: "The Active But Frustrated Account",
-    subtitle: "High product engagement scores. Multiple unresolved product friction points. Churns at renewal.",
-    anatomy: {
-      what_health_score_sees: [
-        "Daily active users: 8 of 12 seats — green",
-        "Last CSM touchpoint: 18 days ago — green",
-        "Support ticket count: 14 this quarter — flagged yellow, but within threshold",
-        "Overall health score: 72/100 — moderate-healthy",
-      ],
-      what_health_score_misses: [
-        "11 of 14 tickets this quarter were about the same broken reporting export workflow",
-        "The 8 active users are logging in daily to download CSV exports manually — a workaround for the broken feature",
-        "Three different users have commented 'still broken' or 'this again' in ticket follow-ups",
-        "One user mentioned in a ticket: 'our finance team is starting to question whether this tool is worth the effort'",
-      ],
-      what_actually_happened: "The account renewed neither with enthusiasm nor with a negotiation — they sent a non-renewal notice 8 days before the deadline. When the CS team did a post-churn call, the account said: 'The reporting was never fixed. We kept using it anyway but eventually it wasn't worth it.' The health score showed green-to-yellow throughout.",
-    },
-    structural_cause: "Health scores count tickets, they do not read them. A ticket count of 14 looks like normal support engagement. The content — 11 tickets about the same broken thing — is the signal. Support-volume metrics without content analysis cannot detect this failure mode.",
-    what_cdi_catches: "CDI tracks issue repetition rate: when 78% of an account's tickets in a quarter reference the same workflow category, the signal is flagged regardless of overall ticket count. The repeated-issue pattern is a primary CDI input that produces At-Risk classification.",
-  },
-  {
-    id: "ghost-account",
-    name: "The Ghost Account",
-    subtitle: "Minimal CS activity. Low support engagement. No warning signs in health score. Churns silently.",
-    anatomy: {
-      what_health_score_sees: [
-        "Active users: 2 of 8 seats — yellow-red, but noted as 'low adoption team'",
-        "Last CSM touchpoint: 62 days ago — yellow",
-        "Support ticket count: 2 this quarter — green (low volume = low friction?)",
-        "Overall health score: 48/100 — at-risk, but not critical",
-      ],
-      what_health_score_misses: [
-        "The 2 active users are the original champion and one ops person maintaining existing workflows",
-        "The other 6 seats were never onboarded — the implementation was never completed beyond the initial integration",
-        "Both tickets this quarter were onboarding-related — filed 8 months post-contract, indicating the account is still trying to expand usage",
-        "Both tickets had resolution times of 9+ days and no follow-up response from the account",
-        "The CSM marked this account as 'low engagement, stable' in the last QBR note",
-      ],
-      what_actually_happened: "At renewal, the account's champion had left. The new contact — who had not been onboarded — asked the CS team what the product actually did for the remaining users. When the CS team answered with features the account was not using, the contact replied: 'That's not what we're using it for.' They did not renew. ARR was $34,000.",
-    },
-    structural_cause: "Low ticket volume is usually interpreted as low friction. But for ghost accounts, low volume means the account stopped trying. The 2 tickets at month 8 were a last-ditch onboarding attempt — which the health score classified as normal low engagement. Health scores have no model for 'gave up signal' as distinct from 'satisfied silent user signal.'",
-    what_cdi_catches: "CDI tracks onboarding completion rate and seat activation ratio separately from CS engagement. An account with 2/8 seats active and an incomplete onboarding milestone 8 months post-contract produces a distinct CDI pattern from a legitimately low-usage account. The combination triggers a Watch-band score on the adoption signal alone.",
-  },
-  {
-    id: "silent-churner",
-    name: "The Silent Churner",
-    subtitle: "Engaged with CS. Responds to outreach. No overt distress signals. Switches competitors quietly.",
-    anatomy: {
-      what_health_score_sees: [
-        "Active users: 6 of 6 seats — green",
-        "Last CSM touchpoint: 11 days ago — green",
-        "Support ticket count: 4 this quarter — green",
-        "Customer responded to NPS survey: 7/10 — yellow-green",
-        "Overall health score: 81/100 — healthy",
-      ],
-      what_health_score_misses: [
-        "The account has been running a parallel pilot of a competitor product for 6 weeks",
-        "One support ticket — closed with a documentation link — mentioned 'comparing how this works vs. [Competitor]'",
-        "The customer's NPS response was 7 — a passive score — with the comment 'Works okay for us, evaluating some options for next year'",
-        "The 11-day CS touchpoint was a scheduled check-in where the account contact gave no indication of concern",
-        "Usage remained high because the pilot was running in parallel — not replacing current usage yet",
-      ],
-      what_actually_happened: "The account sent a non-renewal notice 45 days before contract end. When asked, they said: 'We've been running [Competitor] in parallel and it's a better fit for where we're going. This wasn't a reaction to anything specific — we just decided to move.' The CS team had no prior signal.",
-    },
-    structural_cause: "The silent churner failure mode is the most difficult to catch with health scores because the account is genuinely engaged — they are just also evaluating alternatives. The only available signals are: (1) the competitor mention in a ticket body, and (2) the NPS comment indicating evaluation. Both are in unstructured text that health scores do not parse.",
-    what_cdi_catches: "CDI applies NLP to ticket body text and survey responses specifically to detect evaluation language and competitor mentions. A competitor name in a ticket body — even in a resolved, low-friction ticket — is a high-urgency CDI signal that routes to the CRO for immediate response, regardless of overall account health score.",
-  },
+ {
+ id: "active-but-frustrated",
+ name: "The Active But Frustrated Account",
+ subtitle: "High product engagement scores. Multiple unresolved product friction points. Churns at renewal.",
+ anatomy: {
+ what_health_score_sees: [
+ "Daily active users: 8 of 12 seats, green",
+ "Last CSM touchpoint: 18 days ago, green",
+ "Support ticket count: 14 this quarter, flagged yellow, but within threshold",
+ "Overall health score: 72/100, moderate-healthy",
+ ],
+ what_health_score_misses: [
+ "11 of 14 tickets this quarter were about the same broken reporting export workflow",
+ "The 8 active users are logging in daily to download CSV exports manually, a workaround for the broken feature",
+ "Three different users have commented 'still broken' or 'this again' in ticket follow-ups",
+ "One user mentioned in a ticket: 'our finance team is starting to question whether this tool is worth the effort'",
+ ],
+ what_actually_happened: "The account renewed neither with enthusiasm nor with a negotiation, they sent a non-renewal notice 8 days before the deadline. When the CS team did a post-churn call, the account said: 'The reporting was never fixed. We kept using it anyway but eventually it wasn't worth it.' The health score showed green-to-yellow throughout.",
+ },
+ structural_cause: "Health scores count tickets, they do not read them. A ticket count of 14 looks like normal support engagement. The content, 11 tickets about the same broken thing, is the signal. Support-volume metrics without content analysis cannot detect this failure mode.",
+ what_cdi_catches: "CDI tracks issue repetition rate: when 78% of an account's tickets in a quarter reference the same workflow category, the signal is flagged regardless of overall ticket count. The repeated-issue pattern is a primary CDI input that produces At-Risk classification.",
+ },
+ {
+ id: "ghost-account",
+ name: "The Ghost Account",
+ subtitle: "Minimal CS activity. Low support engagement. No warning signs in health score. Churns silently.",
+ anatomy: {
+ what_health_score_sees: [
+ "Active users: 2 of 8 seats, yellow-red, but noted as 'low adoption team'",
+ "Last CSM touchpoint: 62 days ago, yellow",
+ "Support ticket count: 2 this quarter, green (low volume = low friction?)",
+ "Overall health score: 48/100, at-risk, but not critical",
+ ],
+ what_health_score_misses: [
+ "The 2 active users are the original champion and one ops person maintaining existing workflows",
+ "The other 6 seats were never onboarded, the implementation was never completed beyond the initial integration",
+ "Both tickets this quarter were onboarding-related, filed 8 months post-contract, indicating the account is still trying to expand usage",
+ "Both tickets had resolution times of 9+ days and no follow-up response from the account",
+ "The CSM marked this account as 'low engagement, stable' in the last QBR note",
+ ],
+ what_actually_happened: "At renewal, the account's champion had left. The new contact, who had not been onboarded, asked the CS team what the product actually did for the remaining users. When the CS team answered with features the account was not using, the contact replied: 'That's not what we're using it for.' They did not renew. ARR was $34,000.",
+ },
+ structural_cause: "Low ticket volume is usually interpreted as low friction. But for ghost accounts, low volume means the account stopped trying. The 2 tickets at month 8 were a last-ditch onboarding attempt, which the health score classified as normal low engagement. Health scores have no model for 'gave up signal' as distinct from 'satisfied silent user signal.'",
+ what_cdi_catches: "CDI tracks onboarding completion rate and seat activation ratio separately from CS engagement. An account with 2/8 seats active and an incomplete onboarding milestone 8 months post-contract produces a distinct CDI pattern from a legitimately low-usage account. The combination triggers a Watch-band score on the adoption signal alone.",
+ },
+ {
+ id: "silent-churner",
+ name: "The Silent Churner",
+ subtitle: "Engaged with CS. Responds to outreach. No overt distress signals. Switches competitors quietly.",
+ anatomy: {
+ what_health_score_sees: [
+ "Active users: 6 of 6 seats, green",
+ "Last CSM touchpoint: 11 days ago, green",
+ "Support ticket count: 4 this quarter, green",
+ "Customer responded to NPS survey: 7/10, yellow-green",
+ "Overall health score: 81/100, healthy",
+ ],
+ what_health_score_misses: [
+ "The account has been running a parallel pilot of a competitor product for 6 weeks",
+ "One support ticket, closed with a documentation link, mentioned 'comparing how this works vs. [Competitor]'",
+ "The customer's NPS response was 7, a passive score, with the comment 'Works okay for us, evaluating some options for next year'",
+ "The 11-day CS touchpoint was a scheduled check-in where the account contact gave no indication of concern",
+ "Usage remained high because the pilot was running in parallel, not replacing current usage yet",
+ ],
+ what_actually_happened: "The account sent a non-renewal notice 45 days before contract end. When asked, they said: 'We've been running [Competitor] in parallel and it's a better fit for where we're going. This wasn't a reaction to anything specific, we just decided to move.' The CS team had no prior signal.",
+ },
+ structural_cause: "The silent churner failure mode is the most difficult to catch with health scores because the account is genuinely engaged, they are just also evaluating alternatives. The only available signals are: (1) the competitor mention in a ticket body, and (2) the NPS comment indicating evaluation. Both are in unstructured text that health scores do not parse.",
+ what_cdi_catches: "CDI applies NLP to ticket body text and survey responses specifically to detect evaluation language and competitor mentions. A competitor name in a ticket body, even in a resolved, low-friction ticket, is a high-urgency CDI signal that routes to the CRO for immediate response, regardless of overall account health score.",
+ },
 ];
 
 const faqs = [
-  {
-    q: "Why do customer health scores produce false-healthy classifications?",
-    a: "Customer health scores are built from structured data — login frequency, CS touchpoint dates, ticket counts, survey scores. They miss unstructured data (ticket content, survey comments), account-level pattern analysis (issue repetition, onboarding completion relative to seat count), and signals that look positive individually but negative in combination. The three failure modes above illustrate different versions of this structural gap.",
-  },
-  {
-    q: "Can an account have an 80+ health score and still churn?",
-    a: "Yes — and it happens regularly. The 'Silent Churner' failure mode above is an example: health score 81, engaged with CS, then a competitor switch 45 days before renewal. Health scores built without support-signal intelligence are calibrated to detect the obvious failure patterns (declining logins, rising tickets) and miss the subtle ones (competitor evaluation, accumulated friction, failed onboarding at scale).",
-  },
-  {
-    q: "What data does the Customer Distress Index add that health scores lack?",
-    a: "The CDI adds four layers that health scores typically exclude: (1) ticket content analysis — what customers say in tickets, not just how many; (2) issue repetition rate — whether the same problem is recurring; (3) onboarding completion relative to seat count — are inactive seats a 'settled' state or a failed onboarding; and (4) competitor and evaluation language in any unstructured text channel. These four layers are where the three failure modes above hide.",
-  },
-  {
-    q: "Does the Customer Distress Index replace the health score?",
-    a: "No. The CDI is additive — it provides the support-signal intelligence layer that health scores lack. The right architecture is: CS platform health score for overall account status and CS workflow management, plus CDI for support-signal risk detection. CS teams that use both have significantly fewer surprise churn events than those using health scores alone.",
-  },
-  {
-    q: "How does MeridianARR detect the 'Active But Frustrated' failure mode?",
-    a: "MeridianARR tracks issue repetition at the account level — when multiple tickets reference the same workflow category within a rolling 60-day window, the CDI flags it regardless of individual ticket CSAT scores or overall ticket volume. The platform also tracks the ratio of tickets to unique issues — a high ticket-to-unique-issue ratio indicates recurring friction, not high-volume normal support engagement.",
-  },
+ {
+ q: "Why do customer health scores produce false-healthy classifications?",
+ a: "Customer health scores are built from structured data, login frequency, CS touchpoint dates, ticket counts, survey scores. They miss unstructured data (ticket content, survey comments), account-level pattern analysis (issue repetition, onboarding completion relative to seat count), and signals that look positive individually but negative in combination. The three failure modes above illustrate different versions of this structural gap.",
+ },
+ {
+ q: "Can an account have an 80+ health score and still churn?",
+ a: "Yes, and it happens regularly. The 'Silent Churner' failure mode above is an example: health score 81, engaged with CS, then a competitor switch 45 days before renewal. Health scores built without support-signal intelligence are calibrated to detect the obvious failure patterns (declining logins, rising tickets) and miss the subtle ones (competitor evaluation, accumulated friction, failed onboarding at scale).",
+ },
+ {
+ q: "What data does the Customer Distress Index add that health scores lack?",
+ a: "The CDI adds four layers that health scores typically exclude: (1) ticket content analysis, what customers say in tickets, not just how many; (2) issue repetition rate, whether the same problem is recurring; (3) onboarding completion relative to seat count, are inactive seats a 'settled' state or a failed onboarding; and (4) competitor and evaluation language in any unstructured text channel. These four layers are where the three failure modes above hide.",
+ },
+ {
+ q: "Does the Customer Distress Index replace the health score?",
+ a: "No. The CDI is additive, it provides the support-signal intelligence layer that health scores lack. The right architecture is: CS platform health score for overall account status and CS workflow management, plus CDI for support-signal risk detection. CS teams that use both have significantly fewer surprise churn events than those using health scores alone.",
+ },
+ {
+ q: "How does MeridianARR detect the 'Active But Frustrated' failure mode?",
+ a: "MeridianARR tracks issue repetition at the account level, when multiple tickets reference the same workflow category within a rolling 60-day window, the CDI flags it regardless of individual ticket CSAT scores or overall ticket volume. The platform also tracks the ratio of tickets to unique issues, a high ticket-to-unique-issue ratio indicates recurring friction, not high-volume normal support engagement.",
+ },
 ];
 
 const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqs.map((faq) => ({
-    "@type": "Question",
-    name: faq.q,
-    acceptedAnswer: { "@type": "Answer", text: faq.a },
-  })),
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ mainEntity: faqs.map((faq) => ({
+ "@type": "Question",
+ name: faq.q,
+ acceptedAnswer: { "@type": "Answer", text: faq.a },
+ })),
 };
 
 const articleSchema = {
-  "@context": "https://schema.org",
-  "@type": "TechArticle",
-  headline: pageTitle,
-  description: pageDescription,
-  url: canonical,
-  author: { "@type": "Organization", name: "MeridianARR", url: "https://meridianarr.com" },
-  publisher: { "@type": "Organization", name: "MeridianARR", url: "https://meridianarr.com" },
-  about: {
-    "@type": "Thing",
-    name: "Customer health score limitations",
-    description: "Structural gaps in CS platform health scoring that cause false-healthy account classifications and undetected churn risk in B2B SaaS.",
-  },
+ "@context": "https://schema.org",
+ "@type": "TechArticle",
+ headline: pageTitle,
+ description: pageDescription,
+ url: canonical,
+ author: { "@type": "Organization", name: "MeridianARR", url: "https://meridianarr.com" },
+ publisher: { "@type": "Organization", name: "MeridianARR", url: "https://meridianarr.com" },
+ about: {
+ "@type": "Thing",
+ name: "Customer health score limitations",
+ description: "Structural gaps in CS platform health scoring that cause false-healthy account classifications and undetected churn risk in B2B SaaS.",
+ },
 };
 
 const itemListSchema = {
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  name: "Customer health score failure modes",
-  numberOfItems: failureModes.length,
-  itemListElement: failureModes.map((f, i) => ({
-    "@type": "ListItem",
-    position: i + 1,
-    name: f.name,
-    description: `${f.subtitle} Structural cause: ${f.structural_cause}`,
-  })),
+ "@context": "https://schema.org",
+ "@type": "ItemList",
+ name: "Customer health score failure modes",
+ numberOfItems: failureModes.length,
+ itemListElement: failureModes.map((f, i) => ({
+ "@type": "ListItem",
+ position: i + 1,
+ name: f.name,
+ description: `${f.subtitle} Structural cause: ${f.structural_cause}`,
+ })),
 };
 
 const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://meridianarr.com/" },
-    { "@type": "ListItem", position: 2, name: "Learn", item: "https://meridianarr.com/learn/" },
-    { "@type": "ListItem", position: 3, name: "Why Health Scores Miss Support Risk", item: canonical },
-  ],
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ itemListElement: [
+ { "@type": "ListItem", position: 1, name: "Home", item: "https://meridianarr.com/" },
+ { "@type": "ListItem", position: 2, name: "Learn", item: "https://meridianarr.com/learn/" },
+ { "@type": "ListItem", position: 3, name: "Why Health Scores Miss Support Risk", item: canonical },
+ ],
 };
 ---
 
 <Layout title={pageTitle} description={pageDescription} canonical={canonical}>
-  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
-  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(articleSchema)} />
-  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(itemListSchema)} />
-  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+ <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+ <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(articleSchema)} />
+ <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(itemListSchema)} />
+ <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
 
-  <Nav />
+ <Nav />
 
-  <main>
-    <section class="bg-slate-950 px-5 py-20 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <p class="text-sm font-medium text-blue-400">Learn / Category Critique</p>
-        <h1 class="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-          Why Customer Health Scores Miss Support Risk
-        </h1>
-        <p class="mt-6 text-lg leading-relaxed text-slate-300">
-          Health scores are not wrong — they are incomplete. They miss three specific account failure modes that appear regularly in B2B SaaS churn data. This page names each failure mode, shows what the health score saw and what it missed, and explains the structural data gap that causes it.
-        </p>
-        <div class="mt-6 rounded-xl border border-slate-700 bg-slate-900 px-4 py-3">
-          <p class="text-sm text-slate-400">
-            <span class="font-semibold text-slate-200">MeridianARR</span> is a Value Continuity platform for B2B SaaS companies that connects support, onboarding, product friction, customer distress, and renewal risk into post-sale revenue intelligence.
-          </p>
-        </div>
-      </div>
-    </section>
+ <main>
+ <section class="bg-slate-950 px-5 py-20 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <p class="text-sm font-medium text-blue-400">Learn / Category Critique</p>
+ <h1 class="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+ Why Customer Health Scores Miss Support Risk
+ </h1>
+ <p class="mt-6 text-lg leading-relaxed text-slate-300">
+ Health scores are not wrong, they are incomplete. They miss three specific account failure modes that appear regularly in B2B SaaS churn data. This page names each failure mode, shows what the health score saw and what it missed, and explains the structural data gap that causes it.
+ </p>
+ <div class="mt-6 rounded-xl border border-slate-700 bg-slate-900 px-4 py-3">
+ <p class="text-sm text-slate-400">
+ <span class="font-semibold text-slate-200">MeridianARR</span> is a Value Continuity platform for B2B SaaS companies that connects support, onboarding, product friction, customer distress, and renewal risk into post-sale revenue intelligence.
+ </p>
+ </div>
+ </div>
+ </section>
 
-    <section class="bg-white px-5 py-10 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <p class="text-slate-600 leading-relaxed">
-          Each failure mode below follows the same structure: what the health score showed, what it missed, what actually happened, the structural reason health scores cannot catch this pattern, and what the Customer Distress Index tracks instead. Jump to a failure mode:
-        </p>
-        <nav class="mt-4 flex flex-wrap gap-3">
-          {failureModes.map((f) => (
-            <a href={`#${f.id}`} class="rounded-lg border border-slate-200 px-3 py-1.5 text-sm font-medium text-slate-700 hover:border-slate-400 hover:text-slate-950">
-              {f.name}
-            </a>
-          ))}
-        </nav>
-      </div>
-    </section>
+ <section class="bg-white px-5 py-10 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <p class="text-slate-600 leading-relaxed">
+ Each failure mode below follows the same structure: what the health score showed, what it missed, what actually happened, the structural reason health scores cannot catch this pattern, and what the Customer Distress Index tracks instead. Jump to a failure mode:
+ </p>
+ <nav class="mt-4 flex flex-wrap gap-3">
+ {failureModes.map((f) => (
+ <a href={`#${f.id}`} class="rounded-lg border border-slate-200 px-3 py-1.5 text-sm font-medium text-slate-700 hover:border-slate-400 hover:text-slate-950">
+ {f.name}
+ </a>
+ ))}
+ </nav>
+ </div>
+ </section>
 
-    {failureModes.map((mode, idx) => (
-      <section id={mode.id} class={`px-5 py-16 lg:px-8 ${idx % 2 === 0 ? "bg-slate-50" : "bg-white"}`}>
-        <div class="mx-auto max-w-3xl">
-          <h2 class="text-2xl font-bold text-slate-950">{mode.name}</h2>
-          <p class="mt-1 text-slate-500">{mode.subtitle}</p>
+ {failureModes.map((mode, idx) => (
+ <section id={mode.id} class={`px-5 py-16 lg:px-8 ${idx % 2 === 0 ? "bg-slate-50" : "bg-white"}`}>
+ <div class="mx-auto max-w-3xl">
+ <h2 class="text-2xl font-bold text-slate-950">{mode.name}</h2>
+ <p class="mt-1 text-slate-500">{mode.subtitle}</p>
 
-          <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
-            <div class="rounded-xl border border-emerald-200 bg-emerald-50 p-5">
-              <p class="text-xs font-semibold uppercase tracking-wide text-emerald-700">What the health score sees</p>
-              <ul class="mt-3 space-y-2">
-                {mode.anatomy.what_health_score_sees.map((item) => (
-                  <li class="flex items-start gap-2 text-sm text-slate-700">
-                    <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div class="rounded-xl border border-rose-200 bg-rose-50 p-5">
-              <p class="text-xs font-semibold uppercase tracking-wide text-rose-700">What the health score misses</p>
-              <ul class="mt-3 space-y-2">
-                {mode.anatomy.what_health_score_misses.map((item) => (
-                  <li class="flex items-start gap-2 text-sm text-slate-700">
-                    <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-rose-500" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+ <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
+ <div class="rounded-xl border border-emerald-200 bg-emerald-50 p-5">
+ <p class="text-xs font-semibold uppercase tracking-wide text-emerald-700">What the health score sees</p>
+ <ul class="mt-3 space-y-2">
+ {mode.anatomy.what_health_score_sees.map((item) => (
+ <li class="flex items-start gap-2 text-sm text-slate-700">
+ <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" />
+ {item}
+ </li>
+ ))}
+ </ul>
+ </div>
+ <div class="rounded-xl border border-rose-200 bg-rose-50 p-5">
+ <p class="text-xs font-semibold uppercase tracking-wide text-rose-700">What the health score misses</p>
+ <ul class="mt-3 space-y-2">
+ {mode.anatomy.what_health_score_misses.map((item) => (
+ <li class="flex items-start gap-2 text-sm text-slate-700">
+ <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-rose-500" />
+ {item}
+ </li>
+ ))}
+ </ul>
+ </div>
+ </div>
 
-          <div class="mt-4 rounded-xl border border-slate-200 bg-white p-5">
-            <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">What actually happened</p>
-            <p class="mt-2 text-sm text-slate-600 leading-relaxed">{mode.anatomy.what_actually_happened}</p>
-          </div>
+ <div class="mt-4 rounded-xl border border-slate-200 bg-white p-5">
+ <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">What actually happened</p>
+ <p class="mt-2 text-sm text-slate-600 leading-relaxed">{mode.anatomy.what_actually_happened}</p>
+ </div>
 
-          <div class="mt-8 space-y-4">
-            <div class="rounded-lg border border-slate-200 bg-white p-5">
-              <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Structural cause</p>
-              <p class="mt-2 text-sm text-slate-600 leading-relaxed">{mode.structural_cause}</p>
-            </div>
-            <div class="rounded-lg border border-blue-200 bg-blue-50 p-5">
-              <p class="text-xs font-semibold uppercase tracking-wide text-blue-700">What the CDI catches instead</p>
-              <p class="mt-2 text-sm text-slate-700 leading-relaxed">{mode.what_cdi_catches}</p>
-            </div>
-          </div>
-        </div>
-      </section>
-    ))}
+ <div class="mt-8 space-y-4">
+ <div class="rounded-lg border border-slate-200 bg-white p-5">
+ <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Structural cause</p>
+ <p class="mt-2 text-sm text-slate-600 leading-relaxed">{mode.structural_cause}</p>
+ </div>
+ <div class="rounded-lg border border-blue-200 bg-blue-50 p-5">
+ <p class="text-xs font-semibold uppercase tracking-wide text-blue-700">What the CDI catches instead</p>
+ <p class="mt-2 text-sm text-slate-700 leading-relaxed">{mode.what_cdi_catches}</p>
+ </div>
+ </div>
+ </div>
+ </section>
+ ))}
 
-    <section class="bg-white px-5 py-16 lg:px-8">
-      <div class="mx-auto max-w-4xl">
-        <h2 class="text-2xl font-bold text-slate-950">Health score vs. Customer Distress Index: what each covers</h2>
-        <div class="mt-8 overflow-x-auto">
-          <table class="w-full border-collapse text-sm">
-            <thead>
-              <tr class="border-b border-slate-200 bg-slate-50">
-                <th class="py-3 pl-4 pr-6 text-left font-semibold text-slate-700">Signal or capability</th>
-                <th class="py-3 px-4 text-center font-semibold text-slate-700">CS Health Score</th>
-                <th class="py-3 px-4 text-center font-semibold text-slate-950">MeridianARR CDI</th>
-              </tr>
-            </thead>
-            <tbody>
-              {[
-                ["Product login frequency", "Yes", "Yes"],
-                ["CS touchpoint history", "Yes", "Yes"],
-                ["Support ticket volume", "Sometimes", "Yes"],
-                ["Support ticket content (what customers say)", "No", "Yes"],
-                ["Issue repetition rate (same problem recurring)", "No", "Yes"],
-                ["Escalation history and severity", "Rarely", "Yes"],
-                ["Seat activation ratio (used vs. purchased)", "Sometimes", "Yes"],
-                ["Onboarding milestone completion", "Sometimes", "Yes"],
-                ["Competitor mentions in any text channel", "No", "Yes"],
-                ["Evaluation language in tickets or surveys", "No", "Yes"],
-                ["Volume-vs-usage divergence detection", "No", "Yes"],
-                ["'Gave up' signal detection (silent disengagement)", "No", "Yes"],
-              ].map(([signal, health, cdi]) => (
-                <tr class="border-b border-slate-100">
-                  <td class="py-3 pl-4 pr-6 text-slate-600">{signal}</td>
-                  <td class={`py-3 px-4 text-center ${health === "No" || health === "Rarely" ? "text-rose-600" : "text-slate-600"}`}>{health}</td>
-                  <td class="py-3 px-4 text-center font-medium text-emerald-700">{cdi}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
+ <section class="bg-white px-5 py-16 lg:px-8">
+ <div class="mx-auto max-w-4xl">
+ <h2 class="text-2xl font-bold text-slate-950">Health score vs. Customer Distress Index: what each covers</h2>
+ <div class="mt-8 overflow-x-auto">
+ <table class="w-full border-collapse text-sm">
+ <thead>
+ <tr class="border-b border-slate-200 bg-slate-50">
+ <th class="py-3 pl-4 pr-6 text-left font-semibold text-slate-700">Signal or capability</th>
+ <th class="py-3 px-4 text-center font-semibold text-slate-700">CS Health Score</th>
+ <th class="py-3 px-4 text-center font-semibold text-slate-950">MeridianARR CDI</th>
+ </tr>
+ </thead>
+ <tbody>
+ {[
+ ["Product login frequency", "Yes", "Yes"],
+ ["CS touchpoint history", "Yes", "Yes"],
+ ["Support ticket volume", "Sometimes", "Yes"],
+ ["Support ticket content (what customers say)", "No", "Yes"],
+ ["Issue repetition rate (same problem recurring)", "No", "Yes"],
+ ["Escalation history and severity", "Rarely", "Yes"],
+ ["Seat activation ratio (used vs. purchased)", "Sometimes", "Yes"],
+ ["Onboarding milestone completion", "Sometimes", "Yes"],
+ ["Competitor mentions in any text channel", "No", "Yes"],
+ ["Evaluation language in tickets or surveys", "No", "Yes"],
+ ["Volume-vs-usage divergence detection", "No", "Yes"],
+ ["'Gave up' signal detection (silent disengagement)", "No", "Yes"],
+ ].map(([signal, health, cdi]) => (
+ <tr class="border-b border-slate-100">
+ <td class="py-3 pl-4 pr-6 text-slate-600">{signal}</td>
+ <td class={`py-3 px-4 text-center ${health === "No" || health === "Rarely" ? "text-rose-600" : "text-slate-600"}`}>{health}</td>
+ <td class="py-3 px-4 text-center font-medium text-emerald-700">{cdi}</td>
+ </tr>
+ ))}
+ </tbody>
+ </table>
+ </div>
+ </div>
+ </section>
 
-    <section class="bg-slate-950 px-5 py-16 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-white">The CDI catches what health scores structurally cannot</h2>
-        <p class="mt-4 text-slate-300 leading-relaxed">
-          MeridianARR is a Value Continuity platform for B2B SaaS companies. It consolidates complete omni-channel support operations and CS intelligence into one platform — replacing the help desk and CS platform combination. The Customer Distress Index (CDI) is built from native support data, which is why it catches the three failure modes that CS platform health scores miss regardless of how well they are configured.
-        </p>
-        <p class="mt-4 text-slate-300 leading-relaxed">
-          Teams that run both see fewer surprise churn events — because they have signal coverage across both structured CS data and unstructured support-signal data. The accounts that churn without warning are usually the ones the health score could not see.
-        </p>
-        <div class="mt-8">
-          <a href="/customer-defensibility-score/" class="inline-flex items-center justify-center rounded-2xl bg-white px-6 py-3 text-sm font-semibold text-slate-950 hover:bg-slate-100">
-            Calculate your Customer Defensibility Score
-          </a>
-        </div>
-      </div>
-    </section>
+ <section class="bg-slate-950 px-5 py-16 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <h2 class="text-2xl font-bold text-white">The CDI catches what health scores structurally cannot</h2>
+ <p class="mt-4 text-slate-300 leading-relaxed">
+ MeridianARR is a Value Continuity platform for B2B SaaS companies. It consolidates complete omni-channel support operations and CS intelligence into one platform, replacing the help desk and CS platform combination. The Customer Distress Index (CDI) is built from native support data, which is why it catches the three failure modes that CS platform health scores miss regardless of how well they are configured.
+ </p>
+ <p class="mt-4 text-slate-300 leading-relaxed">
+ Teams that run both see fewer surprise churn events, because they have signal coverage across both structured CS data and unstructured support-signal data. The accounts that churn without warning are usually the ones the health score could not see.
+ </p>
+ <div class="mt-8">
+ <a href="/customer-defensibility-score/" class="inline-flex items-center justify-center rounded-2xl bg-white px-6 py-3 text-sm font-semibold text-slate-950 hover:bg-slate-100">
+ Calculate your Customer Defensibility Score
+ </a>
+ </div>
+ </div>
+ </section>
 
-    <section class="bg-white px-5 py-14 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">Frequently asked questions</h2>
-        <dl class="mt-8 space-y-8">
-          {faqs.map((faq) => (
-            <div>
-              <dt class="font-semibold text-slate-950">{faq.q}</dt>
-              <dd class="mt-2 text-slate-600 leading-relaxed">{faq.a}</dd>
-            </div>
-          ))}
-        </dl>
-      </div>
-    </section>
+ <section class="bg-white px-5 py-14 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <h2 class="text-2xl font-bold text-slate-950">Frequently asked questions</h2>
+ <dl class="mt-8 space-y-8">
+ {faqs.map((faq) => (
+ <div>
+ <dt class="font-semibold text-slate-950">{faq.q}</dt>
+ <dd class="mt-2 text-slate-600 leading-relaxed">{faq.a}</dd>
+ </div>
+ ))}
+ </dl>
+ </div>
+ </section>
 
-    <section class="bg-slate-50 px-5 py-12 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <p class="text-sm font-semibold text-slate-500">Continue reading</p>
-        <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <a href="/learn/support-tickets-predict-renewal-risk/" class="rounded-xl border border-slate-200 bg-white p-5 hover:border-slate-400">
-            <p class="font-semibold text-slate-950">Support Tickets & Renewal Risk</p>
-            <p class="mt-1 text-sm text-slate-500">Three documented ticket-pattern scenarios showing how the signal was present months before churn.</p>
-          </a>
-          <a href="/compare/value-continuity-vs-customer-health-scoring/" class="rounded-xl border border-slate-200 bg-white p-5 hover:border-slate-400">
-            <p class="font-semibold text-slate-950">Value Continuity vs Customer Health Scoring</p>
-            <p class="mt-1 text-sm text-slate-500">Category-level comparison: what each approach tracks, what each is designed to do, and when each applies.</p>
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
+ <section class="bg-slate-50 px-5 py-12 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <p class="text-sm font-semibold text-slate-500">Continue reading</p>
+ <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+ <a href="/learn/support-tickets-predict-renewal-risk/" class="rounded-xl border border-slate-200 bg-white p-5 hover:border-slate-400">
+ <p class="font-semibold text-slate-950">Support Tickets & Renewal Risk</p>
+ <p class="mt-1 text-sm text-slate-500">Three documented ticket-pattern scenarios showing how the signal was present months before churn.</p>
+ </a>
+ <a href="/compare/value-continuity-vs-customer-health-scoring/" class="rounded-xl border border-slate-200 bg-white p-5 hover:border-slate-400">
+ <p class="font-semibold text-slate-950">Value Continuity vs Customer Health Scoring</p>
+ <p class="mt-1 text-sm text-slate-500">Category-level comparison: what each approach tracks, what each is designed to do, and when each applies.</p>
+ </a>
+ </div>
+ </div>
+ </section>
+ </main>
 
-  <Footer />
+ <Footer />
 </Layout>

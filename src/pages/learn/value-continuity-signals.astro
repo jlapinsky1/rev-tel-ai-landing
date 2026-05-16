@@ -4,324 +4,324 @@ import Nav from "../../components/Nav.astro";
 import Footer from "../../components/Footer.astro";
 
 const pageTitle = "Value Continuity Signal Taxonomy for B2B SaaS | MeridianARR";
-const pageDescription = "A structured taxonomy of Value Continuity signals — organized by category, source system, severity, and lead time. The reference glossary for understanding what customer signals predict ARR risk.";
+const pageDescription = "A structured taxonomy of Value Continuity signals, organized by category, source system, severity, and lead time. The reference glossary for understanding what customer signals predict ARR risk.";
 const canonical = "https://meridianarr.com/learn/value-continuity-signals/";
 
-// Signals organized by category — not a flat numbered list
+// Signals organized by category, not a flat numbered list
 const categories = [
-  {
-    id: "behavioral",
-    category: "Behavioral signals",
-    definition: "Actions customers take — or stop taking — inside the product. These signals are observable without any customer communication.",
-    signals: [
-      {
-        name: "Declining login frequency",
-        source: "Product analytics",
-        severity: "High",
-        lead_time: "90–180 days before churn",
-        what_it_tells_you: "Users are finding less reason to return. Unlike a one-time dip, a sustained downward trend in session frequency indicates disengagement from the product's core value loop.",
-        distinguish_from: "Seasonal dips or planned breaks — look for sustained trend over 3+ weeks, not a single low-activity period.",
-      },
-      {
-        name: "Feature adoption below contract scope",
-        source: "Product analytics",
-        severity: "High",
-        lead_time: "60–150 days before churn",
-        what_it_tells_you: "The customer is paying for capabilities they are not using. In a budget-scrutiny environment, this creates build-vs-buy pressure: they may conclude a simpler, cheaper solution covers what they actually use.",
-        distinguish_from: "Planned phased rollout — check whether low adoption is intentional (onboarding plan) or unplanned.",
-      },
-      {
-        name: "User avoidance of core workflows",
-        source: "Product analytics / support tickets",
-        severity: "Medium-high",
-        lead_time: "60–120 days before churn",
-        what_it_tells_you: "Users have found friction in a workflow and are routing around it — either using alternative processes or abandoning the workflow entirely. Avoidance often precedes a support ticket, or explains why tickets on a feature stopped after the friction wasn't resolved.",
-        distinguish_from: "Workflow redesign or deliberate feature deprecation on the customer's side.",
-      },
-    ],
-  },
-  {
-    id: "operational",
-    category: "Operational signals",
-    definition: "Signals that appear in support and service systems — ticket patterns, escalation history, resolution trends. These are the highest-density source of early churn signal.",
-    signals: [
-      {
-        name: "Repeated tickets on the same issue",
-        source: "Help desk",
-        severity: "High",
-        lead_time: "60–120 days before churn",
-        what_it_tells_you: "The product has an unresolved friction point the customer keeps hitting. Each recurrence erodes the customer's confidence that the issue will be resolved and increases the probability that they stop trying — by switching products.",
-        distinguish_from: "Multiple users filing the same issue type (normal) vs. one account filing the same issue repeatedly (distress signal).",
-      },
-      {
-        name: "Escalation to customer leadership",
-        source: "Help desk / CRM",
-        severity: "Very high",
-        lead_time: "30–90 days before churn",
-        what_it_tells_you: "Normal support channels have failed to resolve the issue to the customer's satisfaction, and someone with authority has been pulled in. Executive involvement in support interactions is a high-confidence churn signal — these accounts rarely renew without direct intervention.",
-        distinguish_from: "Proactive executive engagement (a VP joining a QBR) — look specifically for escalations triggered by unresolved support issues.",
-      },
-      {
-        name: "Competitor name mentioned in ticket",
-        source: "Help desk / ticket content",
-        severity: "Very high",
-        lead_time: "Immediate — requires same-day response",
-        what_it_tells_you: "The customer is actively researching or evaluating alternatives. This is the most time-sensitive Value Continuity signal — it often appears 2–6 weeks before a formal churn notification.",
-        distinguish_from: "Generic industry references (a customer asking 'does this integrate with Salesforce') vs. evaluative language ('we are testing Competitor X alongside this').",
-      },
-      {
-        name: "Increasing ticket volume without usage growth",
-        source: "Help desk + product analytics",
-        severity: "High",
-        lead_time: "90–150 days before churn",
-        what_it_tells_you: "Rising support volume while product usage stays flat or declines indicates that friction is accumulating — not that adoption is growing. More tickets with no corresponding increase in value delivery is a distress pattern.",
-        distinguish_from: "Rising tickets alongside rising usage, which can indicate onboarding growth.",
-      },
-    ],
-  },
-  {
-    id: "relational",
-    category: "Relational signals",
-    definition: "Signals about the customer relationship itself — who is engaged, who has left, and how responsively the customer interacts with CS teams.",
-    signals: [
-      {
-        name: "Executive sponsor departure",
-        source: "CRM / LinkedIn / CS records",
-        severity: "High",
-        lead_time: "Can occur at any time; risk materializes within 90 days",
-        what_it_tells_you: "The person who championed the purchase has left. New stakeholders inherit tools they did not choose and often re-evaluate them early in their tenure. Without proactive re-onboarding and value demonstration, churn risk is significantly elevated.",
-        distinguish_from: "Lateral moves within the same organization — focus on situations where the champion leaves the company entirely or moves to a non-buyer role.",
-      },
-      {
-        name: "Reduced CS response rate",
-        source: "CS platform / email engagement",
-        severity: "High",
-        lead_time: "60–120 days before churn",
-        what_it_tells_you: "A customer who was previously responsive has gone quiet. Silent accounts are not neutral — they are often processing a decision. Outreach that receives no response, especially from an account that was previously engaged, is a distress signal that warrants investigation through product and support data.",
-        distinguish_from: "Temporarily busy contacts (confirm via product usage) vs. accounts that are also declining in product engagement.",
-      },
-    ],
-  },
-  {
-    id: "financial",
-    category: "Financial signals",
-    definition: "Signals that appear in billing, procurement, and contract interactions. These tend to appear later in the distress cycle — but carry high confidence when they do.",
-    signals: [
-      {
-        name: "Billing dispute or pricing question",
-        source: "Finance / support",
-        severity: "Medium-high",
-        lead_time: "90–150 days before renewal",
-        what_it_tells_you: "The customer is scrutinizing the ROI of the product — often because internal budget pressure has arrived or because they are dissatisfied with value delivery and looking for a reason to reduce spend.",
-        distinguish_from: "Administrative billing questions (wrong invoice amount, payment method update) vs. evaluative questions ('can you justify this pricing for what we're using?').",
-      },
-      {
-        name: "Contract scope reduction request",
-        source: "Finance / CS",
-        severity: "Very high",
-        lead_time: "60–120 days before renewal",
-        what_it_tells_you: "The customer has already decided to pay less. This is a high-confidence contraction signal. The goal shifts from preventing reduction to minimizing scope loss and preserving the relationship for future expansion.",
-        distinguish_from: "Strategic downsizing (org restructuring) vs. value-driven reduction (dissatisfaction with ROI).",
-      },
-    ],
-  },
-  {
-    id: "onboarding",
-    category: "Onboarding and activation signals",
-    definition: "Signals specific to the earliest phase of the customer lifecycle. Activation signals have the longest lead time of any Value Continuity signal — but they predict the most consequential churn outcomes.",
-    signals: [
-      {
-        name: "Missed first value milestone",
-        source: "Onboarding platform / CS records",
-        severity: "Very high",
-        lead_time: "0–60 days post-contract",
-        what_it_tells_you: "The customer has not yet experienced the product's core value. First value milestones — the moment a customer first realizes why they bought the product — are the strongest predictor of long-term retention. Missing this milestone in the first 60 days is the highest-confidence early churn signal.",
-        distinguish_from: "Planned delayed activation (phased rollout with documented start date) vs. unplanned activation failure.",
-      },
-      {
-        name: "Integration or implementation delay",
-        source: "Project tracking / support",
-        severity: "High",
-        lead_time: "0–90 days post-contract",
-        what_it_tells_you: "The customer cannot use the product at full capacity because a technical dependency is incomplete. Time-to-value gaps created by implementation delays directly reduce the probability of renewal — especially if the delay extends past 30–60 days post-contract.",
-        distinguish_from: "Delays caused by the customer's internal IT queue (manageable) vs. delays caused by product issues or onboarding failures (high risk).",
-      },
-    ],
-  },
+ {
+ id: "behavioral",
+ category: "Behavioral signals",
+ definition: "Actions customers take, or stop taking, inside the product. These signals are observable without any customer communication.",
+ signals: [
+ {
+ name: "Declining login frequency",
+ source: "Product analytics",
+ severity: "High",
+ lead_time: "90–180 days before churn",
+ what_it_tells_you: "Users are finding less reason to return. Unlike a one-time dip, a sustained downward trend in session frequency indicates disengagement from the product's core value loop.",
+ distinguish_from: "Seasonal dips or planned breaks, look for sustained trend over 3+ weeks, not a single low-activity period.",
+ },
+ {
+ name: "Feature adoption below contract scope",
+ source: "Product analytics",
+ severity: "High",
+ lead_time: "60–150 days before churn",
+ what_it_tells_you: "The customer is paying for capabilities they are not using. In a budget-scrutiny environment, this creates build-vs-buy pressure: they may conclude a simpler, cheaper solution covers what they actually use.",
+ distinguish_from: "Planned phased rollout, check whether low adoption is intentional (onboarding plan) or unplanned.",
+ },
+ {
+ name: "User avoidance of core workflows",
+ source: "Product analytics / support tickets",
+ severity: "Medium-high",
+ lead_time: "60–120 days before churn",
+ what_it_tells_you: "Users have found friction in a workflow and are routing around it, either using alternative processes or abandoning the workflow entirely. Avoidance often precedes a support ticket, or explains why tickets on a feature stopped after the friction wasn't resolved.",
+ distinguish_from: "Workflow redesign or deliberate feature deprecation on the customer's side.",
+ },
+ ],
+ },
+ {
+ id: "operational",
+ category: "Operational signals",
+ definition: "Signals that appear in support and service systems, ticket patterns, escalation history, resolution trends. These are the highest-density source of early churn signal.",
+ signals: [
+ {
+ name: "Repeated tickets on the same issue",
+ source: "Help desk",
+ severity: "High",
+ lead_time: "60–120 days before churn",
+ what_it_tells_you: "The product has an unresolved friction point the customer keeps hitting. Each recurrence erodes the customer's confidence that the issue will be resolved and increases the probability that they stop trying, by switching products.",
+ distinguish_from: "Multiple users filing the same issue type (normal) vs. one account filing the same issue repeatedly (distress signal).",
+ },
+ {
+ name: "Escalation to customer leadership",
+ source: "Help desk / CRM",
+ severity: "Very high",
+ lead_time: "30–90 days before churn",
+ what_it_tells_you: "Normal support channels have failed to resolve the issue to the customer's satisfaction, and someone with authority has been pulled in. Executive involvement in support interactions is a high-confidence churn signal, these accounts rarely renew without direct intervention.",
+ distinguish_from: "Proactive executive engagement (a VP joining a QBR), look specifically for escalations triggered by unresolved support issues.",
+ },
+ {
+ name: "Competitor name mentioned in ticket",
+ source: "Help desk / ticket content",
+ severity: "Very high",
+ lead_time: "Immediate, requires same-day response",
+ what_it_tells_you: "The customer is actively researching or evaluating alternatives. This is the most time-sensitive Value Continuity signal, it often appears 2–6 weeks before a formal churn notification.",
+ distinguish_from: "Generic industry references (a customer asking 'does this integrate with Salesforce') vs. evaluative language ('we are testing Competitor X alongside this').",
+ },
+ {
+ name: "Increasing ticket volume without usage growth",
+ source: "Help desk + product analytics",
+ severity: "High",
+ lead_time: "90–150 days before churn",
+ what_it_tells_you: "Rising support volume while product usage stays flat or declines indicates that friction is accumulating, not that adoption is growing. More tickets with no corresponding increase in value delivery is a distress pattern.",
+ distinguish_from: "Rising tickets alongside rising usage, which can indicate onboarding growth.",
+ },
+ ],
+ },
+ {
+ id: "relational",
+ category: "Relational signals",
+ definition: "Signals about the customer relationship itself, who is engaged, who has left, and how responsively the customer interacts with CS teams.",
+ signals: [
+ {
+ name: "Executive sponsor departure",
+ source: "CRM / LinkedIn / CS records",
+ severity: "High",
+ lead_time: "Can occur at any time; risk materializes within 90 days",
+ what_it_tells_you: "The person who championed the purchase has left. New stakeholders inherit tools they did not choose and often re-evaluate them early in their tenure. Without proactive re-onboarding and value demonstration, churn risk is significantly elevated.",
+ distinguish_from: "Lateral moves within the same organization, focus on situations where the champion leaves the company entirely or moves to a non-buyer role.",
+ },
+ {
+ name: "Reduced CS response rate",
+ source: "CS platform / email engagement",
+ severity: "High",
+ lead_time: "60–120 days before churn",
+ what_it_tells_you: "A customer who was previously responsive has gone quiet. Silent accounts are not neutral, they are often processing a decision. Outreach that receives no response, especially from an account that was previously engaged, is a distress signal that warrants investigation through product and support data.",
+ distinguish_from: "Temporarily busy contacts (confirm via product usage) vs. accounts that are also declining in product engagement.",
+ },
+ ],
+ },
+ {
+ id: "financial",
+ category: "Financial signals",
+ definition: "Signals that appear in billing, procurement, and contract interactions. These tend to appear later in the distress cycle, but carry high confidence when they do.",
+ signals: [
+ {
+ name: "Billing dispute or pricing question",
+ source: "Finance / support",
+ severity: "Medium-high",
+ lead_time: "90–150 days before renewal",
+ what_it_tells_you: "The customer is scrutinizing the ROI of the product, often because internal budget pressure has arrived or because they are dissatisfied with value delivery and looking for a reason to reduce spend.",
+ distinguish_from: "Administrative billing questions (wrong invoice amount, payment method update) vs. evaluative questions ('can you justify this pricing for what we're using?').",
+ },
+ {
+ name: "Contract scope reduction request",
+ source: "Finance / CS",
+ severity: "Very high",
+ lead_time: "60–120 days before renewal",
+ what_it_tells_you: "The customer has already decided to pay less. This is a high-confidence contraction signal. The goal shifts from preventing reduction to minimizing scope loss and preserving the relationship for future expansion.",
+ distinguish_from: "Strategic downsizing (org restructuring) vs. value-driven reduction (dissatisfaction with ROI).",
+ },
+ ],
+ },
+ {
+ id: "onboarding",
+ category: "Onboarding and activation signals",
+ definition: "Signals specific to the earliest phase of the customer lifecycle. Activation signals have the longest lead time of any Value Continuity signal, but they predict the most consequential churn outcomes.",
+ signals: [
+ {
+ name: "Missed first value milestone",
+ source: "Onboarding platform / CS records",
+ severity: "Very high",
+ lead_time: "0–60 days post-contract",
+ what_it_tells_you: "The customer has not yet experienced the product's core value. First value milestones, the moment a customer first realizes why they bought the product, are the strongest predictor of long-term retention. Missing this milestone in the first 60 days is the highest-confidence early churn signal.",
+ distinguish_from: "Planned delayed activation (phased rollout with documented start date) vs. unplanned activation failure.",
+ },
+ {
+ name: "Integration or implementation delay",
+ source: "Project tracking / support",
+ severity: "High",
+ lead_time: "0–90 days post-contract",
+ what_it_tells_you: "The customer cannot use the product at full capacity because a technical dependency is incomplete. Time-to-value gaps created by implementation delays directly reduce the probability of renewal, especially if the delay extends past 30–60 days post-contract.",
+ distinguish_from: "Delays caused by the customer's internal IT queue (manageable) vs. delays caused by product issues or onboarding failures (high risk).",
+ },
+ ],
+ },
 ];
 
 const faqs = [
-  {
-    q: "What are Value Continuity signals?",
-    a: "Value Continuity signals are customer behaviors, interactions, and data points that indicate whether a B2B SaaS customer is realizing value from a product — or at increasing risk of churning, contracting, or failing to renew. They span five categories: behavioral (product usage patterns), operational (support and ticket data), relational (CS engagement and sponsor changes), financial (billing and contract interactions), and onboarding (activation and implementation status).",
-  },
-  {
-    q: "Which category of Value Continuity signal has the longest lead time?",
-    a: "Onboarding and activation signals have the longest lead time — appearing 0–60 days post-contract but predicting churn that occurs at the 12-month renewal. Behavioral signals like declining login frequency appear 90–180 days before churn. Operational signals like competitor mentions in tickets are the most time-sensitive — requiring same-day response.",
-  },
-  {
-    q: "How does MeridianARR use this signal taxonomy?",
-    a: "MeridianARR monitors all five categories of Value Continuity signals continuously and combines them into the Customer Distress Index (CDI) — an account-level ARR risk score. Each signal category contributes to the CDI, with severity and lead time factored into the weighting. CROs, CFOs, CS leaders, and Support leaders see the CDI and the underlying signals that compose it.",
-  },
-  {
-    q: "What is the difference between a behavioral and an operational signal?",
-    a: "Behavioral signals are passive — they reflect what customers do inside the product without any direct communication. Operational signals come from the support system — the tickets, escalations, and interactions where customers actively communicate their frustrations. Both are important; operational signals tend to be higher-confidence because they represent explicit customer communication.",
-  },
+ {
+ q: "What are Value Continuity signals?",
+ a: "Value Continuity signals are customer behaviors, interactions, and data points that indicate whether a B2B SaaS customer is realizing value from a product, or at increasing risk of churning, contracting, or failing to renew. They span five categories: behavioral (product usage patterns), operational (support and ticket data), relational (CS engagement and sponsor changes), financial (billing and contract interactions), and onboarding (activation and implementation status).",
+ },
+ {
+ q: "Which category of Value Continuity signal has the longest lead time?",
+ a: "Onboarding and activation signals have the longest lead time, appearing 0–60 days post-contract but predicting churn that occurs at the 12-month renewal. Behavioral signals like declining login frequency appear 90–180 days before churn. Operational signals like competitor mentions in tickets are the most time-sensitive, requiring same-day response.",
+ },
+ {
+ q: "How does MeridianARR use this signal taxonomy?",
+ a: "MeridianARR monitors all five categories of Value Continuity signals continuously and combines them into the Customer Distress Index (CDI), an account-level ARR risk score. Each signal category contributes to the CDI, with severity and lead time factored into the weighting. CROs, CFOs, CS leaders, and Support leaders see the CDI and the underlying signals that compose it.",
+ },
+ {
+ q: "What is the difference between a behavioral and an operational signal?",
+ a: "Behavioral signals are passive, they reflect what customers do inside the product without any direct communication. Operational signals come from the support system: the tickets, escalations, and interactions where customers actively communicate their frustrations. Both are important; operational signals tend to be higher-confidence because they represent explicit customer communication.",
+ },
 ];
 
 const articleSchema = {
-  "@context": "https://schema.org",
-  "@type": "TechArticle",
-  headline: pageTitle,
-  description: pageDescription,
-  url: canonical,
-  about: { "@type": "Thing", name: "Value Continuity" },
-  publisher: {
-    "@type": "Organization",
-    name: "MeridianARR",
-    url: "https://meridianarr.com",
-  },
+ "@context": "https://schema.org",
+ "@type": "TechArticle",
+ headline: pageTitle,
+ description: pageDescription,
+ url: canonical,
+ about: { "@type": "Thing", name: "Value Continuity" },
+ publisher: {
+ "@type": "Organization",
+ name: "MeridianARR",
+ url: "https://meridianarr.com",
+ },
 };
 
 const itemListSchema = {
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  name: "Value Continuity Signal Categories",
-  description: "The five categories of Value Continuity signals that predict ARR risk in B2B SaaS",
-  numberOfItems: categories.length,
-  itemListElement: categories.map((cat, i) => ({
-    "@type": "ListItem",
-    position: i + 1,
-    name: cat.category,
-    description: cat.definition,
-  })),
+ "@context": "https://schema.org",
+ "@type": "ItemList",
+ name: "Value Continuity Signal Categories",
+ description: "The five categories of Value Continuity signals that predict ARR risk in B2B SaaS",
+ numberOfItems: categories.length,
+ itemListElement: categories.map((cat, i) => ({
+ "@type": "ListItem",
+ position: i + 1,
+ name: cat.category,
+ description: cat.definition,
+ })),
 };
 
 const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqs.map((faq) => ({
-    "@type": "Question",
-    name: faq.q,
-    acceptedAnswer: { "@type": "Answer", text: faq.a },
-  })),
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ mainEntity: faqs.map((faq) => ({
+ "@type": "Question",
+ name: faq.q,
+ acceptedAnswer: { "@type": "Answer", text: faq.a },
+ })),
 };
 
 const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://meridianarr.com/" },
-    { "@type": "ListItem", position: 2, name: "Learn", item: "https://meridianarr.com/learn/" },
-    { "@type": "ListItem", position: 3, name: "Value Continuity Signal Taxonomy", item: canonical },
-  ],
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ itemListElement: [
+ { "@type": "ListItem", position: 1, name: "Home", item: "https://meridianarr.com/" },
+ { "@type": "ListItem", position: 2, name: "Learn", item: "https://meridianarr.com/learn/" },
+ { "@type": "ListItem", position: 3, name: "Value Continuity Signal Taxonomy", item: canonical },
+ ],
 };
 ---
 
 <Layout title={pageTitle} description={pageDescription} canonical={canonical}>
-  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(articleSchema)} />
-  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(itemListSchema)} />
-  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
-  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+ <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(articleSchema)} />
+ <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(itemListSchema)} />
+ <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+ <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
 
-  <Nav />
+ <Nav />
 
-  <main>
-    <!-- Hero -->
-    <section class="bg-slate-950 px-5 py-20 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <p class="text-sm font-medium text-blue-400">Learn · Taxonomy</p>
-        <h1 class="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-          Value Continuity Signal Taxonomy
-        </h1>
-        <p class="mt-6 text-base leading-relaxed text-slate-400 border border-slate-700 rounded-xl px-4 py-3">
-          MeridianARR is a Value Continuity platform for B2B SaaS companies that connects support, onboarding, product friction, customer distress, and renewal risk into post-sale revenue intelligence.
-        </p>
-        <p class="mt-5 text-lg leading-relaxed text-slate-300">
-          This page is a reference taxonomy — five categories of signals, organized by type, source, severity, and lead time. Each entry includes what distinguishes a true signal from a false positive.
-        </p>
-      </div>
-    </section>
+ <main>
+ <!-- Hero -->
+ <section class="bg-slate-950 px-5 py-20 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <p class="text-sm font-medium text-blue-400">Learn · Taxonomy</p>
+ <h1 class="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+ Value Continuity Signal Taxonomy
+ </h1>
+ <p class="mt-6 text-base leading-relaxed text-slate-400 border border-slate-700 rounded-xl px-4 py-3">
+ MeridianARR is a Value Continuity platform for B2B SaaS companies that connects support, onboarding, product friction, customer distress, and renewal risk into post-sale revenue intelligence.
+ </p>
+ <p class="mt-5 text-lg leading-relaxed text-slate-300">
+ This page is a reference taxonomy, five categories of signals, organized by type, source, severity, and lead time. Each entry includes what distinguishes a true signal from a false positive.
+ </p>
+ </div>
+ </section>
 
-    <!-- Category nav -->
-    <section class="sticky top-0 z-10 border-b border-slate-200 bg-white px-5 py-3 lg:px-8">
-      <div class="mx-auto flex max-w-7xl gap-4 overflow-x-auto text-sm">
-        {categories.map((cat) => (
-          <a href={`#${cat.id}`} class="flex-shrink-0 font-medium text-slate-600 hover:text-slate-950">
-            {cat.category}
-          </a>
-        ))}
-      </div>
-    </section>
+ <!-- Category nav -->
+ <section class="sticky top-0 z-10 border-b border-slate-200 bg-white px-5 py-3 lg:px-8">
+ <div class="mx-auto flex max-w-7xl gap-4 overflow-x-auto text-sm">
+ {categories.map((cat) => (
+ <a href={`#${cat.id}`} class="flex-shrink-0 font-medium text-slate-600 hover:text-slate-950">
+ {cat.category}
+ </a>
+ ))}
+ </div>
+ </section>
 
-    <!-- Signal categories -->
-    {categories.map((cat, catIdx) => (
-      <section id={cat.id} class={`px-5 py-16 lg:px-8 ${catIdx % 2 === 0 ? "bg-white" : "bg-slate-50"}`}>
-        <div class="mx-auto max-w-4xl">
-          <h2 class="text-2xl font-bold text-slate-950">{cat.category}</h2>
-          <p class="mt-2 text-slate-500">{cat.definition}</p>
-          <div class="mt-8 space-y-6">
-            {cat.signals.map((sig) => (
-              <div class="rounded-xl border border-slate-200 bg-white p-6">
-                <div class="flex flex-wrap items-start justify-between gap-3">
-                  <h3 class="text-base font-semibold text-slate-950">{sig.name}</h3>
-                  <div class="flex gap-2 flex-wrap">
-                    <span class={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${sig.severity === "Very high" ? "bg-rose-50 text-rose-700" : sig.severity === "High" ? "bg-orange-50 text-orange-700" : "bg-slate-100 text-slate-600"}`}>
-                      {sig.severity} severity
-                    </span>
-                    <span class="rounded-full bg-slate-100 px-2.5 py-0.5 text-xs text-slate-600">{sig.source}</span>
-                  </div>
-                </div>
-                <p class="mt-1 text-xs text-slate-400">Lead time: {sig.lead_time}</p>
-                <p class="mt-3 text-sm text-slate-600 leading-relaxed">
-                  <strong class="text-slate-800">What it tells you:</strong> {sig.what_it_tells_you}
-                </p>
-                <p class="mt-2 text-sm text-slate-500 leading-relaxed">
-                  <strong class="text-slate-700">Distinguish from:</strong> {sig.distinguish_from}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-    ))}
+ <!-- Signal categories -->
+ {categories.map((cat, catIdx) => (
+ <section id={cat.id} class={`px-5 py-16 lg:px-8 ${catIdx % 2 === 0 ? "bg-white" : "bg-slate-50"}`}>
+ <div class="mx-auto max-w-4xl">
+ <h2 class="text-2xl font-bold text-slate-950">{cat.category}</h2>
+ <p class="mt-2 text-slate-500">{cat.definition}</p>
+ <div class="mt-8 space-y-6">
+ {cat.signals.map((sig) => (
+ <div class="rounded-xl border border-slate-200 bg-white p-6">
+ <div class="flex flex-wrap items-start justify-between gap-3">
+ <h3 class="text-base font-semibold text-slate-950">{sig.name}</h3>
+ <div class="flex gap-2 flex-wrap">
+ <span class={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${sig.severity === "Very high" ? "bg-rose-50 text-rose-700" : sig.severity === "High" ? "bg-orange-50 text-orange-700" : "bg-slate-100 text-slate-600"}`}>
+ {sig.severity} severity
+ </span>
+ <span class="rounded-full bg-slate-100 px-2.5 py-0.5 text-xs text-slate-600">{sig.source}</span>
+ </div>
+ </div>
+ <p class="mt-1 text-xs text-slate-400">Lead time: {sig.lead_time}</p>
+ <p class="mt-3 text-sm text-slate-600 leading-relaxed">
+ <strong class="text-slate-800">What it tells you:</strong> {sig.what_it_tells_you}
+ </p>
+ <p class="mt-2 text-sm text-slate-500 leading-relaxed">
+ <strong class="text-slate-700">Distinguish from:</strong> {sig.distinguish_from}
+ </p>
+ </div>
+ ))}
+ </div>
+ </div>
+ </section>
+ ))}
 
-    <!-- How MeridianARR uses this taxonomy -->
-    <section class="bg-slate-950 px-5 py-16 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-white">How MeridianARR uses this taxonomy</h2>
-        <p class="mt-4 text-slate-300 leading-relaxed">
-          MeridianARR monitors all five signal categories continuously. They are the inputs to the Customer Distress Index (CDI) — an account-level ARR risk score that weights signals by severity and lead time, and accounts for compounding (two medium-severity signals from different categories score higher than one alone).
-        </p>
-        <p class="mt-4 text-slate-300 leading-relaxed">
-          For the full scoring model — how CDI bands work and what each score range means — see the
-          <a href="/learn/customer-distress-arr-risk/" class="text-blue-400 hover:text-blue-300 underline">Customer Distress and ARR Risk</a> page.
-          For how signals map to the four ARR motions, see the
-          <a href="/learn/value-continuity-framework/" class="text-blue-400 hover:text-blue-300 underline">Value Continuity Framework</a>.
-        </p>
-        <div class="mt-8">
-          <a href="/customer-defensibility-score/" class="inline-flex items-center justify-center rounded-2xl bg-white px-6 py-3 text-sm font-semibold text-slate-950 hover:bg-slate-100">
-            Calculate your Customer Defensibility Score
-          </a>
-        </div>
-      </div>
-    </section>
+ <!-- How MeridianARR uses this taxonomy -->
+ <section class="bg-slate-950 px-5 py-16 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <h2 class="text-2xl font-bold text-white">How MeridianARR uses this taxonomy</h2>
+ <p class="mt-4 text-slate-300 leading-relaxed">
+ MeridianARR monitors all five signal categories continuously. They are the inputs to the Customer Distress Index (CDI), an account-level ARR risk score that weights signals by severity and lead time, and accounts for compounding (two medium-severity signals from different categories score higher than one alone).
+ </p>
+ <p class="mt-4 text-slate-300 leading-relaxed">
+ For the full scoring model, how CDI bands work and what each score range means, see the
+ <a href="/learn/customer-distress-arr-risk/" class="text-blue-400 hover:text-blue-300 underline">Customer Distress and ARR Risk</a> page.
+ For how signals map to the four ARR motions, see the
+ <a href="/learn/value-continuity-framework/" class="text-blue-400 hover:text-blue-300 underline">Value Continuity Framework</a>.
+ </p>
+ <div class="mt-8">
+ <a href="/customer-defensibility-score/" class="inline-flex items-center justify-center rounded-2xl bg-white px-6 py-3 text-sm font-semibold text-slate-950 hover:bg-slate-100">
+ Calculate your Customer Defensibility Score
+ </a>
+ </div>
+ </div>
+ </section>
 
-    <!-- FAQ -->
-    <section class="bg-white px-5 py-14 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">Frequently asked questions</h2>
-        <dl class="mt-8 space-y-8">
-          {faqs.map((faq) => (
-            <div>
-              <dt class="font-semibold text-slate-950">{faq.q}</dt>
-              <dd class="mt-2 text-slate-600 leading-relaxed">{faq.a}</dd>
-            </div>
-          ))}
-        </dl>
-      </div>
-    </section>
-  </main>
+ <!-- FAQ -->
+ <section class="bg-white px-5 py-14 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <h2 class="text-2xl font-bold text-slate-950">Frequently asked questions</h2>
+ <dl class="mt-8 space-y-8">
+ {faqs.map((faq) => (
+ <div>
+ <dt class="font-semibold text-slate-950">{faq.q}</dt>
+ <dd class="mt-2 text-slate-600 leading-relaxed">{faq.a}</dd>
+ </div>
+ ))}
+ </dl>
+ </div>
+ </section>
+ </main>
 
-  <Footer />
+ <Footer />
 </Layout>

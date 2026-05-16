@@ -9,1004 +9,1004 @@ const canonical = "https://meridianarr.com/customer-defensibility-score/";
 ---
 
 <Layout title={pageTitle} description={pageDescription} canonical={canonical}>
-  <Nav />
+ <Nav />
 
-  <!-- Hidden Netlify form for bot detection -->
-  <form name="customer-defensibility-score" data-netlify="true" netlify-honeypot="bot-field" hidden>
-    <input name="bot-field" />
-    <input name="email" />
-    <input name="company" />
-    <input name="full-name" />
-    <input name="q1" /><input name="q2" /><input name="q3" />
-    <input name="q4" /><input name="q5" /><input name="q6" />
-    <input name="q7" /><input name="q8" /><input name="q9" />
-    <input name="q10" />
-    <input name="score" />
-    <input name="score-band" />
-    <input name="profile" />
-  </form>
+ <!-- Hidden Netlify form for bot detection -->
+ <form name="customer-defensibility-score" data-netlify="true" netlify-honeypot="bot-field" hidden>
+ <input name="bot-field" />
+ <input name="email" />
+ <input name="company" />
+ <input name="full-name" />
+ <input name="q1" /><input name="q2" /><input name="q3" />
+ <input name="q4" /><input name="q5" /><input name="q6" />
+ <input name="q7" /><input name="q8" /><input name="q9" />
+ <input name="q10" />
+ <input name="score" />
+ <input name="score-band" />
+ <input name="profile" />
+ </form>
 
-  <main class="min-h-screen bg-white">
+ <main class="min-h-screen bg-white">
 
-    <!-- Progress Bar -->
-    <div id="progress-wrap" class="hidden sticky top-[73px] z-30 border-b border-slate-100 bg-white/95 backdrop-blur-sm">
-      <div class="mx-auto max-w-2xl px-5 py-3 lg:px-8">
-        <div class="mb-1.5 flex items-center justify-between">
-          <span id="progress-label" class="text-xs font-semibold uppercase tracking-[0.18em] text-blue-700"></span>
-          <span id="progress-count" class="text-xs font-medium text-slate-400"></span>
-        </div>
-        <div class="h-1.5 w-full overflow-hidden rounded-full bg-slate-100">
-          <div id="progress-fill" class="h-full rounded-full bg-slate-950 transition-all duration-500" style="width:0%"></div>
-        </div>
-      </div>
-    </div>
+ <!-- Progress Bar -->
+ <div id="progress-wrap" class="hidden sticky top-[73px] z-30 border-b border-slate-100 bg-white/95 backdrop-blur-sm">
+ <div class="mx-auto max-w-2xl px-5 py-3 lg:px-8">
+ <div class="mb-1.5 flex items-center justify-between">
+ <span id="progress-label" class="text-xs font-semibold uppercase tracking-[0.18em] text-blue-700"></span>
+ <span id="progress-count" class="text-xs font-medium text-slate-400"></span>
+ </div>
+ <div class="h-1.5 w-full overflow-hidden rounded-full bg-slate-100">
+ <div id="progress-fill" class="h-full rounded-full bg-slate-950 transition-all duration-500" style="width:0%"></div>
+ </div>
+ </div>
+ </div>
 
-    <!-- ===================== SCREEN 0: INTRO ===================== -->
-    <div id="s0" class="screen">
-      <section class="relative overflow-hidden bg-[linear-gradient(135deg,#ffffff_0%,#f4f7fb_52%,#eef6ff_100%)] px-5 py-10 lg:px-8 lg:py-16">
-        <div class="absolute right-[-8%] top-[-12%] h-[480px] w-[480px] rounded-full bg-blue-100/60 blur-3xl"></div>
-        <div class="absolute bottom-[-12%] left-[-6%] h-[360px] w-[360px] rounded-full bg-teal-100/50 blur-3xl"></div>
-        <div class="relative mx-auto max-w-3xl text-center">
-          <span class="inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-blue-700 shadow-sm">
-            Customer Defensibility Score
-          </span>
-          <h1 class="mt-5 text-5xl font-semibold tracking-[-0.05em] text-slate-950 lg:text-6xl">
-            Can your customers defend your product when it matters?
-          </h1>
-          <p class="mx-auto mt-4 max-w-2xl text-xl leading-8 text-slate-600">
-            Budget scrutiny, vendor consolidation, and AI automation are forcing customers to justify every product in the stack. This diagnostic identifies where value may be strengthening or decaying across support, onboarding, adoption, expansion, and renewal.
-          </p>
-          <div class="mt-6 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <div class="flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-600 shadow-sm">
-              <svg class="h-4 w-4 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-              3 minutes
-            </div>
-            <div class="flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-600 shadow-sm">
-              <svg class="h-4 w-4 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19V5"/><path d="M4 19h16"/><rect x="7" y="11" width="3" height="5" rx="1"/><rect x="12" y="8" width="3" height="8" rx="1"/><rect x="17" y="5" width="3" height="11" rx="1"/></svg>
-              10 questions
-            </div>
-            <div class="flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-600 shadow-sm">
-              <svg class="h-4 w-4 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>
-              Score + risk profile
-            </div>
-          </div>
-          <button
-            id="start-btn"
-            type="button"
-            class="mt-6 inline-flex items-center justify-center rounded-full bg-slate-950 px-10 py-4 text-base font-semibold text-white transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-          >
-            Get My Score
-            <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
-          </button>
-        </div>
-      </section>
-    </div>
+ <!-- ===================== SCREEN 0: INTRO ===================== -->
+ <div id="s0" class="screen">
+ <section class="relative overflow-hidden bg-[linear-gradient(135deg,#ffffff_0%,#f4f7fb_52%,#eef6ff_100%)] px-5 py-10 lg:px-8 lg:py-16">
+ <div class="absolute right-[-8%] top-[-12%] h-[480px] w-[480px] rounded-full bg-blue-100/60 blur-3xl"></div>
+ <div class="absolute bottom-[-12%] left-[-6%] h-[360px] w-[360px] rounded-full bg-teal-100/50 blur-3xl"></div>
+ <div class="relative mx-auto max-w-3xl text-center">
+ <span class="inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-blue-700 shadow-sm">
+ Customer Defensibility Score
+ </span>
+ <h1 class="mt-5 text-5xl font-semibold tracking-[-0.05em] text-slate-950 lg:text-6xl">
+ Can your customers defend your product when it matters?
+ </h1>
+ <p class="mx-auto mt-4 max-w-2xl text-xl leading-8 text-slate-600">
+ Budget scrutiny, vendor consolidation, and AI automation are forcing customers to justify every product in the stack. This diagnostic identifies where value may be strengthening or decaying across support, onboarding, adoption, expansion, and renewal.
+ </p>
+ <div class="mt-6 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+ <div class="flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-600 shadow-sm">
+ <svg class="h-4 w-4 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+ 3 minutes
+ </div>
+ <div class="flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-600 shadow-sm">
+ <svg class="h-4 w-4 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19V5"/><path d="M4 19h16"/><rect x="7" y="11" width="3" height="5" rx="1"/><rect x="12" y="8" width="3" height="8" rx="1"/><rect x="17" y="5" width="3" height="11" rx="1"/></svg>
+ 10 questions
+ </div>
+ <div class="flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-600 shadow-sm">
+ <svg class="h-4 w-4 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>
+ Score + risk profile
+ </div>
+ </div>
+ <button
+ id="start-btn"
+ type="button"
+ class="mt-6 inline-flex items-center justify-center rounded-full bg-slate-950 px-10 py-4 text-base font-semibold text-white transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+ >
+ Get My Score
+ <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
+ </button>
+ </div>
+ </section>
+ </div>
 
-    <!-- ===================== SCREEN 1: SEGMENTATION (Q1–Q3) ===================== -->
-    <div id="s1" class="screen hidden">
-      <div class="mx-auto max-w-2xl px-5 py-16 lg:px-8">
-        <p class="text-sm font-semibold uppercase tracking-[0.22em] text-blue-700">Your context</p>
-        <h2 class="mt-3 text-3xl font-semibold tracking-[-0.04em] text-slate-950">Let's personalize your results.</h2>
-        <p class="mt-3 text-base text-slate-500">Three quick questions to tailor the output to your role and customer base.</p>
+ <!-- ===================== SCREEN 1: SEGMENTATION (Q1–Q3) ===================== -->
+ <div id="s1" class="screen hidden">
+ <div class="mx-auto max-w-2xl px-5 py-16 lg:px-8">
+ <p class="text-sm font-semibold uppercase tracking-[0.22em] text-blue-700">Your context</p>
+ <h2 class="mt-3 text-3xl font-semibold tracking-[-0.04em] text-slate-950">Let's personalize your results.</h2>
+ <p class="mt-3 text-base text-slate-500">Three quick questions to tailor the output to your role and customer base.</p>
 
-        <div class="mt-10" data-group="q1">
-          <p class="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Question 1 of 10</p>
-          <h3 class="text-lg font-semibold text-slate-950">What is your role?</h3>
-          <div class="mt-4 flex flex-col gap-2.5">
-            <button class="opt-btn" data-q="q1" data-v="A"><span class="opt-letter">A</span><span>Founder / CEO</span></button>
-            <button class="opt-btn" data-q="q1" data-v="B"><span class="opt-letter">B</span><span>Chief Customer Officer / VP Customer Success</span></button>
-            <button class="opt-btn" data-q="q1" data-v="C"><span class="opt-letter">C</span><span>VP / Head of Support</span></button>
-            <button class="opt-btn" data-q="q1" data-v="D"><span class="opt-letter">D</span><span>Revenue / RevOps Leader</span></button>
-            <button class="opt-btn" data-q="q1" data-v="E"><span class="opt-letter">E</span><span>Product Leader</span></button>
-            <button class="opt-btn" data-q="q1" data-v="F"><span class="opt-letter">F</span><span>Other</span></button>
-          </div>
-        </div>
+ <div class="mt-10" data-group="q1">
+ <p class="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Question 1 of 10</p>
+ <h3 class="text-lg font-semibold text-slate-950">What is your role?</h3>
+ <div class="mt-4 flex flex-col gap-2.5">
+ <button class="opt-btn" data-q="q1" data-v="A"><span class="opt-letter">A</span><span>Founder / CEO</span></button>
+ <button class="opt-btn" data-q="q1" data-v="B"><span class="opt-letter">B</span><span>Chief Customer Officer / VP Customer Success</span></button>
+ <button class="opt-btn" data-q="q1" data-v="C"><span class="opt-letter">C</span><span>VP / Head of Support</span></button>
+ <button class="opt-btn" data-q="q1" data-v="D"><span class="opt-letter">D</span><span>Revenue / RevOps Leader</span></button>
+ <button class="opt-btn" data-q="q1" data-v="E"><span class="opt-letter">E</span><span>Product Leader</span></button>
+ <button class="opt-btn" data-q="q1" data-v="F"><span class="opt-letter">F</span><span>Other</span></button>
+ </div>
+ </div>
 
-        <div class="mt-10" data-group="q2">
-          <p class="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Question 2 of 10</p>
-          <h3 class="text-lg font-semibold text-slate-950">How many B2B customers do you support?</h3>
-          <div class="mt-4 flex flex-col gap-2.5">
-            <button class="opt-btn" data-q="q2" data-v="A"><span class="opt-letter">A</span><span>Fewer than 25</span></button>
-            <button class="opt-btn" data-q="q2" data-v="B"><span class="opt-letter">B</span><span>25–100</span></button>
-            <button class="opt-btn" data-q="q2" data-v="C"><span class="opt-letter">C</span><span>101–500</span></button>
-            <button class="opt-btn" data-q="q2" data-v="D"><span class="opt-letter">D</span><span>501–2,000</span></button>
-            <button class="opt-btn" data-q="q2" data-v="E"><span class="opt-letter">E</span><span>More than 2,000</span></button>
-          </div>
-        </div>
+ <div class="mt-10" data-group="q2">
+ <p class="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Question 2 of 10</p>
+ <h3 class="text-lg font-semibold text-slate-950">How many B2B customers do you support?</h3>
+ <div class="mt-4 flex flex-col gap-2.5">
+ <button class="opt-btn" data-q="q2" data-v="A"><span class="opt-letter">A</span><span>Fewer than 25</span></button>
+ <button class="opt-btn" data-q="q2" data-v="B"><span class="opt-letter">B</span><span>25–100</span></button>
+ <button class="opt-btn" data-q="q2" data-v="C"><span class="opt-letter">C</span><span>101–500</span></button>
+ <button class="opt-btn" data-q="q2" data-v="D"><span class="opt-letter">D</span><span>501–2,000</span></button>
+ <button class="opt-btn" data-q="q2" data-v="E"><span class="opt-letter">E</span><span>More than 2,000</span></button>
+ </div>
+ </div>
 
-        <div class="mt-10" data-group="q3">
-          <p class="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Question 3 of 10</p>
-          <h3 class="text-lg font-semibold text-slate-950">What is your average contract size?</h3>
-          <div class="mt-4 flex flex-col gap-2.5">
-            <button class="opt-btn" data-q="q3" data-v="A"><span class="opt-letter">A</span><span>Under $5K ARR</span></button>
-            <button class="opt-btn" data-q="q3" data-v="B"><span class="opt-letter">B</span><span>$5K–$25K ARR</span></button>
-            <button class="opt-btn" data-q="q3" data-v="C"><span class="opt-letter">C</span><span>$25K–$100K ARR</span></button>
-            <button class="opt-btn" data-q="q3" data-v="D"><span class="opt-letter">D</span><span>$100K–$250K ARR</span></button>
-            <button class="opt-btn" data-q="q3" data-v="E"><span class="opt-letter">E</span><span>$250K+ ARR</span></button>
-          </div>
-        </div>
+ <div class="mt-10" data-group="q3">
+ <p class="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Question 3 of 10</p>
+ <h3 class="text-lg font-semibold text-slate-950">What is your average contract size?</h3>
+ <div class="mt-4 flex flex-col gap-2.5">
+ <button class="opt-btn" data-q="q3" data-v="A"><span class="opt-letter">A</span><span>Under $5K ARR</span></button>
+ <button class="opt-btn" data-q="q3" data-v="B"><span class="opt-letter">B</span><span>$5K–$25K ARR</span></button>
+ <button class="opt-btn" data-q="q3" data-v="C"><span class="opt-letter">C</span><span>$25K–$100K ARR</span></button>
+ <button class="opt-btn" data-q="q3" data-v="D"><span class="opt-letter">D</span><span>$100K–$250K ARR</span></button>
+ <button class="opt-btn" data-q="q3" data-v="E"><span class="opt-letter">E</span><span>$250K+ ARR</span></button>
+ </div>
+ </div>
 
-        <div class="mt-10 flex items-center justify-between">
-          <button id="back-1" type="button" class="nav-back-btn">
-            <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m11 5-7 7 7 7"/></svg>
-            Back
-          </button>
-          <button id="next-1" type="button" disabled class="nav-next-btn">
-            Continue
-            <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
-          </button>
-        </div>
-      </div>
-    </div>
+ <div class="mt-10 flex items-center justify-between">
+ <button id="back-1" type="button" class="nav-back-btn">
+ <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m11 5-7 7 7 7"/></svg>
+ Back
+ </button>
+ <button id="next-1" type="button" disabled class="nav-next-btn">
+ Continue
+ <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
+ </button>
+ </div>
+ </div>
+ </div>
 
-    <!-- ===================== SCREEN 2: RISK DETECTION (Q4–Q5) ===================== -->
-    <div id="s2" class="screen hidden">
-      <div class="mx-auto max-w-2xl px-5 py-16 lg:px-8">
-        <p class="text-sm font-semibold uppercase tracking-[0.22em] text-blue-700">Current risk detection</p>
-        <h2 class="mt-3 text-3xl font-semibold tracking-[-0.04em] text-slate-950">How do you currently identify risk?</h2>
-        <p class="mt-3 text-base text-slate-500">These questions diagnose whether you have an early-warning system or are relying on lagging indicators.</p>
+ <!-- ===================== SCREEN 2: RISK DETECTION (Q4–Q5) ===================== -->
+ <div id="s2" class="screen hidden">
+ <div class="mx-auto max-w-2xl px-5 py-16 lg:px-8">
+ <p class="text-sm font-semibold uppercase tracking-[0.22em] text-blue-700">Current risk detection</p>
+ <h2 class="mt-3 text-3xl font-semibold tracking-[-0.04em] text-slate-950">How do you currently identify risk?</h2>
+ <p class="mt-3 text-base text-slate-500">These questions diagnose whether you have an early-warning system or are relying on lagging indicators.</p>
 
-        <div class="mt-10" data-group="q4">
-          <p class="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Question 4 of 10</p>
-          <h3 class="text-lg font-semibold text-slate-950">How do you currently identify renewal risk?</h3>
-          <div class="mt-4 flex flex-col gap-2.5">
-            <button class="opt-btn" data-q="q4" data-v="A"><span class="opt-letter">A</span><span>Mostly through CSM judgment, account notes, or QBRs</span></button>
-            <button class="opt-btn" data-q="q4" data-v="B"><span class="opt-letter">B</span><span>Mostly through usage dashboards or health scores</span></button>
-            <button class="opt-btn" data-q="q4" data-v="C"><span class="opt-letter">C</span><span>Mostly when customers escalate, go quiet, or push back near renewal</span></button>
-            <button class="opt-btn" data-q="q4" data-v="D"><span class="opt-letter">D</span><span>Through connected support, product, CS, and renewal signals</span></button>
-            <button class="opt-btn" data-q="q4" data-v="E"><span class="opt-letter">E</span><span>We do not have a consistent process</span></button>
-          </div>
-        </div>
+ <div class="mt-10" data-group="q4">
+ <p class="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Question 4 of 10</p>
+ <h3 class="text-lg font-semibold text-slate-950">How do you currently identify renewal risk?</h3>
+ <div class="mt-4 flex flex-col gap-2.5">
+ <button class="opt-btn" data-q="q4" data-v="A"><span class="opt-letter">A</span><span>Mostly through CSM judgment, account notes, or QBRs</span></button>
+ <button class="opt-btn" data-q="q4" data-v="B"><span class="opt-letter">B</span><span>Mostly through usage dashboards or health scores</span></button>
+ <button class="opt-btn" data-q="q4" data-v="C"><span class="opt-letter">C</span><span>Mostly when customers escalate, go quiet, or push back near renewal</span></button>
+ <button class="opt-btn" data-q="q4" data-v="D"><span class="opt-letter">D</span><span>Through connected support, product, CS, and renewal signals</span></button>
+ <button class="opt-btn" data-q="q4" data-v="E"><span class="opt-letter">E</span><span>We do not have a consistent process</span></button>
+ </div>
+ </div>
 
-        <div class="mt-10" data-group="q5">
-          <p class="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Question 5 of 10</p>
-          <h3 class="text-lg font-semibold text-slate-950">Do support tickets connect to account health today?</h3>
-          <div class="mt-4 flex flex-col gap-2.5">
-            <button class="opt-btn" data-q="q5" data-v="A"><span class="opt-letter">A</span><span>No, tickets are mostly managed separately from account health</span></button>
-            <button class="opt-btn" data-q="q5" data-v="B"><span class="opt-letter">B</span><span>Partially, but mostly through manual notes or CSM interpretation</span></button>
-            <button class="opt-btn" data-q="q5" data-v="C"><span class="opt-letter">C</span><span>Yes, support activity is visible in account health dashboards</span></button>
-            <button class="opt-btn" data-q="q5" data-v="D"><span class="opt-letter">D</span><span>Yes, and support patterns influence risk, adoption, and renewal views</span></button>
-            <button class="opt-btn" data-q="q5" data-v="E"><span class="opt-letter">E</span><span>Not sure</span></button>
-          </div>
-        </div>
+ <div class="mt-10" data-group="q5">
+ <p class="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Question 5 of 10</p>
+ <h3 class="text-lg font-semibold text-slate-950">Do support tickets connect to account health today?</h3>
+ <div class="mt-4 flex flex-col gap-2.5">
+ <button class="opt-btn" data-q="q5" data-v="A"><span class="opt-letter">A</span><span>No, tickets are mostly managed separately from account health</span></button>
+ <button class="opt-btn" data-q="q5" data-v="B"><span class="opt-letter">B</span><span>Partially, but mostly through manual notes or CSM interpretation</span></button>
+ <button class="opt-btn" data-q="q5" data-v="C"><span class="opt-letter">C</span><span>Yes, support activity is visible in account health dashboards</span></button>
+ <button class="opt-btn" data-q="q5" data-v="D"><span class="opt-letter">D</span><span>Yes, and support patterns influence risk, adoption, and renewal views</span></button>
+ <button class="opt-btn" data-q="q5" data-v="E"><span class="opt-letter">E</span><span>Not sure</span></button>
+ </div>
+ </div>
 
-        <div class="mt-10 flex items-center justify-between">
-          <button id="back-2" type="button" class="nav-back-btn">
-            <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m11 5-7 7 7 7"/></svg>
-            Back
-          </button>
-          <button id="next-2" type="button" disabled class="nav-next-btn">
-            Continue
-            <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
-          </button>
-        </div>
-      </div>
-    </div>
+ <div class="mt-10 flex items-center justify-between">
+ <button id="back-2" type="button" class="nav-back-btn">
+ <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m11 5-7 7 7 7"/></svg>
+ Back
+ </button>
+ <button id="next-2" type="button" disabled class="nav-next-btn">
+ Continue
+ <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
+ </button>
+ </div>
+ </div>
+ </div>
 
-    <!-- ===================== SCREEN 3: VALUE SIGNALS (Q6–Q8) ===================== -->
-    <div id="s3" class="screen hidden">
-      <div class="mx-auto max-w-2xl px-5 py-16 lg:px-8">
-        <p class="text-sm font-semibold uppercase tracking-[0.22em] text-blue-700">Value signal detection</p>
-        <h2 class="mt-3 text-3xl font-semibold tracking-[-0.04em] text-slate-950">What signals can your team see?</h2>
-        <p class="mt-3 text-base text-slate-500">These questions diagnose adoption friction, expansion opportunities, and disengagement visibility.</p>
+ <!-- ===================== SCREEN 3: VALUE SIGNALS (Q6–Q8) ===================== -->
+ <div id="s3" class="screen hidden">
+ <div class="mx-auto max-w-2xl px-5 py-16 lg:px-8">
+ <p class="text-sm font-semibold uppercase tracking-[0.22em] text-blue-700">Value signal detection</p>
+ <h2 class="mt-3 text-3xl font-semibold tracking-[-0.04em] text-slate-950">What signals can your team see?</h2>
+ <p class="mt-3 text-base text-slate-500">These questions diagnose adoption friction, expansion opportunities, and disengagement visibility.</p>
 
-        <div class="mt-10" data-group="q6">
-          <p class="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Question 6 of 10</p>
-          <h3 class="text-lg font-semibold text-slate-950">Can you identify repeated friction by account and product area?</h3>
-          <div class="mt-4 flex flex-col gap-2.5">
-            <button class="opt-btn" data-q="q6" data-v="A"><span class="opt-letter">A</span><span>No, we mostly look at tickets individually</span></button>
-            <button class="opt-btn" data-q="q6" data-v="B"><span class="opt-letter">B</span><span>Sometimes, but it requires manual analysis</span></button>
-            <button class="opt-btn" data-q="q6" data-v="C"><span class="opt-letter">C</span><span>We can see repeated issues by account, but not by product area</span></button>
-            <button class="opt-btn" data-q="q6" data-v="D"><span class="opt-letter">D</span><span>We can see repeated issues by product area, but not tied clearly to account risk</span></button>
-            <button class="opt-btn" data-q="q6" data-v="E"><span class="opt-letter">E</span><span>Yes, we can identify repeated friction by account, product area, and risk impact</span></button>
-          </div>
-        </div>
+ <div class="mt-10" data-group="q6">
+ <p class="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Question 6 of 10</p>
+ <h3 class="text-lg font-semibold text-slate-950">Can you identify repeated friction by account and product area?</h3>
+ <div class="mt-4 flex flex-col gap-2.5">
+ <button class="opt-btn" data-q="q6" data-v="A"><span class="opt-letter">A</span><span>No, we mostly look at tickets individually</span></button>
+ <button class="opt-btn" data-q="q6" data-v="B"><span class="opt-letter">B</span><span>Sometimes, but it requires manual analysis</span></button>
+ <button class="opt-btn" data-q="q6" data-v="C"><span class="opt-letter">C</span><span>We can see repeated issues by account, but not by product area</span></button>
+ <button class="opt-btn" data-q="q6" data-v="D"><span class="opt-letter">D</span><span>We can see repeated issues by product area, but not tied clearly to account risk</span></button>
+ <button class="opt-btn" data-q="q6" data-v="E"><span class="opt-letter">E</span><span>Yes, we can identify repeated friction by account, product area, and risk impact</span></button>
+ </div>
+ </div>
 
-        <div class="mt-10" data-group="q7">
-          <p class="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Question 7 of 10</p>
-          <h3 class="text-lg font-semibold text-slate-950">Do you know when support activity signals expansion?</h3>
-          <div class="mt-4 flex flex-col gap-2.5">
-            <button class="opt-btn" data-q="q7" data-v="A"><span class="opt-letter">A</span><span>No, support requests are not usually reviewed for expansion signals</span></button>
-            <button class="opt-btn" data-q="q7" data-v="B"><span class="opt-letter">B</span><span>Sometimes, if a CSM or support rep notices manually</span></button>
-            <button class="opt-btn" data-q="q7" data-v="C"><span class="opt-letter">C</span><span>We track some expansion-related keywords or requests</span></button>
-            <button class="opt-btn" data-q="q7" data-v="D"><span class="opt-letter">D</span><span>We route certain support signals to CS or sales</span></button>
-            <button class="opt-btn" data-q="q7" data-v="E"><span class="opt-letter">E</span><span>Yes, expansion signals from support are systematically captured and acted on</span></button>
-          </div>
-        </div>
+ <div class="mt-10" data-group="q7">
+ <p class="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Question 7 of 10</p>
+ <h3 class="text-lg font-semibold text-slate-950">Do you know when support activity signals expansion?</h3>
+ <div class="mt-4 flex flex-col gap-2.5">
+ <button class="opt-btn" data-q="q7" data-v="A"><span class="opt-letter">A</span><span>No, support requests are not usually reviewed for expansion signals</span></button>
+ <button class="opt-btn" data-q="q7" data-v="B"><span class="opt-letter">B</span><span>Sometimes, if a CSM or support rep notices manually</span></button>
+ <button class="opt-btn" data-q="q7" data-v="C"><span class="opt-letter">C</span><span>We track some expansion-related keywords or requests</span></button>
+ <button class="opt-btn" data-q="q7" data-v="D"><span class="opt-letter">D</span><span>We route certain support signals to CS or sales</span></button>
+ <button class="opt-btn" data-q="q7" data-v="E"><span class="opt-letter">E</span><span>Yes, expansion signals from support are systematically captured and acted on</span></button>
+ </div>
+ </div>
 
-        <div class="mt-10" data-group="q8">
-          <p class="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Question 8 of 10</p>
-          <h3 class="text-lg font-semibold text-slate-950">Do you know when quiet accounts are healthy versus disengaged?</h3>
-          <div class="mt-4 flex flex-col gap-2.5">
-            <button class="opt-btn" data-q="q8" data-v="A"><span class="opt-letter">A</span><span>No, low support volume is often assumed to be good</span></button>
-            <button class="opt-btn" data-q="q8" data-v="B"><span class="opt-letter">B</span><span>Not reliably; we usually need CSM judgment</span></button>
-            <button class="opt-btn" data-q="q8" data-v="C"><span class="opt-letter">C</span><span>We compare support activity with usage data</span></button>
-            <button class="opt-btn" data-q="q8" data-v="D"><span class="opt-letter">D</span><span>We compare support activity, usage, onboarding, and renewal context</span></button>
-            <button class="opt-btn" data-q="q8" data-v="E"><span class="opt-letter">E</span><span>Yes, we have a clear way to distinguish maturity from disengagement</span></button>
-          </div>
-        </div>
+ <div class="mt-10" data-group="q8">
+ <p class="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Question 8 of 10</p>
+ <h3 class="text-lg font-semibold text-slate-950">Do you know when quiet accounts are healthy versus disengaged?</h3>
+ <div class="mt-4 flex flex-col gap-2.5">
+ <button class="opt-btn" data-q="q8" data-v="A"><span class="opt-letter">A</span><span>No, low support volume is often assumed to be good</span></button>
+ <button class="opt-btn" data-q="q8" data-v="B"><span class="opt-letter">B</span><span>Not reliably; we usually need CSM judgment</span></button>
+ <button class="opt-btn" data-q="q8" data-v="C"><span class="opt-letter">C</span><span>We compare support activity with usage data</span></button>
+ <button class="opt-btn" data-q="q8" data-v="D"><span class="opt-letter">D</span><span>We compare support activity, usage, onboarding, and renewal context</span></button>
+ <button class="opt-btn" data-q="q8" data-v="E"><span class="opt-letter">E</span><span>Yes, we have a clear way to distinguish maturity from disengagement</span></button>
+ </div>
+ </div>
 
-        <div class="mt-10 flex items-center justify-between">
-          <button id="back-3" type="button" class="nav-back-btn">
-            <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m11 5-7 7 7 7"/></svg>
-            Back
-          </button>
-          <button id="next-3" type="button" disabled class="nav-next-btn">
-            Continue
-            <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
-          </button>
-        </div>
-      </div>
-    </div>
+ <div class="mt-10 flex items-center justify-between">
+ <button id="back-3" type="button" class="nav-back-btn">
+ <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m11 5-7 7 7 7"/></svg>
+ Back
+ </button>
+ <button id="next-3" type="button" disabled class="nav-next-btn">
+ Continue
+ <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
+ </button>
+ </div>
+ </div>
+ </div>
 
-    <!-- ===================== SCREEN 4: RENEWAL DEFENSIBILITY (Q9–Q10) ===================== -->
-    <div id="s4" class="screen hidden">
-      <div class="mx-auto max-w-2xl px-5 py-16 lg:px-8">
-        <p class="text-sm font-semibold uppercase tracking-[0.22em] text-blue-700">Renewal defensibility</p>
-        <h2 class="mt-3 text-3xl font-semibold tracking-[-0.04em] text-slate-950">Can your customers prove value?</h2>
-        <p class="mt-3 text-base text-slate-500">This is the core question. Can your champions defend the product when budget, procurement, or consolidation comes up?</p>
+ <!-- ===================== SCREEN 4: RENEWAL DEFENSIBILITY (Q9–Q10) ===================== -->
+ <div id="s4" class="screen hidden">
+ <div class="mx-auto max-w-2xl px-5 py-16 lg:px-8">
+ <p class="text-sm font-semibold uppercase tracking-[0.22em] text-blue-700">Renewal defensibility</p>
+ <h2 class="mt-3 text-3xl font-semibold tracking-[-0.04em] text-slate-950">Can your customers prove value?</h2>
+ <p class="mt-3 text-base text-slate-500">This is the core question. Can your champions defend the product when budget, procurement, or consolidation comes up?</p>
 
-        <div class="mt-10" data-group="q9">
-          <p class="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Question 9 of 10</p>
-          <h3 class="text-lg font-semibold text-slate-950">Can your champions prove product value before renewal?</h3>
-          <div class="mt-4 flex flex-col gap-2.5">
-            <button class="opt-btn" data-q="q9" data-v="A"><span class="opt-letter">A</span><span>Not consistently</span></button>
-            <button class="opt-btn" data-q="q9" data-v="B"><span class="opt-letter">B</span><span>Only through anecdotes or relationship strength</span></button>
-            <button class="opt-btn" data-q="q9" data-v="C"><span class="opt-letter">C</span><span>Sometimes, but proof usually has to be assembled manually</span></button>
-            <button class="opt-btn" data-q="q9" data-v="D"><span class="opt-letter">D</span><span>Yes, for strategic accounts, but not across the full base</span></button>
-            <button class="opt-btn" data-q="q9" data-v="E"><span class="opt-letter">E</span><span>Yes, we can show adoption, outcomes, and value evidence before renewal</span></button>
-          </div>
-        </div>
+ <div class="mt-10" data-group="q9">
+ <p class="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Question 9 of 10</p>
+ <h3 class="text-lg font-semibold text-slate-950">Can your champions prove product value before renewal?</h3>
+ <div class="mt-4 flex flex-col gap-2.5">
+ <button class="opt-btn" data-q="q9" data-v="A"><span class="opt-letter">A</span><span>Not consistently</span></button>
+ <button class="opt-btn" data-q="q9" data-v="B"><span class="opt-letter">B</span><span>Only through anecdotes or relationship strength</span></button>
+ <button class="opt-btn" data-q="q9" data-v="C"><span class="opt-letter">C</span><span>Sometimes, but proof usually has to be assembled manually</span></button>
+ <button class="opt-btn" data-q="q9" data-v="D"><span class="opt-letter">D</span><span>Yes, for strategic accounts, but not across the full base</span></button>
+ <button class="opt-btn" data-q="q9" data-v="E"><span class="opt-letter">E</span><span>Yes, we can show adoption, outcomes, and value evidence before renewal</span></button>
+ </div>
+ </div>
 
-        <div class="mt-10" data-group="q10">
-          <p class="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Question 10 of 10</p>
-          <h3 class="text-lg font-semibold text-slate-950">How often are churn risks discovered too late?</h3>
-          <div class="mt-4 flex flex-col gap-2.5">
-            <button class="opt-btn" data-q="q10" data-v="A"><span class="opt-letter">A</span><span>Rarely; we usually see risk early enough to act</span></button>
-            <button class="opt-btn" data-q="q10" data-v="B"><span class="opt-letter">B</span><span>Sometimes; a few accounts surprise us each quarter</span></button>
-            <button class="opt-btn" data-q="q10" data-v="C"><span class="opt-letter">C</span><span>Often; risk usually becomes clear near renewal</span></button>
-            <button class="opt-btn" data-q="q10" data-v="D"><span class="opt-letter">D</span><span>Very often; churn or contraction can feel sudden</span></button>
-            <button class="opt-btn" data-q="q10" data-v="E"><span class="opt-letter">E</span><span>Not sure</span></button>
-          </div>
-        </div>
+ <div class="mt-10" data-group="q10">
+ <p class="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Question 10 of 10</p>
+ <h3 class="text-lg font-semibold text-slate-950">How often are churn risks discovered too late?</h3>
+ <div class="mt-4 flex flex-col gap-2.5">
+ <button class="opt-btn" data-q="q10" data-v="A"><span class="opt-letter">A</span><span>Rarely; we usually see risk early enough to act</span></button>
+ <button class="opt-btn" data-q="q10" data-v="B"><span class="opt-letter">B</span><span>Sometimes; a few accounts surprise us each quarter</span></button>
+ <button class="opt-btn" data-q="q10" data-v="C"><span class="opt-letter">C</span><span>Often; risk usually becomes clear near renewal</span></button>
+ <button class="opt-btn" data-q="q10" data-v="D"><span class="opt-letter">D</span><span>Very often; churn or contraction can feel sudden</span></button>
+ <button class="opt-btn" data-q="q10" data-v="E"><span class="opt-letter">E</span><span>Not sure</span></button>
+ </div>
+ </div>
 
-        <div class="mt-10 flex items-center justify-between">
-          <button id="back-4" type="button" class="nav-back-btn">
-            <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m11 5-7 7 7 7"/></svg>
-            Back
-          </button>
-          <button id="next-4" type="button" disabled class="nav-next-btn">
-            Continue
-            <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
-          </button>
-        </div>
-      </div>
-    </div>
+ <div class="mt-10 flex items-center justify-between">
+ <button id="back-4" type="button" class="nav-back-btn">
+ <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m11 5-7 7 7 7"/></svg>
+ Back
+ </button>
+ <button id="next-4" type="button" disabled class="nav-next-btn">
+ Continue
+ <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
+ </button>
+ </div>
+ </div>
+ </div>
 
-    <!-- ===================== SCREEN 5: EMAIL CAPTURE ===================== -->
-    <div id="s5" class="screen hidden">
-      <div class="mx-auto max-w-2xl px-5 py-16 lg:px-8">
-        <div class="rounded-3xl border border-slate-200 bg-slate-50 p-8 text-center">
-          <span class="inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-blue-700 shadow-sm">
-            Your score is ready
-          </span>
-          <h2 class="mt-6 text-3xl font-semibold tracking-[-0.04em] text-slate-950">
-            Your Customer Defensibility Score is ready.
-          </h2>
-          <p class="mt-4 text-base leading-7 text-slate-600">
-            Enter your work email to receive your score, risk profile, and recommended next steps.
-          </p>
-        </div>
+ <!-- ===================== SCREEN 5: EMAIL CAPTURE ===================== -->
+ <div id="s5" class="screen hidden">
+ <div class="mx-auto max-w-2xl px-5 py-16 lg:px-8">
+ <div class="rounded-3xl border border-slate-200 bg-slate-50 p-8 text-center">
+ <span class="inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-blue-700 shadow-sm">
+ Your score is ready
+ </span>
+ <h2 class="mt-6 text-3xl font-semibold tracking-[-0.04em] text-slate-950">
+ Your Customer Defensibility Score is ready.
+ </h2>
+ <p class="mt-4 text-base leading-7 text-slate-600">
+ Enter your work email to receive your score, risk profile, and recommended next steps.
+ </p>
+ </div>
 
-        <form id="email-form" class="mt-8 flex flex-col gap-4" novalidate>
-          <div class="grid gap-4 sm:grid-cols-2">
-            <input
-              id="input-email"
-              type="email"
-              placeholder="Work email *"
-              required
-              class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3.5 text-sm outline-none transition focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
-            />
-            <input
-              id="input-company"
-              type="text"
-              placeholder="Company *"
-              required
-              class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3.5 text-sm outline-none transition focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
-            />
-            <input
-              id="input-name"
-              type="text"
-              placeholder="Name (optional)"
-              class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3.5 text-sm outline-none transition focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
-            />
-          </div>
-          <p id="email-error" class="hidden text-sm text-red-600">Please enter a valid work email and company name.</p>
-          <button
-            id="submit-email"
-            type="submit"
-            class="mt-2 inline-flex w-full items-center justify-center rounded-full bg-slate-950 px-8 py-4 text-base font-semibold text-white transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-          >
-            Show My Results
-            <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
-          </button>
-        </form>
+ <form id="email-form" class="mt-8 flex flex-col gap-4" novalidate>
+ <div class="grid gap-4 sm:grid-cols-2">
+ <input
+ id="input-email"
+ type="email"
+ placeholder="Work email *"
+ required
+ class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3.5 text-sm outline-none transition focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+ />
+ <input
+ id="input-company"
+ type="text"
+ placeholder="Company *"
+ required
+ class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3.5 text-sm outline-none transition focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+ />
+ <input
+ id="input-name"
+ type="text"
+ placeholder="Name (optional)"
+ class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3.5 text-sm outline-none transition focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+ />
+ </div>
+ <p id="email-error" class="hidden text-sm text-red-600">Please enter a valid work email and company name.</p>
+ <button
+ id="submit-email"
+ type="submit"
+ class="mt-2 inline-flex w-full items-center justify-center rounded-full bg-slate-950 px-8 py-4 text-base font-semibold text-white transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+ >
+ Show My Results
+ <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
+ </button>
+ </form>
 
-        <div class="mt-6 flex items-center justify-between">
-          <button id="back-5" type="button" class="nav-back-btn">
-            <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m11 5-7 7 7 7"/></svg>
-            Back
-          </button>
-          <p class="text-xs text-slate-400">No spam. We'll use this to send your results.</p>
-        </div>
-      </div>
-    </div>
+ <div class="mt-6 flex items-center justify-between">
+ <button id="back-5" type="button" class="nav-back-btn">
+ <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m11 5-7 7 7 7"/></svg>
+ Back
+ </button>
+ <p class="text-xs text-slate-400">No spam. We'll use this to send your results.</p>
+ </div>
+ </div>
+ </div>
 
-    <!-- ===================== SCREEN 6: RESULTS ===================== -->
-    <div id="s6" class="screen hidden">
+ <!-- ===================== SCREEN 6: RESULTS ===================== -->
+ <div id="s6" class="screen hidden">
 
-      <!-- Score hero -->
-      <section class="border-b border-slate-100 bg-gradient-to-b from-white to-slate-50 px-5 py-16 lg:px-8 lg:py-20">
-        <div class="mx-auto max-w-3xl">
-          <div class="flex flex-col items-center gap-8 sm:flex-row sm:items-start">
-            <!-- Score ring -->
-            <div class="flex-shrink-0 text-center">
-              <div id="score-ring" class="relative flex h-36 w-36 items-center justify-center rounded-full" style="box-shadow: inset 0 0 0 10px #e2e8f0;">
-                <div class="text-center">
-                  <span id="score-number" class="block text-5xl font-bold tracking-tight text-slate-950"></span>
-                  <span class="block text-xs font-semibold uppercase tracking-[0.12em] text-slate-400">/ 100</span>
-                </div>
-              </div>
-            </div>
-            <!-- Score text -->
-            <div>
-              <span id="score-band-badge" class="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold"></span>
-              <h1 id="score-band-label" class="mt-3 text-3xl font-semibold tracking-[-0.04em] text-slate-950 lg:text-4xl"></h1>
-              <p id="score-band-desc" class="mt-3 text-base leading-7 text-slate-600"></p>
-              <p id="score-role-context" class="mt-3 text-sm leading-6 text-slate-500"></p>
-            </div>
-          </div>
-        </div>
-      </section>
+ <!-- Score hero -->
+ <section class="border-b border-slate-100 bg-gradient-to-b from-white to-slate-50 px-5 py-16 lg:px-8 lg:py-20">
+ <div class="mx-auto max-w-3xl">
+ <div class="flex flex-col items-center gap-8 sm:flex-row sm:items-start">
+ <!-- Score ring -->
+ <div class="flex-shrink-0 text-center">
+ <div id="score-ring" class="relative flex h-36 w-36 items-center justify-center rounded-full" style="box-shadow: inset 0 0 0 10px #e2e8f0;">
+ <div class="text-center">
+ <span id="score-number" class="block text-5xl font-bold tracking-tight text-slate-950"></span>
+ <span class="block text-xs font-semibold uppercase tracking-[0.12em] text-slate-400">/ 100</span>
+ </div>
+ </div>
+ </div>
+ <!-- Score text -->
+ <div>
+ <span id="score-band-badge" class="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold"></span>
+ <h1 id="score-band-label" class="mt-3 text-3xl font-semibold tracking-[-0.04em] text-slate-950 lg:text-4xl"></h1>
+ <p id="score-band-desc" class="mt-3 text-base leading-7 text-slate-600"></p>
+ <p id="score-role-context" class="mt-3 text-sm leading-6 text-slate-500"></p>
+ </div>
+ </div>
+ </div>
+ </section>
 
-      <!-- Dominant profile -->
-      <section class="px-5 py-12 lg:px-8">
-        <div class="mx-auto max-w-3xl">
-          <p class="mb-4 text-sm font-semibold uppercase tracking-[0.22em] text-blue-700">Your dominant risk profile</p>
-          <div class="rounded-3xl bg-slate-950 p-8 text-white">
-            <p class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Risk profile</p>
-            <h2 id="profile-name" class="mt-2 text-2xl font-semibold tracking-[-0.03em]"></h2>
-            <p id="profile-desc" class="mt-3 text-base leading-7 text-slate-300"></p>
-          </div>
+ <!-- Dominant profile -->
+ <section class="px-5 py-12 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <p class="mb-4 text-sm font-semibold uppercase tracking-[0.22em] text-blue-700">Your dominant risk profile</p>
+ <div class="rounded-3xl bg-slate-950 p-8 text-white">
+ <p class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Risk profile</p>
+ <h2 id="profile-name" class="mt-2 text-2xl font-semibold tracking-[-0.03em]"></h2>
+ <p id="profile-desc" class="mt-3 text-base leading-7 text-slate-300"></p>
+ </div>
 
-          <!-- Warning signs -->
-          <div class="mt-8 rounded-3xl border border-amber-200 bg-amber-50 p-7">
-            <div class="mb-5 flex items-center gap-3">
-              <div class="flex h-8 w-8 items-center justify-center rounded-full bg-amber-100">
-                <svg class="h-4 w-4 text-amber-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
-              </div>
-              <h3 class="text-base font-semibold text-amber-900">Three warning signs to investigate</h3>
-            </div>
-            <ul id="warnings-list" class="flex flex-col gap-3"></ul>
-          </div>
+ <!-- Warning signs -->
+ <div class="mt-8 rounded-3xl border border-amber-200 bg-amber-50 p-7">
+ <div class="mb-5 flex items-center gap-3">
+ <div class="flex h-8 w-8 items-center justify-center rounded-full bg-amber-100">
+ <svg class="h-4 w-4 text-amber-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+ </div>
+ <h3 class="text-base font-semibold text-amber-900">Three warning signs to investigate</h3>
+ </div>
+ <ul id="warnings-list" class="flex flex-col gap-3"></ul>
+ </div>
 
-          <!-- Recommended actions -->
-          <div class="mt-6 rounded-3xl border border-blue-200 bg-blue-50 p-7">
-            <div class="mb-5 flex items-center gap-3">
-              <div class="flex h-8 w-8 items-center justify-center rounded-full bg-blue-100">
-                <svg class="h-4 w-4 text-blue-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
-              </div>
-              <h3 class="text-base font-semibold text-blue-900">Recommended next steps</h3>
-            </div>
-            <ul id="actions-list" class="flex flex-col gap-3"></ul>
-          </div>
+ <!-- Recommended actions -->
+ <div class="mt-6 rounded-3xl border border-blue-200 bg-blue-50 p-7">
+ <div class="mb-5 flex items-center gap-3">
+ <div class="flex h-8 w-8 items-center justify-center rounded-full bg-blue-100">
+ <svg class="h-4 w-4 text-blue-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+ </div>
+ <h3 class="text-base font-semibold text-blue-900">Recommended next steps</h3>
+ </div>
+ <ul id="actions-list" class="flex flex-col gap-3"></ul>
+ </div>
 
-          <!-- CTA -->
-          <div class="mt-8 rounded-3xl border border-slate-200 bg-white p-8">
-            <p class="text-sm font-semibold uppercase tracking-[0.22em] text-blue-700">Want a deeper read?</p>
-            <h3 class="mt-3 text-xl font-semibold tracking-[-0.03em] text-slate-950">Request a Value Decay Signal Review</h3>
-            <p class="mt-3 text-base leading-7 text-slate-600">
-              Share an anonymized sample of support tickets and Meridian can generate a limited Value Decay Signal Review showing where support activity may indicate activation risk, adoption friction, expansion signals, or renewal defensibility gaps.
-            </p>
-            <button
-              id="open-signal-modal"
-              type="button"
-              class="mt-6 inline-flex items-center justify-center rounded-full bg-slate-950 px-8 py-4 text-base font-semibold text-white transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-            >
-              Request a Signal Review
-              <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
-            </button>
-          </div>
-        </div>
-      </section>
+ <!-- CTA -->
+ <div class="mt-8 rounded-3xl border border-slate-200 bg-white p-8">
+ <p class="text-sm font-semibold uppercase tracking-[0.22em] text-blue-700">Want a deeper read?</p>
+ <h3 class="mt-3 text-xl font-semibold tracking-[-0.03em] text-slate-950">Request a Value Decay Signal Review</h3>
+ <p class="mt-3 text-base leading-7 text-slate-600">
+ Share an anonymized sample of support tickets and Meridian can generate a limited Value Decay Signal Review showing where support activity may indicate activation risk, adoption friction, expansion signals, or renewal defensibility gaps.
+ </p>
+ <button
+ id="open-signal-modal"
+ type="button"
+ class="mt-6 inline-flex items-center justify-center rounded-full bg-slate-950 px-8 py-4 text-base font-semibold text-white transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+ >
+ Request a Signal Review
+ <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
+ </button>
+ </div>
+ </div>
+ </section>
 
-    </div>
+ </div>
 
-  </main>
+ </main>
 
-  <!-- Hidden Netlify form for Signal Review -->
-  <form name="signal-review-request" data-netlify="true" netlify-honeypot="bot-field" hidden>
-    <input name="bot-field" />
-    <input name="email" />
-    <input name="full-name" />
-    <input name="company" />
-    <input name="score" />
-    <input name="profile" />
-    <input name="focus" />
-  </form>
+ <!-- Hidden Netlify form for Signal Review -->
+ <form name="signal-review-request" data-netlify="true" netlify-honeypot="bot-field" hidden>
+ <input name="bot-field" />
+ <input name="email" />
+ <input name="full-name" />
+ <input name="company" />
+ <input name="score" />
+ <input name="profile" />
+ <input name="focus" />
+ </form>
 
-  <!-- Signal Review Modal -->
-  <div
-    id="signal-modal"
-    class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/60 p-4 backdrop-blur-sm"
-    aria-modal="true"
-    aria-hidden="true"
-    role="dialog"
-  >
-    <div class="w-full max-w-lg rounded-3xl border border-slate-200 bg-white p-8 shadow-2xl">
+ <!-- Signal Review Modal -->
+ <div
+ id="signal-modal"
+ class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/60 p-4 backdrop-blur-sm"
+ aria-modal="true"
+ aria-hidden="true"
+ role="dialog"
+ >
+ <div class="w-full max-w-lg rounded-3xl border border-slate-200 bg-white p-8 shadow-2xl">
 
-      <!-- Form state -->
-      <div id="signal-modal-form-state">
-        <div class="mb-6 flex items-start justify-between gap-4">
-          <div>
-            <span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-blue-700">Signal Review</span>
-            <h3 class="mt-3 text-xl font-semibold tracking-tight text-slate-950">Request a Value Decay Signal Review</h3>
-            <p class="mt-2 text-sm leading-6 text-slate-600">
-              Share an anonymized sample of support tickets and Meridian will generate a limited Signal Review showing where support activity may indicate activation risk, adoption friction, expansion signals, or renewal defensibility gaps.
-            </p>
-          </div>
-          <button id="signal-modal-close" type="button" aria-label="Close" class="flex-shrink-0 rounded-full px-3 py-1 text-slate-400 hover:bg-slate-100 hover:text-slate-700">×</button>
-        </div>
+ <!-- Form state -->
+ <div id="signal-modal-form-state">
+ <div class="mb-6 flex items-start justify-between gap-4">
+ <div>
+ <span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-blue-700">Signal Review</span>
+ <h3 class="mt-3 text-xl font-semibold tracking-tight text-slate-950">Request a Value Decay Signal Review</h3>
+ <p class="mt-2 text-sm leading-6 text-slate-600">
+ Share an anonymized sample of support tickets and Meridian will generate a limited Signal Review showing where support activity may indicate activation risk, adoption friction, expansion signals, or renewal defensibility gaps.
+ </p>
+ </div>
+ <button id="signal-modal-close" type="button" aria-label="Close" class="flex-shrink-0 rounded-full px-3 py-1 text-slate-400 hover:bg-slate-100 hover:text-slate-700">×</button>
+ </div>
 
-        <form id="signal-review-form" novalidate class="flex flex-col gap-3">
-          <div class="grid gap-3 sm:grid-cols-2">
-            <input id="sr-name"    type="text"  placeholder="Your name"    class="sr-input" />
-            <input id="sr-email"   type="email" placeholder="Work email *" class="sr-input" required />
-            <input id="sr-company" type="text"  placeholder="Company *"    class="sr-input sm:col-span-2" required />
-          </div>
-          <textarea
-            id="sr-focus"
-            rows="3"
-            placeholder="Anything specific you'd like us to focus on? (optional)"
-            class="sr-input resize-none"
-          ></textarea>
-          <p id="sr-error" class="hidden text-sm text-red-600">Please enter a valid work email and company name.</p>
-          <button
-            id="sr-submit"
-            type="submit"
-            class="mt-1 inline-flex w-full items-center justify-center rounded-full bg-slate-950 px-6 py-4 text-sm font-semibold text-white transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-          >
-            Request My Review
-            <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
-          </button>
-        </form>
-        <p class="mt-3 text-center text-xs text-slate-400">No spam. We'll follow up within one business day.</p>
-      </div>
+ <form id="signal-review-form" novalidate class="flex flex-col gap-3">
+ <div class="grid gap-3 sm:grid-cols-2">
+ <input id="sr-name" type="text" placeholder="Your name" class="sr-input" />
+ <input id="sr-email" type="email" placeholder="Work email *" class="sr-input" required />
+ <input id="sr-company" type="text" placeholder="Company *" class="sr-input sm:col-span-2" required />
+ </div>
+ <textarea
+ id="sr-focus"
+ rows="3"
+ placeholder="Anything specific you'd like us to focus on? (optional)"
+ class="sr-input resize-none"
+ ></textarea>
+ <p id="sr-error" class="hidden text-sm text-red-600">Please enter a valid work email and company name.</p>
+ <button
+ id="sr-submit"
+ type="submit"
+ class="mt-1 inline-flex w-full items-center justify-center rounded-full bg-slate-950 px-6 py-4 text-sm font-semibold text-white transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+ >
+ Request My Review
+ <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
+ </button>
+ </form>
+ <p class="mt-3 text-center text-xs text-slate-400">No spam. We'll follow up within one business day.</p>
+ </div>
 
-      <!-- Confirmation state (hidden until submitted) -->
-      <div id="signal-modal-confirm-state" class="hidden py-4 text-center">
-        <div class="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-teal-50">
-          <svg class="h-7 w-7 text-teal-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
-        </div>
-        <h3 class="text-xl font-semibold tracking-tight text-slate-950">Request received.</h3>
-        <p class="mx-auto mt-3 max-w-sm text-sm leading-6 text-slate-600">
-          The Meridian team will reach out within one business day to kick off your Value Decay Signal Review.
-        </p>
-        <button
-          id="signal-modal-done"
-          type="button"
-          class="mt-6 inline-flex items-center justify-center rounded-full border border-slate-200 px-6 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
-        >
-          Close
-        </button>
-      </div>
+ <!-- Confirmation state (hidden until submitted) -->
+ <div id="signal-modal-confirm-state" class="hidden py-4 text-center">
+ <div class="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-teal-50">
+ <svg class="h-7 w-7 text-teal-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+ </div>
+ <h3 class="text-xl font-semibold tracking-tight text-slate-950">Request received.</h3>
+ <p class="mx-auto mt-3 max-w-sm text-sm leading-6 text-slate-600">
+ The Meridian team will reach out within one business day to kick off your Value Decay Signal Review.
+ </p>
+ <button
+ id="signal-modal-done"
+ type="button"
+ class="mt-6 inline-flex items-center justify-center rounded-full border border-slate-200 px-6 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
+ >
+ Close
+ </button>
+ </div>
 
-    </div>
-  </div>
+ </div>
+ </div>
 
-  <Footer />
+ <Footer />
 
 </Layout>
 
 <style>
-  .opt-btn {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    width: 100%;
-    border-radius: 1rem;
-    border: 1px solid #e2e8f0;
-    background: white;
-    padding: 1rem 1.25rem;
-    text-align: left;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: #475569;
-    cursor: pointer;
-    transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
-  }
-  .opt-btn:hover {
-    border-color: #94a3b8;
-    background: #f8fafc;
-  }
-  .opt-btn.selected {
-    border-color: #0f172a;
-    background: #f8fafc;
-    box-shadow: 0 0 0 1px #0f172a;
-    color: #0f172a;
-  }
-  .opt-letter {
-    display: flex;
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: center;
-    height: 1.75rem;
-    width: 1.75rem;
-    border-radius: 9999px;
-    border: 1px solid #e2e8f0;
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: #94a3b8;
-    transition: background 0.15s, color 0.15s, border-color 0.15s;
-  }
-  .opt-btn.selected .opt-letter {
-    background: #0f172a;
-    color: white;
-    border-color: #0f172a;
-  }
-  .nav-back-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    border-radius: 9999px;
-    border: 1px solid #e2e8f0;
-    padding: 0.75rem 1.5rem;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: #475569;
-    cursor: pointer;
-    transition: background 0.15s;
-    background: white;
-  }
-  .nav-back-btn:hover { background: #f8fafc; }
-  .nav-next-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    border-radius: 9999px;
-    background: #0f172a;
-    padding: 0.75rem 1.75rem;
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: white;
-    cursor: pointer;
-    transition: background 0.15s;
-    border: none;
-  }
-  .nav-next-btn:hover:not(:disabled) { background: #1e293b; }
-  .nav-next-btn:disabled { opacity: 0.4; cursor: not-allowed; }
-  .screen { animation: fadeIn 0.2s ease; }
-  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
-  .sr-input {
-    width: 100%;
-    border-radius: 1rem;
-    border: 1px solid #e2e8f0;
-    background: white;
-    padding: 0.75rem 1rem;
-    font-size: 0.875rem;
-    outline: none;
-    transition: border-color 0.15s, box-shadow 0.15s;
-  }
-  .sr-input:focus { border-color: #3b82f6; box-shadow: 0 0 0 1px #3b82f6; }
+ .opt-btn {
+ display: flex;
+ align-items: center;
+ gap: 1rem;
+ width: 100%;
+ border-radius: 1rem;
+ border: 1px solid #e2e8f0;
+ background: white;
+ padding: 1rem 1.25rem;
+ text-align: left;
+ font-size: 0.875rem;
+ font-weight: 500;
+ color: #475569;
+ cursor: pointer;
+ transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+ }
+ .opt-btn:hover {
+ border-color: #94a3b8;
+ background: #f8fafc;
+ }
+ .opt-btn.selected {
+ border-color: #0f172a;
+ background: #f8fafc;
+ box-shadow: 0 0 0 1px #0f172a;
+ color: #0f172a;
+ }
+ .opt-letter {
+ display: flex;
+ flex-shrink: 0;
+ align-items: center;
+ justify-content: center;
+ height: 1.75rem;
+ width: 1.75rem;
+ border-radius: 9999px;
+ border: 1px solid #e2e8f0;
+ font-size: 0.75rem;
+ font-weight: 700;
+ color: #94a3b8;
+ transition: background 0.15s, color 0.15s, border-color 0.15s;
+ }
+ .opt-btn.selected .opt-letter {
+ background: #0f172a;
+ color: white;
+ border-color: #0f172a;
+ }
+ .nav-back-btn {
+ display: inline-flex;
+ align-items: center;
+ gap: 0.5rem;
+ border-radius: 9999px;
+ border: 1px solid #e2e8f0;
+ padding: 0.75rem 1.5rem;
+ font-size: 0.875rem;
+ font-weight: 500;
+ color: #475569;
+ cursor: pointer;
+ transition: background 0.15s;
+ background: white;
+ }
+ .nav-back-btn:hover { background: #f8fafc; }
+ .nav-next-btn {
+ display: inline-flex;
+ align-items: center;
+ gap: 0.5rem;
+ border-radius: 9999px;
+ background: #0f172a;
+ padding: 0.75rem 1.75rem;
+ font-size: 0.875rem;
+ font-weight: 600;
+ color: white;
+ cursor: pointer;
+ transition: background 0.15s;
+ border: none;
+ }
+ .nav-next-btn:hover:not(:disabled) { background: #1e293b; }
+ .nav-next-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+ .screen { animation: fadeIn 0.2s ease; }
+ @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+ .sr-input {
+ width: 100%;
+ border-radius: 1rem;
+ border: 1px solid #e2e8f0;
+ background: white;
+ padding: 0.75rem 1rem;
+ font-size: 0.875rem;
+ outline: none;
+ transition: border-color 0.15s, box-shadow 0.15s;
+ }
+ .sr-input:focus { border-color: #3b82f6; box-shadow: 0 0 0 1px #3b82f6; }
 </style>
 
 <script>
-  // ─── Data ───────────────────────────────────────────────────────────────────
+ // ─── Data ───────────────────────────────────────────────────────────────────
 
-  const RISK_POINTS: Record<string, Record<string, number>> = {
-    q4:  { A: 3, B: 2, C: 5, D: 0, E: 5 },
-    q5:  { A: 5, B: 4, C: 2, D: 0, E: 3 },
-    q6:  { A: 5, B: 4, C: 3, D: 3, E: 0 },
-    q7:  { A: 5, B: 4, C: 2, D: 1, E: 0 },
-    q8:  { A: 5, B: 4, C: 2, D: 1, E: 0 },
-    q9:  { A: 5, B: 5, C: 4, D: 2, E: 0 },
-    q10: { A: 0, B: 3, C: 5, D: 5, E: 4 },
-  };
+ const RISK_POINTS: Record<string, Record<string, number>> = {
+ q4: { A: 3, B: 2, C: 5, D: 0, E: 5 },
+ q5: { A: 5, B: 4, C: 2, D: 0, E: 3 },
+ q6: { A: 5, B: 4, C: 3, D: 3, E: 0 },
+ q7: { A: 5, B: 4, C: 2, D: 1, E: 0 },
+ q8: { A: 5, B: 4, C: 2, D: 1, E: 0 },
+ q9: { A: 5, B: 5, C: 4, D: 2, E: 0 },
+ q10: { A: 0, B: 3, C: 5, D: 5, E: 4 },
+ };
 
-  const COMPLEXITY_CUSTOMER: Record<string, number> = { A: 1, B: 2, C: 3, D: 4, E: 5 };
-  const COMPLEXITY_ACV: Record<string, number>      = { A: 1, B: 2, C: 3, D: 4, E: 5 };
+ const COMPLEXITY_CUSTOMER: Record<string, number> = { A: 1, B: 2, C: 3, D: 4, E: 5 };
+ const COMPLEXITY_ACV: Record<string, number> = { A: 1, B: 2, C: 3, D: 4, E: 5 };
 
-  const PROFILE_MAP: Record<string, Record<string, Record<string, number>>> = {
-    q4:  { A: {p5:2,p1:1}, B: {p2:2}, C: {p3:2,p5:1}, D: {}, E: {p5:3} },
-    q5:  { A: {p1:3,p5:1}, B: {p5:2,p1:1}, C: {p5:1}, D: {}, E: {p5:2} },
-    q6:  { A: {p2:3,p1:1}, B: {p2:3}, C: {p5:2,p2:1}, D: {p2:2}, E: {} },
-    q7:  { A: {p4:3}, B: {p4:3}, C: {p4:1}, D: {}, E: {} },
-    q8:  { A: {p3:2,p1:1}, B: {p5:2,p3:1}, C: {p2:1}, D: {}, E: {} },
-    q9:  { A: {p3:4}, B: {p3:4}, C: {p3:3,p2:1}, D: {p3:1}, E: {} },
-    q10: { A: {}, B: {p5:1,p2:1}, C: {p3:2,p5:1}, D: {p5:3,p3:1}, E: {p5:3} },
-  };
+ const PROFILE_MAP: Record<string, Record<string, Record<string, number>>> = {
+ q4: { A: {p5:2,p1:1}, B: {p2:2}, C: {p3:2,p5:1}, D: {}, E: {p5:3} },
+ q5: { A: {p1:3,p5:1}, B: {p5:2,p1:1}, C: {p5:1}, D: {}, E: {p5:2} },
+ q6: { A: {p2:3,p1:1}, B: {p2:3}, C: {p5:2,p2:1}, D: {p2:2}, E: {} },
+ q7: { A: {p4:3}, B: {p4:3}, C: {p4:1}, D: {}, E: {} },
+ q8: { A: {p3:2,p1:1}, B: {p5:2,p3:1}, C: {p2:1}, D: {}, E: {} },
+ q9: { A: {p3:4}, B: {p3:4}, C: {p3:3,p2:1}, D: {p3:1}, E: {} },
+ q10: { A: {}, B: {p5:1,p2:1}, C: {p3:2,p5:1}, D: {p5:3,p3:1}, E: {p5:3} },
+ };
 
-  const PROFILES: Record<string, { name: string; desc: string; warnings: string[]; actions: string[] }> = {
-    p1: {
-      name: 'Ticket Closure Trap',
-      desc: 'Your team may be resolving issues faster than it is interpreting value risk. Support metrics like response time and CSAT matter, but they may not reveal whether an account is becoming more or less defensible.',
-      warnings: [
-        'Accounts with repeated tickets around the same workflow may be going unnoticed',
-        'Tickets are being closed while the underlying adoption problem remains open',
-        'Support queues can look healthy while account-level confidence is weakening',
-      ],
-      actions: [
-        'Connect support patterns to account health, product area, and renewal timing',
-        'Review strategic accounts for repeated tickets tied to unresolved adoption gaps',
-        'Track which support patterns appear before churn, contraction, or renewal pushback',
-      ],
-    },
-    p2: {
-      name: 'Hidden Adoption Friction',
-      desc: 'Your biggest risk may be repeated workflow friction that weakens adoption over time. The product may be used, but customers may still be struggling with the workflows that matter most.',
-      warnings: [
-        'Repeated post-onboarding questions may signal stalled activation in key accounts',
-        'Workarounds and configuration confusion often precede value decay',
-        'Product-area friction may not be visible at the account level until it is too late',
-      ],
-      actions: [
-        'Map repeated product friction to specific workflows and activation gaps',
-        'Identify high-ARR accounts with repeated questions after onboarding',
-        'Connect product-area friction to renewal timing and ARR exposure',
-      ],
-    },
-    p3: {
-      name: 'Weak Renewal Defensibility',
-      desc: 'Your customers may like the product, but they may not have enough proof to defend it internally. Customers do not renew software they like — they renew software they can defend.',
-      warnings: [
-        'Champions may not have evidence beyond anecdotes or relationship strength',
-        'Accounts that feel healthy could be vulnerable in a budget or procurement review',
-        'Value is difficult to prove internally without your team in the room',
-      ],
-      actions: [
-        'Build a renewal defensibility view for accounts approaching budget scrutiny',
-        'Document adoption, outcomes, and workflow impact by account before renewal',
-        'Identify which accounts could not survive a budget review unassisted',
-      ],
-    },
-    p4: {
-      name: 'Expansion Signals Lost in Support',
-      desc: 'Your support queue may contain growth signals that are not reaching the right teams. Expansion often appears first as a support question — about permissions, integrations, new teams, or advanced workflows.',
-      warnings: [
-        'Access, permission, and integration requests may not be reaching revenue teams',
-        'New team onboarding often appears first as a support request',
-        'Growth moments are being treated as routine tickets rather than revenue signals',
-      ],
-      actions: [
-        'Create routing rules for support topics that indicate expansion intent',
-        'Train support teams to identify and tag growth opportunities',
-        'Connect expansion signal patterns to CS and revenue team workflows',
-      ],
-    },
-    p5: {
-      name: 'Fragmented Value Intelligence',
-      desc: 'Your post-sale signals exist, but they may be scattered across teams and systems. Support sees friction. CS sees relationship context. Product sees usage. But no team has a complete picture.',
-      warnings: [
-        'Risk looks different in each team\'s system, making it easy to miss',
-        'Accounts can appear healthy in one view but high-risk in another',
-        'Late risk discovery often results from signals sitting in disconnected silos',
-      ],
-      actions: [
-        'Identify the earliest signals of value decay across all your systems',
-        'Build an account-level view connecting support, onboarding, adoption, and renewal signals',
-        'Create a shared definition of what account health means across all teams',
-      ],
-    },
-  };
+ const PROFILES: Record<string, { name: string; desc: string; warnings: string[]; actions: string[] }> = {
+ p1: {
+ name: 'Ticket Closure Trap',
+ desc: 'Your team may be resolving issues faster than it is interpreting value risk. Support metrics like response time and CSAT matter, but they may not reveal whether an account is becoming more or less defensible.',
+ warnings: [
+ 'Accounts with repeated tickets around the same workflow may be going unnoticed',
+ 'Tickets are being closed while the underlying adoption problem remains open',
+ 'Support queues can look healthy while account-level confidence is weakening',
+ ],
+ actions: [
+ 'Connect support patterns to account health, product area, and renewal timing',
+ 'Review strategic accounts for repeated tickets tied to unresolved adoption gaps',
+ 'Track which support patterns appear before churn, contraction, or renewal pushback',
+ ],
+ },
+ p2: {
+ name: 'Hidden Adoption Friction',
+ desc: 'Your biggest risk may be repeated workflow friction that weakens adoption over time. The product may be used, but customers may still be struggling with the workflows that matter most.',
+ warnings: [
+ 'Repeated post-onboarding questions may signal stalled activation in key accounts',
+ 'Workarounds and configuration confusion often precede value decay',
+ 'Product-area friction may not be visible at the account level until it is too late',
+ ],
+ actions: [
+ 'Map repeated product friction to specific workflows and activation gaps',
+ 'Identify high-ARR accounts with repeated questions after onboarding',
+ 'Connect product-area friction to renewal timing and ARR exposure',
+ ],
+ },
+ p3: {
+ name: 'Weak Renewal Defensibility',
+ desc: 'Your customers may like the product, but they may not have enough proof to defend it internally. Customers do not renew software they like, they renew software they can defend.',
+ warnings: [
+ 'Champions may not have evidence beyond anecdotes or relationship strength',
+ 'Accounts that feel healthy could be vulnerable in a budget or procurement review',
+ 'Value is difficult to prove internally without your team in the room',
+ ],
+ actions: [
+ 'Build a renewal defensibility view for accounts approaching budget scrutiny',
+ 'Document adoption, outcomes, and workflow impact by account before renewal',
+ 'Identify which accounts could not survive a budget review unassisted',
+ ],
+ },
+ p4: {
+ name: 'Expansion Signals Lost in Support',
+ desc: 'Your support queue may contain growth signals that are not reaching the right teams. Expansion often appears first as a support question, about permissions, integrations, new teams, or advanced workflows.',
+ warnings: [
+ 'Access, permission, and integration requests may not be reaching revenue teams',
+ 'New team onboarding often appears first as a support request',
+ 'Growth moments are being treated as routine tickets rather than revenue signals',
+ ],
+ actions: [
+ 'Create routing rules for support topics that indicate expansion intent',
+ 'Train support teams to identify and tag growth opportunities',
+ 'Connect expansion signal patterns to CS and revenue team workflows',
+ ],
+ },
+ p5: {
+ name: 'Fragmented Value Intelligence',
+ desc: 'Your post-sale signals exist, but they may be scattered across teams and systems. Support sees friction. CS sees relationship context. Product sees usage. But no team has a complete picture.',
+ warnings: [
+ 'Risk looks different in each team\'s system, making it easy to miss',
+ 'Accounts can appear healthy in one view but high-risk in another',
+ 'Late risk discovery often results from signals sitting in disconnected silos',
+ ],
+ actions: [
+ 'Identify the earliest signals of value decay across all your systems',
+ 'Build an account-level view connecting support, onboarding, adoption, and renewal signals',
+ 'Create a shared definition of what account health means across all teams',
+ ],
+ },
+ };
 
-  const BANDS = [
-    { min: 85, label: 'Strong Defensibility',       desc: 'You likely have good visibility into whether value is strengthening or weakening.',                                              color: '#10b981', badgeBg: '#d1fae5', badgeText: '#065f46' },
-    { min: 70, label: 'Emerging Risk',               desc: 'You have some visibility, but important value decay signals may still be missed.',                                               color: '#f59e0b', badgeBg: '#fef3c7', badgeText: '#92400e' },
-    { min: 50, label: 'Moderate Value Decay Risk',   desc: 'Your customer base may contain accounts that look stable but are becoming harder to defend.',                                    color: '#f97316', badgeBg: '#ffedd5', badgeText: '#9a3412' },
-    { min:  0, label: 'High Value Decay Risk',       desc: 'Your team may be discovering value decay too late, after it has already become renewal or contraction risk.',                    color: '#ef4444', badgeBg: '#fee2e2', badgeText: '#991b1b' },
-  ];
+ const BANDS = [
+ { min: 85, label: 'Strong Defensibility', desc: 'You likely have good visibility into whether value is strengthening or weakening.', color: '#10b981', badgeBg: '#d1fae5', badgeText: '#065f46' },
+ { min: 70, label: 'Emerging Risk', desc: 'You have some visibility, but important value decay signals may still be missed.', color: '#f59e0b', badgeBg: '#fef3c7', badgeText: '#92400e' },
+ { min: 50, label: 'Moderate Value Decay Risk', desc: 'Your customer base may contain accounts that look stable but are becoming harder to defend.', color: '#f97316', badgeBg: '#ffedd5', badgeText: '#9a3412' },
+ { min: 0, label: 'High Value Decay Risk', desc: 'Your team may be discovering value decay too late, after it has already become renewal or contraction risk.', color: '#ef4444', badgeBg: '#fee2e2', badgeText: '#991b1b' },
+ ];
 
-  const ROLE_CONTEXT: Record<string, string> = {
-    A: 'As a Founder or CEO, your primary concern is revenue exposure, retention, and SaaS defensibility across the customer base.',
-    B: 'As a CS leader, this surfaces your exposure across account health, renewal risk, adoption gaps, and champion strength.',
-    C: 'As a Support leader, this highlights ticket patterns, support visibility, and where AI support operations risk may be hiding.',
-    D: 'As a Revenue leader, this surfaces the ARR exposure hidden in your post-sale operations.',
-    E: 'As a Product leader, this identifies product-area friction and roadmap signals coming from your customer base.',
-    F: 'This assessment surfaces where value may be decaying across support, adoption, and renewal in your customer base.',
-  };
+ const ROLE_CONTEXT: Record<string, string> = {
+ A: 'As a Founder or CEO, your primary concern is revenue exposure, retention, and SaaS defensibility across the customer base.',
+ B: 'As a CS leader, this surfaces your exposure across account health, renewal risk, adoption gaps, and champion strength.',
+ C: 'As a Support leader, this highlights ticket patterns, support visibility, and where AI support operations risk may be hiding.',
+ D: 'As a Revenue leader, this surfaces the ARR exposure hidden in your post-sale operations.',
+ E: 'As a Product leader, this identifies product-area friction and roadmap signals coming from your customer base.',
+ F: 'This assessment surfaces where value may be decaying across support, adoption, and renewal in your customer base.',
+ };
 
-  // ─── State ──────────────────────────────────────────────────────────────────
+ // ─── State ──────────────────────────────────────────────────────────────────
 
-  const answers: Record<string, string> = {};
-  let currentScreen = 0;
+ const answers: Record<string, string> = {};
+ let currentScreen = 0;
 
-  // Screen question requirements
-  const SCREEN_QUESTIONS: Record<number, string[]> = {
-    1: ['q1', 'q2', 'q3'],
-    2: ['q4', 'q5'],
-    3: ['q6', 'q7', 'q8'],
-    4: ['q9', 'q10'],
-  };
+ // Screen question requirements
+ const SCREEN_QUESTIONS: Record<number, string[]> = {
+ 1: ['q1', 'q2', 'q3'],
+ 2: ['q4', 'q5'],
+ 3: ['q6', 'q7', 'q8'],
+ 4: ['q9', 'q10'],
+ };
 
-  const SCREEN_LABELS: Record<number, [string, string, number]> = {
-    1: ['Your context',           'Questions 1–3',   20],
-    2: ['Risk detection',         'Questions 4–5',   40],
-    3: ['Value signal detection', 'Questions 6–8',   60],
-    4: ['Renewal defensibility',  'Questions 9–10',  80],
-    5: ['Almost done',            '',                95],
-  };
+ const SCREEN_LABELS: Record<number, [string, string, number]> = {
+ 1: ['Your context', 'Questions 1–3', 20],
+ 2: ['Risk detection', 'Questions 4–5', 40],
+ 3: ['Value signal detection', 'Questions 6–8', 60],
+ 4: ['Renewal defensibility', 'Questions 9–10', 80],
+ 5: ['Almost done', '', 95],
+ };
 
-  // ─── Navigation ─────────────────────────────────────────────────────────────
+ // ─── Navigation ─────────────────────────────────────────────────────────────
 
-  function goTo(n: number) {
-    document.getElementById(`s${currentScreen}`)!.classList.add('hidden');
-    currentScreen = n;
-    const screen = document.getElementById(`s${n}`)!;
-    screen.classList.remove('hidden');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    updateProgress(n);
-  }
+ function goTo(n: number) {
+ document.getElementById(`s${currentScreen}`)!.classList.add('hidden');
+ currentScreen = n;
+ const screen = document.getElementById(`s${n}`)!;
+ screen.classList.remove('hidden');
+ window.scrollTo({ top: 0, behavior: 'smooth' });
+ updateProgress(n);
+ }
 
-  function updateProgress(n: number) {
-    const wrap = document.getElementById('progress-wrap')!;
-    if (n === 0 || n === 6) { wrap.classList.add('hidden'); return; }
-    wrap.classList.remove('hidden');
-    const [label, count, pct] = SCREEN_LABELS[n] ?? ['', '', 0];
-    document.getElementById('progress-label')!.textContent = label;
-    document.getElementById('progress-count')!.textContent = count;
-    (document.getElementById('progress-fill') as HTMLElement).style.width = `${pct}%`;
-  }
+ function updateProgress(n: number) {
+ const wrap = document.getElementById('progress-wrap')!;
+ if (n === 0 || n === 6) { wrap.classList.add('hidden'); return; }
+ wrap.classList.remove('hidden');
+ const [label, count, pct] = SCREEN_LABELS[n] ?? ['', '', 0];
+ document.getElementById('progress-label')!.textContent = label;
+ document.getElementById('progress-count')!.textContent = count;
+ (document.getElementById('progress-fill') as HTMLElement).style.width = `${pct}%`;
+ }
 
-  // ─── Option selection ────────────────────────────────────────────────────────
+ // ─── Option selection ────────────────────────────────────────────────────────
 
-  function handleOptionClick(btn: HTMLElement) {
-    const q = btn.dataset.q!;
-    const v = btn.dataset.v!;
-    // Deselect siblings
-    document.querySelectorAll<HTMLElement>(`.opt-btn[data-q="${q}"]`).forEach(b => b.classList.remove('selected'));
-    btn.classList.add('selected');
-    answers[q] = v;
-    // Check if current screen's questions are all answered
-    const screenNum = currentScreen;
-    const required = SCREEN_QUESTIONS[screenNum] ?? [];
-    const allAnswered = required.every(qid => answers[qid]);
-    const nextBtn = document.getElementById(`next-${screenNum}`) as HTMLButtonElement | null;
-    if (nextBtn) nextBtn.disabled = !allAnswered;
-  }
+ function handleOptionClick(btn: HTMLElement) {
+ const q = btn.dataset.q!;
+ const v = btn.dataset.v!;
+ // Deselect siblings
+ document.querySelectorAll<HTMLElement>(`.opt-btn[data-q="${q}"]`).forEach(b => b.classList.remove('selected'));
+ btn.classList.add('selected');
+ answers[q] = v;
+ // Check if current screen's questions are all answered
+ const screenNum = currentScreen;
+ const required = SCREEN_QUESTIONS[screenNum] ?? [];
+ const allAnswered = required.every(qid => answers[qid]);
+ const nextBtn = document.getElementById(`next-${screenNum}`) as HTMLButtonElement | null;
+ if (nextBtn) nextBtn.disabled = !allAnswered;
+ }
 
-  // ─── Scoring ─────────────────────────────────────────────────────────────────
+ // ─── Scoring ─────────────────────────────────────────────────────────────────
 
-  function calcScore(): number {
-    let risk = 0;
-    for (const q of ['q4','q5','q6','q7','q8','q9','q10']) {
-      risk += RISK_POINTS[q]?.[answers[q]] ?? 0;
-    }
-    const complexSum = (COMPLEXITY_CUSTOMER[answers.q2] ?? 0) + (COMPLEXITY_ACV[answers.q3] ?? 0);
-    let penalty = 0;
-    if (complexSum >= 9)      penalty = 8;
-    else if (complexSum >= 7) penalty = 5;
-    else if (complexSum >= 5) penalty = 3;
-    return Math.max(0, 100 - risk - penalty);
-  }
+ function calcScore(): number {
+ let risk = 0;
+ for (const q of ['q4','q5','q6','q7','q8','q9','q10']) {
+ risk += RISK_POINTS[q]?.[answers[q]] ?? 0;
+ }
+ const complexSum = (COMPLEXITY_CUSTOMER[answers.q2] ?? 0) + (COMPLEXITY_ACV[answers.q3] ?? 0);
+ let penalty = 0;
+ if (complexSum >= 9) penalty = 8;
+ else if (complexSum >= 7) penalty = 5;
+ else if (complexSum >= 5) penalty = 3;
+ return Math.max(0, 100 - risk - penalty);
+ }
 
-  function calcProfiles(): Record<string, number> {
-    const p: Record<string, number> = { p1: 0, p2: 0, p3: 0, p4: 0, p5: 0 };
-    for (const q of ['q4','q5','q6','q7','q8','q9','q10']) {
-      const pts = PROFILE_MAP[q]?.[answers[q]] ?? {};
-      for (const [k, v] of Object.entries(pts)) p[k] = (p[k] ?? 0) + (v as number);
-    }
-    // Modifiers
-    if (['D','E'].includes(answers.q2))                p.p5 += 1;
-    if (['D','E'].includes(answers.q3))                p.p3 += 1;
-    if (answers.q1 === 'A')                            p.p3 += 1;
-    if (answers.q1 === 'B')                            p.p3 += 1;
-    if (answers.q1 === 'C')                            p.p1 += 1;
-    if (answers.q1 === 'D')                            p.p5 += 1;
-    return p;
-  }
+ function calcProfiles(): Record<string, number> {
+ const p: Record<string, number> = { p1: 0, p2: 0, p3: 0, p4: 0, p5: 0 };
+ for (const q of ['q4','q5','q6','q7','q8','q9','q10']) {
+ const pts = PROFILE_MAP[q]?.[answers[q]] ?? {};
+ for (const [k, v] of Object.entries(pts)) p[k] = (p[k] ?? 0) + (v as number);
+ }
+ // Modifiers
+ if (['D','E'].includes(answers.q2)) p.p5 += 1;
+ if (['D','E'].includes(answers.q3)) p.p3 += 1;
+ if (answers.q1 === 'A') p.p3 += 1;
+ if (answers.q1 === 'B') p.p3 += 1;
+ if (answers.q1 === 'C') p.p1 += 1;
+ if (answers.q1 === 'D') p.p5 += 1;
+ return p;
+ }
 
-  function getDominantProfile(p: Record<string, number>): string {
-    const max = Math.max(...Object.values(p));
-    const tied = Object.entries(p).filter(([, v]) => v === max).map(([k]) => k);
-    if (tied.length === 1) return tied[0];
+ function getDominantProfile(p: Record<string, number>): string {
+ const max = Math.max(...Object.values(p));
+ const tied = Object.entries(p).filter(([, v]) => v === max).map(([k]) => k);
+ if (tied.length === 1) return tied[0];
 
-    // Tie-breakers
-    if (tied.includes('p3') && ['A','B','C'].includes(answers.q9)) return 'p3';
-    if (tied.includes('p5') && (tied.includes('p1') || tied.includes('p2'))) {
-      if (['E'].includes(answers.q4) || answers.q5 === 'E' || ['D','E'].includes(answers.q10)) return 'p5';
-    }
-    if (tied.includes('p1') && tied.includes('p2')) {
-      return ['A','B','D'].includes(answers.q6) ? 'p2' : 'p1';
-    }
-    if (tied.includes('p4') && tied.length > 1) {
-      const other = tied.find(p => p !== 'p4' && ['p3','p5'].includes(p));
-      if (other) return other;
-    }
-    return tied[0];
-  }
+ // Tie-breakers
+ if (tied.includes('p3') && ['A','B','C'].includes(answers.q9)) return 'p3';
+ if (tied.includes('p5') && (tied.includes('p1') || tied.includes('p2'))) {
+ if (['E'].includes(answers.q4) || answers.q5 === 'E' || ['D','E'].includes(answers.q10)) return 'p5';
+ }
+ if (tied.includes('p1') && tied.includes('p2')) {
+ return ['A','B','D'].includes(answers.q6) ? 'p2' : 'p1';
+ }
+ if (tied.includes('p4') && tied.length > 1) {
+ const other = tied.find(p => p !== 'p4' && ['p3','p5'].includes(p));
+ if (other) return other;
+ }
+ return tied[0];
+ }
 
-  // ─── Render results ──────────────────────────────────────────────────────────
+ // ─── Render results ──────────────────────────────────────────────────────────
 
-  function renderResults() {
-    const score = calcScore();
-    const profiles = calcProfiles();
-    const profileKey = getDominantProfile(profiles);
-    const profile = PROFILES[profileKey];
-    const band = BANDS.find(b => score >= b.min)!;
+ function renderResults() {
+ const score = calcScore();
+ const profiles = calcProfiles();
+ const profileKey = getDominantProfile(profiles);
+ const profile = PROFILES[profileKey];
+ const band = BANDS.find(b => score >= b.min)!;
 
-    // Score ring
-    document.getElementById('score-number')!.textContent = String(score);
-    const ring = document.getElementById('score-ring')!;
-    ring.style.boxShadow = `inset 0 0 0 10px ${band.color}22, 0 0 0 0px transparent`;
-    ring.style.border = `10px solid ${band.color}`;
+ // Score ring
+ document.getElementById('score-number')!.textContent = String(score);
+ const ring = document.getElementById('score-ring')!;
+ ring.style.boxShadow = `inset 0 0 0 10px ${band.color}22, 0 0 0 0px transparent`;
+ ring.style.border = `10px solid ${band.color}`;
 
-    // Band
-    const badge = document.getElementById('score-band-badge')!;
-    badge.textContent = band.label;
-    badge.style.background = band.badgeBg;
-    badge.style.color = band.badgeText;
-    document.getElementById('score-band-label')!.textContent = band.label;
-    document.getElementById('score-band-desc')!.textContent = band.desc;
-    document.getElementById('score-role-context')!.textContent = ROLE_CONTEXT[answers.q1] ?? ROLE_CONTEXT.F;
+ // Band
+ const badge = document.getElementById('score-band-badge')!;
+ badge.textContent = band.label;
+ badge.style.background = band.badgeBg;
+ badge.style.color = band.badgeText;
+ document.getElementById('score-band-label')!.textContent = band.label;
+ document.getElementById('score-band-desc')!.textContent = band.desc;
+ document.getElementById('score-role-context')!.textContent = ROLE_CONTEXT[answers.q1] ?? ROLE_CONTEXT.F;
 
-    // Profile
-    document.getElementById('profile-name')!.textContent = profile.name;
-    document.getElementById('profile-desc')!.textContent = profile.desc;
+ // Profile
+ document.getElementById('profile-name')!.textContent = profile.name;
+ document.getElementById('profile-desc')!.textContent = profile.desc;
 
-    // Warnings
-    const warnEl = document.getElementById('warnings-list')!;
-    warnEl.innerHTML = profile.warnings.map(w =>
-      `<li class="flex items-start gap-3 text-sm text-amber-900">
-        <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>
-        ${w}
-      </li>`
-    ).join('');
+ // Warnings
+ const warnEl = document.getElementById('warnings-list')!;
+ warnEl.innerHTML = profile.warnings.map(w =>
+ `<li class="flex items-start gap-3 text-sm text-amber-900">
+ <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>
+ ${w}
+ </li>`
+ ).join('');
 
-    // Actions
-    const actEl = document.getElementById('actions-list')!;
-    actEl.innerHTML = profile.actions.map(a =>
-      `<li class="flex items-start gap-3 text-sm text-blue-900">
-        <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
-        ${a}
-      </li>`
-    ).join('');
-  }
+ // Actions
+ const actEl = document.getElementById('actions-list')!;
+ actEl.innerHTML = profile.actions.map(a =>
+ `<li class="flex items-start gap-3 text-sm text-blue-900">
+ <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+ ${a}
+ </li>`
+ ).join('');
+ }
 
-  // ─── Netlify submission ──────────────────────────────────────────────────────
+ // ─── Netlify submission ──────────────────────────────────────────────────────
 
-  async function submitToNetlify(email: string, company: string, name: string) {
-    const score = calcScore();
-    const profiles = calcProfiles();
-    const profileKey = getDominantProfile(profiles);
-    const band = BANDS.find(b => score >= b.min)!;
+ async function submitToNetlify(email: string, company: string, name: string) {
+ const score = calcScore();
+ const profiles = calcProfiles();
+ const profileKey = getDominantProfile(profiles);
+ const band = BANDS.find(b => score >= b.min)!;
 
-    const data: Record<string, string> = {
-      'form-name': 'customer-defensibility-score',
-      email, company,
-      'full-name': name,
-      q1: answers.q1 ?? '', q2: answers.q2 ?? '', q3: answers.q3 ?? '',
-      q4: answers.q4 ?? '', q5: answers.q5 ?? '', q6: answers.q6 ?? '',
-      q7: answers.q7 ?? '', q8: answers.q8 ?? '', q9: answers.q9 ?? '',
-      q10: answers.q10 ?? '',
-      score: String(score),
-      'score-band': band.label,
-      profile: PROFILES[profileKey]?.name ?? profileKey,
-    };
+ const data: Record<string, string> = {
+ 'form-name': 'customer-defensibility-score',
+ email, company,
+ 'full-name': name,
+ q1: answers.q1 ?? '', q2: answers.q2 ?? '', q3: answers.q3 ?? '',
+ q4: answers.q4 ?? '', q5: answers.q5 ?? '', q6: answers.q6 ?? '',
+ q7: answers.q7 ?? '', q8: answers.q8 ?? '', q9: answers.q9 ?? '',
+ q10: answers.q10 ?? '',
+ score: String(score),
+ 'score-band': band.label,
+ profile: PROFILES[profileKey]?.name ?? profileKey,
+ };
 
-    try {
-      await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: Object.entries(data).map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`).join('&'),
-      });
-    } catch (_) { /* fail silently, still show results */ }
-  }
+ try {
+ await fetch('/', {
+ method: 'POST',
+ headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+ body: Object.entries(data).map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`).join('&'),
+ });
+ } catch (_) { /* fail silently, still show results */ }
+ }
 
-  // ─── Wire up events ──────────────────────────────────────────────────────────
+ // ─── Wire up events ──────────────────────────────────────────────────────────
 
-  document.getElementById('start-btn')!.addEventListener('click', () => goTo(1));
+ document.getElementById('start-btn')!.addEventListener('click', () => goTo(1));
 
-  document.querySelectorAll<HTMLElement>('.opt-btn').forEach(btn => {
-    btn.addEventListener('click', () => handleOptionClick(btn));
-  });
+ document.querySelectorAll<HTMLElement>('.opt-btn').forEach(btn => {
+ btn.addEventListener('click', () => handleOptionClick(btn));
+ });
 
-  // Next buttons
-  for (let i = 1; i <= 4; i++) {
-    document.getElementById(`next-${i}`)?.addEventListener('click', () => goTo(i + 1));
-  }
+ // Next buttons
+ for (let i = 1; i <= 4; i++) {
+ document.getElementById(`next-${i}`)?.addEventListener('click', () => goTo(i + 1));
+ }
 
-  // Back buttons
-  document.getElementById('back-1')?.addEventListener('click', () => goTo(0));
-  document.getElementById('back-2')?.addEventListener('click', () => goTo(1));
-  document.getElementById('back-3')?.addEventListener('click', () => goTo(2));
-  document.getElementById('back-4')?.addEventListener('click', () => goTo(3));
-  document.getElementById('back-5')?.addEventListener('click', () => goTo(4));
+ // Back buttons
+ document.getElementById('back-1')?.addEventListener('click', () => goTo(0));
+ document.getElementById('back-2')?.addEventListener('click', () => goTo(1));
+ document.getElementById('back-3')?.addEventListener('click', () => goTo(2));
+ document.getElementById('back-4')?.addEventListener('click', () => goTo(3));
+ document.getElementById('back-5')?.addEventListener('click', () => goTo(4));
 
-  // ─── Signal Review Modal ────────────────────────────────────────────────────
+ // ─── Signal Review Modal ────────────────────────────────────────────────────
 
-  const signalModal = document.getElementById('signal-modal')!;
-  const openSignalModal  = () => { signalModal.classList.replace('hidden', 'flex'); signalModal.removeAttribute('aria-hidden'); };
-  const closeSignalModal = () => { signalModal.classList.replace('flex', 'hidden'); signalModal.setAttribute('aria-hidden', 'true'); };
+ const signalModal = document.getElementById('signal-modal')!;
+ const openSignalModal = () => { signalModal.classList.replace('hidden', 'flex'); signalModal.removeAttribute('aria-hidden'); };
+ const closeSignalModal = () => { signalModal.classList.replace('flex', 'hidden'); signalModal.setAttribute('aria-hidden', 'true'); };
 
-  document.getElementById('open-signal-modal')?.addEventListener('click', () => {
-    // Pre-fill from quiz email capture
-    const nameEl    = document.getElementById('sr-name')    as HTMLInputElement;
-    const emailEl   = document.getElementById('sr-email')   as HTMLInputElement;
-    const companyEl = document.getElementById('sr-company') as HTMLInputElement;
-    if (!nameEl.value)    nameEl.value    = (document.getElementById('input-name')    as HTMLInputElement)?.value ?? '';
-    if (!emailEl.value)   emailEl.value   = (document.getElementById('input-email')   as HTMLInputElement)?.value ?? '';
-    if (!companyEl.value) companyEl.value = (document.getElementById('input-company') as HTMLInputElement)?.value ?? '';
-    openSignalModal();
-  });
+ document.getElementById('open-signal-modal')?.addEventListener('click', () => {
+ // Pre-fill from quiz email capture
+ const nameEl = document.getElementById('sr-name') as HTMLInputElement;
+ const emailEl = document.getElementById('sr-email') as HTMLInputElement;
+ const companyEl = document.getElementById('sr-company') as HTMLInputElement;
+ if (!nameEl.value) nameEl.value = (document.getElementById('input-name') as HTMLInputElement)?.value ?? '';
+ if (!emailEl.value) emailEl.value = (document.getElementById('input-email') as HTMLInputElement)?.value ?? '';
+ if (!companyEl.value) companyEl.value = (document.getElementById('input-company') as HTMLInputElement)?.value ?? '';
+ openSignalModal();
+ });
 
-  document.getElementById('signal-modal-close')!.addEventListener('click', closeSignalModal);
-  document.getElementById('signal-modal-done')!.addEventListener('click', closeSignalModal);
-  signalModal.addEventListener('click', (e) => { if (e.target === signalModal) closeSignalModal(); });
+ document.getElementById('signal-modal-close')!.addEventListener('click', closeSignalModal);
+ document.getElementById('signal-modal-done')!.addEventListener('click', closeSignalModal);
+ signalModal.addEventListener('click', (e) => { if (e.target === signalModal) closeSignalModal(); });
 
-  document.getElementById('signal-review-form')!.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const email   = (document.getElementById('sr-email')   as HTMLInputElement).value.trim();
-    const company = (document.getElementById('sr-company') as HTMLInputElement).value.trim();
-    const name    = (document.getElementById('sr-name')    as HTMLInputElement).value.trim();
-    const focus   = (document.getElementById('sr-focus')   as HTMLTextAreaElement).value.trim();
-    const errEl   = document.getElementById('sr-error')!;
+ document.getElementById('signal-review-form')!.addEventListener('submit', async (e) => {
+ e.preventDefault();
+ const email = (document.getElementById('sr-email') as HTMLInputElement).value.trim();
+ const company = (document.getElementById('sr-company') as HTMLInputElement).value.trim();
+ const name = (document.getElementById('sr-name') as HTMLInputElement).value.trim();
+ const focus = (document.getElementById('sr-focus') as HTMLTextAreaElement).value.trim();
+ const errEl = document.getElementById('sr-error')!;
 
-    if (!email || !company || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      errEl.classList.remove('hidden');
-      return;
-    }
-    errEl.classList.add('hidden');
+ if (!email || !company || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+ errEl.classList.remove('hidden');
+ return;
+ }
+ errEl.classList.add('hidden');
 
-    const btn = document.getElementById('sr-submit') as HTMLButtonElement;
-    btn.disabled = true;
-    btn.textContent = 'Sending...';
+ const btn = document.getElementById('sr-submit') as HTMLButtonElement;
+ btn.disabled = true;
+ btn.textContent = 'Sending...';
 
-    const score      = calcScore();
-    const profileKey = getDominantProfile(calcProfiles());
-    const band       = BANDS.find(b => score >= b.min)!;
+ const score = calcScore();
+ const profileKey = getDominantProfile(calcProfiles());
+ const band = BANDS.find(b => score >= b.min)!;
 
-    const data: Record<string, string> = {
-      'form-name': 'signal-review-request',
-      email, company,
-      'full-name': name,
-      score: String(score),
-      'profile': PROFILES[profileKey]?.name ?? profileKey,
-      'score-band': band.label,
-      focus,
-    };
+ const data: Record<string, string> = {
+ 'form-name': 'signal-review-request',
+ email, company,
+ 'full-name': name,
+ score: String(score),
+ 'profile': PROFILES[profileKey]?.name ?? profileKey,
+ 'score-band': band.label,
+ focus,
+ };
 
-    try {
-      await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: Object.entries(data).map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`).join('&'),
-      });
-    } catch (_) { /* fail silently */ }
+ try {
+ await fetch('/', {
+ method: 'POST',
+ headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+ body: Object.entries(data).map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`).join('&'),
+ });
+ } catch (_) { /* fail silently */ }
 
-    document.getElementById('signal-modal-form-state')!.classList.add('hidden');
-    document.getElementById('signal-modal-confirm-state')!.classList.remove('hidden');
-  });
+ document.getElementById('signal-modal-form-state')!.classList.add('hidden');
+ document.getElementById('signal-modal-confirm-state')!.classList.remove('hidden');
+ });
 
-  // Email form
-  document.getElementById('email-form')!.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const email   = (document.getElementById('input-email')   as HTMLInputElement).value.trim();
-    const company = (document.getElementById('input-company') as HTMLInputElement).value.trim();
-    const name    = (document.getElementById('input-name')    as HTMLInputElement).value.trim();
-    const errEl   = document.getElementById('email-error')!;
+ // Email form
+ document.getElementById('email-form')!.addEventListener('submit', async (e) => {
+ e.preventDefault();
+ const email = (document.getElementById('input-email') as HTMLInputElement).value.trim();
+ const company = (document.getElementById('input-company') as HTMLInputElement).value.trim();
+ const name = (document.getElementById('input-name') as HTMLInputElement).value.trim();
+ const errEl = document.getElementById('email-error')!;
 
-    if (!email || !company || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      errEl.classList.remove('hidden');
-      return;
-    }
-    errEl.classList.add('hidden');
+ if (!email || !company || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+ errEl.classList.remove('hidden');
+ return;
+ }
+ errEl.classList.add('hidden');
 
-    const btn = document.getElementById('submit-email') as HTMLButtonElement;
-    btn.disabled = true;
-    btn.textContent = 'Loading...';
+ const btn = document.getElementById('submit-email') as HTMLButtonElement;
+ btn.disabled = true;
+ btn.textContent = 'Loading...';
 
-    await submitToNetlify(email, company, name);
-    renderResults();
-    goTo(6);
-  });
+ await submitToNetlify(email, company, name);
+ renderResults();
+ goTo(6);
+ });
 </script>

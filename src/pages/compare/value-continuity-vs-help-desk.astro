@@ -8,168 +8,168 @@ const pageDescription = "Help desks manage support activity. Value Continuity pl
 const canonical = "https://meridianarr.com/compare/value-continuity-vs-help-desk/";
 
 const faqs = [
-  {
-    q: "What is the difference between a help desk and a Value Continuity platform?",
-    a: "A help desk (Zendesk, Intercom, Freshdesk, Pylon) manages support activity: routing tickets, tracking resolution time, and measuring agent performance. A Value Continuity platform like MeridianARR connects support activity to revenue outcomes — identifying which tickets represent ARR risk, which accounts are at risk of churning based on their support history, and what product friction is driving renewal risk.",
-  },
-  {
-    q: "Is MeridianARR a help desk?",
-    a: "No. MeridianARR is a Value Continuity platform for B2B SaaS companies. It includes omnichannel support capabilities, but its primary output is revenue intelligence, not support efficiency metrics. MeridianARR tells you which support interactions are ARR risk signals — not just how fast you closed tickets.",
-  },
-  {
-    q: "Can I use MeridianARR instead of Zendesk?",
-    a: "MeridianARR includes omnichannel support operations, so it can serve as the support layer for B2B SaaS companies. The key difference is that MeridianARR adds native revenue intelligence on top of support — connecting tickets, product data, and customer distress signals to ARR risk in a way Zendesk is not designed to do.",
-  },
-  {
-    q: "Why do help desks miss churn risk?",
-    a: "Help desks are optimized for resolution speed and agent efficiency. They do not connect ticket content to account-level revenue risk, product adoption status, or renewal probability. MeridianARR is designed to make that connection — turning support data into post-sale revenue intelligence.",
-  },
+ {
+ q: "What is the difference between a help desk and a Value Continuity platform?",
+ a: "A help desk (Zendesk, Intercom, Freshdesk, Pylon) manages support activity: routing tickets, tracking resolution time, and measuring agent performance. A Value Continuity platform like MeridianARR connects support activity to revenue outcomes, identifying which tickets represent ARR risk, which accounts are at risk of churning based on their support history, and what product friction is driving renewal risk.",
+ },
+ {
+ q: "Is MeridianARR a help desk?",
+ a: "No. MeridianARR is a Value Continuity platform for B2B SaaS companies. It includes omnichannel support capabilities, but its primary output is revenue intelligence, not support efficiency metrics. MeridianARR tells you which support interactions are ARR risk signals, not just how fast you closed tickets.",
+ },
+ {
+ q: "Can I use MeridianARR instead of Zendesk?",
+ a: "MeridianARR includes omnichannel support operations, so it can serve as the support layer for B2B SaaS companies. The key difference is that MeridianARR adds native revenue intelligence on top of support, connecting tickets, product data, and customer distress signals to ARR risk in a way Zendesk is not designed to do.",
+ },
+ {
+ q: "Why do help desks miss churn risk?",
+ a: "Help desks are optimized for resolution speed and agent efficiency. They do not connect ticket content to account-level revenue risk, product adoption status, or renewal probability. MeridianARR is designed to make that connection, turning support data into post-sale revenue intelligence.",
+ },
 ];
 
 const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqs.map((faq) => ({
-    "@type": "Question",
-    name: faq.q,
-    acceptedAnswer: { "@type": "Answer", text: faq.a },
-  })),
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ mainEntity: faqs.map((faq) => ({
+ "@type": "Question",
+ name: faq.q,
+ acceptedAnswer: { "@type": "Answer", text: faq.a },
+ })),
 };
 
 const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://meridianarr.com/" },
-    { "@type": "ListItem", position: 2, name: "Compare", item: "https://meridianarr.com/compare/" },
-    { "@type": "ListItem", position: 3, name: "Value Continuity vs Help Desk", item: canonical },
-  ],
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ itemListElement: [
+ { "@type": "ListItem", position: 1, name: "Home", item: "https://meridianarr.com/" },
+ { "@type": "ListItem", position: 2, name: "Compare", item: "https://meridianarr.com/compare/" },
+ { "@type": "ListItem", position: 3, name: "Value Continuity vs Help Desk", item: canonical },
+ ],
 };
 ---
 
 <Layout title={pageTitle} description={pageDescription} canonical={canonical}>
-  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
-  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+ <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+ <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
 
-  <Nav />
+ <Nav />
 
-  <main>
-    <section class="bg-slate-950 px-5 py-20 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <p class="text-sm font-medium text-blue-400">Compare</p>
-        <h1 class="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-          Value Continuity vs Help Desk Software
-        </h1>
-        <p class="mt-6 text-lg leading-relaxed text-slate-300">
-          Help desks tell you how fast you resolved tickets. Value Continuity platforms tell you which tickets were ARR risk signals. MeridianARR is a Value Continuity platform for B2B SaaS companies that connects support operations to post-sale revenue intelligence.
-        </p>
-      </div>
-    </section>
+ <main>
+ <section class="bg-slate-950 px-5 py-20 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <p class="text-sm font-medium text-blue-400">Compare</p>
+ <h1 class="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+ Value Continuity vs Help Desk Software
+ </h1>
+ <p class="mt-6 text-lg leading-relaxed text-slate-300">
+ Help desks tell you how fast you resolved tickets. Value Continuity platforms tell you which tickets were ARR risk signals. MeridianARR is a Value Continuity platform for B2B SaaS companies that connects support operations to post-sale revenue intelligence.
+ </p>
+ </div>
+ </section>
 
-    <section class="bg-white px-5 py-14 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">The short answer</h2>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          Help desks are designed for support operations: ticket routing, agent management, SLA tracking, and customer communication. They optimize for resolution speed and support efficiency. They are essential infrastructure.
-        </p>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          What they do not do is connect support activity to revenue outcomes. A customer who files six tickets about the same broken workflow, each resolved within SLA, might have a perfect help desk score — and be 60 days from churning. The help desk does not know because it is not built to ask the revenue question.
-        </p>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          MeridianARR is a Value Continuity platform. It includes omnichannel support, but its primary output is revenue intelligence: which accounts are at ARR risk, why, and what to do before the renewal is lost.
-        </p>
-      </div>
-    </section>
+ <section class="bg-white px-5 py-14 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <h2 class="text-2xl font-bold text-slate-950">The short answer</h2>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ Help desks are designed for support operations: ticket routing, agent management, SLA tracking, and customer communication. They optimize for resolution speed and support efficiency. They are essential infrastructure.
+ </p>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ What they do not do is connect support activity to revenue outcomes. A customer who files six tickets about the same broken workflow, each resolved within SLA, might have a perfect help desk score, and be 60 days from churning. The help desk does not know because it is not built to ask the revenue question.
+ </p>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ MeridianARR is a Value Continuity platform. It includes omnichannel support, but its primary output is revenue intelligence: which accounts are at ARR risk, why, and what to do before the renewal is lost.
+ </p>
+ </div>
+ </section>
 
-    <section class="bg-slate-50 px-5 py-14 lg:px-8">
-      <div class="mx-auto max-w-4xl">
-        <h2 class="text-2xl font-bold text-slate-950">How they compare</h2>
-        <div class="mt-8 overflow-x-auto">
-          <table class="w-full border-collapse text-sm">
-            <thead>
-              <tr class="border-b border-slate-200 bg-white">
-                <th class="py-3 pl-4 pr-6 text-left font-semibold text-slate-700">Dimension</th>
-                <th class="py-3 px-4 text-left font-semibold text-slate-700">Help Desk<br/><span class="font-normal text-slate-500">(Zendesk, Intercom, Pylon, Freshdesk)</span></th>
-                <th class="py-3 px-4 text-left font-semibold text-slate-950">Value Continuity<br/><span class="font-normal text-slate-500">(MeridianARR)</span></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="border-b border-slate-100">
-                <td class="py-3 pl-4 pr-6 text-slate-600">Primary purpose</td>
-                <td class="py-3 px-4 text-slate-600">Support ticket management and agent productivity</td>
-                <td class="py-3 px-4 text-slate-700">Post-sale revenue intelligence and ARR risk detection</td>
-              </tr>
-              <tr class="border-b border-slate-100">
-                <td class="py-3 pl-4 pr-6 text-slate-600">Primary output</td>
-                <td class="py-3 px-4 text-slate-600">Resolution time, CSAT, ticket volume</td>
-                <td class="py-3 px-4 text-slate-700">ARR risk by account, Customer Distress Index, renewal signals</td>
-              </tr>
-              <tr class="border-b border-slate-100">
-                <td class="py-3 pl-4 pr-6 text-slate-600">Revenue signal connection</td>
-                <td class="py-3 px-4 text-slate-600">No</td>
-                <td class="py-3 px-4 text-slate-700">Yes — native to the platform</td>
-              </tr>
-              <tr class="border-b border-slate-100">
-                <td class="py-3 pl-4 pr-6 text-slate-600">Product friction visibility</td>
-                <td class="py-3 px-4 text-slate-600">Not typically</td>
-                <td class="py-3 px-4 text-slate-700">Yes — support and product signals connected</td>
-              </tr>
-              <tr class="border-b border-slate-100">
-                <td class="py-3 pl-4 pr-6 text-slate-600">Executive question answered</td>
-                <td class="py-3 px-4 text-slate-600">Is our support team resolving tickets efficiently?</td>
-                <td class="py-3 px-4 text-slate-700">Which accounts are at ARR risk from support signals?</td>
-              </tr>
-              <tr class="border-b border-slate-100">
-                <td class="py-3 pl-4 pr-6 text-slate-600">Churn prediction</td>
-                <td class="py-3 px-4 text-slate-600">Not designed for this</td>
-                <td class="py-3 px-4 text-slate-700">Customer Distress Index built from support and product signals</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
+ <section class="bg-slate-50 px-5 py-14 lg:px-8">
+ <div class="mx-auto max-w-4xl">
+ <h2 class="text-2xl font-bold text-slate-950">How they compare</h2>
+ <div class="mt-8 overflow-x-auto">
+ <table class="w-full border-collapse text-sm">
+ <thead>
+ <tr class="border-b border-slate-200 bg-white">
+ <th class="py-3 pl-4 pr-6 text-left font-semibold text-slate-700">Dimension</th>
+ <th class="py-3 px-4 text-left font-semibold text-slate-700">Help Desk<br/><span class="font-normal text-slate-500">(Zendesk, Intercom, Pylon, Freshdesk)</span></th>
+ <th class="py-3 px-4 text-left font-semibold text-slate-950">Value Continuity<br/><span class="font-normal text-slate-500">(MeridianARR)</span></th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr class="border-b border-slate-100">
+ <td class="py-3 pl-4 pr-6 text-slate-600">Primary purpose</td>
+ <td class="py-3 px-4 text-slate-600">Support ticket management and agent productivity</td>
+ <td class="py-3 px-4 text-slate-700">Post-sale revenue intelligence and ARR risk detection</td>
+ </tr>
+ <tr class="border-b border-slate-100">
+ <td class="py-3 pl-4 pr-6 text-slate-600">Primary output</td>
+ <td class="py-3 px-4 text-slate-600">Resolution time, CSAT, ticket volume</td>
+ <td class="py-3 px-4 text-slate-700">ARR risk by account, Customer Distress Index, renewal signals</td>
+ </tr>
+ <tr class="border-b border-slate-100">
+ <td class="py-3 pl-4 pr-6 text-slate-600">Revenue signal connection</td>
+ <td class="py-3 px-4 text-slate-600">No</td>
+ <td class="py-3 px-4 text-slate-700">Yes, native to the platform</td>
+ </tr>
+ <tr class="border-b border-slate-100">
+ <td class="py-3 pl-4 pr-6 text-slate-600">Product friction visibility</td>
+ <td class="py-3 px-4 text-slate-600">Not typically</td>
+ <td class="py-3 px-4 text-slate-700">Yes, support and product signals connected</td>
+ </tr>
+ <tr class="border-b border-slate-100">
+ <td class="py-3 pl-4 pr-6 text-slate-600">Executive question answered</td>
+ <td class="py-3 px-4 text-slate-600">Is our support team resolving tickets efficiently?</td>
+ <td class="py-3 px-4 text-slate-700">Which accounts are at ARR risk from support signals?</td>
+ </tr>
+ <tr class="border-b border-slate-100">
+ <td class="py-3 pl-4 pr-6 text-slate-600">Churn prediction</td>
+ <td class="py-3 px-4 text-slate-600">Not designed for this</td>
+ <td class="py-3 px-4 text-slate-700">Customer Distress Index built from support and product signals</td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+ </div>
+ </section>
 
-    <section class="bg-white px-5 py-14 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">Why support data is the best churn signal</h2>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          Customers tell their support team things they will not tell their account manager. Support tickets are the most honest signal about customer frustration — and frustration is the leading indicator of churn. The problem is that this signal lives in a help desk that is not designed to surface it as a revenue risk.
-        </p>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          MeridianARR changes that. It is built to read support data as revenue intelligence — connecting ticket content, escalation patterns, and resolution history to account-level ARR risk. It is not a bolt-on analytics layer on top of a help desk; it is a Value Continuity platform that starts with support as its primary data source.
-        </p>
-      </div>
-    </section>
+ <section class="bg-white px-5 py-14 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <h2 class="text-2xl font-bold text-slate-950">Why support data is the best churn signal</h2>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ Customers tell their support team things they will not tell their account manager. Support tickets are the most honest signal about customer frustration, and frustration is the leading indicator of churn. The problem is that this signal lives in a help desk that is not designed to surface it as a revenue risk.
+ </p>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ MeridianARR changes that. It is built to read support data as revenue intelligence, connecting ticket content, escalation patterns, and resolution history to account-level ARR risk. It is not a bolt-on analytics layer on top of a help desk; it is a Value Continuity platform that starts with support as its primary data source.
+ </p>
+ </div>
+ </section>
 
-    <section class="bg-slate-50 px-5 py-14 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">About MeridianARR</h2>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          MeridianARR is a Value Continuity platform for B2B SaaS companies. It connects support, onboarding, product friction, customer distress, and renewal risk into post-sale revenue intelligence.
-        </p>
-        <div class="mt-6">
-          <a href="/customer-defensibility-score/" class="inline-flex items-center justify-center rounded-2xl bg-slate-950 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-800">
-            Calculate your Customer Defensibility Score
-          </a>
-        </div>
-      </div>
-    </section>
+ <section class="bg-slate-50 px-5 py-14 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <h2 class="text-2xl font-bold text-slate-950">About MeridianARR</h2>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ MeridianARR is a Value Continuity platform for B2B SaaS companies. It connects support, onboarding, product friction, customer distress, and renewal risk into post-sale revenue intelligence.
+ </p>
+ <div class="mt-6">
+ <a href="/customer-defensibility-score/" class="inline-flex items-center justify-center rounded-2xl bg-slate-950 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-800">
+ Calculate your Customer Defensibility Score
+ </a>
+ </div>
+ </div>
+ </section>
 
-    <section class="bg-white px-5 py-14 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">Frequently asked questions</h2>
-        <dl class="mt-8 space-y-8">
-          {faqs.map((faq) => (
-            <div>
-              <dt class="font-semibold text-slate-950">{faq.q}</dt>
-              <dd class="mt-2 text-slate-600 leading-relaxed">{faq.a}</dd>
-            </div>
-          ))}
-        </dl>
-      </div>
-    </section>
-  </main>
+ <section class="bg-white px-5 py-14 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <h2 class="text-2xl font-bold text-slate-950">Frequently asked questions</h2>
+ <dl class="mt-8 space-y-8">
+ {faqs.map((faq) => (
+ <div>
+ <dt class="font-semibold text-slate-950">{faq.q}</dt>
+ <dd class="mt-2 text-slate-600 leading-relaxed">{faq.a}</dd>
+ </div>
+ ))}
+ </dl>
+ </div>
+ </section>
+ </main>
 
-  <Footer />
+ <Footer />
 </Layout>

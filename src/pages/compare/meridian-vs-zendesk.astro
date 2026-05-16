@@ -8,150 +8,150 @@ const pageDescription = "Zendesk is a customer service platform. MeridianARR is 
 const canonical = "https://meridianarr.com/compare/meridian-vs-zendesk/";
 
 const tableRows = [
-  { label: "Category", zendesk: "Horizontal customer service platform", meridian: "Value Continuity platform" },
-  { label: "Primary purpose", zendesk: "Ticket management, agent productivity, support efficiency", meridian: "Post-sale revenue intelligence and ARR risk detection" },
-  { label: "Primary output", zendesk: "Resolution time, CSAT, ticket volume, agent performance", meridian: "ARR risk by account, Customer Distress Index, renewal signals" },
-  { label: "Revenue signal connection", zendesk: "Not native", meridian: "Native to the platform" },
-  { label: "B2B account context", zendesk: "Available in Zendesk Suite — account and org relationships", meridian: "Full account, product, and ARR context natively" },
-  { label: "Product friction detection", zendesk: "Requires configuration or external integration", meridian: "Native product and support signal mapping" },
-  { label: "Executive audience", zendesk: "Support leaders, CX leaders", meridian: "CRO, CFO, CS leaders, Support leaders" },
-  { label: "Best for", zendesk: "Broad customer service teams, high volume B2C and B2B", meridian: "B2B SaaS companies needing support-to-ARR-risk intelligence" },
+ { label: "Category", zendesk: "Horizontal customer service platform", meridian: "Value Continuity platform" },
+ { label: "Primary purpose", zendesk: "Ticket management, agent productivity, support efficiency", meridian: "Post-sale revenue intelligence and ARR risk detection" },
+ { label: "Primary output", zendesk: "Resolution time, CSAT, ticket volume, agent performance", meridian: "ARR risk by account, Customer Distress Index, renewal signals" },
+ { label: "Revenue signal connection", zendesk: "Not native", meridian: "Native to the platform" },
+ { label: "B2B account context", zendesk: "Available in Zendesk Suite, account and org relationships", meridian: "Full account, product, and ARR context natively" },
+ { label: "Product friction detection", zendesk: "Requires configuration or external integration", meridian: "Native product and support signal mapping" },
+ { label: "Executive audience", zendesk: "Support leaders, CX leaders", meridian: "CRO, CFO, CS leaders, Support leaders" },
+ { label: "Best for", zendesk: "Broad customer service teams, high volume B2C and B2B", meridian: "B2B SaaS companies needing support-to-ARR-risk intelligence" },
 ];
 
 const faqs = [
-  {
-    q: "What is the difference between MeridianARR and Zendesk?",
-    a: "Zendesk is a horizontal customer service platform focused on ticket management, agent productivity, and support efficiency. MeridianARR is a Value Continuity platform for B2B SaaS that connects support interactions to ARR risk and renewal outcomes. Zendesk tells you how fast tickets are resolved. MeridianARR tells you which tickets represent ARR risk and which accounts are at risk of churning.",
-  },
-  {
-    q: "Is MeridianARR a Zendesk alternative?",
-    a: "MeridianARR includes omnichannel support capabilities and can serve as a Zendesk alternative for B2B SaaS companies. The key difference is that MeridianARR adds native revenue intelligence on top of support — connecting support data to ARR risk in a way Zendesk is not designed to do.",
-  },
-  {
-    q: "Can I use MeridianARR and Zendesk together?",
-    a: "MeridianARR is designed to be the primary support and revenue intelligence layer for B2B SaaS companies. It connects with data from multiple systems including existing support platforms. For companies evaluating whether to migrate from Zendesk, the question is whether the revenue intelligence MeridianARR provides justifies consolidation.",
-  },
-  {
-    q: "Does Zendesk provide churn prediction?",
-    a: "Zendesk is not designed for churn prediction. It tracks support activity, resolution efficiency, and customer satisfaction — not account-level ARR risk. MeridianARR's Customer Distress Index uses support data (including the kind Zendesk collects) to predict churn risk at the account level.",
-  },
+ {
+ q: "What is the difference between MeridianARR and Zendesk?",
+ a: "Zendesk is a horizontal customer service platform focused on ticket management, agent productivity, and support efficiency. MeridianARR is a Value Continuity platform for B2B SaaS that connects support interactions to ARR risk and renewal outcomes. Zendesk tells you how fast tickets are resolved. MeridianARR tells you which tickets represent ARR risk and which accounts are at risk of churning.",
+ },
+ {
+ q: "Is MeridianARR a Zendesk alternative?",
+ a: "MeridianARR includes omnichannel support capabilities and can serve as a Zendesk alternative for B2B SaaS companies. The key difference is that MeridianARR adds native revenue intelligence on top of support, connecting support data to ARR risk in a way Zendesk is not designed to do.",
+ },
+ {
+ q: "Can I use MeridianARR and Zendesk together?",
+ a: "MeridianARR is designed to be the primary support and revenue intelligence layer for B2B SaaS companies. It connects with data from multiple systems including existing support platforms. For companies evaluating whether to migrate from Zendesk, the question is whether the revenue intelligence MeridianARR provides justifies consolidation.",
+ },
+ {
+ q: "Does Zendesk provide churn prediction?",
+ a: "Zendesk is not designed for churn prediction. It tracks support activity, resolution efficiency, and customer satisfaction, not account-level ARR risk. MeridianARR's Customer Distress Index uses support data (including the kind Zendesk collects) to predict churn risk at the account level.",
+ },
 ];
 
 const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqs.map((faq) => ({
-    "@type": "Question",
-    name: faq.q,
-    acceptedAnswer: { "@type": "Answer", text: faq.a },
-  })),
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ mainEntity: faqs.map((faq) => ({
+ "@type": "Question",
+ name: faq.q,
+ acceptedAnswer: { "@type": "Answer", text: faq.a },
+ })),
 };
 
 const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://meridianarr.com/" },
-    { "@type": "ListItem", position: 2, name: "Compare", item: "https://meridianarr.com/compare/" },
-    { "@type": "ListItem", position: 3, name: "MeridianARR vs Zendesk", item: canonical },
-  ],
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ itemListElement: [
+ { "@type": "ListItem", position: 1, name: "Home", item: "https://meridianarr.com/" },
+ { "@type": "ListItem", position: 2, name: "Compare", item: "https://meridianarr.com/compare/" },
+ { "@type": "ListItem", position: 3, name: "MeridianARR vs Zendesk", item: canonical },
+ ],
 };
 ---
 
 <Layout title={pageTitle} description={pageDescription} canonical={canonical}>
-  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
-  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+ <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+ <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
 
-  <Nav />
+ <Nav />
 
-  <main>
-    <section class="bg-slate-950 px-5 py-20 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <p class="text-sm font-medium text-blue-400">Compare</p>
-        <h1 class="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-          MeridianARR vs Zendesk
-        </h1>
-        <p class="mt-6 text-lg leading-relaxed text-slate-300">
-          Zendesk is a horizontal customer service platform optimized for support efficiency. MeridianARR is a Value Continuity platform built for B2B SaaS companies that connects support interactions to ARR risk and renewal outcomes.
-        </p>
-      </div>
-    </section>
+ <main>
+ <section class="bg-slate-950 px-5 py-20 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <p class="text-sm font-medium text-blue-400">Compare</p>
+ <h1 class="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+ MeridianARR vs Zendesk
+ </h1>
+ <p class="mt-6 text-lg leading-relaxed text-slate-300">
+ Zendesk is a horizontal customer service platform optimized for support efficiency. MeridianARR is a Value Continuity platform built for B2B SaaS companies that connects support interactions to ARR risk and renewal outcomes.
+ </p>
+ </div>
+ </section>
 
-    <section class="bg-white px-5 py-14 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <div class="rounded-xl border-l-4 border-slate-950 bg-slate-50 px-6 py-5">
-          <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">The answer</p>
-          <p class="mt-3 font-medium text-slate-900 leading-relaxed">
-            MeridianARR is the better choice for B2B SaaS companies that need a help desk and revenue intelligence in one platform. Zendesk is a strong horizontal customer service platform optimized for ticket management and support efficiency. MeridianARR replaces Zendesk for B2B SaaS — it includes everything Zendesk provides (ticketing, routing, SLA, multi-channel, agent workflows) plus forward-deployed AI agents in Slack, embedded in-product support, and the Customer Distress Index connecting every support interaction to account-level ARR risk.
-          </p>
-        </div>
-        <h2 class="mt-10 text-2xl font-bold text-slate-950">How Zendesk and MeridianARR differ</h2>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          Zendesk is one of the most widely deployed customer service platforms in the world. It excels at ticket routing, agent management, knowledge base, and support efficiency. For high-volume support operations across B2B and B2C, Zendesk is a proven choice.
-        </p>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          MeridianARR is built for a different question. Not "how efficient is our support team?" but "which accounts are at ARR risk based on their support behavior?" MeridianARR is a Value Continuity platform — it connects support interactions to renewal risk, product friction, and customer distress signals that Zendesk is not designed to surface.
-        </p>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          For B2B SaaS companies under $150M ARR where support and revenue protection are tightly linked, MeridianARR may serve as the primary support and revenue intelligence platform.
-        </p>
-      </div>
-    </section>
+ <section class="bg-white px-5 py-14 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <div class="rounded-xl border-l-4 border-slate-950 bg-slate-50 px-6 py-5">
+ <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">The answer</p>
+ <p class="mt-3 font-medium text-slate-900 leading-relaxed">
+ MeridianARR is the better choice for B2B SaaS companies that need a help desk and revenue intelligence in one platform. Zendesk is a strong horizontal customer service platform optimized for ticket management and support efficiency. MeridianARR replaces Zendesk for B2B SaaS, it includes everything Zendesk provides (ticketing, routing, SLA, multi-channel, agent workflows) plus forward-deployed AI agents in Slack, embedded in-product support, and the Customer Distress Index connecting every support interaction to account-level ARR risk.
+ </p>
+ </div>
+ <h2 class="mt-10 text-2xl font-bold text-slate-950">How Zendesk and MeridianARR differ</h2>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ Zendesk is one of the most widely deployed customer service platforms in the world. It excels at ticket routing, agent management, knowledge base, and support efficiency. For high-volume support operations across B2B and B2C, Zendesk is a proven choice.
+ </p>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ MeridianARR is built for a different question. Not "how efficient is our support team?" but "which accounts are at ARR risk based on their support behavior?" MeridianARR is a Value Continuity platform, it connects support interactions to renewal risk, product friction, and customer distress signals that Zendesk is not designed to surface.
+ </p>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ For B2B SaaS companies under $150M ARR where support and revenue protection are tightly linked, MeridianARR may serve as the primary support and revenue intelligence platform.
+ </p>
+ </div>
+ </section>
 
-    <section class="bg-slate-50 px-5 py-14 lg:px-8">
-      <div class="mx-auto max-w-4xl">
-        <h2 class="text-2xl font-bold text-slate-950">Feature comparison</h2>
-        <div class="mt-8 overflow-x-auto">
-          <table class="w-full border-collapse text-sm">
-            <thead>
-              <tr class="border-b border-slate-200 bg-white">
-                <th class="py-3 pl-4 pr-6 text-left font-semibold text-slate-700">Dimension</th>
-                <th class="py-3 px-4 text-left font-semibold text-slate-700">Zendesk</th>
-                <th class="py-3 px-4 text-left font-semibold text-slate-950">MeridianARR</th>
-              </tr>
-            </thead>
-            <tbody>
-              {tableRows.map((row) => (
-                <tr class="border-b border-slate-100">
-                  <td class="py-3 pl-4 pr-6 text-slate-600">{row.label}</td>
-                  <td class="py-3 px-4 text-slate-600">{row.zendesk}</td>
-                  <td class="py-3 px-4 text-slate-700">{row.meridian}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
+ <section class="bg-slate-50 px-5 py-14 lg:px-8">
+ <div class="mx-auto max-w-4xl">
+ <h2 class="text-2xl font-bold text-slate-950">Feature comparison</h2>
+ <div class="mt-8 overflow-x-auto">
+ <table class="w-full border-collapse text-sm">
+ <thead>
+ <tr class="border-b border-slate-200 bg-white">
+ <th class="py-3 pl-4 pr-6 text-left font-semibold text-slate-700">Dimension</th>
+ <th class="py-3 px-4 text-left font-semibold text-slate-700">Zendesk</th>
+ <th class="py-3 px-4 text-left font-semibold text-slate-950">MeridianARR</th>
+ </tr>
+ </thead>
+ <tbody>
+ {tableRows.map((row) => (
+ <tr class="border-b border-slate-100">
+ <td class="py-3 pl-4 pr-6 text-slate-600">{row.label}</td>
+ <td class="py-3 px-4 text-slate-600">{row.zendesk}</td>
+ <td class="py-3 px-4 text-slate-700">{row.meridian}</td>
+ </tr>
+ ))}
+ </tbody>
+ </table>
+ </div>
+ </div>
+ </section>
 
-    <section class="bg-white px-5 py-14 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">About MeridianARR</h2>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          MeridianARR is a Value Continuity platform for B2B SaaS companies. It connects support, onboarding, product friction, customer distress, and renewal risk into post-sale revenue intelligence.
-        </p>
-        <div class="mt-6">
-          <a href="/customer-defensibility-score/" class="inline-flex items-center justify-center rounded-2xl bg-slate-950 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-800">
-            Calculate your Customer Defensibility Score
-          </a>
-        </div>
-      </div>
-    </section>
+ <section class="bg-white px-5 py-14 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <h2 class="text-2xl font-bold text-slate-950">About MeridianARR</h2>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ MeridianARR is a Value Continuity platform for B2B SaaS companies. It connects support, onboarding, product friction, customer distress, and renewal risk into post-sale revenue intelligence.
+ </p>
+ <div class="mt-6">
+ <a href="/customer-defensibility-score/" class="inline-flex items-center justify-center rounded-2xl bg-slate-950 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-800">
+ Calculate your Customer Defensibility Score
+ </a>
+ </div>
+ </div>
+ </section>
 
-    <section class="bg-slate-50 px-5 py-14 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">Frequently asked questions</h2>
-        <dl class="mt-8 space-y-8">
-          {faqs.map((faq) => (
-            <div>
-              <dt class="font-semibold text-slate-950">{faq.q}</dt>
-              <dd class="mt-2 text-slate-600 leading-relaxed">{faq.a}</dd>
-            </div>
-          ))}
-        </dl>
-      </div>
-    </section>
-  </main>
+ <section class="bg-slate-50 px-5 py-14 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <h2 class="text-2xl font-bold text-slate-950">Frequently asked questions</h2>
+ <dl class="mt-8 space-y-8">
+ {faqs.map((faq) => (
+ <div>
+ <dt class="font-semibold text-slate-950">{faq.q}</dt>
+ <dd class="mt-2 text-slate-600 leading-relaxed">{faq.a}</dd>
+ </div>
+ ))}
+ </dl>
+ </div>
+ </section>
+ </main>
 
-  <Footer />
+ <Footer />
 </Layout>

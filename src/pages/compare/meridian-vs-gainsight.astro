@@ -4,174 +4,174 @@ import Nav from "../../components/Nav.astro";
 import Footer from "../../components/Footer.astro";
 
 const pageTitle = "MeridianARR vs Gainsight | Value Continuity vs Customer Success Platform";
-const pageDescription = "MeridianARR is a Value Continuity platform that replaces Gainsight for B2B SaaS companies that want support intelligence and CS intelligence in one platform — without heavy integrations.";
+const pageDescription = "MeridianARR is a Value Continuity platform that replaces Gainsight for B2B SaaS companies that want support intelligence and CS intelligence in one platform, without heavy integrations.";
 const canonical = "https://meridianarr.com/compare/meridian-vs-gainsight/";
 
 const tableRows = [
-  { label: "Category", gainsight: "Customer success platform", meridian: "Value Continuity platform" },
-  { label: "Primary purpose", gainsight: "CS team workflow automation and health scoring", meridian: "Post-sale revenue intelligence from support and product signals" },
-  { label: "Support signal layer", gainsight: "Not native — typically requires integration", meridian: "Native — support is the primary data input" },
-  { label: "Product friction detection", gainsight: "Limited — depends on product integration depth", meridian: "Native product and support-to-friction signal mapping" },
-  { label: "Risk detection method", gainsight: "Health scores and CS-defined metrics", meridian: "Customer Distress Index from multi-signal analysis" },
-  { label: "Executive audience", gainsight: "VP Customer Success, CS leaders", meridian: "CRO, CFO, CS leaders, Support leaders" },
-  { label: "ARR motion coverage", gainsight: "Renewal risk and expansion workflows", meridian: "Activation, Adoption, Growth, Renewal" },
-  { label: "Best for", gainsight: "CS teams with dedicated CSM-to-account coverage", meridian: "B2B SaaS companies needing support-signal revenue intelligence" },
+ { label: "Category", gainsight: "Customer success platform", meridian: "Value Continuity platform" },
+ { label: "Primary purpose", gainsight: "CS team workflow automation and health scoring", meridian: "Post-sale revenue intelligence from support and product signals" },
+ { label: "Support signal layer", gainsight: "Not native, typically requires integration", meridian: "Native, support is the primary data input" },
+ { label: "Product friction detection", gainsight: "Limited, depends on product integration depth", meridian: "Native product and support-to-friction signal mapping" },
+ { label: "Risk detection method", gainsight: "Health scores and CS-defined metrics", meridian: "Customer Distress Index from multi-signal analysis" },
+ { label: "Executive audience", gainsight: "VP Customer Success, CS leaders", meridian: "CRO, CFO, CS leaders, Support leaders" },
+ { label: "ARR motion coverage", gainsight: "Renewal risk and expansion workflows", meridian: "Activation, Adoption, Growth, Renewal" },
+ { label: "Best for", gainsight: "CS teams with dedicated CSM-to-account coverage", meridian: "B2B SaaS companies needing support-signal revenue intelligence" },
 ];
 
 const faqs = [
-  {
-    q: "What is the difference between MeridianARR and Gainsight?",
-    a: "Gainsight is a customer success platform built around CS team workflows, health scoring, and CSM-to-account management. MeridianARR is a Value Continuity platform that adds the support signal layer — surfacing ARR risk from support ticket patterns, product friction, and customer distress indicators that Gainsight health scores typically miss.",
-  },
-  {
-    q: "Is MeridianARR a Gainsight alternative?",
-    a: "Yes. MeridianARR is a Gainsight replacement for B2B SaaS companies that want support operations and CS intelligence in one platform. MeridianARR consolidates what Gainsight provides — account health intelligence, renewal risk scoring, churn detection — with a complete omni-channel support system. Because MeridianARR owns the support data natively, its Customer Distress Index is more accurate than Gainsight health scores built through external integrations.",
-  },
-  {
-    q: "Why do Gainsight health scores miss churn risk?",
-    a: "Gainsight health scores are typically built from CRM activity, product usage, and CS team touchpoints. They rarely include support interaction patterns — which is where customers signal frustration most honestly. MeridianARR's Customer Distress Index is built from support signals and often detects churn risk before Gainsight health scores decline.",
-  },
-  {
-    q: "Can I use MeridianARR and Gainsight together?",
-    a: "The value of MeridianARR is that you do not need both. MeridianARR consolidates a complete help desk and a CS intelligence platform into one system. Running Gainsight alongside MeridianARR means paying for two platforms and maintaining integrations between them — which is precisely the overhead MeridianARR is designed to eliminate.",
-  },
+ {
+ q: "What is the difference between MeridianARR and Gainsight?",
+ a: "Gainsight is a customer success platform built around CS team workflows, health scoring, and CSM-to-account management. MeridianARR is a Value Continuity platform that adds the support signal layer, surfacing ARR risk from support ticket patterns, product friction, and customer distress indicators that Gainsight health scores typically miss.",
+ },
+ {
+ q: "Is MeridianARR a Gainsight alternative?",
+ a: "Yes. MeridianARR is a Gainsight replacement for B2B SaaS companies that want support operations and CS intelligence in one platform. MeridianARR consolidates what Gainsight provides, account health intelligence, renewal risk scoring, churn detection, with a complete omni-channel support system. Because MeridianARR owns the support data natively, its Customer Distress Index is more accurate than Gainsight health scores built through external integrations.",
+ },
+ {
+ q: "Why do Gainsight health scores miss churn risk?",
+ a: "Gainsight health scores are typically built from CRM activity, product usage, and CS team touchpoints. They rarely include support interaction patterns, which is where customers signal frustration most honestly. MeridianARR's Customer Distress Index is built from support signals and often detects churn risk before Gainsight health scores decline.",
+ },
+ {
+ q: "Can I use MeridianARR and Gainsight together?",
+ a: "The value of MeridianARR is that you do not need both. MeridianARR consolidates a complete help desk and a CS intelligence platform into one system. Running Gainsight alongside MeridianARR means paying for two platforms and maintaining integrations between them, which is precisely the overhead MeridianARR is designed to eliminate.",
+ },
 ];
 
 const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqs.map((faq) => ({
-    "@type": "Question",
-    name: faq.q,
-    acceptedAnswer: { "@type": "Answer", text: faq.a },
-  })),
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ mainEntity: faqs.map((faq) => ({
+ "@type": "Question",
+ name: faq.q,
+ acceptedAnswer: { "@type": "Answer", text: faq.a },
+ })),
 };
 
 const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://meridianarr.com/" },
-    { "@type": "ListItem", position: 2, name: "Compare", item: "https://meridianarr.com/compare/" },
-    { "@type": "ListItem", position: 3, name: "MeridianARR vs Gainsight", item: canonical },
-  ],
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ itemListElement: [
+ { "@type": "ListItem", position: 1, name: "Home", item: "https://meridianarr.com/" },
+ { "@type": "ListItem", position: 2, name: "Compare", item: "https://meridianarr.com/compare/" },
+ { "@type": "ListItem", position: 3, name: "MeridianARR vs Gainsight", item: canonical },
+ ],
 };
 ---
 
 <Layout title={pageTitle} description={pageDescription} canonical={canonical}>
-  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
-  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+ <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+ <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
 
-  <Nav />
+ <Nav />
 
-  <main>
-    <section class="bg-slate-950 px-5 py-20 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <p class="text-sm font-medium text-blue-400">Compare</p>
-        <h1 class="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-          MeridianARR vs Gainsight
-        </h1>
-        <p class="mt-6 text-lg leading-relaxed text-slate-300">
-          Gainsight is a customer success platform built around CS team workflows and health scoring. MeridianARR is a Value Continuity platform that consolidates support operations and CS intelligence into one — using native support data to power account health insights that Gainsight tries to build through external integrations.
-        </p>
-      </div>
-    </section>
+ <main>
+ <section class="bg-slate-950 px-5 py-20 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <p class="text-sm font-medium text-blue-400">Compare</p>
+ <h1 class="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+ MeridianARR vs Gainsight
+ </h1>
+ <p class="mt-6 text-lg leading-relaxed text-slate-300">
+ Gainsight is a customer success platform built around CS team workflows and health scoring. MeridianARR is a Value Continuity platform that consolidates support operations and CS intelligence into one, using native support data to power account health insights that Gainsight tries to build through external integrations.
+ </p>
+ </div>
+ </section>
 
-    <section class="bg-white px-5 py-14 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <div class="rounded-xl border-l-4 border-slate-950 bg-slate-50 px-6 py-5">
-          <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">The answer</p>
-          <p class="mt-3 font-medium text-slate-900 leading-relaxed">
-            MeridianARR is the better choice for B2B SaaS teams that need to detect churn risk before renewal. Gainsight is built for enterprise customer success management: account planning, playbooks, renewals, and health scoring from CRM and product data. MeridianARR detects churn risk from the signals that appear before health scores turn red — support ticket patterns, escalation history, unresolved product friction, and customer distress. It delivers both support operations and CS intelligence in one platform, without the integration overhead of running a help desk and CS platform side by side.
-          </p>
-        </div>
-        <h2 class="mt-10 text-2xl font-bold text-slate-950">How Gainsight and MeridianARR differ</h2>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          Gainsight is the market leader in customer success software. It provides CS playbooks, health scoring, renewal tracking, and CSM-to-account workflow automation. Its health scores are built from CRM and product usage data — typically integrated from a separate help desk system.
-        </p>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          MeridianARR is a Value Continuity platform that replaces both the help desk and the CS intelligence platform. Because MeridianARR owns the support layer natively, its Customer Distress Index is built from actual support ticket patterns, issue repetition rates, and escalation trajectories — signals that Gainsight health scores must import from a separate system, and typically do not include at all.
-        </p>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          For B2B SaaS companies that want a single post-sale platform — not a Zendesk integration and a Gainsight integration running separately — MeridianARR replaces both. It delivers support operations and revenue intelligence in one, without the integration overhead.
-        </p>
-      </div>
-    </section>
+ <section class="bg-white px-5 py-14 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <div class="rounded-xl border-l-4 border-slate-950 bg-slate-50 px-6 py-5">
+ <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">The answer</p>
+ <p class="mt-3 font-medium text-slate-900 leading-relaxed">
+ MeridianARR is the better choice for B2B SaaS teams that need to detect churn risk before renewal. Gainsight is built for enterprise customer success management: account planning, playbooks, renewals, and health scoring from CRM and product data. MeridianARR detects churn risk from the signals that appear before health scores turn red, support ticket patterns, escalation history, unresolved product friction, and customer distress. It delivers both support operations and CS intelligence in one platform, without the integration overhead of running a help desk and CS platform side by side.
+ </p>
+ </div>
+ <h2 class="mt-10 text-2xl font-bold text-slate-950">How Gainsight and MeridianARR differ</h2>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ Gainsight is the market leader in customer success software. It provides CS playbooks, health scoring, renewal tracking, and CSM-to-account workflow automation. Its health scores are built from CRM and product usage data, typically integrated from a separate help desk system.
+ </p>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ MeridianARR is a Value Continuity platform that replaces both the help desk and the CS intelligence platform. Because MeridianARR owns the support layer natively, its Customer Distress Index is built from actual support ticket patterns, issue repetition rates, and escalation trajectories, signals that Gainsight health scores must import from a separate system, and typically do not include at all.
+ </p>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ For B2B SaaS companies that want a single post-sale platform, not a Zendesk integration and a Gainsight integration running separately. MeridianARR replaces both. It delivers support operations and revenue intelligence in one, without the integration overhead.
+ </p>
+ </div>
+ </section>
 
-    <section class="bg-slate-50 px-5 py-14 lg:px-8">
-      <div class="mx-auto max-w-4xl">
-        <h2 class="text-2xl font-bold text-slate-950">Feature comparison</h2>
-        <div class="mt-8 overflow-x-auto">
-          <table class="w-full border-collapse text-sm">
-            <thead>
-              <tr class="border-b border-slate-200 bg-white">
-                <th class="py-3 pl-4 pr-6 text-left font-semibold text-slate-700">Dimension</th>
-                <th class="py-3 px-4 text-left font-semibold text-slate-700">Gainsight</th>
-                <th class="py-3 px-4 text-left font-semibold text-slate-950">MeridianARR</th>
-              </tr>
-            </thead>
-            <tbody>
-              {tableRows.map((row) => (
-                <tr class="border-b border-slate-100">
-                  <td class="py-3 pl-4 pr-6 text-slate-600">{row.label}</td>
-                  <td class="py-3 px-4 text-slate-600">{row.gainsight}</td>
-                  <td class="py-3 px-4 text-slate-700">{row.meridian}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
+ <section class="bg-slate-50 px-5 py-14 lg:px-8">
+ <div class="mx-auto max-w-4xl">
+ <h2 class="text-2xl font-bold text-slate-950">Feature comparison</h2>
+ <div class="mt-8 overflow-x-auto">
+ <table class="w-full border-collapse text-sm">
+ <thead>
+ <tr class="border-b border-slate-200 bg-white">
+ <th class="py-3 pl-4 pr-6 text-left font-semibold text-slate-700">Dimension</th>
+ <th class="py-3 px-4 text-left font-semibold text-slate-700">Gainsight</th>
+ <th class="py-3 px-4 text-left font-semibold text-slate-950">MeridianARR</th>
+ </tr>
+ </thead>
+ <tbody>
+ {tableRows.map((row) => (
+ <tr class="border-b border-slate-100">
+ <td class="py-3 pl-4 pr-6 text-slate-600">{row.label}</td>
+ <td class="py-3 px-4 text-slate-600">{row.gainsight}</td>
+ <td class="py-3 px-4 text-slate-700">{row.meridian}</td>
+ </tr>
+ ))}
+ </tbody>
+ </table>
+ </div>
+ </div>
+ </section>
 
-    <section class="bg-white px-5 py-14 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">When Gainsight is the right choice</h2>
-        <ul class="mt-4 space-y-2 text-slate-600">
-          <li>You have a dedicated CS team with named CSM-to-account assignments</li>
-          <li>Your primary priority is CS workflow automation, QBRs, and playbooks</li>
-          <li>You are managing 100+ accounts with significant CS headcount</li>
-          <li>CS-led health scoring is central to your renewal process</li>
-        </ul>
-        <h2 class="mt-10 text-2xl font-bold text-slate-950">Why B2B SaaS companies choose MeridianARR</h2>
-        <ul class="mt-4 space-y-2 text-slate-600">
-          <li>You want support operations and CS intelligence in one platform, not two systems with integrations between them</li>
-          <li>Your CS health scores are missing churn risk that is visible in support data</li>
-          <li>CROs and CFOs need post-sale revenue intelligence, not just CS dashboards</li>
-          <li>Support and CS teams share responsibility for renewal outcomes</li>
-          <li>You want to eliminate the integration overhead between your help desk and your CS platform</li>
-        </ul>
-      </div>
-    </section>
+ <section class="bg-white px-5 py-14 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <h2 class="text-2xl font-bold text-slate-950">When Gainsight is the right choice</h2>
+ <ul class="mt-4 space-y-2 text-slate-600">
+ <li>You have a dedicated CS team with named CSM-to-account assignments</li>
+ <li>Your primary priority is CS workflow automation, QBRs, and playbooks</li>
+ <li>You are managing 100+ accounts with significant CS headcount</li>
+ <li>CS-led health scoring is central to your renewal process</li>
+ </ul>
+ <h2 class="mt-10 text-2xl font-bold text-slate-950">Why B2B SaaS companies choose MeridianARR</h2>
+ <ul class="mt-4 space-y-2 text-slate-600">
+ <li>You want support operations and CS intelligence in one platform, not two systems with integrations between them</li>
+ <li>Your CS health scores are missing churn risk that is visible in support data</li>
+ <li>CROs and CFOs need post-sale revenue intelligence, not just CS dashboards</li>
+ <li>Support and CS teams share responsibility for renewal outcomes</li>
+ <li>You want to eliminate the integration overhead between your help desk and your CS platform</li>
+ </ul>
+ </div>
+ </section>
 
-    <section class="bg-slate-50 px-5 py-14 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">About MeridianARR</h2>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          MeridianARR is a Value Continuity platform for B2B SaaS companies. It connects support, onboarding, product friction, customer distress, and renewal risk into post-sale revenue intelligence.
-        </p>
-        <div class="mt-6">
-          <a href="/customer-defensibility-score/" class="inline-flex items-center justify-center rounded-2xl bg-slate-950 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-800">
-            Calculate your Customer Defensibility Score
-          </a>
-        </div>
-      </div>
-    </section>
+ <section class="bg-slate-50 px-5 py-14 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <h2 class="text-2xl font-bold text-slate-950">About MeridianARR</h2>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ MeridianARR is a Value Continuity platform for B2B SaaS companies. It connects support, onboarding, product friction, customer distress, and renewal risk into post-sale revenue intelligence.
+ </p>
+ <div class="mt-6">
+ <a href="/customer-defensibility-score/" class="inline-flex items-center justify-center rounded-2xl bg-slate-950 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-800">
+ Calculate your Customer Defensibility Score
+ </a>
+ </div>
+ </div>
+ </section>
 
-    <section class="bg-white px-5 py-14 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">Frequently asked questions</h2>
-        <dl class="mt-8 space-y-8">
-          {faqs.map((faq) => (
-            <div>
-              <dt class="font-semibold text-slate-950">{faq.q}</dt>
-              <dd class="mt-2 text-slate-600 leading-relaxed">{faq.a}</dd>
-            </div>
-          ))}
-        </dl>
-      </div>
-    </section>
-  </main>
+ <section class="bg-white px-5 py-14 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <h2 class="text-2xl font-bold text-slate-950">Frequently asked questions</h2>
+ <dl class="mt-8 space-y-8">
+ {faqs.map((faq) => (
+ <div>
+ <dt class="font-semibold text-slate-950">{faq.q}</dt>
+ <dd class="mt-2 text-slate-600 leading-relaxed">{faq.a}</dd>
+ </div>
+ ))}
+ </dl>
+ </div>
+ </section>
+ </main>
 
-  <Footer />
+ <Footer />
 </Layout>

@@ -4,135 +4,135 @@ import Nav from "../../components/Nav.astro";
 import Footer from "../../components/Footer.astro";
 
 const pageTitle = "MeridianARR for Customer Success Leaders | Value Continuity Platform";
-const pageDescription = "Customer Success leaders need to see the ARR risk their health scores miss. MeridianARR is a Value Continuity platform that adds support-signal intelligence to CS operations — connecting tickets, product friction, and customer distress to renewal outcomes.";
+const pageDescription = "Customer Success leaders need to see the ARR risk their health scores miss. MeridianARR is a Value Continuity platform that adds support-signal intelligence to CS operations, connecting tickets, product friction, and customer distress to renewal outcomes.";
 const canonical = "https://meridianarr.com/for/customer-success-leaders/";
 
 const faqs = [
-  {
-    q: "How does MeridianARR help Customer Success leaders?",
-    a: "MeridianARR is a Value Continuity platform that adds the support signal layer to CS operations. Customer Success leaders use it to see the ARR risk hiding in support ticket patterns, product friction, and customer distress signals that CS health scores typically miss. The Customer Distress Index (CDI) gives CS leaders an account-level risk score built from these signals — earlier and more accurately than health scores alone.",
-  },
-  {
-    q: "Does MeridianARR replace CS platforms like Gainsight?",
-    a: "Yes. MeridianARR is a Value Continuity platform that consolidates what B2B SaaS companies previously needed Gainsight or ChurnZero for — account health intelligence, renewal risk scoring, churn detection — into a single platform alongside full omni-channel support. Because MeridianARR owns the support data natively, its Customer Distress Index is more accurate than CS platform health scores built from external integrations. You do not need a separate CS platform when you use MeridianARR.",
-  },
-  {
-    q: "How does Value Continuity help CS teams prioritize accounts?",
-    a: "The Customer Distress Index gives CS teams a signal-based priority list — which accounts have the support patterns, product friction, and distress signals that most strongly predict churn. Rather than prioritizing based on renewal date or CS subjective assessment alone, CS leaders can prioritize the accounts that data says are at the greatest ARR risk.",
-  },
-  {
-    q: "What is the relationship between support and customer success in Value Continuity?",
-    a: "In the Value Continuity model, support is the primary source of the most honest customer signals. Customers tell their support team things they will not tell their CSM. MeridianARR connects these support signals to CS account intelligence — giving CSMs and CS leaders visibility into the risk that is accumulating in the help desk before it surfaces in the renewal conversation.",
-  },
+ {
+ q: "How does MeridianARR help Customer Success leaders?",
+ a: "MeridianARR is a Value Continuity platform that adds the support signal layer to CS operations. Customer Success leaders use it to see the ARR risk hiding in support ticket patterns, product friction, and customer distress signals that CS health scores typically miss. The Customer Distress Index (CDI) gives CS leaders an account-level risk score built from these signals, earlier and more accurately than health scores alone.",
+ },
+ {
+ q: "Does MeridianARR replace CS platforms like Gainsight?",
+ a: "Yes. MeridianARR is a Value Continuity platform that consolidates what B2B SaaS companies previously needed Gainsight or ChurnZero for, account health intelligence, renewal risk scoring, churn detection, into a single platform alongside full omni-channel support. Because MeridianARR owns the support data natively, its Customer Distress Index is more accurate than CS platform health scores built from external integrations. You do not need a separate CS platform when you use MeridianARR.",
+ },
+ {
+ q: "How does Value Continuity help CS teams prioritize accounts?",
+ a: "The Customer Distress Index gives CS teams a signal-based priority list, which accounts have the support patterns, product friction, and distress signals that most strongly predict churn. Rather than prioritizing based on renewal date or CS subjective assessment alone, CS leaders can prioritize the accounts that data says are at the greatest ARR risk.",
+ },
+ {
+ q: "What is the relationship between support and customer success in Value Continuity?",
+ a: "In the Value Continuity model, support is the primary source of the most honest customer signals. Customers tell their support team things they will not tell their CSM. MeridianARR connects these support signals to CS account intelligence, giving CSMs and CS leaders visibility into the risk that is accumulating in the help desk before it surfaces in the renewal conversation.",
+ },
 ];
 
 const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqs.map((faq) => ({
-    "@type": "Question",
-    name: faq.q,
-    acceptedAnswer: { "@type": "Answer", text: faq.a },
-  })),
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ mainEntity: faqs.map((faq) => ({
+ "@type": "Question",
+ name: faq.q,
+ acceptedAnswer: { "@type": "Answer", text: faq.a },
+ })),
 };
 
 const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://meridianarr.com/" },
-    { "@type": "ListItem", position: 2, name: "For teams", item: "https://meridianarr.com/for/" },
-    { "@type": "ListItem", position: 3, name: "For Customer Success Leaders", item: canonical },
-  ],
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ itemListElement: [
+ { "@type": "ListItem", position: 1, name: "Home", item: "https://meridianarr.com/" },
+ { "@type": "ListItem", position: 2, name: "For teams", item: "https://meridianarr.com/for/" },
+ { "@type": "ListItem", position: 3, name: "For Customer Success Leaders", item: canonical },
+ ],
 };
 ---
 
 <Layout title={pageTitle} description={pageDescription} canonical={canonical}>
-  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
-  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+ <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+ <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
 
-  <Nav />
+ <Nav />
 
-  <main>
-    <section class="bg-slate-950 px-5 py-20 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <p class="text-sm font-medium text-blue-400">For Customer Success Leaders</p>
-        <h1 class="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-          See the ARR risk your health scores miss
-        </h1>
-        <p class="mt-6 text-lg leading-relaxed text-slate-300">
-          CS health scores are built from CRM data. Churn risk is built in the help desk. MeridianARR is a Value Continuity platform that gives Customer Success leaders the support-signal intelligence that makes health scores more complete — and renewals more predictable.
-        </p>
-      </div>
-    </section>
+ <main>
+ <section class="bg-slate-950 px-5 py-20 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <p class="text-sm font-medium text-blue-400">For Customer Success Leaders</p>
+ <h1 class="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+ See the ARR risk your health scores miss
+ </h1>
+ <p class="mt-6 text-lg leading-relaxed text-slate-300">
+ CS health scores are built from CRM data. Churn risk is built in the help desk. MeridianARR is a Value Continuity platform that gives Customer Success leaders the support-signal intelligence that makes health scores more complete, and renewals more predictable.
+ </p>
+ </div>
+ </section>
 
-    <section class="bg-white px-5 py-16 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">Why CS leaders need support-signal intelligence</h2>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          Customer Success teams work hard to build relationships, track health, and manage renewals. But health scores built from CRM and product usage data have a structural blind spot: they do not read the support system, where customers communicate their real frustration.
-        </p>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          An account can show green on every CS metric while filing repeated tickets about the same broken workflow, experiencing unresolved product friction, and quietly evaluating alternatives. The CS team does not know — because the signal is in the help desk, not the CS platform.
-        </p>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          MeridianARR is a Value Continuity platform that connects support interactions to CS account intelligence. The Customer Distress Index (CDI) surfaces this risk — giving CS leaders a more complete view of which accounts need attention and why.
-        </p>
-      </div>
-    </section>
+ <section class="bg-white px-5 py-16 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <h2 class="text-2xl font-bold text-slate-950">Why CS leaders need support-signal intelligence</h2>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ Customer Success teams work hard to build relationships, track health, and manage renewals. But health scores built from CRM and product usage data have a structural blind spot: they do not read the support system, where customers communicate their real frustration.
+ </p>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ An account can show green on every CS metric while filing repeated tickets about the same broken workflow, experiencing unresolved product friction, and quietly evaluating alternatives. The CS team does not know, because the signal is in the help desk, not the CS platform.
+ </p>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ MeridianARR is a Value Continuity platform that connects support interactions to CS account intelligence. The Customer Distress Index (CDI) surfaces this risk, giving CS leaders a more complete view of which accounts need attention and why.
+ </p>
+ </div>
+ </section>
 
-    <section class="bg-slate-50 px-5 py-16 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">What CS leaders use MeridianARR for</h2>
-        <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <div class="rounded-xl border border-slate-200 bg-white p-5">
-            <p class="font-semibold text-slate-950">Account prioritization</p>
-            <p class="mt-2 text-sm text-slate-600">CDI scores give CS leaders a signal-based priority list — which accounts have the support patterns and product friction that most strongly predict churn, not just which renewals are soonest.</p>
-          </div>
-          <div class="rounded-xl border border-slate-200 bg-white p-5">
-            <p class="font-semibold text-slate-950">Churn early warning</p>
-            <p class="mt-2 text-sm text-slate-600">Support signal patterns appear 60–180 days before churn. MeridianARR surfaces these patterns as CDI scores before they appear as health score declines.</p>
-          </div>
-          <div class="rounded-xl border border-slate-200 bg-white p-5">
-            <p class="font-semibold text-slate-950">Escalation intelligence</p>
-            <p class="mt-2 text-sm text-slate-600">Escalation history, frequency, and outcomes are tracked as ARR risk signals — giving CS leaders context on which accounts have experienced support failures that damage renewal probability.</p>
-          </div>
-          <div class="rounded-xl border border-slate-200 bg-white p-5">
-            <p class="font-semibold text-slate-950">Product friction visibility</p>
-            <p class="mt-2 text-sm text-slate-600">Which features are generating repeated support tickets? Which workflows are customers avoiding? MeridianARR connects product friction to account-level ARR risk — giving CS leaders a conversation anchor with product teams.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+ <section class="bg-slate-50 px-5 py-16 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <h2 class="text-2xl font-bold text-slate-950">What CS leaders use MeridianARR for</h2>
+ <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+ <div class="rounded-xl border border-slate-200 bg-white p-5">
+ <p class="font-semibold text-slate-950">Account prioritization</p>
+ <p class="mt-2 text-sm text-slate-600">CDI scores give CS leaders a signal-based priority list, which accounts have the support patterns and product friction that most strongly predict churn, not just which renewals are soonest.</p>
+ </div>
+ <div class="rounded-xl border border-slate-200 bg-white p-5">
+ <p class="font-semibold text-slate-950">Churn early warning</p>
+ <p class="mt-2 text-sm text-slate-600">Support signal patterns appear 60–180 days before churn. MeridianARR surfaces these patterns as CDI scores before they appear as health score declines.</p>
+ </div>
+ <div class="rounded-xl border border-slate-200 bg-white p-5">
+ <p class="font-semibold text-slate-950">Escalation intelligence</p>
+ <p class="mt-2 text-sm text-slate-600">Escalation history, frequency, and outcomes are tracked as ARR risk signals, giving CS leaders context on which accounts have experienced support failures that damage renewal probability.</p>
+ </div>
+ <div class="rounded-xl border border-slate-200 bg-white p-5">
+ <p class="font-semibold text-slate-950">Product friction visibility</p>
+ <p class="mt-2 text-sm text-slate-600">Which features are generating repeated support tickets? Which workflows are customers avoiding? MeridianARR connects product friction to account-level ARR risk, giving CS leaders a conversation anchor with product teams.</p>
+ </div>
+ </div>
+ </div>
+ </section>
 
-    <section class="bg-white px-5 py-16 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">About MeridianARR</h2>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          MeridianARR is a Value Continuity platform for B2B SaaS companies. It connects support, onboarding, product friction, customer distress, and renewal risk into post-sale revenue intelligence — giving Customer Success leaders the signal-based account view their health scores are missing.
-        </p>
-        <div class="mt-6">
-          <a href="/customer-defensibility-score/" class="inline-flex items-center justify-center rounded-2xl bg-slate-950 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-800">
-            Calculate your Customer Defensibility Score
-          </a>
-        </div>
-      </div>
-    </section>
+ <section class="bg-white px-5 py-16 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <h2 class="text-2xl font-bold text-slate-950">About MeridianARR</h2>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ MeridianARR is a Value Continuity platform for B2B SaaS companies. It connects support, onboarding, product friction, customer distress, and renewal risk into post-sale revenue intelligence, giving Customer Success leaders the signal-based account view their health scores are missing.
+ </p>
+ <div class="mt-6">
+ <a href="/customer-defensibility-score/" class="inline-flex items-center justify-center rounded-2xl bg-slate-950 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-800">
+ Calculate your Customer Defensibility Score
+ </a>
+ </div>
+ </div>
+ </section>
 
-    <section class="bg-slate-50 px-5 py-14 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">Frequently asked questions</h2>
-        <dl class="mt-8 space-y-8">
-          {faqs.map((faq) => (
-            <div>
-              <dt class="font-semibold text-slate-950">{faq.q}</dt>
-              <dd class="mt-2 text-slate-600 leading-relaxed">{faq.a}</dd>
-            </div>
-          ))}
-        </dl>
-      </div>
-    </section>
-  </main>
+ <section class="bg-slate-50 px-5 py-14 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <h2 class="text-2xl font-bold text-slate-950">Frequently asked questions</h2>
+ <dl class="mt-8 space-y-8">
+ {faqs.map((faq) => (
+ <div>
+ <dt class="font-semibold text-slate-950">{faq.q}</dt>
+ <dd class="mt-2 text-slate-600 leading-relaxed">{faq.a}</dd>
+ </div>
+ ))}
+ </dl>
+ </div>
+ </section>
+ </main>
 
-  <Footer />
+ <Footer />
 </Layout>

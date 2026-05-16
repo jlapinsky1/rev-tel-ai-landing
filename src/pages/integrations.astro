@@ -11,144 +11,144 @@ const canonical = "https://meridianarr.com/integrations/";
 
 const btn = "inline-flex items-center justify-center rounded-2xl px-6 py-3 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2";
 const btnPrimary = `${btn} bg-slate-950 text-white hover:bg-slate-800`;
-const btnOutline  = `${btn} border border-slate-300 bg-white text-slate-700 hover:bg-slate-50`;
+const btnOutline = `${btn} border border-slate-300 bg-white text-slate-700 hover:bg-slate-50`;
 
 // Only render connectors confirmed from product screenshots.
 // Change status from "confirm" to "live" in content.js to activate.
 const liveCategories = integrationCategories.map(cat => ({
-  ...cat,
-  liveConnectors: cat.connectors.filter(c => c.status === "live"),
+ ...cat,
+ liveConnectors: cat.connectors.filter(c => c.status === "live"),
 }));
 ---
 
 <Layout title={pageTitle} description={pageDescription} canonical={canonical}>
-  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": pageTitle,
-    "description": pageDescription,
-    "url": canonical,
-    "mainEntity": {
-      "@type": "SoftwareApplication",
-      "name": "MeridianARR",
-      "applicationCategory": "BusinessApplication",
-      "description": "Post-sale revenue intelligence platform that connects CRM, support, product usage, collaboration, engineering, data warehouse, analytics, and AI-native systems to deliver customer defensibility scoring, ARR risk detection, and expansion insight.",
-      "featureList": integrationCategories.map(c => c.name).join(", "),
-    },
-  })} />
+ <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify({
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": pageTitle,
+ "description": pageDescription,
+ "url": canonical,
+ "mainEntity": {
+ "@type": "SoftwareApplication",
+ "name": "MeridianARR",
+ "applicationCategory": "BusinessApplication",
+ "description": "Post-sale revenue intelligence platform that connects CRM, support, product usage, collaboration, engineering, data warehouse, analytics, and AI-native systems to deliver customer defensibility scoring, ARR risk detection, and expansion insight.",
+ "featureList": integrationCategories.map(c => c.name).join(", "),
+ },
+ })} />
 
-  <Nav />
+ <Nav />
 
-  <main>
+ <main>
 
-    <!-- Page hero -->
-    <section class="border-b border-slate-200 bg-[linear-gradient(135deg,#ffffff_0%,#f4f7fb_52%,#eef6ff_100%)] px-5 py-20 lg:px-8">
-      <div class="mx-auto max-w-4xl">
-        <p class="text-sm font-semibold uppercase tracking-[0.22em] text-blue-700">Integrations &amp; AI-Native Connectors</p>
-        <h1 class="mt-5 text-5xl font-semibold tracking-[-0.05em] text-slate-950 lg:text-6xl">
-          MeridianARR Integrations and AI-Native Connectors
-        </h1>
-        <p class="mt-7 max-w-3xl text-xl leading-8 text-slate-600">
-          MeridianARR connects the systems where post-sale customer signals live: CRM, support, product usage, collaboration, engineering, data warehouse, analytics, and AI-native systems. These integrations help teams turn fragmented customer data into defensibility scoring, ARR risk detection, retention insight, product friction analysis, and expansion readiness.
-        </p>
-        <h2 class="mt-10 text-3xl font-semibold tracking-[-0.035em] text-slate-950">
-          Connected systems become defensibility intelligence.
-        </h2>
-        <p class="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
-          Many teams are trying to use general-purpose AI tools and MCP servers to stitch together business context across disconnected systems. MeridianARR is different. It is purpose-built for post-sale revenue intelligence, combining connected customer signals with defensibility scoring, account states, evidence history, recommended actions, and revenue risk workflows.
-        </p>
-      </div>
-    </section>
+ <!-- Page hero -->
+ <section class="border-b border-slate-200 bg-[linear-gradient(135deg,#ffffff_0%,#f4f7fb_52%,#eef6ff_100%)] px-5 py-20 lg:px-8">
+ <div class="mx-auto max-w-4xl">
+ <p class="text-sm font-semibold uppercase tracking-[0.22em] text-blue-700">Integrations &amp; AI-Native Connectors</p>
+ <h1 class="mt-5 text-5xl font-semibold tracking-[-0.05em] text-slate-950 lg:text-6xl">
+ MeridianARR Integrations and AI-Native Connectors
+ </h1>
+ <p class="mt-7 max-w-3xl text-xl leading-8 text-slate-600">
+ MeridianARR connects the systems where post-sale customer signals live: CRM, support, product usage, collaboration, engineering, data warehouse, analytics, and AI-native systems. These integrations help teams turn fragmented customer data into defensibility scoring, ARR risk detection, retention insight, product friction analysis, and expansion readiness.
+ </p>
+ <h2 class="mt-10 text-3xl font-semibold tracking-[-0.035em] text-slate-950">
+ Connected systems become defensibility intelligence.
+ </h2>
+ <p class="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
+ Many teams are trying to use general-purpose AI tools and MCP servers to stitch together business context across disconnected systems. MeridianARR is different. It is purpose-built for post-sale revenue intelligence, combining connected customer signals with defensibility scoring, account states, evidence history, recommended actions, and revenue risk workflows.
+ </p>
+ </div>
+ </section>
 
-    <!-- Strategic callout -->
-    <section class="bg-slate-950 px-5 py-14 text-white lg:px-8">
-      <div class="mx-auto max-w-4xl">
-        <p class="text-2xl font-semibold leading-snug tracking-tight lg:text-3xl">
-          The advantage is not having connectors. The advantage is knowing what those connected signals mean for retention, expansion, and ARR defensibility.
-        </p>
-      </div>
-    </section>
+ <!-- Strategic callout -->
+ <section class="bg-slate-950 px-5 py-14 text-white lg:px-8">
+ <div class="mx-auto max-w-4xl">
+ <p class="text-2xl font-semibold leading-snug tracking-tight lg:text-3xl">
+ The advantage is not having connectors. The advantage is knowing what those connected signals mean for retention, expansion, and ARR defensibility.
+ </p>
+ </div>
+ </section>
 
-    <!-- Integration categories -->
-    <section class="px-5 py-20 lg:px-8">
-      <div class="mx-auto max-w-7xl">
+ <!-- Integration categories -->
+ <section class="px-5 py-20 lg:px-8">
+ <div class="mx-auto max-w-7xl">
 
-        <div class="mb-12">
-          <p class="text-sm font-semibold uppercase tracking-[0.22em] text-blue-700">Supported integrations</p>
-          <h2 class="mt-4 text-4xl font-semibold tracking-[-0.04em] text-slate-950 lg:text-5xl">
-            Every category of post-sale customer data.
-          </h2>
-          <p class="mt-4 max-w-2xl text-lg leading-8 text-slate-600">
-            Below are the integration categories and currently supported connectors. Additional connectors are in progress — the data structure is built to activate them as they are confirmed.
-          </p>
-        </div>
+ <div class="mb-12">
+ <p class="text-sm font-semibold uppercase tracking-[0.22em] text-blue-700">Supported integrations</p>
+ <h2 class="mt-4 text-4xl font-semibold tracking-[-0.04em] text-slate-950 lg:text-5xl">
+ Every category of post-sale customer data.
+ </h2>
+ <p class="mt-4 max-w-2xl text-lg leading-8 text-slate-600">
+ Below are the integration categories and currently supported connectors. Additional connectors are in progress, the data structure is built to activate them as they are confirmed.
+ </p>
+ </div>
 
-        <div class="space-y-6">
-          {liveCategories.map((cat, i) => (
-            <div class={`rounded-[2rem] border border-slate-200 p-8 shadow-sm shadow-slate-900/5 lg:p-10 ${i % 2 === 0 ? "bg-white" : "bg-slate-50"}`}>
-              <div class="grid gap-8 lg:grid-cols-[1fr_2fr] lg:items-start">
+ <div class="space-y-6">
+ {liveCategories.map((cat, i) => (
+ <div class={`rounded-[2rem] border border-slate-200 p-8 shadow-sm shadow-slate-900/5 lg:p-10 ${i % 2 === 0 ? "bg-white" : "bg-slate-50"}`}>
+ <div class="grid gap-8 lg:grid-cols-[1fr_2fr] lg:items-start">
 
-                <div>
-                  <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 text-blue-700">
-                    <Icon name={cat.icon} class="h-5 w-5" />
-                  </div>
-                  <h3 class="mt-4 text-xl font-semibold tracking-tight text-slate-950">{cat.name}</h3>
-                  <p class="mt-3 text-sm leading-7 text-slate-600">{cat.description}</p>
-                </div>
+ <div>
+ <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 text-blue-700">
+ <Icon name={cat.icon} class="h-5 w-5" />
+ </div>
+ <h3 class="mt-4 text-xl font-semibold tracking-tight text-slate-950">{cat.name}</h3>
+ <p class="mt-3 text-sm leading-7 text-slate-600">{cat.description}</p>
+ </div>
 
-                <div>
-                  {cat.liveConnectors.length > 0 ? (
-                    <div class="flex flex-wrap gap-4">
-                      {cat.liveConnectors.map(c => (
-                        <div class="flex flex-col items-center gap-3 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm" style="width:140px">
-                          <img
-                            src={`/logos/${c.slug === "confluence-cloud" || c.slug === "confluence-data-center" ? "confluence" : c.slug}.svg`}
-                            alt={c.name}
-                            class="h-12 w-full object-contain"
-                            loading="lazy"
-                          />
-                          <p class="text-center text-xs font-medium leading-tight text-slate-600">{c.name}</p>
-                        </div>
-                      ))}
-                    </div>
-                  ) : (
-                    <div class="rounded-2xl border border-dashed border-slate-200 bg-slate-50 px-5 py-4">
-                      <p class="text-sm font-medium text-slate-500">Connectors in this category are in progress. Check back soon or <a href="https://meridianarr.com/customer-defensibility-score/" class="text-blue-600 hover:underline">contact the team</a>.</p>
-                    </div>
-                  )}
-                </div>
+ <div>
+ {cat.liveConnectors.length > 0 ? (
+ <div class="flex flex-wrap gap-4">
+ {cat.liveConnectors.map(c => (
+ <div class="flex flex-col items-center gap-3 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm" style="width:140px">
+ <img
+ src={`/logos/${c.slug === "confluence-cloud" || c.slug === "confluence-data-center" ? "confluence" : c.slug}.svg`}
+ alt={c.name}
+ class="h-12 w-full object-contain"
+ loading="lazy"
+ />
+ <p class="text-center text-xs font-medium leading-tight text-slate-600">{c.name}</p>
+ </div>
+ ))}
+ </div>
+ ) : (
+ <div class="rounded-2xl border border-dashed border-slate-200 bg-slate-50 px-5 py-4">
+ <p class="text-sm font-medium text-slate-500">Connectors in this category are in progress. Check back soon or <a href="https://meridianarr.com/customer-defensibility-score/" class="text-blue-600 hover:underline">contact the team</a>.</p>
+ </div>
+ )}
+ </div>
 
-              </div>
-            </div>
-          ))}
-        </div>
+ </div>
+ </div>
+ ))}
+ </div>
 
-      </div>
-    </section>
+ </div>
+ </section>
 
-    <!-- AI-native note -->
-    <section class="border-t border-slate-200 bg-slate-50 px-5 py-16 lg:px-8">
-      <div class="mx-auto max-w-4xl">
-        <p class="text-sm font-semibold uppercase tracking-[0.22em] text-blue-700">Built for the AI-native era</p>
-        <h2 class="mt-5 text-4xl font-semibold tracking-[-0.04em] text-slate-950 lg:text-5xl">
-          Meridian is already the post-sale intelligence layer teams need.
-        </h2>
-        <p class="mt-6 text-lg leading-8 text-slate-600">
-          As teams start using Claude, ChatGPT, Grok, and MCP servers to connect business context across systems, MeridianARR is already purpose-built for what that stack is being used to approximate: a connected, defensibility-aware revenue intelligence layer for post-sale customer data. Native integrations replace the need to build and maintain custom connector pipelines.
-        </p>
-        <div class="mt-10 flex flex-col gap-4 sm:flex-row">
-          <a href="https://meridianarr.com/customer-defensibility-score/" class={`${btnPrimary} px-7 py-4 text-base`}>
-            Take the Customer Defensibility Score <Icon name="arrowRight" class="ml-2 h-4 w-4" />
-          </a>
-          <a href="/" class={`${btnOutline} px-7 py-4 text-base`}>
-            Back to overview
-          </a>
-        </div>
-      </div>
-    </section>
+ <!-- AI-native note -->
+ <section class="border-t border-slate-200 bg-slate-50 px-5 py-16 lg:px-8">
+ <div class="mx-auto max-w-4xl">
+ <p class="text-sm font-semibold uppercase tracking-[0.22em] text-blue-700">Built for the AI-native era</p>
+ <h2 class="mt-5 text-4xl font-semibold tracking-[-0.04em] text-slate-950 lg:text-5xl">
+ Meridian is already the post-sale intelligence layer teams need.
+ </h2>
+ <p class="mt-6 text-lg leading-8 text-slate-600">
+ As teams start using Claude, ChatGPT, Grok, and MCP servers to connect business context across systems, MeridianARR is already purpose-built for what that stack is being used to approximate: a connected, defensibility-aware revenue intelligence layer for post-sale customer data. Native integrations replace the need to build and maintain custom connector pipelines.
+ </p>
+ <div class="mt-10 flex flex-col gap-4 sm:flex-row">
+ <a href="https://meridianarr.com/customer-defensibility-score/" class={`${btnPrimary} px-7 py-4 text-base`}>
+ Take the Customer Defensibility Score <Icon name="arrowRight" class="ml-2 h-4 w-4" />
+ </a>
+ <a href="/" class={`${btnOutline} px-7 py-4 text-base`}>
+ Back to overview
+ </a>
+ </div>
+ </div>
+ </section>
 
-  </main>
+ </main>
 
-  <Footer />
+ <Footer />
 
 </Layout>

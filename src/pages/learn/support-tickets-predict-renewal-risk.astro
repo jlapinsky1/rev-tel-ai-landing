@@ -4,260 +4,260 @@ import Nav from "../../components/Nav.astro";
 import Footer from "../../components/Footer.astro";
 
 const pageTitle = "How Support Tickets Predict Renewal Risk: Case Evidence | MeridianARR";
-const pageDescription = "Three documented patterns showing how support ticket data predicted churn before the renewal conversation — and what the signals looked like in the data. A Value Continuity analysis by MeridianARR.";
+const pageDescription = "Three documented patterns showing how support ticket data predicted churn before the renewal conversation, and what the signals looked like in the data. A Value Continuity analysis by MeridianARR.";
 const canonical = "https://meridianarr.com/learn/support-tickets-predict-renewal-risk/";
 
 const cases = [
-  {
-    id: "repeated-friction",
-    label: "Case 1",
-    title: "Eight tickets. Same workflow. Three months. Then gone.",
-    account_type: "Mid-market SaaS, ~$42K ARR",
-    timeline: [
-      { week: "Week 1", event: "Ticket #1 filed: API sync failing between the platform and customer's CRM. Tagged 'bug'. Assigned, resolved in 2 days." },
-      { week: "Week 3", event: "Ticket #2: Same API sync failing again. Support notes reference prior ticket. Resolved in 3 days." },
-      { week: "Week 6", event: "Tickets #3 and #4 filed same day. Different contacts — the ops manager and an individual contributor — both hitting the same sync issue. Resolved via workaround." },
-      { week: "Week 9", event: "Ticket #5: 'We keep hitting this API error. Our team is spending hours on manual workarounds each week.' Resolution time: 5 days." },
-      { week: "Week 11", event: "Ticket #6 filed by VP of Engineering. Subject line: 'Escalation — Recurring API reliability issue.' This is the first executive-level ticket in the account history." },
-      { week: "Week 13", event: "Tickets #7 and #8 filed by two additional team members who had been working around the issue silently for weeks. The workaround had been institutionalized." },
-      { week: "Week 16", event: "Renewal conversation initiated by CS. Account responded: 'We're evaluating our options.' Churned 30 days later." },
-    ],
-    what_was_visible: "Eight tickets across 16 weeks. Four different contacts filing. An executive escalation at week 11. A stated workaround institutionalized at the team level.",
-    what_was_missed: "The CS team's health score for this account showed 'yellow' — not critical — because CSAT on each individual ticket averaged 3.8/5 and the account was still logging in daily. The ticket pattern was visible in the help desk but was never connected to account-level ARR risk.",
-    signal_in_data: "Ticket volume per account (8 in 16 weeks, elevated for account size), unique filer count (4 contacts — breadth of frustration), executive escalation flag, repeated issue tag on the same workflow category.",
-  },
-  {
-    id: "volume-divergence",
-    label: "Case 2",
-    title: "Support volume tripled. Product usage stayed flat. Renewal missed.",
-    account_type: "Growth-stage SaaS, ~$78K ARR",
-    timeline: [
-      { week: "Month 1", event: "Account averages 4 support tickets per month. Product usage (active users, features accessed) is consistent. No escalations." },
-      { week: "Month 2", event: "Ticket volume rises to 7. Still within normal variance. No action taken." },
-      { week: "Month 3", event: "Ticket volume: 11. Usage still flat. The tickets are increasingly about onboarding new team members — the account had a reorg and was trying to expand the user base." },
-      { week: "Month 4", event: "Ticket volume: 14. Product usage still flat — the new user onboarding is generating tickets but those users are not becoming active. Resolution times increasing (support queue backlog)." },
-      { week: "Month 5", event: "Ticket volume: 16. Two tickets mention 'frustration with the complexity of getting new users up to speed.' One ticket: 'We've been trying to onboard our sales team for 6 weeks — this is taking too long.'" },
-      { week: "Month 6", event: "Ticket volume: 13. Volume declining — not because the problem resolved, but because the account stopped trying to onboard new users." },
-      { week: "Month 8", event: "Renewal conversation. Account says: 'We had ambitions to expand usage to our sales team but it didn't work. We're renewing at current scope but cutting the expansion seats.' Net ARR down 31%." },
-    ],
-    what_was_visible: "Ticket volume 3x over 5 months. Flat product usage despite high ticket volume (divergence). Ticket content explicitly mentioning onboarding friction for new user cohort. Volume decline in month 6 — a 'giving up' signal.",
-    what_was_missed: "The CS team interpreted rising ticket volume as a positive indicator of engagement. The divergence between ticket volume and active user growth was never computed. The 'giving up' signal in month 6 — volume declining without resolution — was invisible in CS health scoring.",
-    signal_in_data: "Ticket volume trend vs. active user trend (divergence calculation), ticket content topic classification (onboarding friction category), volume decline pattern (without corresponding CS resolution event).",
-  },
-  {
-    id: "competitor-mention",
-    label: "Case 3",
-    title: "The competitor name was in the ticket. Nobody saw it for 41 days.",
-    account_type: "SMB SaaS, ~$18K ARR",
-    timeline: [
-      { week: "Day 1", event: "Ticket filed: 'Having trouble with the reporting export. The CSV format isn't matching what our finance team needs.' Normal support ticket, resolved in 1 day." },
-      { week: "Day 4", event: "Follow-up ticket from the same contact: 'The export fix worked but we're still struggling with the dashboard view. We were evaluating [Competitor X] last quarter and their reporting interface was easier to configure — is there a way to get something similar here?'" },
-      { week: "Day 5", event: "Support agent responds with documentation link. Ticket closed. CSAT: 4/5. Competitor name not flagged, not escalated, not visible in CS account view." },
-      { week: "Day 18", event: "CS does a routine check-in call. Account says everything is 'going okay.' No mention of competitor evaluation — the contact who mentioned it in the ticket was not on the call." },
-      { week: "Day 41", event: "Account emails CS: 'We've decided to go with [Competitor X]. We'll be canceling at renewal next month.' Renewal was 35 days away." },
-    ],
-    what_was_visible: "An explicit competitor mention in a support ticket on day 4. The mention included the competitor's name, a direct comparison, and a feature request framed around competitor capability. This is the highest-signal churn indicator in support data.",
-    what_was_missed: "The competitor name was in the body of a support ticket, not in a CRM field. The support agent processed the ticket as a feature request and closed it. No mechanism existed to surface competitor mentions from ticket content to CS or revenue leadership. 37 days of intervention window — lost.",
-    signal_in_data: "NLP keyword extraction from ticket body text (competitor names, 'evaluating', 'comparing', 'switching'), ticket content flagging to CS account timeline, time-to-response on flagged tickets.",
-  },
+ {
+ id: "repeated-friction",
+ label: "Case 1",
+ title: "Eight tickets. Same workflow. Three months. Then gone.",
+ account_type: "Mid-market SaaS, ~$42K ARR",
+ timeline: [
+ { week: "Week 1", event: "Ticket #1 filed: API sync failing between the platform and customer's CRM. Tagged 'bug'. Assigned, resolved in 2 days." },
+ { week: "Week 3", event: "Ticket #2: Same API sync failing again. Support notes reference prior ticket. Resolved in 3 days." },
+ { week: "Week 6", event: "Tickets #3 and #4 filed same day. Different contacts, the ops manager and an individual contributor, both hitting the same sync issue. Resolved via workaround." },
+ { week: "Week 9", event: "Ticket #5: 'We keep hitting this API error. Our team is spending hours on manual workarounds each week.' Resolution time: 5 days." },
+ { week: "Week 11", event: "Ticket #6 filed by VP of Engineering. Subject line: 'Escalation, Recurring API reliability issue.' This is the first executive-level ticket in the account history." },
+ { week: "Week 13", event: "Tickets #7 and #8 filed by two additional team members who had been working around the issue silently for weeks. The workaround had been institutionalized." },
+ { week: "Week 16", event: "Renewal conversation initiated by CS. Account responded: 'We're evaluating our options.' Churned 30 days later." },
+ ],
+ what_was_visible: "Eight tickets across 16 weeks. Four different contacts filing. An executive escalation at week 11. A stated workaround institutionalized at the team level.",
+ what_was_missed: "The CS team's health score for this account showed 'yellow', not critical, because CSAT on each individual ticket averaged 3.8/5 and the account was still logging in daily. The ticket pattern was visible in the help desk but was never connected to account-level ARR risk.",
+ signal_in_data: "Ticket volume per account (8 in 16 weeks, elevated for account size), unique filer count (4 contacts, breadth of frustration), executive escalation flag, repeated issue tag on the same workflow category.",
+ },
+ {
+ id: "volume-divergence",
+ label: "Case 2",
+ title: "Support volume tripled. Product usage stayed flat. Renewal missed.",
+ account_type: "Growth-stage SaaS, ~$78K ARR",
+ timeline: [
+ { week: "Month 1", event: "Account averages 4 support tickets per month. Product usage (active users, features accessed) is consistent. No escalations." },
+ { week: "Month 2", event: "Ticket volume rises to 7. Still within normal variance. No action taken." },
+ { week: "Month 3", event: "Ticket volume: 11. Usage still flat. The tickets are increasingly about onboarding new team members, the account had a reorg and was trying to expand the user base." },
+ { week: "Month 4", event: "Ticket volume: 14. Product usage still flat, the new user onboarding is generating tickets but those users are not becoming active. Resolution times increasing (support queue backlog)." },
+ { week: "Month 5", event: "Ticket volume: 16. Two tickets mention 'frustration with the complexity of getting new users up to speed.' One ticket: 'We've been trying to onboard our sales team for 6 weeks, this is taking too long.'" },
+ { week: "Month 6", event: "Ticket volume: 13. Volume declining, not because the problem resolved, but because the account stopped trying to onboard new users." },
+ { week: "Month 8", event: "Renewal conversation. Account says: 'We had ambitions to expand usage to our sales team but it didn't work. We're renewing at current scope but cutting the expansion seats.' Net ARR down 31%." },
+ ],
+ what_was_visible: "Ticket volume 3x over 5 months. Flat product usage despite high ticket volume (divergence). Ticket content explicitly mentioning onboarding friction for new user cohort. Volume decline in month 6, a 'giving up' signal.",
+ what_was_missed: "The CS team interpreted rising ticket volume as a positive indicator of engagement. The divergence between ticket volume and active user growth was never computed. The 'giving up' signal in month 6, volume declining without resolution, was invisible in CS health scoring.",
+ signal_in_data: "Ticket volume trend vs. active user trend (divergence calculation), ticket content topic classification (onboarding friction category), volume decline pattern (without corresponding CS resolution event).",
+ },
+ {
+ id: "competitor-mention",
+ label: "Case 3",
+ title: "The competitor name was in the ticket. Nobody saw it for 41 days.",
+ account_type: "SMB SaaS, ~$18K ARR",
+ timeline: [
+ { week: "Day 1", event: "Ticket filed: 'Having trouble with the reporting export. The CSV format isn't matching what our finance team needs.' Normal support ticket, resolved in 1 day." },
+ { week: "Day 4", event: "Follow-up ticket from the same contact: 'The export fix worked but we're still struggling with the dashboard view. We were evaluating [Competitor X] last quarter and their reporting interface was easier to configure, is there a way to get something similar here?'" },
+ { week: "Day 5", event: "Support agent responds with documentation link. Ticket closed. CSAT: 4/5. Competitor name not flagged, not escalated, not visible in CS account view." },
+ { week: "Day 18", event: "CS does a routine check-in call. Account says everything is 'going okay.' No mention of competitor evaluation, the contact who mentioned it in the ticket was not on the call." },
+ { week: "Day 41", event: "Account emails CS: 'We've decided to go with [Competitor X]. We'll be canceling at renewal next month.' Renewal was 35 days away." },
+ ],
+ what_was_visible: "An explicit competitor mention in a support ticket on day 4. The mention included the competitor's name, a direct comparison, and a feature request framed around competitor capability. This is the highest-signal churn indicator in support data.",
+ what_was_missed: "The competitor name was in the body of a support ticket, not in a CRM field. The support agent processed the ticket as a feature request and closed it. No mechanism existed to surface competitor mentions from ticket content to CS or revenue leadership. 37 days of intervention window, lost.",
+ signal_in_data: "NLP keyword extraction from ticket body text (competitor names, 'evaluating', 'comparing', 'switching'), ticket content flagging to CS account timeline, time-to-response on flagged tickets.",
+ },
 ];
 
 const faqs = [
-  {
-    q: "What support ticket patterns most reliably predict churn?",
-    a: "Three patterns have the highest predictive value: (1) repeated tickets on the same workflow or issue, which indicates persistent unresolved product friction; (2) ticket volume growing while product usage stays flat, which indicates the customer is struggling rather than expanding; and (3) competitor mentions in ticket body text, which indicates active evaluation of alternatives. Executive escalations amplify the risk signal of any of these patterns.",
-  },
-  {
-    q: "How far in advance do support tickets signal churn?",
-    a: "The lead time varies by pattern. Repeated friction tickets typically appear 60–120 days before a churn event. Volume-usage divergence patterns often develop over 3–6 months. Competitor mentions in tickets are higher-urgency signals with shorter intervention windows — typically 30–60 days before a decision point. MeridianARR tracks all of these with lead time estimates built into the Customer Distress Index.",
-  },
-  {
-    q: "Why don't CS teams catch these signals already?",
-    a: "Three structural reasons: (1) help desk data and CS platform data are siloed — CS health scores do not read ticket content; (2) ticket metrics are per-ticket (CSAT, resolution time) not per-account (volume trend, unique filer count, issue repetition); and (3) high-signal content like competitor mentions lives in ticket body text, which is not parsed or surfaced to CS in most help desk implementations. MeridianARR is a Value Continuity platform designed to bridge all three gaps.",
-  },
-  {
-    q: "Does MeridianARR integrate with existing help desk tools?",
-    a: "MeridianARR connects to major help desk platforms including Zendesk, Intercom, Freshdesk, and Pylon. It reads ticket content, escalation history, resolution data, and volume patterns at the account level — and surfaces the resulting risk signals through the Customer Distress Index without requiring changes to existing support workflows.",
-  },
+ {
+ q: "What support ticket patterns most reliably predict churn?",
+ a: "Three patterns have the highest predictive value: (1) repeated tickets on the same workflow or issue, which indicates persistent unresolved product friction; (2) ticket volume growing while product usage stays flat, which indicates the customer is struggling rather than expanding; and (3) competitor mentions in ticket body text, which indicates active evaluation of alternatives. Executive escalations amplify the risk signal of any of these patterns.",
+ },
+ {
+ q: "How far in advance do support tickets signal churn?",
+ a: "The lead time varies by pattern. Repeated friction tickets typically appear 60–120 days before a churn event. Volume-usage divergence patterns often develop over 3–6 months. Competitor mentions in tickets are higher-urgency signals with shorter intervention windows, typically 30–60 days before a decision point. MeridianARR tracks all of these with lead time estimates built into the Customer Distress Index.",
+ },
+ {
+ q: "Why don't CS teams catch these signals already?",
+ a: "Three structural reasons: (1) help desk data and CS platform data are siloed, CS health scores do not read ticket content; (2) ticket metrics are per-ticket (CSAT, resolution time) not per-account (volume trend, unique filer count, issue repetition); and (3) high-signal content like competitor mentions lives in ticket body text, which is not parsed or surfaced to CS in most help desk implementations. MeridianARR is a Value Continuity platform designed to bridge all three gaps.",
+ },
+ {
+ q: "Does MeridianARR integrate with existing help desk tools?",
+ a: "MeridianARR connects to major help desk platforms including Zendesk, Intercom, Freshdesk, and Pylon. It reads ticket content, escalation history, resolution data, and volume patterns at the account level, and surfaces the resulting risk signals through the Customer Distress Index without requiring changes to existing support workflows.",
+ },
 ];
 
 const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqs.map((faq) => ({
-    "@type": "Question",
-    name: faq.q,
-    acceptedAnswer: { "@type": "Answer", text: faq.a },
-  })),
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ mainEntity: faqs.map((faq) => ({
+ "@type": "Question",
+ name: faq.q,
+ acceptedAnswer: { "@type": "Answer", text: faq.a },
+ })),
 };
 
 const articleSchema = {
-  "@context": "https://schema.org",
-  "@type": "TechArticle",
-  headline: pageTitle,
-  description: pageDescription,
-  url: canonical,
-  author: { "@type": "Organization", name: "MeridianARR", url: "https://meridianarr.com" },
-  publisher: { "@type": "Organization", name: "MeridianARR", url: "https://meridianarr.com" },
-  about: {
-    "@type": "Thing",
-    name: "Value Continuity",
-    description: "A software category for detecting, explaining, and acting on customer signals that threaten recurring revenue in B2B SaaS.",
-  },
+ "@context": "https://schema.org",
+ "@type": "TechArticle",
+ headline: pageTitle,
+ description: pageDescription,
+ url: canonical,
+ author: { "@type": "Organization", name: "MeridianARR", url: "https://meridianarr.com" },
+ publisher: { "@type": "Organization", name: "MeridianARR", url: "https://meridianarr.com" },
+ about: {
+ "@type": "Thing",
+ name: "Value Continuity",
+ description: "A software category for detecting, explaining, and acting on customer signals that threaten recurring revenue in B2B SaaS.",
+ },
 };
 
 const itemListSchema = {
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  name: "Support ticket patterns that predict renewal risk",
-  numberOfItems: cases.length,
-  itemListElement: cases.map((c, i) => ({
-    "@type": "ListItem",
-    position: i + 1,
-    name: c.title,
-    description: c.what_was_visible,
-  })),
+ "@context": "https://schema.org",
+ "@type": "ItemList",
+ name: "Support ticket patterns that predict renewal risk",
+ numberOfItems: cases.length,
+ itemListElement: cases.map((c, i) => ({
+ "@type": "ListItem",
+ position: i + 1,
+ name: c.title,
+ description: c.what_was_visible,
+ })),
 };
 
 const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://meridianarr.com/" },
-    { "@type": "ListItem", position: 2, name: "Learn", item: "https://meridianarr.com/learn/" },
-    { "@type": "ListItem", position: 3, name: "Support Tickets & Renewal Risk", item: canonical },
-  ],
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ itemListElement: [
+ { "@type": "ListItem", position: 1, name: "Home", item: "https://meridianarr.com/" },
+ { "@type": "ListItem", position: 2, name: "Learn", item: "https://meridianarr.com/learn/" },
+ { "@type": "ListItem", position: 3, name: "Support Tickets & Renewal Risk", item: canonical },
+ ],
 };
 ---
 
 <Layout title={pageTitle} description={pageDescription} canonical={canonical}>
-  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
-  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(articleSchema)} />
-  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(itemListSchema)} />
-  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+ <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+ <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(articleSchema)} />
+ <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(itemListSchema)} />
+ <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
 
-  <Nav />
+ <Nav />
 
-  <main>
-    <section class="bg-slate-950 px-5 py-20 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <p class="text-sm font-medium text-blue-400">Learn / Evidence & Examples</p>
-        <h1 class="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-          How Support Tickets Predict Renewal Risk
-        </h1>
-        <p class="mt-6 text-lg leading-relaxed text-slate-300">
-          Three documented patterns — with specific ticket timelines, account signals, and outcomes — showing how support data contained the churn signal weeks or months before the renewal conversation.
-        </p>
-        <div class="mt-6 rounded-xl border border-slate-700 bg-slate-900 px-4 py-3">
-          <p class="text-sm text-slate-400">
-            <span class="font-semibold text-slate-200">MeridianARR</span> is a Value Continuity platform for B2B SaaS companies that connects support, onboarding, product friction, customer distress, and renewal risk into post-sale revenue intelligence.
-          </p>
-        </div>
-      </div>
-    </section>
+ <main>
+ <section class="bg-slate-950 px-5 py-20 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <p class="text-sm font-medium text-blue-400">Learn / Evidence & Examples</p>
+ <h1 class="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+ How Support Tickets Predict Renewal Risk
+ </h1>
+ <p class="mt-6 text-lg leading-relaxed text-slate-300">
+ Three documented patterns, with specific ticket timelines, account signals, and outcomes, showing how support data contained the churn signal weeks or months before the renewal conversation.
+ </p>
+ <div class="mt-6 rounded-xl border border-slate-700 bg-slate-900 px-4 py-3">
+ <p class="text-sm text-slate-400">
+ <span class="font-semibold text-slate-200">MeridianARR</span> is a Value Continuity platform for B2B SaaS companies that connects support, onboarding, product friction, customer distress, and renewal risk into post-sale revenue intelligence.
+ </p>
+ </div>
+ </div>
+ </section>
 
-    <section class="bg-white px-5 py-12 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <p class="text-slate-600 leading-relaxed">
-          The cases below are composite patterns drawn from recurring support-to-churn sequences in B2B SaaS. Each one shows the same problem: the signal was in the support data, visible to anyone who looked, but no mechanism existed to connect it to ARR risk. Jump to a case:
-        </p>
-        <nav class="mt-4 flex flex-wrap gap-3">
-          {cases.map((c) => (
-            <a href={`#${c.id}`} class="rounded-lg border border-slate-200 px-3 py-1.5 text-sm font-medium text-slate-700 hover:border-slate-400 hover:text-slate-950">
-              {c.label}: {c.account_type}
-            </a>
-          ))}
-        </nav>
-      </div>
-    </section>
+ <section class="bg-white px-5 py-12 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <p class="text-slate-600 leading-relaxed">
+ The cases below are composite patterns drawn from recurring support-to-churn sequences in B2B SaaS. Each one shows the same problem: the signal was in the support data, visible to anyone who looked, but no mechanism existed to connect it to ARR risk. Jump to a case:
+ </p>
+ <nav class="mt-4 flex flex-wrap gap-3">
+ {cases.map((c) => (
+ <a href={`#${c.id}`} class="rounded-lg border border-slate-200 px-3 py-1.5 text-sm font-medium text-slate-700 hover:border-slate-400 hover:text-slate-950">
+ {c.label}: {c.account_type}
+ </a>
+ ))}
+ </nav>
+ </div>
+ </section>
 
-    {cases.map((c, idx) => (
-      <section id={c.id} class={`px-5 py-16 lg:px-8 ${idx % 2 === 0 ? "bg-slate-50" : "bg-white"}`}>
-        <div class="mx-auto max-w-3xl">
-          <p class="text-sm font-medium text-blue-600">{c.label} — {c.account_type}</p>
-          <h2 class="mt-2 text-2xl font-bold text-slate-950">{c.title}</h2>
+ {cases.map((c, idx) => (
+ <section id={c.id} class={`px-5 py-16 lg:px-8 ${idx % 2 === 0 ? "bg-slate-50" : "bg-white"}`}>
+ <div class="mx-auto max-w-3xl">
+ <p class="text-sm font-medium text-blue-600">{c.label}, {c.account_type}</p>
+ <h2 class="mt-2 text-2xl font-bold text-slate-950">{c.title}</h2>
 
-          <div class="mt-8">
-            <h3 class="text-sm font-semibold uppercase tracking-wide text-slate-500">Timeline of signals</h3>
-            <ol class="mt-4 space-y-4">
-              {c.timeline.map((entry) => (
-                <li class="flex gap-4">
-                  <span class="mt-0.5 shrink-0 rounded-full bg-slate-200 px-2.5 py-0.5 text-xs font-semibold text-slate-700">{entry.week}</span>
-                  <p class="text-sm text-slate-600 leading-relaxed">{entry.event}</p>
-                </li>
-              ))}
-            </ol>
-          </div>
+ <div class="mt-8">
+ <h3 class="text-sm font-semibold uppercase tracking-wide text-slate-500">Timeline of signals</h3>
+ <ol class="mt-4 space-y-4">
+ {c.timeline.map((entry) => (
+ <li class="flex gap-4">
+ <span class="mt-0.5 shrink-0 rounded-full bg-slate-200 px-2.5 py-0.5 text-xs font-semibold text-slate-700">{entry.week}</span>
+ <p class="text-sm text-slate-600 leading-relaxed">{entry.event}</p>
+ </li>
+ ))}
+ </ol>
+ </div>
 
-          <div class="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
-            <div class="rounded-xl border border-emerald-200 bg-emerald-50 p-5">
-              <p class="text-xs font-semibold uppercase tracking-wide text-emerald-700">What was visible in the data</p>
-              <p class="mt-2 text-sm text-slate-700 leading-relaxed">{c.what_was_visible}</p>
-            </div>
-            <div class="rounded-xl border border-rose-200 bg-rose-50 p-5">
-              <p class="text-xs font-semibold uppercase tracking-wide text-rose-700">What was missed</p>
-              <p class="mt-2 text-sm text-slate-700 leading-relaxed">{c.what_was_missed}</p>
-            </div>
-          </div>
+ <div class="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
+ <div class="rounded-xl border border-emerald-200 bg-emerald-50 p-5">
+ <p class="text-xs font-semibold uppercase tracking-wide text-emerald-700">What was visible in the data</p>
+ <p class="mt-2 text-sm text-slate-700 leading-relaxed">{c.what_was_visible}</p>
+ </div>
+ <div class="rounded-xl border border-rose-200 bg-rose-50 p-5">
+ <p class="text-xs font-semibold uppercase tracking-wide text-rose-700">What was missed</p>
+ <p class="mt-2 text-sm text-slate-700 leading-relaxed">{c.what_was_missed}</p>
+ </div>
+ </div>
 
-          <div class="mt-4 rounded-xl border border-slate-200 bg-white p-5">
-            <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Signals MeridianARR tracks for this pattern</p>
-            <p class="mt-2 text-sm text-slate-600 leading-relaxed">{c.signal_in_data}</p>
-          </div>
-        </div>
-      </section>
-    ))}
+ <div class="mt-4 rounded-xl border border-slate-200 bg-white p-5">
+ <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Signals MeridianARR tracks for this pattern</p>
+ <p class="mt-2 text-sm text-slate-600 leading-relaxed">{c.signal_in_data}</p>
+ </div>
+ </div>
+ </section>
+ ))}
 
-    <section class="bg-slate-950 px-5 py-16 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-white">The structural problem these cases share</h2>
-        <p class="mt-4 text-slate-300 leading-relaxed">
-          In each case above, the churn signal was present in support data well before the renewal conversation. The problem was not data — it was architecture. Help desks optimize for ticket resolution, not ARR risk detection. CS platforms read CRM and product data, not ticket content patterns. There was no system connecting the two.
-        </p>
-        <p class="mt-4 text-slate-300 leading-relaxed">
-          MeridianARR is a Value Continuity platform built for exactly this gap. It reads account-level ticket patterns — volume trends, unique filer counts, escalation history, content signals like competitor mentions — and combines them with product usage and onboarding data to calculate the Customer Distress Index (CDI): a continuous ARR risk score for every account.
-        </p>
-        <p class="mt-4 text-slate-300 leading-relaxed">
-          The CDI gives CROs, CFOs, CS leaders, and Support leaders a shared view of which accounts are at risk and what the support data actually shows — before the renewal is already lost.
-        </p>
-        <div class="mt-8">
-          <a href="/customer-defensibility-score/" class="inline-flex items-center justify-center rounded-2xl bg-white px-6 py-3 text-sm font-semibold text-slate-950 hover:bg-slate-100">
-            Calculate your Customer Defensibility Score
-          </a>
-        </div>
-      </div>
-    </section>
+ <section class="bg-slate-950 px-5 py-16 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <h2 class="text-2xl font-bold text-white">The structural problem these cases share</h2>
+ <p class="mt-4 text-slate-300 leading-relaxed">
+ In each case above, the churn signal was present in support data well before the renewal conversation. The problem was not data, it was architecture. Help desks optimize for ticket resolution, not ARR risk detection. CS platforms read CRM and product data, not ticket content patterns. There was no system connecting the two.
+ </p>
+ <p class="mt-4 text-slate-300 leading-relaxed">
+ MeridianARR is a Value Continuity platform built for exactly this gap. It reads account-level ticket patterns, volume trends, unique filer counts, escalation history, content signals like competitor mentions, and combines them with product usage and onboarding data to calculate the Customer Distress Index (CDI): a continuous ARR risk score for every account.
+ </p>
+ <p class="mt-4 text-slate-300 leading-relaxed">
+ The CDI gives CROs, CFOs, CS leaders, and Support leaders a shared view of which accounts are at risk and what the support data actually shows, before the renewal is already lost.
+ </p>
+ <div class="mt-8">
+ <a href="/customer-defensibility-score/" class="inline-flex items-center justify-center rounded-2xl bg-white px-6 py-3 text-sm font-semibold text-slate-950 hover:bg-slate-100">
+ Calculate your Customer Defensibility Score
+ </a>
+ </div>
+ </div>
+ </section>
 
-    <section class="bg-white px-5 py-14 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">Frequently asked questions</h2>
-        <dl class="mt-8 space-y-8">
-          {faqs.map((faq) => (
-            <div>
-              <dt class="font-semibold text-slate-950">{faq.q}</dt>
-              <dd class="mt-2 text-slate-600 leading-relaxed">{faq.a}</dd>
-            </div>
-          ))}
-        </dl>
-      </div>
-    </section>
+ <section class="bg-white px-5 py-14 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <h2 class="text-2xl font-bold text-slate-950">Frequently asked questions</h2>
+ <dl class="mt-8 space-y-8">
+ {faqs.map((faq) => (
+ <div>
+ <dt class="font-semibold text-slate-950">{faq.q}</dt>
+ <dd class="mt-2 text-slate-600 leading-relaxed">{faq.a}</dd>
+ </div>
+ ))}
+ </dl>
+ </div>
+ </section>
 
-    <section class="bg-slate-50 px-5 py-12 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <p class="text-sm font-semibold text-slate-500">Continue reading</p>
-        <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <a href="/learn/customer-distress-arr-risk/" class="rounded-xl border border-slate-200 bg-white p-5 hover:border-slate-400">
-            <p class="font-semibold text-slate-950">Customer Distress & ARR Risk</p>
-            <p class="mt-1 text-sm text-slate-500">How the CDI score is calculated from these signals — and what each score band means for intervention.</p>
-          </a>
-          <a href="/learn/value-continuity-signals/" class="rounded-xl border border-slate-200 bg-white p-5 hover:border-slate-400">
-            <p class="font-semibold text-slate-950">Value Continuity Signals</p>
-            <p class="mt-1 text-sm text-slate-500">Full taxonomy of signals across behavioral, operational, relational, financial, and onboarding categories.</p>
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
+ <section class="bg-slate-50 px-5 py-12 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <p class="text-sm font-semibold text-slate-500">Continue reading</p>
+ <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+ <a href="/learn/customer-distress-arr-risk/" class="rounded-xl border border-slate-200 bg-white p-5 hover:border-slate-400">
+ <p class="font-semibold text-slate-950">Customer Distress & ARR Risk</p>
+ <p class="mt-1 text-sm text-slate-500">How the CDI score is calculated from these signals, and what each score band means for intervention.</p>
+ </a>
+ <a href="/learn/value-continuity-signals/" class="rounded-xl border border-slate-200 bg-white p-5 hover:border-slate-400">
+ <p class="font-semibold text-slate-950">Value Continuity Signals</p>
+ <p class="mt-1 text-sm text-slate-500">Full taxonomy of signals across behavioral, operational, relational, financial, and onboarding categories.</p>
+ </a>
+ </div>
+ </div>
+ </section>
+ </main>
 
-  <Footer />
+ <Footer />
 </Layout>

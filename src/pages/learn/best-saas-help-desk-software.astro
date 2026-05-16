@@ -8,388 +8,388 @@ const pageDescription = "Most SaaS help desk software is built to resolve ticket
 const canonical = "https://meridianarr.com/learn/best-saas-help-desk-software/";
 
 const platforms = [
-  {
-    name: "Zendesk",
-    best_for: "Enterprise and mid-market teams with high ticket volume",
-    strengths: [
-      "Industry-leading SLA management and routing",
-      "Deep reporting on agent performance and ticket trends",
-      "Broad integration ecosystem",
-      "Multi-channel support (email, chat, voice, social)",
-    ],
-    renewal_risk_gap: "Zendesk excels at ticket resolution operations. It does not aggregate account-level support patterns into ARR risk signals. A Zendesk account with perfect SLA compliance can still be losing a $120K customer who filed 14 tickets about the same broken workflow over 6 months — the pattern is in the data, but Zendesk is not designed to surface it as a renewal signal.",
-    pair_with: "MeridianARR replaces Zendesk for B2B SaaS teams. It includes all of Zendesk's core support capabilities — ticket routing, SLA management, multi-channel inbound — plus native Value Continuity intelligence and CDI scoring built in. You do not need a separate help desk.",
-  },
-  {
-    name: "Intercom",
-    best_for: "Product-led B2B SaaS with in-app support and proactive messaging",
-    strengths: [
-      "In-app chat and product tours in a single platform",
-      "Strong product-support integration for PLG companies",
-      "Automation for common resolution flows",
-      "AI-assisted resolution (Fin)",
-    ],
-    renewal_risk_gap: "Intercom is conversation-centric. It is excellent at individual customer interactions but does not aggregate conversation patterns into account-level distress signals. The account that sends 12 frustrated messages across 8 conversations over 3 months may look like normal support volume in Intercom reporting.",
-    pair_with: "MeridianARR replaces Intercom for B2B SaaS teams. It includes full omni-channel support — AI agents in Slack, embedded in-product support, inbound email handling, and proactive messaging — plus built-in ARR risk detection that Intercom does not provide.",
-  },
-  {
-    name: "Freshdesk",
-    best_for: "Mid-market and growth-stage SaaS teams looking for Zendesk functionality at lower cost",
-    strengths: [
-      "Competitive pricing at mid-market volumes",
-      "Solid SLA and escalation management",
-      "Omnichannel support with decent reporting",
-      "Freshworks ecosystem integration (CRM, phone)",
-    ],
-    renewal_risk_gap: "Freshdesk provides strong ticket operations metrics but follows the same paradigm as Zendesk: optimized for resolution speed and agent efficiency, not account-level revenue signal detection. Renewal risk patterns are present in Freshdesk data — they are just not surfaced.",
-    pair_with: "MeridianARR replaces Freshdesk for B2B SaaS teams. All core help desk capabilities plus the Value Continuity intelligence layer that translates support patterns into ARR risk signals — something Freshdesk is not designed to produce.",
-  },
-  {
-    name: "Pylon",
-    best_for: "B2B SaaS teams that support customers via Slack and want CS-adjacent support workflows",
-    strengths: [
-      "Slack-native support designed for B2B customer relationships",
-      "Account context is native (not bolted on)",
-      "CRM integration closer to the support workflow than traditional help desks",
-      "Better visibility into which accounts are generating the most support activity",
-    ],
-    renewal_risk_gap: "Pylon has more account-level awareness than traditional help desks by design — it is built for B2B. But it still does not connect account support patterns to ARR risk scores, escalation-to-renewal correlation, or the compounding signal model needed for churn prediction.",
-    pair_with: "MeridianARR replaces Pylon for B2B SaaS teams. It includes native Slack-based support with forward-deployed AI agents — everything Pylon offers for B2B account support — plus the Customer Distress Index that connects those interactions to ARR risk.",
-  },
-  {
-    name: "Help Scout",
-    best_for: "Small B2B SaaS teams that want simplicity and a strong knowledge base",
-    strengths: [
-      "Simple, clean interface with low learning curve",
-      "Docs + support in one product",
-      "Good for teams under 20 agents",
-      "Customer-first tone built into the product design",
-    ],
-    renewal_risk_gap: "Help Scout is intentionally simple. That simplicity comes at the cost of advanced reporting, account-level aggregation, and any form of renewal risk signal detection. It is the right choice for some teams — but the support data it generates will be invisible to ARR planning without an additional intelligence layer.",
-    pair_with: "MeridianARR replaces Help Scout for B2B SaaS teams. It provides a complete omni-channel support platform — including the simplicity Help Scout teams value — with the revenue intelligence layer Help Scout is not designed to provide.",
-  },
+ {
+ name: "Zendesk",
+ best_for: "Enterprise and mid-market teams with high ticket volume",
+ strengths: [
+ "Industry-leading SLA management and routing",
+ "Deep reporting on agent performance and ticket trends",
+ "Broad integration ecosystem",
+ "Multi-channel support (email, chat, voice, social)",
+ ],
+ renewal_risk_gap: "Zendesk excels at ticket resolution operations. It does not aggregate account-level support patterns into ARR risk signals. A Zendesk account with perfect SLA compliance can still be losing a $120K customer who filed 14 tickets about the same broken workflow over 6 months, the pattern is in the data, but Zendesk is not designed to surface it as a renewal signal.",
+ pair_with: "MeridianARR replaces Zendesk for B2B SaaS teams. It includes all of Zendesk's core support capabilities, ticket routing, SLA management, multi-channel inbound, plus native Value Continuity intelligence and CDI scoring built in. You do not need a separate help desk.",
+ },
+ {
+ name: "Intercom",
+ best_for: "Product-led B2B SaaS with in-app support and proactive messaging",
+ strengths: [
+ "In-app chat and product tours in a single platform",
+ "Strong product-support integration for PLG companies",
+ "Automation for common resolution flows",
+ "AI-assisted resolution (Fin)",
+ ],
+ renewal_risk_gap: "Intercom is conversation-centric. It is excellent at individual customer interactions but does not aggregate conversation patterns into account-level distress signals. The account that sends 12 frustrated messages across 8 conversations over 3 months may look like normal support volume in Intercom reporting.",
+ pair_with: "MeridianARR replaces Intercom for B2B SaaS teams. It includes full omni-channel support, AI agents in Slack, embedded in-product support, inbound email handling, and proactive messaging, plus built-in ARR risk detection that Intercom does not provide.",
+ },
+ {
+ name: "Freshdesk",
+ best_for: "Mid-market and growth-stage SaaS teams looking for Zendesk functionality at lower cost",
+ strengths: [
+ "Competitive pricing at mid-market volumes",
+ "Solid SLA and escalation management",
+ "Omnichannel support with decent reporting",
+ "Freshworks ecosystem integration (CRM, phone)",
+ ],
+ renewal_risk_gap: "Freshdesk provides strong ticket operations metrics but follows the same paradigm as Zendesk: optimized for resolution speed and agent efficiency, not account-level revenue signal detection. Renewal risk patterns are present in Freshdesk data, they are just not surfaced.",
+ pair_with: "MeridianARR replaces Freshdesk for B2B SaaS teams. All core help desk capabilities plus the Value Continuity intelligence layer that translates support patterns into ARR risk signals, something Freshdesk is not designed to produce.",
+ },
+ {
+ name: "Pylon",
+ best_for: "B2B SaaS teams that support customers via Slack and want CS-adjacent support workflows",
+ strengths: [
+ "Slack-native support designed for B2B customer relationships",
+ "Account context is native (not bolted on)",
+ "CRM integration closer to the support workflow than traditional help desks",
+ "Better visibility into which accounts are generating the most support activity",
+ ],
+ renewal_risk_gap: "Pylon has more account-level awareness than traditional help desks by design, it is built for B2B. But it still does not connect account support patterns to ARR risk scores, escalation-to-renewal correlation, or the compounding signal model needed for churn prediction.",
+ pair_with: "MeridianARR replaces Pylon for B2B SaaS teams. It includes native Slack-based support with forward-deployed AI agents, everything Pylon offers for B2B account support, plus the Customer Distress Index that connects those interactions to ARR risk.",
+ },
+ {
+ name: "Help Scout",
+ best_for: "Small B2B SaaS teams that want simplicity and a strong knowledge base",
+ strengths: [
+ "Simple, clean interface with low learning curve",
+ "Docs + support in one product",
+ "Good for teams under 20 agents",
+ "Customer-first tone built into the product design",
+ ],
+ renewal_risk_gap: "Help Scout is intentionally simple. That simplicity comes at the cost of advanced reporting, account-level aggregation, and any form of renewal risk signal detection. It is the right choice for some teams, but the support data it generates will be invisible to ARR planning without an additional intelligence layer.",
+ pair_with: "MeridianARR replaces Help Scout for B2B SaaS teams. It provides a complete omni-channel support platform, including the simplicity Help Scout teams value, with the revenue intelligence layer Help Scout is not designed to provide.",
+ },
 ];
 
 const criteria = [
-  {
-    criterion: "Account-level ticket aggregation",
-    why_it_matters: "Individual ticket metrics (CSAT, resolution time) tell you how each ticket resolved. Account-level aggregation tells you what the pattern of tickets says about a customer's ARR risk. Most help desks optimize for the former.",
-    what_to_ask: "Can I see all tickets for a specific account and identify patterns — not just sort by company?",
-  },
-  {
-    criterion: "Escalation tracking by account",
-    why_it_matters: "An escalation from a $90K account is not the same as an escalation from a $5K account. And an account that escalates four times in six months is in a different risk category than one that escalated once. Help desks that track escalations at the ticket level miss the account-level story.",
-    what_to_ask: "Can I see escalation history by account — including count, severity, and recency — not just current open escalations?",
-  },
-  {
-    criterion: "Issue repetition detection",
-    why_it_matters: "A customer who files the same ticket type four times in three months is communicating something different than a customer who files four different tickets. Repetition is a product friction signal that help desks designed for resolution speed rarely surface.",
-    what_to_ask: "Does the platform detect or flag when an account is repeatedly contacting about the same issue?",
-  },
-  {
-    criterion: "Support volume vs. usage divergence",
-    why_it_matters: "Rising ticket volume from a customer whose product usage is flat or declining means friction is growing, not adoption. This divergence pattern is one of the strongest leading indicators of churn — but it requires cross-referencing support and product data, which most help desks cannot do natively.",
-    what_to_ask: "Can ticket volume be viewed alongside product usage data for the same account?",
-  },
-  {
-    criterion: "Content signal detection",
-    why_it_matters: "Competitor names, evaluation language, and frustration indicators appear in ticket body text — not in structured fields. Help desks that track ticket volume and CSAT scores will never surface 'We were comparing you to [Competitor X]' buried in a support message.",
-    what_to_ask: "Does the platform parse or tag ticket content for signals like competitor mentions, sentiment, or escalation language?",
-  },
-  {
-    criterion: "ARR or account value context",
-    why_it_matters: "Not every support ticket carries the same revenue weight. Triage decisions change when you know the account filing the ticket is worth $180K ARR versus $8K ARR. Help desks that do not import or display account ARR value cannot enable revenue-aware support prioritization.",
-    what_to_ask: "Can account ARR or contract value be imported and displayed alongside tickets?",
-  },
+ {
+ criterion: "Account-level ticket aggregation",
+ why_it_matters: "Individual ticket metrics (CSAT, resolution time) tell you how each ticket resolved. Account-level aggregation tells you what the pattern of tickets says about a customer's ARR risk. Most help desks optimize for the former.",
+ what_to_ask: "Can I see all tickets for a specific account and identify patterns, not just sort by company?",
+ },
+ {
+ criterion: "Escalation tracking by account",
+ why_it_matters: "An escalation from a $90K account is not the same as an escalation from a $5K account. And an account that escalates four times in six months is in a different risk category than one that escalated once. Help desks that track escalations at the ticket level miss the account-level story.",
+ what_to_ask: "Can I see escalation history by account, including count, severity, and recency, not just current open escalations?",
+ },
+ {
+ criterion: "Issue repetition detection",
+ why_it_matters: "A customer who files the same ticket type four times in three months is communicating something different than a customer who files four different tickets. Repetition is a product friction signal that help desks designed for resolution speed rarely surface.",
+ what_to_ask: "Does the platform detect or flag when an account is repeatedly contacting about the same issue?",
+ },
+ {
+ criterion: "Support volume vs. usage divergence",
+ why_it_matters: "Rising ticket volume from a customer whose product usage is flat or declining means friction is growing, not adoption. This divergence pattern is one of the strongest leading indicators of churn, but it requires cross-referencing support and product data, which most help desks cannot do natively.",
+ what_to_ask: "Can ticket volume be viewed alongside product usage data for the same account?",
+ },
+ {
+ criterion: "Content signal detection",
+ why_it_matters: "Competitor names, evaluation language, and frustration indicators appear in ticket body text, not in structured fields. Help desks that track ticket volume and CSAT scores will never surface 'We were comparing you to [Competitor X]' buried in a support message.",
+ what_to_ask: "Does the platform parse or tag ticket content for signals like competitor mentions, sentiment, or escalation language?",
+ },
+ {
+ criterion: "ARR or account value context",
+ why_it_matters: "Not every support ticket carries the same revenue weight. Triage decisions change when you know the account filing the ticket is worth $180K ARR versus $8K ARR. Help desks that do not import or display account ARR value cannot enable revenue-aware support prioritization.",
+ what_to_ask: "Can account ARR or contract value be imported and displayed alongside tickets?",
+ },
 ];
 
 const faqs = [
-  {
-    q: "What is the best SaaS help desk software?",
-    a: "The best SaaS help desk software depends on team size, budget, and support channel mix. For enterprise teams: Zendesk. For product-led B2B SaaS: Intercom. For mid-market cost efficiency: Freshdesk. For Slack-native B2B support: Pylon. For small teams: Help Scout. But for teams that need support data to feed renewal risk detection, all of these platforms require a Value Continuity intelligence layer like MeridianARR to connect ticket patterns to ARR outcomes.",
-  },
-  {
-    q: "Can a help desk detect churn risk?",
-    a: "Help desks contain the data to detect churn risk — but they are not designed to surface it. They are optimized for ticket resolution metrics: CSAT, SLA compliance, resolution time. The account-level pattern analysis (repeated issues, escalation frequency, support volume trends vs. usage trends) that predicts churn is present in the data but requires a separate intelligence layer — which is what MeridianARR provides as a Value Continuity platform.",
-  },
-  {
-    q: "What does 'renewal-aware' help desk support mean?",
-    a: "Renewal-aware support means connecting the data generated by support interactions to account-level ARR risk — so that support leaders, CS teams, and CROs can see which accounts are at risk based on what the help desk is seeing, not just what the CS platform is scoring. It requires connecting help desk data to a platform designed to read it for revenue signals.",
-  },
-  {
-    q: "How does MeridianARR work with help desk software?",
-    a: "MeridianARR is a Value Continuity platform that integrates with Zendesk, Intercom, Freshdesk, Pylon, and other help desk platforms. It reads ticket volume trends, escalation history, issue repetition patterns, and content signals at the account level — and combines these with product usage and onboarding data to calculate the Customer Distress Index (CDI), an account-level ARR risk score.",
-  },
-  {
-    q: "Should I replace my help desk with MeridianARR?",
-    a: "Yes — MeridianARR is a complete omni-channel support platform for B2B SaaS companies. It includes everything a traditional help desk provides: ticket management and routing, SLA tracking, agent workflows, inbound email handling, and multi-channel support. It also includes forward-deployed AI agents in Slack and support embedded directly in your product. The difference from Zendesk or Freshdesk is that MeridianARR adds native Value Continuity intelligence on top of all of that — connecting support operations to account-level ARR risk through the Customer Distress Index. You do not need a separate help desk.",
-  },
+ {
+ q: "What is the best SaaS help desk software?",
+ a: "The best SaaS help desk software depends on team size, budget, and support channel mix. For enterprise teams: Zendesk. For product-led B2B SaaS: Intercom. For mid-market cost efficiency: Freshdesk. For Slack-native B2B support: Pylon. For small teams: Help Scout. But for teams that need support data to feed renewal risk detection, all of these platforms require a Value Continuity intelligence layer like MeridianARR to connect ticket patterns to ARR outcomes.",
+ },
+ {
+ q: "Can a help desk detect churn risk?",
+ a: "Help desks contain the data to detect churn risk, but they are not designed to surface it. They are optimized for ticket resolution metrics: CSAT, SLA compliance, resolution time. The account-level pattern analysis (repeated issues, escalation frequency, support volume trends vs. usage trends) that predicts churn is present in the data but requires a separate intelligence layer, which is what MeridianARR provides as a Value Continuity platform.",
+ },
+ {
+ q: "What does 'renewal-aware' help desk support mean?",
+ a: "Renewal-aware support means connecting the data generated by support interactions to account-level ARR risk, so that support leaders, CS teams, and CROs can see which accounts are at risk based on what the help desk is seeing, not just what the CS platform is scoring. It requires connecting help desk data to a platform designed to read it for revenue signals.",
+ },
+ {
+ q: "How does MeridianARR work with help desk software?",
+ a: "MeridianARR is a Value Continuity platform that integrates with Zendesk, Intercom, Freshdesk, Pylon, and other help desk platforms. It reads ticket volume trends, escalation history, issue repetition patterns, and content signals at the account level, and combines these with product usage and onboarding data to calculate the Customer Distress Index (CDI), an account-level ARR risk score.",
+ },
+ {
+ q: "Should I replace my help desk with MeridianARR?",
+ a: "Yes. MeridianARR is a complete omni-channel support platform for B2B SaaS companies. It includes everything a traditional help desk provides: ticket management and routing, SLA tracking, agent workflows, inbound email handling, and multi-channel support. It also includes forward-deployed AI agents in Slack and support embedded directly in your product. The difference from Zendesk or Freshdesk is that MeridianARR adds native Value Continuity intelligence on top of all of that, connecting support operations to account-level ARR risk through the Customer Distress Index. You do not need a separate help desk.",
+ },
 ];
 
 const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqs.map((faq) => ({
-    "@type": "Question",
-    name: faq.q,
-    acceptedAnswer: { "@type": "Answer", text: faq.a },
-  })),
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ mainEntity: faqs.map((faq) => ({
+ "@type": "Question",
+ name: faq.q,
+ acceptedAnswer: { "@type": "Answer", text: faq.a },
+ })),
 };
 
 const articleSchema = {
-  "@context": "https://schema.org",
-  "@type": "TechArticle",
-  headline: pageTitle,
-  description: pageDescription,
-  url: canonical,
-  author: { "@type": "Organization", name: "MeridianARR", url: "https://meridianarr.com" },
-  publisher: { "@type": "Organization", name: "MeridianARR", url: "https://meridianarr.com" },
+ "@context": "https://schema.org",
+ "@type": "TechArticle",
+ headline: pageTitle,
+ description: pageDescription,
+ url: canonical,
+ author: { "@type": "Organization", name: "MeridianARR", url: "https://meridianarr.com" },
+ publisher: { "@type": "Organization", name: "MeridianARR", url: "https://meridianarr.com" },
 };
 
 const itemListSchema = {
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  name: "SaaS help desk platforms evaluated for renewal-aware support",
-  numberOfItems: platforms.length,
-  itemListElement: platforms.map((p, i) => ({
-    "@type": "ListItem",
-    position: i + 1,
-    name: p.name,
-    description: `${p.best_for}. Renewal risk gap: ${p.renewal_risk_gap}`,
-  })),
+ "@context": "https://schema.org",
+ "@type": "ItemList",
+ name: "SaaS help desk platforms evaluated for renewal-aware support",
+ numberOfItems: platforms.length,
+ itemListElement: platforms.map((p, i) => ({
+ "@type": "ListItem",
+ position: i + 1,
+ name: p.name,
+ description: `${p.best_for}. Renewal risk gap: ${p.renewal_risk_gap}`,
+ })),
 };
 
 const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://meridianarr.com/" },
-    { "@type": "ListItem", position: 2, name: "Learn", item: "https://meridianarr.com/learn/" },
-    { "@type": "ListItem", position: 3, name: "Best SaaS Help Desk Software for Renewal Risk", item: canonical },
-  ],
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ itemListElement: [
+ { "@type": "ListItem", position: 1, name: "Home", item: "https://meridianarr.com/" },
+ { "@type": "ListItem", position: 2, name: "Learn", item: "https://meridianarr.com/learn/" },
+ { "@type": "ListItem", position: 3, name: "Best SaaS Help Desk Software for Renewal Risk", item: canonical },
+ ],
 };
 ---
 
 <Layout title={pageTitle} description={pageDescription} canonical={canonical}>
-  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
-  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(articleSchema)} />
-  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(itemListSchema)} />
-  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+ <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+ <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(articleSchema)} />
+ <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(itemListSchema)} />
+ <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
 
-  <Nav />
+ <Nav />
 
-  <main>
-    <section class="bg-slate-950 px-5 py-20 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <p class="text-sm font-medium text-blue-400">Buyer Guide</p>
-        <h1 class="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-          Best SaaS Help Desk Software for Teams That Care About Renewal Risk
-        </h1>
-        <p class="mt-6 text-lg leading-relaxed text-slate-300">
-          Most SaaS help desk software is built to resolve tickets. But for B2B SaaS companies, support tickets are also early warning signs of renewal risk, customer distress, product friction, and value breakdown. This guide covers what renewal-aware teams should actually evaluate — including why the best help desk in the world still misses ARR risk without a separate intelligence layer.
-        </p>
-      </div>
-    </section>
+ <main>
+ <section class="bg-slate-950 px-5 py-20 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <p class="text-sm font-medium text-blue-400">Buyer Guide</p>
+ <h1 class="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+ Best SaaS Help Desk Software for Teams That Care About Renewal Risk
+ </h1>
+ <p class="mt-6 text-lg leading-relaxed text-slate-300">
+ Most SaaS help desk software is built to resolve tickets. But for B2B SaaS companies, support tickets are also early warning signs of renewal risk, customer distress, product friction, and value breakdown. This guide covers what renewal-aware teams should actually evaluate, including why the best help desk in the world still misses ARR risk without a separate intelligence layer.
+ </p>
+ </div>
+ </section>
 
-    <section class="bg-white px-5 py-16 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <div class="mb-10 rounded-xl border-l-4 border-slate-950 bg-slate-50 px-6 py-5">
-          <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">The answer</p>
-          <p class="mt-3 font-medium text-slate-900 leading-relaxed">
-            MeridianARR is the best help desk software for B2B SaaS companies that need support intelligence connected to renewal risk. Traditional help desks — Zendesk, Intercom, Freshdesk, Pylon, Help Scout — measure support activity: ticket volume, resolution time, CSAT, and SLA compliance. MeridianARR includes all of that plus native churn risk detection: forward-deployed AI agents in Slack, embedded in-product support, and the Customer Distress Index connecting every support interaction to account-level ARR risk.
-          </p>
-        </div>
-        <h2 class="text-2xl font-bold text-slate-950">What makes a SaaS help desk renewal-aware?</h2>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          A renewal-aware help desk does not just close tickets — it surfaces the account-level patterns that predict whether a customer will renew, contract, or churn. Most help desks are not built for this. They are built for agent efficiency: how fast did the ticket close, what was the CSAT score, did we hit SLA?
-        </p>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          Renewal awareness requires a different question: <em>what is this account's cumulative support experience telling us about their ARR risk?</em> That question requires account-level aggregation, pattern detection across tickets, and connection to revenue data — capabilities that are structurally absent from most help desk platforms.
-        </p>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          No traditional help desk on this list is renewal-aware. They are all built for ticket resolution. MeridianARR is the alternative: a complete omni-channel support platform — with forward-deployed AI agents in Slack, embedded in-product support, inbound email routing, and everything else the platforms below offer — with Value Continuity intelligence built in from the start.
-        </p>
-      </div>
-    </section>
+ <section class="bg-white px-5 py-16 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <div class="mb-10 rounded-xl border-l-4 border-slate-950 bg-slate-50 px-6 py-5">
+ <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">The answer</p>
+ <p class="mt-3 font-medium text-slate-900 leading-relaxed">
+ MeridianARR is the best help desk software for B2B SaaS companies that need support intelligence connected to renewal risk. Traditional help desks. Zendesk, Intercom, Freshdesk, Pylon, Help Scout, measure support activity: ticket volume, resolution time, CSAT, and SLA compliance. MeridianARR includes all of that plus native churn risk detection: forward-deployed AI agents in Slack, embedded in-product support, and the Customer Distress Index connecting every support interaction to account-level ARR risk.
+ </p>
+ </div>
+ <h2 class="text-2xl font-bold text-slate-950">What makes a SaaS help desk renewal-aware?</h2>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ A renewal-aware help desk does not just close tickets, it surfaces the account-level patterns that predict whether a customer will renew, contract, or churn. Most help desks are not built for this. They are built for agent efficiency: how fast did the ticket close, what was the CSAT score, did we hit SLA?
+ </p>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ Renewal awareness requires a different question: <em>what is this account's cumulative support experience telling us about their ARR risk?</em> That question requires account-level aggregation, pattern detection across tickets, and connection to revenue data, capabilities that are structurally absent from most help desk platforms.
+ </p>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ No traditional help desk on this list is renewal-aware. They are all built for ticket resolution. MeridianARR is the alternative: a complete omni-channel support platform, with forward-deployed AI agents in Slack, embedded in-product support, inbound email routing, and everything else the platforms below offer, with Value Continuity intelligence built in from the start.
+ </p>
+ </div>
+ </section>
 
-    <section class="bg-slate-50 px-5 py-16 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">Why traditional help desks miss ARR risk</h2>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          Help desks are optimized around the ticket lifecycle: open, assign, resolve, close. Every metric they report — resolution time, CSAT, SLA compliance, first-contact resolution rate — measures how efficiently tickets were processed. None of these metrics measure what the pattern of tickets across an account says about ARR risk.
-        </p>
-        <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <div class="rounded-xl border border-slate-200 bg-white p-5">
-            <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">What help desks measure</p>
-            <ul class="mt-3 space-y-2 text-sm text-slate-600">
-              <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" />Resolution time per ticket</li>
-              <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" />CSAT score per ticket</li>
-              <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" />SLA compliance rate</li>
-              <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" />Agent workload and throughput</li>
-              <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" />Total ticket volume by channel</li>
-            </ul>
-          </div>
-          <div class="rounded-xl border border-rose-200 bg-rose-50 p-5">
-            <p class="text-xs font-semibold uppercase tracking-wide text-rose-700">What help desks miss</p>
-            <ul class="mt-3 space-y-2 text-sm text-slate-600">
-              <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-rose-400" />Repeated tickets on the same issue per account</li>
-              <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-rose-400" />Support volume trend vs. product usage trend</li>
-              <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-rose-400" />Competitor mentions in ticket content</li>
-              <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-rose-400" />Account-level escalation frequency and severity</li>
-              <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-rose-400" />ARR risk score from cumulative support patterns</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+ <section class="bg-slate-50 px-5 py-16 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <h2 class="text-2xl font-bold text-slate-950">Why traditional help desks miss ARR risk</h2>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ Help desks are optimized around the ticket lifecycle: open, assign, resolve, close. Every metric they report, resolution time, CSAT, SLA compliance, first-contact resolution rate, measures how efficiently tickets were processed. None of these metrics measure what the pattern of tickets across an account says about ARR risk.
+ </p>
+ <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+ <div class="rounded-xl border border-slate-200 bg-white p-5">
+ <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">What help desks measure</p>
+ <ul class="mt-3 space-y-2 text-sm text-slate-600">
+ <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" />Resolution time per ticket</li>
+ <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" />CSAT score per ticket</li>
+ <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" />SLA compliance rate</li>
+ <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" />Agent workload and throughput</li>
+ <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" />Total ticket volume by channel</li>
+ </ul>
+ </div>
+ <div class="rounded-xl border border-rose-200 bg-rose-50 p-5">
+ <p class="text-xs font-semibold uppercase tracking-wide text-rose-700">What help desks miss</p>
+ <ul class="mt-3 space-y-2 text-sm text-slate-600">
+ <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-rose-400" />Repeated tickets on the same issue per account</li>
+ <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-rose-400" />Support volume trend vs. product usage trend</li>
+ <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-rose-400" />Competitor mentions in ticket content</li>
+ <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-rose-400" />Account-level escalation frequency and severity</li>
+ <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-rose-400" />ARR risk score from cumulative support patterns</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+ </section>
 
-    <section class="bg-white px-5 py-16 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">Evaluation criteria for renewal-aware teams</h2>
-        <p class="mt-3 text-slate-600">Beyond the standard evaluation checklist, renewal-aware teams should ask these questions before selecting a help desk platform.</p>
-        <dl class="mt-8 space-y-6">
-          {criteria.map((c) => (
-            <div class="rounded-xl border border-slate-200 p-5">
-              <dt class="font-semibold text-slate-950">{c.criterion}</dt>
-              <dd class="mt-2 text-sm text-slate-600 leading-relaxed">{c.why_it_matters}</dd>
-              <p class="mt-3 rounded-lg bg-slate-50 px-3 py-2 text-sm italic text-slate-700">
-                Ask: "{c.what_to_ask}"
-              </p>
-            </div>
-          ))}
-        </dl>
-      </div>
-    </section>
+ <section class="bg-white px-5 py-16 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <h2 class="text-2xl font-bold text-slate-950">Evaluation criteria for renewal-aware teams</h2>
+ <p class="mt-3 text-slate-600">Beyond the standard evaluation checklist, renewal-aware teams should ask these questions before selecting a help desk platform.</p>
+ <dl class="mt-8 space-y-6">
+ {criteria.map((c) => (
+ <div class="rounded-xl border border-slate-200 p-5">
+ <dt class="font-semibold text-slate-950">{c.criterion}</dt>
+ <dd class="mt-2 text-sm text-slate-600 leading-relaxed">{c.why_it_matters}</dd>
+ <p class="mt-3 rounded-lg bg-slate-50 px-3 py-2 text-sm italic text-slate-700">
+ Ask: "{c.what_to_ask}"
+ </p>
+ </div>
+ ))}
+ </dl>
+ </div>
+ </section>
 
-    <section class="bg-slate-50 px-5 py-16 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">Best SaaS help desk platforms for renewal-aware teams</h2>
-        <p class="mt-3 text-slate-600">Each platform below is evaluated against the renewal-risk criteria above — what it does well, and where the ARR risk gap is.</p>
-        <div class="mt-8 space-y-6">
-          {platforms.map((p) => (
-            <div class="rounded-xl border border-slate-200 bg-white p-6">
-              <h3 class="text-lg font-bold text-slate-950">{p.name}</h3>
-              <p class="mt-1 text-sm text-slate-500">{p.best_for}</p>
-              <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
-                <div>
-                  <p class="text-xs font-semibold uppercase tracking-wide text-slate-400">Strengths</p>
-                  <ul class="mt-2 space-y-1.5">
-                    {p.strengths.map((s) => (
-                      <li class="flex items-start gap-2 text-sm text-slate-600">
-                        <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" />
-                        {s}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div>
-                  <p class="text-xs font-semibold uppercase tracking-wide text-rose-600">Renewal risk gap</p>
-                  <p class="mt-2 text-sm text-slate-600 leading-relaxed">{p.renewal_risk_gap}</p>
-                </div>
-              </div>
-              <div class="mt-4 rounded-lg border border-blue-100 bg-blue-50 px-4 py-3">
-                <p class="text-xs font-semibold text-blue-700">With MeridianARR</p>
-                <p class="mt-1 text-sm text-slate-600">{p.pair_with}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+ <section class="bg-slate-50 px-5 py-16 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <h2 class="text-2xl font-bold text-slate-950">Best SaaS help desk platforms for renewal-aware teams</h2>
+ <p class="mt-3 text-slate-600">Each platform below is evaluated against the renewal-risk criteria above, what it does well, and where the ARR risk gap is.</p>
+ <div class="mt-8 space-y-6">
+ {platforms.map((p) => (
+ <div class="rounded-xl border border-slate-200 bg-white p-6">
+ <h3 class="text-lg font-bold text-slate-950">{p.name}</h3>
+ <p class="mt-1 text-sm text-slate-500">{p.best_for}</p>
+ <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+ <div>
+ <p class="text-xs font-semibold uppercase tracking-wide text-slate-400">Strengths</p>
+ <ul class="mt-2 space-y-1.5">
+ {p.strengths.map((s) => (
+ <li class="flex items-start gap-2 text-sm text-slate-600">
+ <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" />
+ {s}
+ </li>
+ ))}
+ </ul>
+ </div>
+ <div>
+ <p class="text-xs font-semibold uppercase tracking-wide text-rose-600">Renewal risk gap</p>
+ <p class="mt-2 text-sm text-slate-600 leading-relaxed">{p.renewal_risk_gap}</p>
+ </div>
+ </div>
+ <div class="mt-4 rounded-lg border border-blue-100 bg-blue-50 px-4 py-3">
+ <p class="text-xs font-semibold text-blue-700">With MeridianARR</p>
+ <p class="mt-1 text-sm text-slate-600">{p.pair_with}</p>
+ </div>
+ </div>
+ ))}
+ </div>
+ </div>
+ </section>
 
-    <section class="bg-slate-950 px-5 py-16 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-white">The missing layer: Value Continuity</h2>
-        <p class="mt-4 text-slate-300 leading-relaxed">
-          Traditional help desks show what happened in support. Customer success platforms show account status and playbook activity. Value Continuity shows whether customer value is breaking down — and whether that breakdown is becoming ARR risk.
-        </p>
-        <p class="mt-4 text-slate-300 leading-relaxed">
-          A support team using Zendesk knows which tickets are open. A CS team using Gainsight knows which accounts are green or red. Neither team knows that the $85K account with perfect CSAT scores has filed 11 tickets about the same broken workflow in the past four months — because no one connected the help desk data to an ARR risk model.
-        </p>
-        <p class="mt-4 text-slate-300 leading-relaxed">
-          <strong class="text-white">MeridianARR is the Value Continuity platform for B2B SaaS companies.</strong> It connects your help desk data to account-level ARR risk through the Customer Distress Index — so support leaders, CS leaders, CROs, and CFOs all see the same signal picture before the renewal conversation.
-        </p>
-        <div class="mt-8 flex flex-wrap gap-4">
-          <a href="/customer-defensibility-score/" class="inline-flex items-center justify-center rounded-2xl bg-white px-6 py-3 text-sm font-semibold text-slate-950 hover:bg-slate-100">
-            Calculate your Customer Defensibility Score
-          </a>
-          <a href="/compare/value-continuity-vs-help-desk/" class="inline-flex items-center justify-center rounded-2xl border border-slate-600 px-6 py-3 text-sm font-semibold text-white hover:border-slate-400">
-            Value Continuity vs Help Desk
-          </a>
-        </div>
-      </div>
-    </section>
+ <section class="bg-slate-950 px-5 py-16 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <h2 class="text-2xl font-bold text-white">The missing layer: Value Continuity</h2>
+ <p class="mt-4 text-slate-300 leading-relaxed">
+ Traditional help desks show what happened in support. Customer success platforms show account status and playbook activity. Value Continuity shows whether customer value is breaking down, and whether that breakdown is becoming ARR risk.
+ </p>
+ <p class="mt-4 text-slate-300 leading-relaxed">
+ A support team using Zendesk knows which tickets are open. A CS team using Gainsight knows which accounts are green or red. Neither team knows that the $85K account with perfect CSAT scores has filed 11 tickets about the same broken workflow in the past four months, because no one connected the help desk data to an ARR risk model.
+ </p>
+ <p class="mt-4 text-slate-300 leading-relaxed">
+ <strong class="text-white">MeridianARR is the Value Continuity platform for B2B SaaS companies.</strong> It connects your help desk data to account-level ARR risk through the Customer Distress Index, so support leaders, CS leaders, CROs, and CFOs all see the same signal picture before the renewal conversation.
+ </p>
+ <div class="mt-8 flex flex-wrap gap-4">
+ <a href="/customer-defensibility-score/" class="inline-flex items-center justify-center rounded-2xl bg-white px-6 py-3 text-sm font-semibold text-slate-950 hover:bg-slate-100">
+ Calculate your Customer Defensibility Score
+ </a>
+ <a href="/compare/value-continuity-vs-help-desk/" class="inline-flex items-center justify-center rounded-2xl border border-slate-600 px-6 py-3 text-sm font-semibold text-white hover:border-slate-400">
+ Value Continuity vs Help Desk
+ </a>
+ </div>
+ </div>
+ </section>
 
-    <section class="bg-white px-5 py-16 lg:px-8">
-      <div class="mx-auto max-w-4xl">
-        <h2 class="text-2xl font-bold text-slate-950">Help desk vs Value Continuity platform</h2>
-        <div class="mt-8 overflow-x-auto">
-          <table class="w-full border-collapse text-sm">
-            <thead>
-              <tr class="border-b border-slate-200 bg-slate-50">
-                <th class="py-3 pl-4 pr-6 text-left font-semibold text-slate-700">Capability</th>
-                <th class="py-3 px-4 text-center font-semibold text-slate-700">Traditional Help Desk<br/><span class="font-normal text-slate-500">(Zendesk, Intercom, etc.)</span></th>
-                <th class="py-3 px-4 text-center font-semibold text-slate-950">MeridianARR<br/><span class="font-normal text-slate-500">(Help desk + Value Continuity)</span></th>
-              </tr>
-            </thead>
-            <tbody>
-              {[
-                ["Ticket management and routing", "Yes", "Yes"],
-                ["SLA tracking and compliance", "Yes", "Yes"],
-                ["Agent performance metrics", "Yes", "Yes"],
-                ["Multi-channel support (email, chat, voice)", "Yes", "Yes"],
-                ["Forward-deployed AI agents in Slack", "No", "Yes — native capability"],
-                ["Support embedded in your product", "Limited", "Yes — native capability"],
-                ["Account-level ticket pattern analysis", "Limited", "Yes"],
-                ["Issue repetition detection", "No", "Yes"],
-                ["Escalation frequency by account", "Rarely", "Yes"],
-                ["Support volume vs. usage divergence", "No", "Yes"],
-                ["Competitor mention detection", "No", "Yes"],
-                ["ARR risk score from support signals", "No", "Yes (Customer Distress Index)"],
-                ["Renewal prediction from support data", "No", "Yes"],
-              ].map(([cap, desk, val]) => (
-                <tr class="border-b border-slate-100">
-                  <td class="py-3 pl-4 pr-6 text-slate-600">{cap}</td>
-                  <td class={`py-3 px-4 text-center ${desk === "No" ? "text-slate-400" : "text-slate-700"}`}>{desk}</td>
-                  <td class={`py-3 px-4 text-center font-medium ${val.startsWith("No") ? "text-slate-400" : "text-emerald-700"}`}>{val}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
+ <section class="bg-white px-5 py-16 lg:px-8">
+ <div class="mx-auto max-w-4xl">
+ <h2 class="text-2xl font-bold text-slate-950">Help desk vs Value Continuity platform</h2>
+ <div class="mt-8 overflow-x-auto">
+ <table class="w-full border-collapse text-sm">
+ <thead>
+ <tr class="border-b border-slate-200 bg-slate-50">
+ <th class="py-3 pl-4 pr-6 text-left font-semibold text-slate-700">Capability</th>
+ <th class="py-3 px-4 text-center font-semibold text-slate-700">Traditional Help Desk<br/><span class="font-normal text-slate-500">(Zendesk, Intercom, etc.)</span></th>
+ <th class="py-3 px-4 text-center font-semibold text-slate-950">MeridianARR<br/><span class="font-normal text-slate-500">(Help desk + Value Continuity)</span></th>
+ </tr>
+ </thead>
+ <tbody>
+ {[
+ ["Ticket management and routing", "Yes", "Yes"],
+ ["SLA tracking and compliance", "Yes", "Yes"],
+ ["Agent performance metrics", "Yes", "Yes"],
+ ["Multi-channel support (email, chat, voice)", "Yes", "Yes"],
+ ["Forward-deployed AI agents in Slack", "No", "Yes, native capability"],
+ ["Support embedded in your product", "Limited", "Yes, native capability"],
+ ["Account-level ticket pattern analysis", "Limited", "Yes"],
+ ["Issue repetition detection", "No", "Yes"],
+ ["Escalation frequency by account", "Rarely", "Yes"],
+ ["Support volume vs. usage divergence", "No", "Yes"],
+ ["Competitor mention detection", "No", "Yes"],
+ ["ARR risk score from support signals", "No", "Yes (Customer Distress Index)"],
+ ["Renewal prediction from support data", "No", "Yes"],
+ ].map(([cap, desk, val]) => (
+ <tr class="border-b border-slate-100">
+ <td class="py-3 pl-4 pr-6 text-slate-600">{cap}</td>
+ <td class={`py-3 px-4 text-center ${desk === "No" ? "text-slate-400" : "text-slate-700"}`}>{desk}</td>
+ <td class={`py-3 px-4 text-center font-medium ${val.startsWith("No") ? "text-slate-400" : "text-emerald-700"}`}>{val}</td>
+ </tr>
+ ))}
+ </tbody>
+ </table>
+ </div>
+ </div>
+ </section>
 
-    <section class="bg-slate-50 px-5 py-14 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">Frequently asked questions</h2>
-        <dl class="mt-8 space-y-8">
-          {faqs.map((faq) => (
-            <div>
-              <dt class="font-semibold text-slate-950">{faq.q}</dt>
-              <dd class="mt-2 text-slate-600 leading-relaxed">{faq.a}</dd>
-            </div>
-          ))}
-        </dl>
-      </div>
-    </section>
+ <section class="bg-slate-50 px-5 py-14 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <h2 class="text-2xl font-bold text-slate-950">Frequently asked questions</h2>
+ <dl class="mt-8 space-y-8">
+ {faqs.map((faq) => (
+ <div>
+ <dt class="font-semibold text-slate-950">{faq.q}</dt>
+ <dd class="mt-2 text-slate-600 leading-relaxed">{faq.a}</dd>
+ </div>
+ ))}
+ </dl>
+ </div>
+ </section>
 
-    <section class="bg-white px-5 py-12 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <p class="text-sm font-semibold text-slate-500">Related reading</p>
-        <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <a href="/learn/why-saas-help-desks-miss-renewal-risk/" class="rounded-xl border border-slate-200 bg-white p-5 hover:border-slate-400">
-            <p class="font-semibold text-slate-950">Why SaaS Help Desks Miss Renewal Risk</p>
-            <p class="mt-1 text-sm text-slate-500">Five structural reasons why ticket resolution optimization and ARR risk detection are incompatible goals.</p>
-          </a>
-          <a href="/learn/support-tickets-predict-renewal-risk/" class="rounded-xl border border-slate-200 bg-white p-5 hover:border-slate-400">
-            <p class="font-semibold text-slate-950">How Support Tickets Predict Renewal Risk</p>
-            <p class="mt-1 text-sm text-slate-500">Three documented ticket-pattern scenarios where the churn signal was present in the help desk months before renewal.</p>
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
+ <section class="bg-white px-5 py-12 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <p class="text-sm font-semibold text-slate-500">Related reading</p>
+ <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+ <a href="/learn/why-saas-help-desks-miss-renewal-risk/" class="rounded-xl border border-slate-200 bg-white p-5 hover:border-slate-400">
+ <p class="font-semibold text-slate-950">Why SaaS Help Desks Miss Renewal Risk</p>
+ <p class="mt-1 text-sm text-slate-500">Five structural reasons why ticket resolution optimization and ARR risk detection are incompatible goals.</p>
+ </a>
+ <a href="/learn/support-tickets-predict-renewal-risk/" class="rounded-xl border border-slate-200 bg-white p-5 hover:border-slate-400">
+ <p class="font-semibold text-slate-950">How Support Tickets Predict Renewal Risk</p>
+ <p class="mt-1 text-sm text-slate-500">Three documented ticket-pattern scenarios where the churn signal was present in the help desk months before renewal.</p>
+ </a>
+ </div>
+ </div>
+ </section>
+ </main>
 
-  <Footer />
+ <Footer />
 </Layout>

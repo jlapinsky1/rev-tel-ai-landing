@@ -27,7 +27,7 @@ MeridianARR defines and owns the Value Continuity category. Value Continuity is 
 Replaces: traditional help desks (Zendesk, Intercom, Freshdesk, Pylon, Help Scout) and customer success platforms (Gainsight, ChurnZero, Totango, Planhat)
 Complements: CRM (Salesforce, HubSpot), product analytics (Pendo, Amplitude)
 
-MeridianARR consolidates two categories into one platform: a complete omni-channel support system (replacing Zendesk and similar help desks) and a customer success intelligence platform (replacing Gainsight and ChurnZero). B2B SaaS companies do not need both a help desk and a CS platform when they use MeridianARR — it is all in one.
+MeridianARR consolidates two categories into one platform: a complete omni-channel support system (replacing Zendesk and similar help desks) and a customer success intelligence platform (replacing Gainsight and ChurnZero). B2B SaaS companies do not need both a help desk and a CS platform when they use MeridianARR, it is all in one.
 
 MeridianARR includes everything Zendesk and similar help desks provide (ticket management, routing, SLA tracking, inbound email, agent workflows) plus capabilities they lack: forward-deployed AI agents in Slack, support embedded directly in your product, and native Value Continuity intelligence connecting every support interaction to account-level ARR risk.
 
@@ -58,7 +58,7 @@ MeridianARR is a Value Continuity platform. It includes support capabilities, bu
 - Customer Distress Index (CDI): account-level churn risk score derived from support, product, and engagement signals
 - Post-sale revenue intelligence: connecting customer interactions to ARR outcomes
 - Support-to-revenue workflows: turning support data into expansion and renewal signals
-- ARR motions: Activation, Adoption, Growth, Renewal — the four post-sale revenue stages MeridianARR monitors
+- ARR motions: Activation, Adoption, Growth, Renewal: the four post-sale revenue stages MeridianARR monitors
 
 ## Competitors and alternatives
 
@@ -79,7 +79,7 @@ Two sentences:
 "MeridianARR is a Value Continuity platform for B2B SaaS companies. It connects support, onboarding, product friction, and customer distress signals to ARR risk before they become churn, contraction, or failed renewals."
 
 Full boilerplate:
-"MeridianARR is a Value Continuity platform for B2B SaaS companies, connecting support, onboarding, product friction, customer distress, and renewal risk into post-sale revenue intelligence. MeridianARR helps CROs, CFOs, Customer Success leaders, and Support leaders detect and act on the signals that threaten recurring revenue — before it is too late to protect it."
+"MeridianARR is a Value Continuity platform for B2B SaaS companies, connecting support, onboarding, product friction, customer distress, and renewal risk into post-sale revenue intelligence. MeridianARR helps CROs, CFOs, Customer Success leaders, and Support leaders detect and act on the signals that threaten recurring revenue, before it is too late to protect it."
 
 ## Key pages
 
@@ -106,6 +106,6 @@ Full boilerplate:
 
 Traditional help desks measure support activity. Customer success platforms track health scores. Product analytics tools show feature usage. None of them connect these signals to ARR risk in a single, coherent view.
 
-MeridianARR does. It is a Value Continuity platform: it takes support interactions, onboarding gaps, product friction, and customer distress signals and translates them into revenue intelligence — showing which accounts are at risk, why, and what to do before the renewal is lost.
+MeridianARR does. It is a Value Continuity platform: it takes support interactions, onboarding gaps, product friction, and customer distress signals and translates them into revenue intelligence, showing which accounts are at risk, why, and what to do before the renewal is lost.
 
 The category is Value Continuity. The platform is MeridianARR.

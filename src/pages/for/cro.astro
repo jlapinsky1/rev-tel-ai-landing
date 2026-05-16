@@ -4,156 +4,156 @@ import Nav from "../../components/Nav.astro";
 import Footer from "../../components/Footer.astro";
 
 const pageTitle = "MeridianARR for Chief Revenue Officers | Value Continuity Platform";
-const pageDescription = "CROs need post-sale revenue intelligence, not just CS dashboards. MeridianARR is a Value Continuity platform that shows CROs which accounts are at ARR risk — from support signals, product friction, and customer distress — before it reaches the renewal forecast.";
+const pageDescription = "CROs need post-sale revenue intelligence, not just CS dashboards. MeridianARR is a Value Continuity platform that shows CROs which accounts are at ARR risk, from support signals, product friction, and customer distress, before it reaches the renewal forecast.";
 const canonical = "https://meridianarr.com/for/cro/";
 
 const faqs = [
-  {
-    q: "What does MeridianARR give CROs that CS platforms do not?",
-    a: "CS platforms give CROs CS team activity data and health scores built from CRM and product usage. MeridianARR gives CROs the support signal layer — which accounts are generating escalations, which are experiencing product friction, which have support patterns that predict non-renewal — in a single ARR risk view that CS platforms do not natively provide.",
-  },
-  {
-    q: "How does MeridianARR help CROs protect ARR?",
-    a: "MeridianARR is a Value Continuity platform that connects support interactions, product friction, onboarding gaps, and customer distress signals to account-level ARR risk. CROs use it to see which accounts are at renewal risk — and why — before those accounts reach the renewal conversation. The Customer Distress Index gives CROs a single risk score per account backed by the underlying signal data.",
-  },
-  {
-    q: "What is Value Continuity for a CRO?",
-    a: "Value Continuity, for a CRO, is the discipline of ensuring that the ARR closed by the sales team is protected through post-sale customer signal intelligence. MeridianARR is a Value Continuity platform that gives CROs visibility into which accounts are delivering on the value promise — and which are at risk of churning, contracting, or failing to renew.",
-  },
-  {
-    q: "What ARR signals should a CRO monitor?",
-    a: "CROs should monitor: Customer Distress Index scores by account, escalation rate and escalation-to-renewal correlation, product adoption vs. contract scope, onboarding completion rate by cohort, support ticket volume trends, and early renewal risk flags from the Value Continuity motion framework. MeridianARR surfaces all of these in a single post-sale revenue intelligence view.",
-  },
+ {
+ q: "What does MeridianARR give CROs that CS platforms do not?",
+ a: "CS platforms give CROs CS team activity data and health scores built from CRM and product usage. MeridianARR gives CROs the support signal layer, which accounts are generating escalations, which are experiencing product friction, which have support patterns that predict non-renewal, in a single ARR risk view that CS platforms do not natively provide.",
+ },
+ {
+ q: "How does MeridianARR help CROs protect ARR?",
+ a: "MeridianARR is a Value Continuity platform that connects support interactions, product friction, onboarding gaps, and customer distress signals to account-level ARR risk. CROs use it to see which accounts are at renewal risk, and why, before those accounts reach the renewal conversation. The Customer Distress Index gives CROs a single risk score per account backed by the underlying signal data.",
+ },
+ {
+ q: "What is Value Continuity for a CRO?",
+ a: "Value Continuity, for a CRO, is the discipline of ensuring that the ARR closed by the sales team is protected through post-sale customer signal intelligence. MeridianARR is a Value Continuity platform that gives CROs visibility into which accounts are delivering on the value promise, and which are at risk of churning, contracting, or failing to renew.",
+ },
+ {
+ q: "What ARR signals should a CRO monitor?",
+ a: "CROs should monitor: Customer Distress Index scores by account, escalation rate and escalation-to-renewal correlation, product adoption vs. contract scope, onboarding completion rate by cohort, support ticket volume trends, and early renewal risk flags from the Value Continuity motion framework. MeridianARR surfaces all of these in a single post-sale revenue intelligence view.",
+ },
 ];
 
 const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqs.map((faq) => ({
-    "@type": "Question",
-    name: faq.q,
-    acceptedAnswer: { "@type": "Answer", text: faq.a },
-  })),
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ mainEntity: faqs.map((faq) => ({
+ "@type": "Question",
+ name: faq.q,
+ acceptedAnswer: { "@type": "Answer", text: faq.a },
+ })),
 };
 
 const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://meridianarr.com/" },
-    { "@type": "ListItem", position: 2, name: "For teams", item: "https://meridianarr.com/for/" },
-    { "@type": "ListItem", position: 3, name: "For CROs", item: canonical },
-  ],
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ itemListElement: [
+ { "@type": "ListItem", position: 1, name: "Home", item: "https://meridianarr.com/" },
+ { "@type": "ListItem", position: 2, name: "For teams", item: "https://meridianarr.com/for/" },
+ { "@type": "ListItem", position: 3, name: "For CROs", item: canonical },
+ ],
 };
 ---
 
 <Layout title={pageTitle} description={pageDescription} canonical={canonical}>
-  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
-  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+ <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+ <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
 
-  <Nav />
+ <Nav />
 
-  <main>
-    <section class="bg-slate-950 px-5 py-20 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <p class="text-sm font-medium text-blue-400">For Chief Revenue Officers</p>
-        <h1 class="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-          Post-sale revenue intelligence for CROs
-        </h1>
-        <p class="mt-6 text-lg leading-relaxed text-slate-300">
-          Sales closes ARR. Value Continuity protects it. MeridianARR is a Value Continuity platform that gives CROs the post-sale signal intelligence they need to see renewal risk coming — from support interactions, product friction, and customer distress — before it appears in the forecast.
-        </p>
-      </div>
-    </section>
+ <main>
+ <section class="bg-slate-950 px-5 py-20 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <p class="text-sm font-medium text-blue-400">For Chief Revenue Officers</p>
+ <h1 class="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+ Post-sale revenue intelligence for CROs
+ </h1>
+ <p class="mt-6 text-lg leading-relaxed text-slate-300">
+ Sales closes ARR. Value Continuity protects it. MeridianARR is a Value Continuity platform that gives CROs the post-sale signal intelligence they need to see renewal risk coming, from support interactions, product friction, and customer distress, before it appears in the forecast.
+ </p>
+ </div>
+ </section>
 
-    <section class="bg-white px-5 py-16 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">What CROs need to see — and what most platforms miss</h2>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          CROs own the full revenue number: new ARR from sales, expansion ARR from CS, and net ARR protected through renewal. Pre-sale revenue intelligence (Gong, Clari) covers the sales pipeline. What most CROs lack is an equally rigorous intelligence layer for the post-sale motion.
-        </p>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          CS health score dashboards show relationship activity. They do not show the support-signal churn risk that lives in the help desk: which accounts are experiencing product friction, which are escalating, which have support patterns that predict non-renewal. MeridianARR connects these signals to ARR risk.
-        </p>
-        <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <div class="rounded-xl border border-slate-200 p-5">
-            <p class="font-semibold text-slate-950">What CROs usually have</p>
-            <ul class="mt-3 space-y-2 text-sm text-slate-600">
-              <li>CS health score dashboards</li>
-              <li>Pipeline forecasting (Gong, Clari)</li>
-              <li>CRM renewal dates and ARR data</li>
-              <li>Support ticket volume metrics</li>
-            </ul>
-          </div>
-          <div class="rounded-xl border border-slate-950 bg-slate-950 p-5">
-            <p class="font-semibold text-white">What MeridianARR adds</p>
-            <ul class="mt-3 space-y-2 text-sm text-slate-300">
-              <li>Customer Distress Index per account</li>
-              <li>Support ticket patterns as ARR risk signals</li>
-              <li>Product friction to renewal risk correlation</li>
-              <li>Onboarding and activation risk tracking</li>
-              <li>Value Continuity motion status (Activation / Adoption / Growth / Renewal)</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+ <section class="bg-white px-5 py-16 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <h2 class="text-2xl font-bold text-slate-950">What CROs need to see, and what most platforms miss</h2>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ CROs own the full revenue number: new ARR from sales, expansion ARR from CS, and net ARR protected through renewal. Pre-sale revenue intelligence (Gong, Clari) covers the sales pipeline. What most CROs lack is an equally rigorous intelligence layer for the post-sale motion.
+ </p>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ CS health score dashboards show relationship activity. They do not show the support-signal churn risk that lives in the help desk: which accounts are experiencing product friction, which are escalating, which have support patterns that predict non-renewal. MeridianARR connects these signals to ARR risk.
+ </p>
+ <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
+ <div class="rounded-xl border border-slate-200 p-5">
+ <p class="font-semibold text-slate-950">What CROs usually have</p>
+ <ul class="mt-3 space-y-2 text-sm text-slate-600">
+ <li>CS health score dashboards</li>
+ <li>Pipeline forecasting (Gong, Clari)</li>
+ <li>CRM renewal dates and ARR data</li>
+ <li>Support ticket volume metrics</li>
+ </ul>
+ </div>
+ <div class="rounded-xl border border-slate-950 bg-slate-950 p-5">
+ <p class="font-semibold text-white">What MeridianARR adds</p>
+ <ul class="mt-3 space-y-2 text-sm text-slate-300">
+ <li>Customer Distress Index per account</li>
+ <li>Support ticket patterns as ARR risk signals</li>
+ <li>Product friction to renewal risk correlation</li>
+ <li>Onboarding and activation risk tracking</li>
+ <li>Value Continuity motion status (Activation / Adoption / Growth / Renewal)</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+ </section>
 
-    <section class="bg-slate-50 px-5 py-16 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">The CRO use case for Value Continuity</h2>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          MeridianARR is a Value Continuity platform for B2B SaaS companies. For CROs, Value Continuity means being able to answer the questions that post-sale revenue protection requires — before it is too late to act.
-        </p>
-        <dl class="mt-6 space-y-6">
-          <div class="border-l-2 border-slate-200 pl-4">
-            <dt class="font-semibold text-slate-950">Which accounts are at ARR risk this quarter?</dt>
-            <dd class="mt-1 text-sm text-slate-600">The Customer Distress Index shows account-level risk scores built from support signals, product friction, and customer distress indicators — not just CS health score inputs.</dd>
-          </div>
-          <div class="border-l-2 border-slate-200 pl-4">
-            <dt class="font-semibold text-slate-950">Why is this account at risk?</dt>
-            <dd class="mt-1 text-sm text-slate-600">MeridianARR surfaces the underlying signals: escalation history, recurring support issues, feature adoption gaps, onboarding milestone status. Not just a score — the reason behind it.</dd>
-          </div>
-          <div class="border-l-2 border-slate-200 pl-4">
-            <dt class="font-semibold text-slate-950">What can we still do about it?</dt>
-            <dd class="mt-1 text-sm text-slate-600">The Value Continuity Framework identifies which motion an account is in (Activation, Adoption, Growth, Renewal) and what interventions are available at each stage.</dd>
-          </div>
-          <div class="border-l-2 border-slate-200 pl-4">
-            <dt class="font-semibold text-slate-950">What is our actual net ARR forecast?</dt>
-            <dd class="mt-1 text-sm text-slate-600">By connecting support-signal risk to ARR value, MeridianARR gives CROs a more accurate picture of net ARR at risk — not just the CS team's subjective assessment.</dd>
-          </div>
-        </dl>
-      </div>
-    </section>
+ <section class="bg-slate-50 px-5 py-16 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <h2 class="text-2xl font-bold text-slate-950">The CRO use case for Value Continuity</h2>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ MeridianARR is a Value Continuity platform for B2B SaaS companies. For CROs, Value Continuity means being able to answer the questions that post-sale revenue protection requires, before it is too late to act.
+ </p>
+ <dl class="mt-6 space-y-6">
+ <div class="border-l-2 border-slate-200 pl-4">
+ <dt class="font-semibold text-slate-950">Which accounts are at ARR risk this quarter?</dt>
+ <dd class="mt-1 text-sm text-slate-600">The Customer Distress Index shows account-level risk scores built from support signals, product friction, and customer distress indicators, not just CS health score inputs.</dd>
+ </div>
+ <div class="border-l-2 border-slate-200 pl-4">
+ <dt class="font-semibold text-slate-950">Why is this account at risk?</dt>
+ <dd class="mt-1 text-sm text-slate-600">MeridianARR surfaces the underlying signals: escalation history, recurring support issues, feature adoption gaps, onboarding milestone status. Not just a score, the reason behind it.</dd>
+ </div>
+ <div class="border-l-2 border-slate-200 pl-4">
+ <dt class="font-semibold text-slate-950">What can we still do about it?</dt>
+ <dd class="mt-1 text-sm text-slate-600">The Value Continuity Framework identifies which motion an account is in (Activation, Adoption, Growth, Renewal) and what interventions are available at each stage.</dd>
+ </div>
+ <div class="border-l-2 border-slate-200 pl-4">
+ <dt class="font-semibold text-slate-950">What is our actual net ARR forecast?</dt>
+ <dd class="mt-1 text-sm text-slate-600">By connecting support-signal risk to ARR value, MeridianARR gives CROs a more accurate picture of net ARR at risk, not just the CS team's subjective assessment.</dd>
+ </div>
+ </dl>
+ </div>
+ </section>
 
-    <section class="bg-white px-5 py-16 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">About MeridianARR</h2>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          MeridianARR is a Value Continuity platform for B2B SaaS companies. It connects support, onboarding, product friction, customer distress, and renewal risk into post-sale revenue intelligence — giving CROs visibility into the ARR risk their CS dashboards are missing.
-        </p>
-        <div class="mt-6">
-          <a href="/customer-defensibility-score/" class="inline-flex items-center justify-center rounded-2xl bg-slate-950 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-800">
-            Calculate your Customer Defensibility Score
-          </a>
-        </div>
-      </div>
-    </section>
+ <section class="bg-white px-5 py-16 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <h2 class="text-2xl font-bold text-slate-950">About MeridianARR</h2>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ MeridianARR is a Value Continuity platform for B2B SaaS companies. It connects support, onboarding, product friction, customer distress, and renewal risk into post-sale revenue intelligence, giving CROs visibility into the ARR risk their CS dashboards are missing.
+ </p>
+ <div class="mt-6">
+ <a href="/customer-defensibility-score/" class="inline-flex items-center justify-center rounded-2xl bg-slate-950 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-800">
+ Calculate your Customer Defensibility Score
+ </a>
+ </div>
+ </div>
+ </section>
 
-    <section class="bg-slate-50 px-5 py-14 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">Frequently asked questions</h2>
-        <dl class="mt-8 space-y-8">
-          {faqs.map((faq) => (
-            <div>
-              <dt class="font-semibold text-slate-950">{faq.q}</dt>
-              <dd class="mt-2 text-slate-600 leading-relaxed">{faq.a}</dd>
-            </div>
-          ))}
-        </dl>
-      </div>
-    </section>
-  </main>
+ <section class="bg-slate-50 px-5 py-14 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <h2 class="text-2xl font-bold text-slate-950">Frequently asked questions</h2>
+ <dl class="mt-8 space-y-8">
+ {faqs.map((faq) => (
+ <div>
+ <dt class="font-semibold text-slate-950">{faq.q}</dt>
+ <dd class="mt-2 text-slate-600 leading-relaxed">{faq.a}</dd>
+ </div>
+ ))}
+ </dl>
+ </div>
+ </section>
+ </main>
 
-  <Footer />
+ <Footer />
 </Layout>

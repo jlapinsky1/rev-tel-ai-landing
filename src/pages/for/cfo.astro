@@ -4,131 +4,131 @@ import Nav from "../../components/Nav.astro";
 import Footer from "../../components/Footer.astro";
 
 const pageTitle = "MeridianARR for CFOs | Value Continuity and ARR Risk Intelligence";
-const pageDescription = "CFOs need to understand ARR risk at the account level — not just renewal dates. MeridianARR is a Value Continuity platform that gives CFOs the post-sale signal intelligence to forecast net ARR with confidence.";
+const pageDescription = "CFOs need to understand ARR risk at the account level, not just renewal dates. MeridianARR is a Value Continuity platform that gives CFOs the post-sale signal intelligence to forecast net ARR with confidence.";
 const canonical = "https://meridianarr.com/for/cfo/";
 
 const faqs = [
-  {
-    q: "What does MeridianARR give CFOs?",
-    a: "MeridianARR is a Value Continuity platform that gives CFOs account-level ARR risk intelligence built from support interactions, product friction, and customer distress signals. Rather than relying on CS health scores or CRM renewal dates alone, CFOs can see which accounts have the signal patterns that predict non-renewal — and quantify the ARR at risk before it appears in a churn event.",
-  },
-  {
-    q: "Why is support data relevant to CFOs?",
-    a: "Support interactions are where customers reveal frustration before they reveal it in a renewal negotiation. Accounts that are filing escalating support tickets, experiencing repeated product friction, or showing disengagement patterns are at ARR risk — risk that does not appear in financial models until it becomes a churn event. MeridianARR connects support-signal risk to ARR value for CFO-level visibility.",
-  },
-  {
-    q: "How does Value Continuity help with financial planning?",
-    a: "Value Continuity intelligence allows finance teams to build ARR forecasts that account for support-signal risk — not just renewal date probability. By identifying the accounts most likely to churn, contract, or downgrade based on their Customer Distress Index score, CFOs can pressure-test revenue forecasts with signal-based risk rather than subjective CS assessment.",
-  },
-  {
-    q: "How is MeridianARR positioned for B2B SaaS companies under $50M ARR?",
-    a: "For B2B SaaS companies under $50M ARR, the CFO often has direct visibility into customer health and renewal risk. MeridianARR is a Value Continuity platform designed for this stage: it gives CFOs an account-level ARR risk view built from support and product data, without requiring a large CS team infrastructure to operate.",
-  },
+ {
+ q: "What does MeridianARR give CFOs?",
+ a: "MeridianARR is a Value Continuity platform that gives CFOs account-level ARR risk intelligence built from support interactions, product friction, and customer distress signals. Rather than relying on CS health scores or CRM renewal dates alone, CFOs can see which accounts have the signal patterns that predict non-renewal, and quantify the ARR at risk before it appears in a churn event.",
+ },
+ {
+ q: "Why is support data relevant to CFOs?",
+ a: "Support interactions are where customers reveal frustration before they reveal it in a renewal negotiation. Accounts that are filing escalating support tickets, experiencing repeated product friction, or showing disengagement patterns are at ARR risk, risk that does not appear in financial models until it becomes a churn event. MeridianARR connects support-signal risk to ARR value for CFO-level visibility.",
+ },
+ {
+ q: "How does Value Continuity help with financial planning?",
+ a: "Value Continuity intelligence allows finance teams to build ARR forecasts that account for support-signal risk, not just renewal date probability. By identifying the accounts most likely to churn, contract, or downgrade based on their Customer Distress Index score, CFOs can pressure-test revenue forecasts with signal-based risk rather than subjective CS assessment.",
+ },
+ {
+ q: "How is MeridianARR positioned for B2B SaaS companies under $50M ARR?",
+ a: "For B2B SaaS companies under $50M ARR, the CFO often has direct visibility into customer health and renewal risk. MeridianARR is a Value Continuity platform designed for this stage: it gives CFOs an account-level ARR risk view built from support and product data, without requiring a large CS team infrastructure to operate.",
+ },
 ];
 
 const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqs.map((faq) => ({
-    "@type": "Question",
-    name: faq.q,
-    acceptedAnswer: { "@type": "Answer", text: faq.a },
-  })),
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ mainEntity: faqs.map((faq) => ({
+ "@type": "Question",
+ name: faq.q,
+ acceptedAnswer: { "@type": "Answer", text: faq.a },
+ })),
 };
 
 const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://meridianarr.com/" },
-    { "@type": "ListItem", position: 2, name: "For teams", item: "https://meridianarr.com/for/" },
-    { "@type": "ListItem", position: 3, name: "For CFOs", item: canonical },
-  ],
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ itemListElement: [
+ { "@type": "ListItem", position: 1, name: "Home", item: "https://meridianarr.com/" },
+ { "@type": "ListItem", position: 2, name: "For teams", item: "https://meridianarr.com/for/" },
+ { "@type": "ListItem", position: 3, name: "For CFOs", item: canonical },
+ ],
 };
 ---
 
 <Layout title={pageTitle} description={pageDescription} canonical={canonical}>
-  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
-  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+ <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+ <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
 
-  <Nav />
+ <Nav />
 
-  <main>
-    <section class="bg-slate-950 px-5 py-20 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <p class="text-sm font-medium text-blue-400">For CFOs</p>
-        <h1 class="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-          ARR risk intelligence for CFOs
-        </h1>
-        <p class="mt-6 text-lg leading-relaxed text-slate-300">
-          Renewal dates and CS health scores are not enough to forecast net ARR with confidence. MeridianARR is a Value Continuity platform that gives CFOs account-level ARR risk intelligence from support signals, product friction, and customer distress — before those risks appear in a churn event.
-        </p>
-      </div>
-    </section>
+ <main>
+ <section class="bg-slate-950 px-5 py-20 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <p class="text-sm font-medium text-blue-400">For CFOs</p>
+ <h1 class="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+ ARR risk intelligence for CFOs
+ </h1>
+ <p class="mt-6 text-lg leading-relaxed text-slate-300">
+ Renewal dates and CS health scores are not enough to forecast net ARR with confidence. MeridianARR is a Value Continuity platform that gives CFOs account-level ARR risk intelligence from support signals, product friction, and customer distress, before those risks appear in a churn event.
+ </p>
+ </div>
+ </section>
 
-    <section class="bg-white px-5 py-16 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">The CFO's ARR visibility gap</h2>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          CFOs in B2B SaaS rely on three sources for ARR forecast: CRM renewal dates and contract values, CS health score assessments, and sales pipeline data. These sources tell you what is scheduled and what the CS team believes — they do not tell you what the signals say.
-        </p>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          The signals predicting churn live in the support system: repeated tickets about the same unresolved workflow, escalations to customer leadership, declining product engagement. These patterns appear 60–180 days before a churn event — but they are invisible to financial planning unless someone connects them to ARR.
-        </p>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          MeridianARR is a Value Continuity platform that makes that connection. The Customer Distress Index (CDI) gives CFOs an account-level risk score built from support-signal intelligence — a financial planning input that CS health scores do not provide.
-        </p>
-      </div>
-    </section>
+ <section class="bg-white px-5 py-16 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <h2 class="text-2xl font-bold text-slate-950">The CFO's ARR visibility gap</h2>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ CFOs in B2B SaaS rely on three sources for ARR forecast: CRM renewal dates and contract values, CS health score assessments, and sales pipeline data. These sources tell you what is scheduled and what the CS team believes, they do not tell you what the signals say.
+ </p>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ The signals predicting churn live in the support system: repeated tickets about the same unresolved workflow, escalations to customer leadership, declining product engagement. These patterns appear 60–180 days before a churn event, but they are invisible to financial planning unless someone connects them to ARR.
+ </p>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ MeridianARR is a Value Continuity platform that makes that connection. The Customer Distress Index (CDI) gives CFOs an account-level risk score built from support-signal intelligence: a financial planning input that CS health scores do not provide.
+ </p>
+ </div>
+ </section>
 
-    <section class="bg-slate-50 px-5 py-16 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">What CFOs use MeridianARR for</h2>
-        <dl class="mt-6 space-y-6">
-          <div class="rounded-xl border border-slate-200 bg-white p-6">
-            <dt class="font-semibold text-slate-950">Quantifying ARR at risk from support signals</dt>
-            <dd class="mt-2 text-sm text-slate-600">The Customer Distress Index assigns an account-level risk score to every account. CFOs can filter by CDI threshold to see the ARR value associated with high-risk accounts — enabling signal-based risk quantification in financial planning.</dd>
-          </div>
-          <div class="rounded-xl border border-slate-200 bg-white p-6">
-            <dt class="font-semibold text-slate-950">Pressure-testing CS forecasts</dt>
-            <dd class="mt-2 text-sm text-slate-600">When the CS team forecasts 95% net renewal rate, MeridianARR provides a second lens: which of those accounts have support patterns, escalation history, or product friction that contradicts the optimistic forecast.</dd>
-          </div>
-          <div class="rounded-xl border border-slate-200 bg-white p-6">
-            <dt class="font-semibold text-slate-950">Understanding build-vs-buy risk in the customer base</dt>
-            <dd class="mt-2 text-sm text-slate-600">In the current SaaS environment, CFOs scrutinize renewal decisions more carefully. MeridianARR identifies which accounts have low feature adoption relative to contract scope — the accounts most likely to conclude they could build a cheaper alternative internally.</dd>
-          </div>
-        </dl>
-      </div>
-    </section>
+ <section class="bg-slate-50 px-5 py-16 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <h2 class="text-2xl font-bold text-slate-950">What CFOs use MeridianARR for</h2>
+ <dl class="mt-6 space-y-6">
+ <div class="rounded-xl border border-slate-200 bg-white p-6">
+ <dt class="font-semibold text-slate-950">Quantifying ARR at risk from support signals</dt>
+ <dd class="mt-2 text-sm text-slate-600">The Customer Distress Index assigns an account-level risk score to every account. CFOs can filter by CDI threshold to see the ARR value associated with high-risk accounts, enabling signal-based risk quantification in financial planning.</dd>
+ </div>
+ <div class="rounded-xl border border-slate-200 bg-white p-6">
+ <dt class="font-semibold text-slate-950">Pressure-testing CS forecasts</dt>
+ <dd class="mt-2 text-sm text-slate-600">When the CS team forecasts 95% net renewal rate, MeridianARR provides a second lens: which of those accounts have support patterns, escalation history, or product friction that contradicts the optimistic forecast.</dd>
+ </div>
+ <div class="rounded-xl border border-slate-200 bg-white p-6">
+ <dt class="font-semibold text-slate-950">Understanding build-vs-buy risk in the customer base</dt>
+ <dd class="mt-2 text-sm text-slate-600">In the current SaaS environment, CFOs scrutinize renewal decisions more carefully. MeridianARR identifies which accounts have low feature adoption relative to contract scope, the accounts most likely to conclude they could build a cheaper alternative internally.</dd>
+ </div>
+ </dl>
+ </div>
+ </section>
 
-    <section class="bg-white px-5 py-16 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">About MeridianARR</h2>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          MeridianARR is a Value Continuity platform for B2B SaaS companies. It connects support, onboarding, product friction, customer distress, and renewal risk into post-sale revenue intelligence — giving CFOs the signal-based ARR risk view their financial planning requires.
-        </p>
-        <div class="mt-6">
-          <a href="/customer-defensibility-score/" class="inline-flex items-center justify-center rounded-2xl bg-slate-950 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-800">
-            Calculate your Customer Defensibility Score
-          </a>
-        </div>
-      </div>
-    </section>
+ <section class="bg-white px-5 py-16 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <h2 class="text-2xl font-bold text-slate-950">About MeridianARR</h2>
+ <p class="mt-4 text-slate-600 leading-relaxed">
+ MeridianARR is a Value Continuity platform for B2B SaaS companies. It connects support, onboarding, product friction, customer distress, and renewal risk into post-sale revenue intelligence, giving CFOs the signal-based ARR risk view their financial planning requires.
+ </p>
+ <div class="mt-6">
+ <a href="/customer-defensibility-score/" class="inline-flex items-center justify-center rounded-2xl bg-slate-950 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-800">
+ Calculate your Customer Defensibility Score
+ </a>
+ </div>
+ </div>
+ </section>
 
-    <section class="bg-slate-50 px-5 py-14 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-950">Frequently asked questions</h2>
-        <dl class="mt-8 space-y-8">
-          {faqs.map((faq) => (
-            <div>
-              <dt class="font-semibold text-slate-950">{faq.q}</dt>
-              <dd class="mt-2 text-slate-600 leading-relaxed">{faq.a}</dd>
-            </div>
-          ))}
-        </dl>
-      </div>
-    </section>
-  </main>
+ <section class="bg-slate-50 px-5 py-14 lg:px-8">
+ <div class="mx-auto max-w-3xl">
+ <h2 class="text-2xl font-bold text-slate-950">Frequently asked questions</h2>
+ <dl class="mt-8 space-y-8">
+ {faqs.map((faq) => (
+ <div>
+ <dt class="font-semibold text-slate-950">{faq.q}</dt>
+ <dd class="mt-2 text-slate-600 leading-relaxed">{faq.a}</dd>
+ </div>
+ ))}
+ </dl>
+ </div>
+ </section>
+ </main>
 
-  <Footer />
+ <Footer />
 </Layout>
