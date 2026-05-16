@@ -1,0 +1,313 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+
+const pageTitle = "Customer Health Scores vs Value Continuity: What SaaS Teams Miss | MeridianARR";
+const pageDescription = "Customer health scores are a useful CS tool. They are not a complete churn detection system. This page explains what health scores are good at, where they break down, why 'green' accounts still churn, and what Value Continuity measures instead.";
+const canonical = "https://meridianarr.com/compare/customer-health-scores-vs-value-continuity/";
+
+const faqs = [
+  {
+    q: "What is a customer health score?",
+    a: "A customer health score is a composite metric used in customer success to summarize an account's overall engagement, adoption, and relationship status. Most CS platforms (Gainsight, ChurnZero, Totango, Vitally, Planhat) produce health scores by combining inputs like product login frequency, CS team touchpoints, support ticket counts, NPS scores, and renewal history. The score is typically used to prioritize CS team attention and flag accounts for renewal risk.",
+  },
+  {
+    q: "What is Value Continuity?",
+    a: "Value Continuity is the discipline of detecting, explaining, and acting on customer signals that threaten recurring revenue before they become churn, contraction, or failed renewals. MeridianARR is a Value Continuity platform for B2B SaaS companies. It connects support ticket patterns, onboarding completion data, product friction signals, and customer distress indicators into the Customer Distress Index (CDI) — an account-level ARR risk score that detects the churn risk health scores miss.",
+  },
+  {
+    q: "Why do green health scores sometimes precede churn?",
+    a: "Green health scores precede churn because CS health scores are built from CRM and engagement data — not from support signal data. An account can be logged in daily, have recent CS touchpoints, and score green on every health metric while filing repeated tickets about the same broken workflow, mentioning a competitor in support conversations, and quietly evaluating alternatives. The green score reflects the CS team's relationship data. The churn risk is in the support data. These two information sources are structurally siloed in most B2B SaaS companies.",
+  },
+  {
+    q: "Can customer health scores detect churn from support signals?",
+    a: "Most CS platforms allow health score inputs to include support ticket counts. But ticket counts are not support signal analysis. Issue repetition rate, escalation frequency and severity, support volume vs. usage divergence, and competitor mentions in ticket content are not standard health score inputs — they require a different analytical layer. MeridianARR's CDI provides exactly this layer.",
+  },
+  {
+    q: "Should I replace my health score with the Customer Distress Index?",
+    a: "No. The CDI is additive — it provides the support-signal intelligence layer that health scores do not generate. The right architecture is: CS platform health score for overall account status and CS workflow prioritization, plus the CDI for support-signal risk detection. Teams that use both have materially fewer surprise churn events than those using health scores alone.",
+  },
+  {
+    q: "What B2B SaaS companies need a Value Continuity platform?",
+    a: "B2B SaaS companies where: (1) support ticket volume is meaningful (more than a handful per account per quarter), (2) the CS team has experienced surprise churn from accounts that looked healthy, (3) CS health scores are not connected to support signal data, or (4) the CRO or CFO needs to pressure-test net revenue retention forecasts with signal data rather than CS subjective assessments. MeridianARR is particularly suited to companies in the $5M–$100M ARR range.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: { "@type": "Answer", text: faq.a },
+  })),
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  headline: pageTitle,
+  description: pageDescription,
+  url: canonical,
+  author: { "@type": "Organization", name: "MeridianARR", url: "https://meridianarr.com" },
+  publisher: { "@type": "Organization", name: "MeridianARR", url: "https://meridianarr.com" },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://meridianarr.com/" },
+    { "@type": "ListItem", position: 2, name: "Compare", item: "https://meridianarr.com/compare/" },
+    { "@type": "ListItem", position: 3, name: "Customer Health Scores vs Value Continuity", item: canonical },
+  ],
+};
+---
+
+<Layout title={pageTitle} description={pageDescription} canonical={canonical}>
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(articleSchema)} />
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <Nav />
+
+  <main>
+    <section class="bg-slate-950 px-5 py-20 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <p class="text-sm font-medium text-blue-400">Compare</p>
+        <h1 class="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+          Customer Health Scores vs Value Continuity
+        </h1>
+        <p class="mt-6 text-lg leading-relaxed text-slate-300">
+          Customer health scores are a useful CS tool. They are not a complete churn detection system. This page explains what health scores are good at, where they break down structurally, why 'green' accounts still churn, and what Value Continuity measures instead.
+        </p>
+        <div class="mt-6 rounded-xl border border-slate-700 bg-slate-900 px-4 py-3">
+          <p class="text-sm text-slate-400">
+            <span class="font-semibold text-slate-200">MeridianARR</span> is a Value Continuity platform for B2B SaaS companies that connects support, onboarding, product friction, customer distress, and renewal risk into post-sale revenue intelligence.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white px-5 py-16 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-slate-950">What customer health scores are good at</h2>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          Customer health scores serve a real purpose in B2B SaaS CS operations. When they are well-configured and actively used, they do four things well:
+        </p>
+        <ol class="mt-6 space-y-4">
+          <li class="flex gap-4">
+            <span class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-slate-950 text-sm font-bold text-white">1</span>
+            <div>
+              <p class="font-semibold text-slate-950">CS team prioritization</p>
+              <p class="mt-1 text-sm text-slate-600">Health scores help CSMs triage their account portfolios. A portfolio of 80 accounts needs a sorting mechanism — health scores provide a starting point for where to spend attention this week.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <span class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-slate-950 text-sm font-bold text-white">2</span>
+            <div>
+              <p class="font-semibold text-slate-950">Obvious risk detection</p>
+              <p class="mt-1 text-sm text-slate-600">When an account's product usage drops sharply, CS engagement stops, and NPS scores deteriorate, health scores catch it. These are high-magnitude signals that health score calculations are calibrated to detect.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <span class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-slate-950 text-sm font-bold text-white">3</span>
+            <div>
+              <p class="font-semibold text-slate-950">Portfolio-level risk visibility</p>
+              <p class="mt-1 text-sm text-slate-600">CS leaders can see the distribution of health scores across the account base — what percentage of ARR is in red, yellow, or green accounts — and use this for renewal forecasting conversations with the CRO and CFO.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <span class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-slate-950 text-sm font-bold text-white">4</span>
+            <div>
+              <p class="font-semibold text-slate-950">Playbook triggering</p>
+              <p class="mt-1 text-sm text-slate-600">CS platforms use health score thresholds to trigger automated playbooks — a check-in when score drops below 60, an executive outreach when score drops below 40. This converts risk detection into action without manual monitoring.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="bg-slate-50 px-5 py-16 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-slate-950">Where customer health scores break down</h2>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          Health scores break down at their data boundary. They are only as good as the signals they include — and they structurally exclude the signal source most predictive of B2B SaaS churn: support interaction patterns.
+        </p>
+        <div class="mt-8 space-y-4">
+          <div class="rounded-xl border border-slate-200 bg-white p-6">
+            <h3 class="font-semibold text-slate-950">They read volume, not content</h3>
+            <p class="mt-2 text-sm text-slate-600 leading-relaxed">Most CS platforms can ingest a ticket count from your help desk. None of them natively parse what those tickets say. An account with 8 tickets about the same broken workflow and an account with 8 tickets about 8 different questions look identical in a health score that reads ticket count. The pattern — repeated friction on the same issue — is invisible.</p>
+          </div>
+          <div class="rounded-xl border border-slate-200 bg-white p-6">
+            <h3 class="font-semibold text-slate-950">They optimize for obvious signals</h3>
+            <p class="mt-2 text-sm text-slate-600 leading-relaxed">Health score models are calibrated to the signals CS teams observe: login frequency, CS touchpoints, NPS scores, contract scope vs. usage. These are visible, structured, measurable. They do not capture the unstructured, implicit signals in support ticket body text — competitor mentions, evaluation language, accumulated frustration across multiple interactions.</p>
+          </div>
+          <div class="rounded-xl border border-slate-200 bg-white p-6">
+            <h3 class="font-semibold text-slate-950">They lag the underlying distress</h3>
+            <p class="mt-2 text-sm text-slate-600 leading-relaxed">An account starts showing support distress signals at Month 3. Product usage stays stable because the account has worked around the friction. CS engagement remains consistent because the CSM relationship is separate from the support experience. The health score declines at Month 5 — two months after the distress pattern began — when product usage finally starts to reflect the friction. Two months of intervention window lost.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white px-5 py-16 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-slate-950">Why "green" accounts still churn</h2>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          The 'green account churn' problem is the most persistent quality problem in B2B SaaS CS operations. An account shows green — high health score, recent CS engagement, consistent product usage — and then does not renew.
+        </p>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          It happens for three structural reasons:
+        </p>
+        <div class="mt-6 space-y-4">
+          <div class="rounded-xl border border-orange-200 bg-orange-50 p-5">
+            <p class="font-semibold text-slate-900">The Active But Frustrated pattern</p>
+            <p class="mt-2 text-sm text-slate-600">Product usage is green. CS engagement is green. But the account has been filing tickets about the same broken feature for six months. The health score reads engagement. The support data reads frustration. The account's value perception has been deteriorating while every metric the health score reads looks fine.</p>
+          </div>
+          <div class="rounded-xl border border-orange-200 bg-orange-50 p-5">
+            <p class="font-semibold text-slate-900">The Ghost Account pattern</p>
+            <p class="mt-2 text-sm text-slate-600">Low ticket volume is typically read as low friction. But for accounts that tried to expand and gave up, low volume means disengagement — not satisfaction. The health score cannot distinguish 'satisfied silent user' from 'gave up trying.' The support data can, if someone is reading it.</p>
+          </div>
+          <div class="rounded-xl border border-orange-200 bg-orange-50 p-5">
+            <p class="font-semibold text-slate-900">The Silent Churner pattern</p>
+            <p class="mt-2 text-sm text-slate-600">The account is engaged with CS. It responds to outreach. Its product usage is stable. But a competitor mention appeared in a support ticket two months ago and no one saw it — because the health score reads ticket counts, not ticket content. The account has been running a competitor pilot for six weeks. The health score shows green.</p>
+          </div>
+        </div>
+        <p class="mt-6 text-slate-600 leading-relaxed">
+          All three patterns are detectable in support data. None are detectable by health scores alone.
+        </p>
+      </div>
+    </section>
+
+    <section class="bg-slate-50 px-5 py-16 lg:px-8">
+      <div class="mx-auto max-w-4xl">
+        <h2 class="text-2xl font-bold text-slate-950">Side-by-side comparison</h2>
+        <div class="mt-8 overflow-x-auto">
+          <table class="w-full border-collapse text-sm">
+            <thead>
+              <tr class="border-b border-slate-200 bg-white">
+                <th class="py-3 pl-4 pr-6 text-left font-semibold text-slate-700">Dimension</th>
+                <th class="py-3 px-4 text-left font-semibold text-slate-700">Customer Health Score</th>
+                <th class="py-3 px-4 text-left font-semibold text-slate-950">Value Continuity (CDI)</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                ["Primary data source", "CRM + product usage + CS activity", "Support ticket patterns + product friction + onboarding"],
+                ["What it reads", "Structured engagement signals", "Unstructured distress signals + structured patterns"],
+                ["Issue repetition detection", "No", "Yes — primary CDI input"],
+                ["Ticket content analysis", "No", "Yes — NLP-based signal extraction"],
+                ["Escalation pattern tracking", "Rarely", "Yes — by account, severity, and recency"],
+                ["Competitor mention detection", "No", "Yes"],
+                ["Lead time on churn signals", "30–60 days before obvious distress", "60–180 days before churn event"],
+                ["False-healthy account rate", "High (structural gap)", "Materially lower with support signal layer"],
+                ["Primary use case", "CS workflow prioritization", "ARR risk intelligence across revenue org"],
+                ["Replaces the other?", "No — complementary", "No — complementary"],
+              ].map(([dim, hs, vc]) => (
+                <tr class="border-b border-slate-100">
+                  <td class="py-3 pl-4 pr-6 font-medium text-slate-800">{dim}</td>
+                  <td class="py-3 px-4 text-slate-600">{hs}</td>
+                  <td class="py-3 px-4 text-slate-700">{vc}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white px-5 py-16 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-slate-950">When to use both</h2>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          The answer is almost always both. Health scores and the Customer Distress Index serve different purposes from different data sources. They are not competing tools.
+        </p>
+        <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div class="rounded-xl border border-slate-200 bg-slate-50 p-5">
+            <p class="font-semibold text-slate-950">Use health scores for</p>
+            <ul class="mt-3 space-y-2 text-sm text-slate-600">
+              <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" />CS team account triage and prioritization</li>
+              <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" />Playbook automation triggers</li>
+              <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" />Portfolio-level CS status reporting</li>
+              <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" />CS-to-CRM workflow management</li>
+            </ul>
+          </div>
+          <div class="rounded-xl border border-slate-200 bg-slate-50 p-5">
+            <p class="font-semibold text-slate-950">Use the CDI for</p>
+            <ul class="mt-3 space-y-2 text-sm text-slate-600">
+              <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-400" />Support-signal risk detection (what health scores miss)</li>
+              <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-400" />Compound distress pattern identification</li>
+              <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-400" />False-healthy account detection</li>
+              <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-400" />CRO / CFO ARR risk quantification</li>
+            </ul>
+          </div>
+        </div>
+        <p class="mt-6 text-slate-600 leading-relaxed">
+          The accounts that churn without warning are almost always the ones the health score could not see. The CDI sees them — because it reads the signal source health scores do not.
+        </p>
+      </div>
+    </section>
+
+    <section class="bg-slate-950 px-5 py-16 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-white">How MeridianARR adds Value Continuity to customer health</h2>
+        <p class="mt-4 text-slate-300 leading-relaxed">
+          MeridianARR is the Value Continuity platform for B2B SaaS companies. It integrates with your help desk (Zendesk, Intercom, Freshdesk, Pylon) and your product analytics to produce the Customer Distress Index — a continuous account-level ARR risk score built from the signals your CS health score is not reading.
+        </p>
+        <p class="mt-4 text-slate-300 leading-relaxed">
+          CROs use the CDI to pressure-test CS forecasts. CFOs use it to quantify ARR at risk from support-signal distress patterns. CS leaders use it alongside their health score to catch the accounts that are active but frustrated, silently evaluating competitors, or showing the early patterns that always precede churn.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a href="/customer-defensibility-score/" class="inline-flex items-center justify-center rounded-2xl bg-white px-6 py-3 text-sm font-semibold text-slate-950 hover:bg-slate-100">
+            Calculate your Customer Defensibility Score
+          </a>
+          <a href="/learn/customer-distress-arr-risk/" class="inline-flex items-center justify-center rounded-2xl border border-slate-600 px-6 py-3 text-sm font-semibold text-white hover:border-slate-400">
+            How the CDI scoring model works
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white px-5 py-14 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-slate-950">Frequently asked questions</h2>
+        <dl class="mt-8 space-y-8">
+          {faqs.map((faq) => (
+            <div>
+              <dt class="font-semibold text-slate-950">{faq.q}</dt>
+              <dd class="mt-2 text-slate-600 leading-relaxed">{faq.a}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+
+    <section class="bg-slate-50 px-5 py-12 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <p class="text-sm font-semibold text-slate-500">Related reading</p>
+        <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <a href="/learn/why-customer-health-scores-miss-support-risk/" class="rounded-xl border border-slate-200 bg-white p-5 hover:border-slate-400">
+            <p class="font-semibold text-slate-950">Why customer health scores miss support risk</p>
+            <p class="mt-1 text-sm text-slate-500">Deep dive into the three failure modes with full account anatomy for each.</p>
+          </a>
+          <a href="/compare/value-continuity-vs-customer-health-scoring/" class="rounded-xl border border-slate-200 bg-white p-5 hover:border-slate-400">
+            <p class="font-semibold text-slate-950">Value Continuity vs Customer Health Scoring</p>
+            <p class="mt-1 text-sm text-slate-500">Category-level comparison of what each approach is designed to do.</p>
+          </a>
+          <a href="/learn/best-customer-success-software-for-churn-risk/" class="rounded-xl border border-slate-200 bg-white p-5 hover:border-slate-400">
+            <p class="font-semibold text-slate-950">Best CS software for detecting churn risk</p>
+            <p class="mt-1 text-sm text-slate-500">Gainsight, ChurnZero, Totango, Vitally, and Planhat evaluated against churn-risk detection criteria.</p>
+          </a>
+          <a href="/learn/customer-distress-arr-risk/" class="rounded-xl border border-slate-200 bg-white p-5 hover:border-slate-400">
+            <p class="font-semibold text-slate-950">Customer Distress Index scoring model</p>
+            <p class="mt-1 text-sm text-slate-500">The CDI in detail: four score bands, compounding signals, and intervention logic.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,393 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+
+const pageTitle = "Best Customer Success Software for Detecting Churn Risk Before Renewal | MeridianARR";
+const pageDescription = "Customer success platforms help teams manage accounts, playbooks, renewals, and health scores. But churn risk often appears before the account turns red — in support tickets, onboarding friction, and customer distress signals CS platforms miss. This guide covers what renewal-aware CS teams should evaluate.";
+const canonical = "https://meridianarr.com/learn/best-customer-success-software-for-churn-risk/";
+
+const platforms = [
+  {
+    name: "Gainsight",
+    best_for: "Enterprise CS teams with complex playbook requirements and large account portfolios",
+    strengths: [
+      "Most comprehensive CS platform for enterprise — lifecycle management, C360, Cockpit",
+      "Strong health scoring with configurable data sources",
+      "Playbook automation for standard CS motions",
+      "Revenue intelligence and forecasting (NXT tier)",
+      "Deep CRM and data warehouse integrations",
+    ],
+    churn_risk_gap: "Gainsight health scores are highly configurable but structurally limited to the data you connect. Most Gainsight deployments do not include ticket content analysis, issue repetition detection, or support-volume-vs-usage divergence — because Gainsight reads what CS teams define, not what support tickets actually say. The accounts that show green in Gainsight and churn anyway are usually the ones whose distress was only in support data.",
+    pair_with: "MeridianARR adds the support-signal intelligence layer to Gainsight — the Customer Distress Index feeds account-level risk that Gainsight health scores do not generate natively.",
+  },
+  {
+    name: "ChurnZero",
+  best_for: "Growth-stage and mid-market B2B SaaS teams wanting real-time health scoring and playbook automation",
+    strengths: [
+      "Real-time usage-based health scoring",
+      "Journey and playbook automation with good UX",
+      "Renewal tracking and forecasting",
+      "In-app customer communication",
+      "Strong for PLG and product-usage-centric CS teams",
+    ],
+    churn_risk_gap: "ChurnZero can ingest support ticket data via integration, but the native model is usage-and-engagement-centric. Ticket content analysis, issue repetition rates, and escalation severity tracking require custom configuration that most teams do not fully implement. The result: ChurnZero is good at detecting churn risk from product behavior, but weaker on churn risk from support pattern behavior.",
+    pair_with: "MeridianARR's CDI gives ChurnZero users a support-signal risk layer that complements usage-based health scores with pattern-based distress detection.",
+  },
+  {
+    name: "Totango",
+    best_for: "Enterprise teams that want a modular, Spark-based CS platform with flexible data ingestion",
+    strengths: [
+      "SuccessBlocs modular framework for customizing CS workflows",
+      "Strong segmentation and filtering across account portfolios",
+      "Flexible data model that can ingest many signal types",
+      "Account intelligence and health scorecard",
+      "Good for enterprise CS teams with complex segmentation needs",
+    ],
+    churn_risk_gap: "Totango's flexibility is an advantage for teams that do the work to configure it deeply — but also means that out-of-the-box churn detection is only as good as the signals a team explicitly maps. Like Gainsight, Totango reads what you connect. Support data integration is possible but typically limited to ticket volume counts rather than content and pattern analysis.",
+    pair_with: "MeridianARR provides the support-signal layer that Totango's flexible ingestion model can then incorporate into health scoring.",
+  },
+  {
+    name: "Vitally",
+    best_for: "Startup and scale-up CS teams that want modern UX and fast time-to-value",
+    strengths: [
+      "Modern, clean interface with fast onboarding",
+      "Strong for PLG companies tracking product-led signals",
+      "Good health scoring with customizable metrics",
+      "Task and project management for CS workflows",
+      "Affordable for smaller CS teams",
+    ],
+    churn_risk_gap: "Vitally is excellent for teams that want a clean, modern CS platform without Gainsight's complexity. But like its peers, it is primarily usage-and-engagement-oriented. Support signal depth is limited. For teams where churn is being driven by product friction and unresolved support issues rather than product disengagement, Vitally's health scores will miss the leading indicators.",
+    pair_with: "MeridianARR adds the support and distress signal layer to Vitally's usage-based health model — giving CS teams a more complete risk picture.",
+  },
+  {
+    name: "Planhat",
+    best_for: "European B2B SaaS teams and those wanting a flexible data model with strong usage analytics",
+    strengths: [
+      "Flexible data model with good support for custom metrics",
+      "Revenue and license management built in",
+      "Strong analytics and reporting on account portfolios",
+      "Clean UI with good collaboration features",
+      "Good fit for usage-heavy SaaS products",
+    ],
+    churn_risk_gap: "Planhat's data model flexibility is a genuine advantage. But support data integration is still primarily metric-level (ticket count, SLA status) rather than pattern-level (issue repetition, content signals, escalation trajectory). Churn risk from support distress patterns is not a native Planhat detection capability.",
+    pair_with: "MeridianARR connects to Planhat's account model to add support-signal distress indicators to Planhat's usage-based scoring.",
+  },
+];
+
+const criteria = [
+  {
+    criterion: "Support signal integration depth",
+    why_it_matters: "Most CS platforms can ingest a ticket count from your help desk. Few can ingest ticket content patterns, issue repetition rates, or escalation severity. Churn risk from support distress requires more than a ticket count — it requires pattern analysis. Ask specifically what support data the platform reads, not just whether it integrates with your help desk.",
+    what_to_ask: "Does the health score include ticket content signals, issue repetition patterns, or escalation frequency — or just total ticket count?",
+  },
+  {
+    criterion: "Health score transparency",
+    why_it_matters: "Black-box health scores create trust problems for CS teams. When a CSM cannot explain why an account is yellow, they cannot have a productive conversation with the CRO about risk. Transparency in health score calculation — which signals contribute how much — is essential for acting on the score.",
+    what_to_ask: "Can I see which signals are driving a specific account's health score? Can I drill into the underlying data?",
+  },
+  {
+    criterion: "False-healthy account detection",
+    why_it_matters: "Every CS platform optimizes its health score to detect accounts that look bad. The failure mode is accounts that look good and churn anyway — the 'green account churn' problem. Ask whether the platform has any mechanism for detecting false-healthy accounts: accounts with strong surface metrics but deteriorating support patterns underneath.",
+    what_to_ask: "What is the rate of accounts that showed green on health score within 90 days of churning? Does the platform have any mechanism to reduce this?",
+  },
+  {
+    criterion: "Early warning lead time",
+    why_it_matters: "Health score changes lag behind the underlying distress signals that cause them. An account that starts filing repeated support tickets at Month 3 may not show a health score decline until Month 5 — by which point the intervention window is shorter. Platforms that detect early-stage signals (support patterns, onboarding gaps) provide longer intervention windows than those that detect late-stage signals (login decline, CS disengagement).",
+    what_to_ask: "How far in advance does the health score typically decline relative to churn? What are the earliest signals the platform tracks?",
+  },
+  {
+    criterion: "CS-to-support data connection",
+    why_it_matters: "Churn risk lives in support data. CS action happens in the CS platform. The connection between these two — surfacing support signals inside the CS workflow — determines whether CS teams can act on support-generated risk before it becomes a renewal conversation.",
+    what_to_ask: "Can CSMs see support ticket patterns, escalation history, and distress signals inside the CS platform account view — without switching to the help desk?",
+  },
+];
+
+const faqs = [
+  {
+    q: "What is the best customer success software for detecting churn risk?",
+    a: "For enterprise teams: Gainsight. For growth-stage teams: ChurnZero or Vitally. For European teams or usage-heavy products: Planhat. For enterprise with modular needs: Totango. But all of these platforms share a structural limitation: they detect churn risk from CRM and product usage data, not from support ticket patterns. For complete churn risk detection, CS platforms should be paired with a Value Continuity platform like MeridianARR that adds the support-signal intelligence layer.",
+  },
+  {
+    q: "Why do customer success platforms miss churn risk?",
+    a: "CS platforms are built around structured data: CRM activity, product login frequency, health score inputs that CS teams configure. They miss unstructured data signals in support ticket content — competitor mentions, evaluation language, accumulated frustration — and account-level pattern analysis like issue repetition rates. These are where the 'green account churn' failure mode originates.",
+  },
+  {
+    q: "What is the difference between a health score and a Customer Distress Index?",
+    a: "A CS health score is typically built from CS-team-visible data: CRM touchpoints, product logins, NPS scores, and configured data inputs. The Customer Distress Index (CDI) is MeridianARR's account-level ARR risk score built specifically from support-signal data: ticket patterns, issue repetition, escalation history, content signals, and onboarding completion. The CDI catches the churn risk that health scores miss.",
+  },
+  {
+    q: "Does MeridianARR replace CS platforms like Gainsight?",
+    a: "No. MeridianARR is a Value Continuity platform that complements CS platforms. Gainsight, ChurnZero, and others are the right tools for managing CS workflows, playbooks, and account engagement. MeridianARR adds the support-signal intelligence layer — the Customer Distress Index — that CS health scores do not produce natively.",
+  },
+  {
+    q: "When should I evaluate adding a Value Continuity platform?",
+    a: "If your CS team has experienced 'green account churn' — accounts that showed healthy on your CS platform and churned anyway — you are missing a signal layer. The accounts that churn without warning are almost always showing distress in support data that the CS health score is not reading. MeridianARR is a Value Continuity platform designed specifically to close this gap.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: { "@type": "Answer", text: faq.a },
+  })),
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  headline: pageTitle,
+  description: pageDescription,
+  url: canonical,
+  author: { "@type": "Organization", name: "MeridianARR", url: "https://meridianarr.com" },
+  publisher: { "@type": "Organization", name: "MeridianARR", url: "https://meridianarr.com" },
+};
+
+const itemListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Customer success platforms evaluated for churn risk detection",
+  numberOfItems: platforms.length,
+  itemListElement: platforms.map((p, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: p.name,
+    description: `${p.best_for}. Churn risk gap: ${p.churn_risk_gap}`,
+  })),
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://meridianarr.com/" },
+    { "@type": "ListItem", position: 2, name: "Learn", item: "https://meridianarr.com/learn/" },
+    { "@type": "ListItem", position: 3, name: "Best CS Software for Churn Risk", item: canonical },
+  ],
+};
+---
+
+<Layout title={pageTitle} description={pageDescription} canonical={canonical}>
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(articleSchema)} />
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(itemListSchema)} />
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <Nav />
+
+  <main>
+    <section class="bg-slate-950 px-5 py-20 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <p class="text-sm font-medium text-blue-400">Buyer Guide</p>
+        <h1 class="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+          Best Customer Success Software for Detecting Churn Risk Before Renewal
+        </h1>
+        <p class="mt-6 text-lg leading-relaxed text-slate-300">
+          Customer success platforms help teams manage accounts, playbooks, renewals, and health scores. But churn risk often appears before the account turns red — in support tickets, onboarding friction, unresolved product issues, and customer distress signals that CS health scores do not track. This guide covers what renewal-aware CS teams should evaluate — and what every CS platform is missing.
+        </p>
+      </div>
+    </section>
+
+    <section class="bg-white px-5 py-16 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-slate-950">Why churn risk is hard to detect before renewal</h2>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          CS teams are trained to watch for health score changes, CS engagement signals, and product usage trends. But the accounts that churn without warning — the "green account churn" problem — are typically not sending those signals. They are sending signals in a different channel: support.
+        </p>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          Customers tell their support team things they do not tell their CSM. Frustration about a broken feature, comparison to a competitor, disillusionment with the product's complexity — these appear in support tickets months before they appear in a renewal conversation. CS health scores built from CRM and product data are structurally blind to them.
+        </p>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          This is not a configuration problem with your CS platform. It is an architectural reality: CS platforms read what CS teams define. Support signal patterns — issue repetition, escalation frequency, competitor mentions in ticket body text — require a different intelligence layer to detect.
+        </p>
+      </div>
+    </section>
+
+    <section class="bg-slate-50 px-5 py-16 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-slate-950">What customer success software usually sees</h2>
+        <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div class="rounded-xl border border-emerald-200 bg-emerald-50 p-5">
+            <p class="text-xs font-semibold uppercase tracking-wide text-emerald-700">CS platforms are strong at</p>
+            <ul class="mt-3 space-y-2 text-sm text-slate-600">
+              <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" />Product login frequency and active user trends</li>
+              <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" />CS team touchpoint history and relationship tracking</li>
+              <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" />Playbook automation for standard CS motions</li>
+              <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" />Renewal date tracking and forecasting</li>
+              <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" />NPS and CSAT aggregation</li>
+              <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" />CRM data and account record management</li>
+            </ul>
+          </div>
+          <div class="rounded-xl border border-rose-200 bg-rose-50 p-5">
+            <p class="text-xs font-semibold uppercase tracking-wide text-rose-700">CS platforms often miss</p>
+            <ul class="mt-3 space-y-2 text-sm text-slate-600">
+              <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-rose-500" />Support ticket content and patterns</li>
+              <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-rose-500" />Issue repetition rate (same problem recurring)</li>
+              <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-rose-500" />Escalation frequency and severity by account</li>
+              <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-rose-500" />Support volume vs. product usage divergence</li>
+              <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-rose-500" />Competitor mentions in any text channel</li>
+              <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-rose-500" />Compound distress signal detection</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white px-5 py-16 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-slate-950">Evaluation criteria for churn-risk detection</h2>
+        <dl class="mt-8 space-y-6">
+          {criteria.map((c) => (
+            <div class="rounded-xl border border-slate-200 p-5">
+              <dt class="font-semibold text-slate-950">{c.criterion}</dt>
+              <dd class="mt-2 text-sm text-slate-600 leading-relaxed">{c.why_it_matters}</dd>
+              <p class="mt-3 rounded-lg bg-slate-50 px-3 py-2 text-sm italic text-slate-700">
+                Ask: "{c.what_to_ask}"
+              </p>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+
+    <section class="bg-slate-50 px-5 py-16 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-slate-950">Best customer success platforms to consider</h2>
+        <p class="mt-3 text-slate-600">Each platform below is evaluated against the churn-risk detection criteria above — what it does well, where the gap is, and how it pairs with a Value Continuity layer.</p>
+        <div class="mt-8 space-y-6">
+          {platforms.map((p) => (
+            <div class="rounded-xl border border-slate-200 bg-white p-6">
+              <h3 class="text-lg font-bold text-slate-950">{p.name}</h3>
+              <p class="mt-1 text-sm text-slate-500">{p.best_for}</p>
+              <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <div>
+                  <p class="text-xs font-semibold uppercase tracking-wide text-slate-400">Strengths</p>
+                  <ul class="mt-2 space-y-1.5">
+                    {p.strengths.map((s) => (
+                      <li class="flex items-start gap-2 text-sm text-slate-600">
+                        <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" />
+                        {s}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <p class="text-xs font-semibold uppercase tracking-wide text-rose-600">Churn risk gap</p>
+                  <p class="mt-2 text-sm text-slate-600 leading-relaxed">{p.churn_risk_gap}</p>
+                </div>
+              </div>
+              <div class="mt-4 rounded-lg border border-blue-100 bg-blue-50 px-4 py-3">
+                <p class="text-xs font-semibold text-blue-700">With MeridianARR</p>
+                <p class="mt-1 text-sm text-slate-600">{p.pair_with}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-slate-950 px-5 py-16 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-white">The missing layer: Value Continuity</h2>
+        <p class="mt-4 text-slate-300 leading-relaxed">
+          Traditional help desks show what happened in support. Customer success platforms show account status and playbook activity. Value Continuity shows whether customer value is breaking down — and whether that breakdown is becoming ARR risk.
+        </p>
+        <p class="mt-4 text-slate-300 leading-relaxed">
+          Every CS platform above is the right tool for what it does. None of them detect churn risk from support signal patterns — because they are not built to read ticket content, issue repetition, or escalation trajectories the way a Value Continuity platform does.
+        </p>
+        <p class="mt-4 text-slate-300 leading-relaxed">
+          <strong class="text-white">MeridianARR is the Value Continuity platform for B2B SaaS companies.</strong> It adds the support-signal intelligence layer to your CS stack — giving CS leaders the Customer Distress Index (CDI), an account-level ARR risk score built from the signals your CS platform is not reading.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a href="/customer-defensibility-score/" class="inline-flex items-center justify-center rounded-2xl bg-white px-6 py-3 text-sm font-semibold text-slate-950 hover:bg-slate-100">
+            Calculate your Customer Defensibility Score
+          </a>
+          <a href="/compare/value-continuity-vs-customer-success/" class="inline-flex items-center justify-center rounded-2xl border border-slate-600 px-6 py-3 text-sm font-semibold text-white hover:border-slate-400">
+            Value Continuity vs Customer Success
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white px-5 py-16 lg:px-8">
+      <div class="mx-auto max-w-4xl">
+        <h2 class="text-2xl font-bold text-slate-950">Customer Success vs Value Continuity</h2>
+        <div class="mt-8 overflow-x-auto">
+          <table class="w-full border-collapse text-sm">
+            <thead>
+              <tr class="border-b border-slate-200 bg-slate-50">
+                <th class="py-3 pl-4 pr-6 text-left font-semibold text-slate-700">Capability</th>
+                <th class="py-3 px-4 text-center font-semibold text-slate-700">CS Platforms</th>
+                <th class="py-3 px-4 text-center font-semibold text-slate-950">MeridianARR (Value Continuity)</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                ["Playbook and workflow management", "Yes", "No — use your CS platform"],
+                ["CS team touchpoint tracking", "Yes", "No — use your CS platform"],
+                ["Renewal date management", "Yes", "No — use your CS platform"],
+                ["Health scoring from CRM and product data", "Yes", "Partial (CDI complements health scores)"],
+                ["Support ticket content analysis", "No", "Yes"],
+                ["Issue repetition rate detection", "No", "Yes"],
+                ["Escalation frequency and severity tracking", "Rarely", "Yes"],
+                ["Support volume vs. usage divergence", "No", "Yes"],
+                ["Competitor mention detection", "No", "Yes"],
+                ["Compound distress signal scoring", "No", "Yes (Customer Distress Index)"],
+                ["False-healthy account identification", "No", "Yes"],
+              ].map(([cap, cs, val]) => (
+                <tr class="border-b border-slate-100">
+                  <td class="py-3 pl-4 pr-6 text-slate-600">{cap}</td>
+                  <td class={`py-3 px-4 text-center ${cs === "No" || cs === "Rarely" ? "text-slate-400" : "text-slate-700"}`}>{cs}</td>
+                  <td class={`py-3 px-4 text-center font-medium ${val.startsWith("No") ? "text-slate-400" : "text-emerald-700"}`}>{val}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-slate-50 px-5 py-14 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-slate-950">Frequently asked questions</h2>
+        <dl class="mt-8 space-y-8">
+          {faqs.map((faq) => (
+            <div>
+              <dt class="font-semibold text-slate-950">{faq.q}</dt>
+              <dd class="mt-2 text-slate-600 leading-relaxed">{faq.a}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+
+    <section class="bg-white px-5 py-12 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <p class="text-sm font-semibold text-slate-500">Related reading</p>
+        <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <a href="/learn/why-customer-health-scores-miss-support-risk/" class="rounded-xl border border-slate-200 bg-white p-5 hover:border-slate-400">
+            <p class="font-semibold text-slate-950">Why customer health scores miss support risk</p>
+            <p class="mt-1 text-sm text-slate-500">Three named failure modes — Active But Frustrated, Ghost Account, Silent Churner — with full anatomy of each.</p>
+          </a>
+          <a href="/compare/meridian-vs-gainsight/" class="rounded-xl border border-slate-200 bg-white p-5 hover:border-slate-400">
+            <p class="font-semibold text-slate-950">MeridianARR vs Gainsight</p>
+            <p class="mt-1 text-sm text-slate-500">Side-by-side: what Gainsight does, what MeridianARR does, and why teams use both.</p>
+          </a>
+          <a href="/compare/meridian-vs-churnzero/" class="rounded-xl border border-slate-200 bg-white p-5 hover:border-slate-400">
+            <p class="font-semibold text-slate-950">MeridianARR vs ChurnZero</p>
+            <p class="mt-1 text-sm text-slate-500">How ChurnZero and MeridianARR serve different parts of the churn detection stack.</p>
+          </a>
+          <a href="/learn/customer-distress-arr-risk/" class="rounded-xl border border-slate-200 bg-white p-5 hover:border-slate-400">
+            <p class="font-semibold text-slate-950">Customer Distress Index scoring model</p>
+            <p class="mt-1 text-sm text-slate-500">The four CDI bands, how signals compound, and what each band means for intervention.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
